@@ -1,11 +1,11 @@
 <template>
-  <button>{{ text }}</button>
+    <button>{{ text }}</button>
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { defineProps } from 'vue'
 
 const props = defineProps({
-  text: { type: String, required: true }
-});
+    text: { type: String, required: true },
+})
 </script>
