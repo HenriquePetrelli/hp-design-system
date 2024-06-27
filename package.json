@@ -1,6 +1,6 @@
 {
   "name": "hp-design-system",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "main": "dist/hp-design-system.umd.js",
   "scripts": {
@@ -24,9 +24,14 @@
     "@storybook/test": "^8.1.10",
     "@storybook/vue3": "^8.1.10",
     "@storybook/vue3-vite": "^8.1.10",
+    "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.8",
     "@types/vue": "^2.0.0",
     "@vue/runtime-dom": "^3.4.30",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "hp-eslint-vue3": "^1.0.0",
+    "prettier": "^2.5.1",
     "rimraf": "^5.0.1",
     "sass": "^1.63.6",
     "storybook": "^8.1.10",
