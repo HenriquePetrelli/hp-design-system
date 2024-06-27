@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Debug NPM_AUTH_TOKEN
+        run: echo "NPM_AUTH_TOKEN is ${{ secrets.NPM_AUTH_TOKEN }}"
+
       - name: Build and test (opcional)
         run: npm run build
 
