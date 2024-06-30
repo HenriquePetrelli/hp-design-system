@@ -1,0 +1,10 @@
+# Define default behavior for handling line endings.
+* text=auto
+
+# Set the line endings for specific files
+*.js text eol=lf
+*.ts text eol=lf
+*.json text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+.husky/* text eol=lf
