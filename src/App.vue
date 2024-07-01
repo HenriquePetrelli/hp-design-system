@@ -5,7 +5,5 @@
 </template>
 
 <script setup lang="ts">
-import { HpButton } from './components/index';
-
+import { HpButton } from './components/index'
 </script>
-

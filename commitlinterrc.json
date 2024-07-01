@@ -1,0 +1,28 @@
+{
+  "types": {
+    "docs": "Documentation only changes [PATCH]",
+    "refactor": "A code change that neither fixes a bug nor adds a feature [PATCH]",
+    "style": "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc) [PATCH]",
+    "fix": "A bug fix [PATCH]",
+    "test": "Adding missing tests or correcting existing ones [PATCH]",
+    "ci": "Changes to your CI configuration files and scripts [PATCH]",
+    "feat": "A new feature [MINOR]",
+    "BREAKING_CHANGE": "An breaking change that previous versions do not support [MAJOR]",
+    "chore": "Changes to the build process or auxiliary tools and libraries such as documentation generation",
+    "perf": false,
+    "build": false,
+    "temp": false
+  },
+  "rules": {
+    "subject-empty": [
+      2,
+      "always",
+      "⛔ ERRO: O título do commit não pode estar vazio. Por favor, forneça um título descritivo."
+    ],
+    "type-empty": [
+      2,
+      "always",
+      "⛔ ERRO: O tipo do commit não pode estar vazio. Escolha um tipo válido conforme as diretrizes."
+    ]
+  }
+}
