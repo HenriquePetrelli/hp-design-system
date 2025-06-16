@@ -1,26 +1,105 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import { viteStaticCopy } from "vite-plugin-static-copy";
+import path from "path";
+import cssInjectedByJs from "vite-plugin-css-injected-by-js";
 
 export default defineConfig({
   plugins: [
-    vue(), // Use @vitejs/plugin-vue to process .vue files
+    vue({
+      template: {
+        transformAssetUrls: {
+          includeAbsolute: false,
+        },
+      },
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
+      symbolId: "icon-[name]",
+      inject: "body-last",
+      svgoOptions: {
+        plugins: [
+          {
+            name: "removeAttrs",
+            params: {
+              attrs: ["fill", "stroke"],
+            },
+          },
+        ],
+      },
+    }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: path.resolve(__dirname, "src/assets/fonts/*.ttf"),
+          dest: "assets/fonts",
+        },
+        {
+          src: path.resolve(__dirname, "src/assets/icons/*.svg"),
+          dest: "assets/icons",
+          rename: (name, ext) => `${name}${ext}`, // Mantém o nome original
+        },
+        {
+          src: path.resolve(__dirname, "src/assets/icons/icon.json"),
+          dest: "assets/icons",
+        },
+      ],
+    }),
+    cssInjectedByJs({
+      styleId: "hp-design-system-styles",
+      topExecutionPriority: false,
+      relativeCSSInjection: true, // Adicionado para melhor compatibilidade
+    }),
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+      "@assets": path.resolve(__dirname, "./src/assets"),
+      "@styles": path.resolve(__dirname, "./src/styles"),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use "@styles/variables" as *;
+          @use "@styles/colors" as *;
+          @use "@styles/theme" as *;
+        `,
+        implementation: "sass",
+      },
+    },
+  },
   build: {
     lib: {
-      entry: './src/index.ts',
-      name: 'hp-design-system',
-      formats: ['es'], // Build as ES module
+      entry: path.resolve(__dirname, "src/index.ts"),
+      name: "hp-design-system",
+      formats: ["es", "umd"],
       fileName: (format) => `hp-design-system.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue'], // Tratar 'vue' como uma dependência externa
+      external: ["vue"],
       output: {
-        exports: 'named', // Usar exportações nomeadas
+        exports: "named",
         globals: {
-          vue: 'Vue', // Fornecer a variável global 'Vue' para a construção UMD
+          vue: "Vue",
+        },
+        assetFileNames: (assetInfo) => {
+          const name = assetInfo.name || "asset";
+          if (name.endsWith(".css")) return "css/[name][extname]";
+          if (/\.(ttf|otf|woff|woff2)$/i.test(name))
+            return "fonts/[name][extname]";
+          if (/\.svg$/.test(name)) return "assets/icons/[name][extname]";
+          return "assets/[name][extname]";
         },
       },
     },
-    emptyOutDir: false, // Manter a pasta de tipos gerados pelo TypeScript
+    emptyOutDir: true,
+    cssCodeSplit: true,
+    sourcemap: true,
+    minify: false,
+    target: "esnext",
+    assetsInlineLimit: 0,
   },
 });

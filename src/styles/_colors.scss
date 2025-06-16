@@ -1,0 +1,28 @@
+// colors.scss
+
+// Paleta de Cores para o Modo Claro
+$color-primary-light: #3498db;
+$color-secondary-light: #2ecc71;
+$color-background-light: #ffffff;
+$color-text-light: #333333;
+
+// Paleta de Cores para o Modo Escuro
+$color-primary-dark: #2980b9;
+$color-secondary-dark: #27ae60;
+$color-background-dark: #121212;
+$color-text-dark: #ffffff;
+
+// Mapas de Cores
+$light-theme-colors: (
+  primary: $color-primary-light,
+  secondary: $color-secondary-light,
+  background: $color-background-light,
+  text: $color-text-light,
+);
+
+$dark-theme-colors: (
+  primary: $color-primary-dark,
+  secondary: $color-secondary-dark,
+  background: $color-background-dark,
+  text: $color-text-dark,
+);

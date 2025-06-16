@@ -10,13 +10,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.tabSize": 2,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "vue"
-  ],
-  "eslint.alwaysShowStatus": true,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
   "eslint.lintTask.enable": true,
   "eslint.options": {
     "extensions": [".js", ".vue", ".ts"]
@@ -31,5 +25,5 @@
   "prettier.tabWidth": 2,
   "prettier.singleQuote": true,
   "prettier.semi": false,
-  "prettier.trailingComma": "all"
+  "prettier.trailingComma": "none"
 }

@@ -1,0 +1,33 @@
+// Light Mode Colors
+$light-background-color: #8f44fd;
+$light-border-color: #8f44fd;
+$light-check-color: #f9f9f9;
+
+// Dark Mode Colors
+$dark-background-color: #1e1e1e;
+$dark-border-color: #6f6f6f;
+$dark-check-color: #ffffff;
+
+// Default theme variables
+$background-color: $light-background-color;
+$border-color: $light-border-color;
+$check-color: $light-check-color;
+
+// Dark mode class
+.dark-mode {
+  $background-color: $dark-background-color;
+  $border-color: $dark-border-color;
+  $check-color: $dark-check-color;
+}
+
+// theme.scss
+
+@mixin theme-colors($theme) {
+  background-color: map-get($theme, background);
+  color: map-get($theme, text);
+
+  // Exemplo de como usar as outras cores do tema
+  a {
+    color: map-get($theme, primary);
+  }
+}

@@ -1,7 +1,7 @@
 import type { StorybookConfig } from "@storybook/vue3-vite";
 
 const config: StorybookConfig = {
-  stories: ["../src/components/**/*.stories.ts"],
+  stories: ["../stories/*.stories.ts"],
 
   addons: [
     "@storybook/addon-links",
@@ -16,7 +16,7 @@ const config: StorybookConfig = {
   },
 
   docs: {
-    autodocs: true
-  }
+    autodocs: true,
+  },
 };
 export default config;
