@@ -8,13 +8,20 @@
       height: 100vh;
     "
   >
-    <HpButtonSecondary
+    <HpButtonPrimary
       label="Quero prosseguir 1"
       icon="BE0010"
       icon-position="right"
-      color="green"
+      background-color="#000"
       size="large"
-      background-color="#2cb9c1"
+      :tabindex="1"
+    />
+
+    <HpButtonPrimary
+      label="Quero prosseguir 1"
+      icon="BE0010"
+      icon-position="right"
+      size="large"
       :tabindex="1"
     />
 
@@ -26,10 +33,7 @@
       label="Quero prosseguir 2"
       icon="BE0010"
       icon-position="left"
-      color="red"
       size="regular"
-      background-color="secondary"
-      disabled
       :tabindex="2"
     />
 
@@ -37,12 +41,14 @@
     <br />
     <br />
 
-    <HpButtonPrimary label="Quero prosseguir 3" icon="BE0010" :tabindex="3" />
-
-    <HpButtonSecondary label="Quero prosseguir 3" icon="BE0010" :tabindex="3" />
+    <HpButtonTertiary label="Quero prosseguir 3" icon="BE0010" :tabindex="3" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { HpButtonPrimary, HpButtonSecondary } from './components/index'
+import {
+  HpButtonPrimary,
+  HpButtonTertiary,
+  HpButtonSecondary
+} from './components/index'
 </script>

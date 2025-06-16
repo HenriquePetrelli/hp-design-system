@@ -38,6 +38,7 @@
   --color-success: rgb(130, 169, 67); // #82a943
   --color-alert: rgb(193, 158, 61); // #c19e3d
   --color-error: rgb(78, 1, 16); // #4e0110
+  --color-text-disabled: #807c7b;
 
   @media (prefers-color-scheme: dark) {
     // Modo escuro (pode ser igual ou diferente)
@@ -48,6 +49,7 @@
     --color-success: rgb(130, 169, 67); // #82a943
     --color-alert: rgb(193, 158, 61); // #c19e3d
     --color-error: rgb(78, 1, 16); // #4e0110
+    --color-text-disabled: #807c7b;
   }
 }
 

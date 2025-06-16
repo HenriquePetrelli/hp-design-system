@@ -1,4 +1,4 @@
-.button-secondary {
+.button-tertiary {
   display: flex;
   align-items: center;
   padding: 12px 20px;
@@ -14,7 +14,6 @@
 
   &:not(:disabled):hover {
     transform: scale(1.0175);
-    background-color: color-mix(in srgb, var(--hover-color) 5%, transparent);
     color: var(--hover-color);
   }
 

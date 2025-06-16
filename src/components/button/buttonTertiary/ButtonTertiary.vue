@@ -1,9 +1,9 @@
 <template>
   <button
-    class="button-secondary"
+    class="button-tertiary"
     :class="{
-      'button-secondary--large': size === ButtonSize.LARGE,
-      'button-secondary--disabled': disabled
+      'button-tertiary--large': size === ButtonSize.LARGE,
+      'button-tertiary--disabled': disabled
     }"
     :style="{
       '--hover-color': computedColor
@@ -15,18 +15,18 @@
   >
     <span
       v-if="icon && iconPosition === IconPosition.LEFT"
-      class="button-secondary__icon--left"
+      class="button-tertiary__icon--left"
     >
       <Icon :name="icon" size="sm" />
     </span>
 
-    <span class="button-secondary__label">
+    <span class="button-tertiary__label">
       {{ label }}
     </span>
 
     <span
       v-if="icon && iconPosition === IconPosition.RIGHT"
-      class="button-secondary__icon--right"
+      class="button-tertiary__icon--right"
     >
       <Icon :name="icon" size="sm" />
     </span>
@@ -82,4 +82,4 @@ const computedColor = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped src="./ButtonSecondary.scss" />
+<style lang="scss" scoped src="./ButtonTertiary.scss" />
