@@ -1,28 +1,32 @@
-// colors.scss
-
 // Paleta de Cores para o Modo Claro
-$color-primary-light: #3498db;
-$color-secondary-light: #2ecc71;
-$color-background-light: #ffffff;
-$color-text-light: #333333;
+$color-primary-light: rgb(20, 33, 61); // #14213d
+$color-secondary-light: rgb(252, 163, 17); // #fca311
+$color-background-light: rgb(229, 229, 229); // #e5e5e5
+$color-text-light: rgb(51, 51, 51); // #333333
+$color-success-light: rgb(130, 169, 67); // #82a943
+$color-alert-light: rgb(193, 158, 61); // #c19e3d
+$color-error-light: rgb(78, 1, 16); // #4e0110
 
 // Paleta de Cores para o Modo Escuro
-$color-primary-dark: #2980b9;
-$color-secondary-dark: #27ae60;
-$color-background-dark: #121212;
-$color-text-dark: #ffffff;
+$color-primary-dark: rgb(20, 33, 61); // #14213d
+$color-secondary-dark: rgb(252, 163, 17); // #fca311
+$color-background-dark: rgb(51, 51, 51); // #333333
+$color-text-dark: rgb(229, 229, 229); // #e5e5e5
+$color-success-dark: rgb(130, 169, 67); // #82a943
+$color-alert-dark: rgb(193, 158, 61); // #c19e3d
+$color-error-dark: rgb(78, 1, 16); // #4e0110
 
-// Mapas de Cores
+// Mapas de Cores (mantidos como referência)
 $light-theme-colors: (
   primary: $color-primary-light,
   secondary: $color-secondary-light,
   background: $color-background-light,
-  text: $color-text-light,
+  text: $color-text-light
 );
 
 $dark-theme-colors: (
   primary: $color-primary-dark,
   secondary: $color-secondary-dark,
   background: $color-background-dark,
-  text: $color-text-dark,
+  text: $color-text-dark
 );

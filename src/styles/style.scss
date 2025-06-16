@@ -1,26 +1,22 @@
 // Core variables and mixins
-@use "variables" as *;
-@use "colors" as *;
-@use "theme" as *;
+@use 'variables' as *;
+@use 'colors' as *;
 
 // Font definitions
 @font-face {
-  font-family: "Quicksand";
-  src: url("@assets/fonts/Quicksand-Regular.ttf") format("truetype");
+  font-family: 'Quicksand';
+  src: url('@assets/fonts/Quicksand-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-// Add other font variations as needed
-
-// Global styles
 :root {
   font-family:
-    "Quicksand",
+    'Quicksand',
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
     Oxygen,
     Ubuntu,
@@ -33,6 +29,26 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  // Modo claro
+  --color-primary: rgb(20, 33, 61); // #14213d
+  --color-secondary: rgb(252, 163, 17); // #fca311
+  --color-background: rgb(229, 229, 229); // #e5e5e5
+  --color-text: rgb(51, 51, 51); // #333333
+  --color-success: rgb(130, 169, 67); // #82a943
+  --color-alert: rgb(193, 158, 61); // #c19e3d
+  --color-error: rgb(78, 1, 16); // #4e0110
+
+  @media (prefers-color-scheme: dark) {
+    // Modo escuro (pode ser igual ou diferente)
+    --color-primary: rgb(20, 33, 61); // #14213d
+    --color-secondary: rgb(252, 163, 17); // #fca311
+    --color-background: rgb(51, 51, 51); // #333333
+    --color-text: rgb(229, 229, 229); // #e5e5e5
+    --color-success: rgb(130, 169, 67); // #82a943
+    --color-alert: rgb(193, 158, 61); // #c19e3d
+    --color-error: rgb(78, 1, 16); // #4e0110
+  }
 }
 
 * {

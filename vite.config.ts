@@ -1,63 +1,63 @@
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
-import { viteStaticCopy } from "vite-plugin-static-copy";
-import path from "path";
-import cssInjectedByJs from "vite-plugin-css-injected-by-js";
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
+import path from 'path'
+import cssInjectedByJs from 'vite-plugin-css-injected-by-js'
 
 export default defineConfig({
   plugins: [
     vue({
       template: {
         transformAssetUrls: {
-          includeAbsolute: false,
-        },
-      },
+          includeAbsolute: false
+        }
+      }
     }),
     createSvgIconsPlugin({
-      iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
-      symbolId: "icon-[name]",
-      inject: "body-last",
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+      symbolId: 'icon-[name]',
+      inject: 'body-last',
       svgoOptions: {
         plugins: [
           {
-            name: "removeAttrs",
+            name: 'removeAttrs',
             params: {
-              attrs: ["fill", "stroke"],
-            },
-          },
-        ],
-      },
+              attrs: ['fill', 'stroke']
+            }
+          }
+        ]
+      }
     }),
     viteStaticCopy({
       targets: [
         {
-          src: path.resolve(__dirname, "src/assets/fonts/*.ttf"),
-          dest: "assets/fonts",
+          src: path.resolve(__dirname, 'src/assets/fonts/*.ttf'),
+          dest: 'assets/fonts'
         },
         {
-          src: path.resolve(__dirname, "src/assets/icons/*.svg"),
-          dest: "assets/icons",
-          rename: (name, ext) => `${name}${ext}`, // Mantém o nome original
+          src: path.resolve(__dirname, 'src/assets/icons/*.svg'),
+          dest: 'assets/icons',
+          rename: (name, ext) => `${name}${ext}` // Mantém o nome original
         },
         {
-          src: path.resolve(__dirname, "src/assets/icons/icon.json"),
-          dest: "assets/icons",
-        },
-      ],
+          src: path.resolve(__dirname, 'src/assets/icons/icon.json'),
+          dest: 'assets/icons'
+        }
+      ]
     }),
     cssInjectedByJs({
-      styleId: "hp-design-system-styles",
+      styleId: 'hp-design-system-styles',
       topExecutionPriority: false,
-      relativeCSSInjection: true, // Adicionado para melhor compatibilidade
-    }),
+      relativeCSSInjection: true // Adicionado para melhor compatibilidade
+    })
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@assets": path.resolve(__dirname, "./src/assets"),
-      "@styles": path.resolve(__dirname, "./src/styles"),
-    },
+      '@': path.resolve(__dirname, './src'),
+      '@assets': path.resolve(__dirname, './src/assets'),
+      '@styles': path.resolve(__dirname, './src/styles')
+    }
   },
   css: {
     preprocessorOptions: {
@@ -65,41 +65,40 @@ export default defineConfig({
         additionalData: `
           @use "@styles/variables" as *;
           @use "@styles/colors" as *;
-          @use "@styles/theme" as *;
         `,
-        implementation: "sass",
-      },
-    },
+        implementation: 'sass'
+      }
+    }
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
-      name: "hp-design-system",
-      formats: ["es", "umd"],
-      fileName: (format) => `hp-design-system.${format}.js`,
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      name: 'hp-design-system',
+      formats: ['es', 'umd'],
+      fileName: (format) => `hp-design-system.${format}.js`
     },
     rollupOptions: {
-      external: ["vue"],
+      external: ['vue'],
       output: {
-        exports: "named",
+        exports: 'named',
         globals: {
-          vue: "Vue",
+          vue: 'Vue'
         },
         assetFileNames: (assetInfo) => {
-          const name = assetInfo.name || "asset";
-          if (name.endsWith(".css")) return "css/[name][extname]";
+          const name = assetInfo.name || 'asset'
+          if (name.endsWith('.css')) return 'css/[name][extname]'
           if (/\.(ttf|otf|woff|woff2)$/i.test(name))
-            return "fonts/[name][extname]";
-          if (/\.svg$/.test(name)) return "assets/icons/[name][extname]";
-          return "assets/[name][extname]";
-        },
-      },
+            return 'fonts/[name][extname]'
+          if (/\.svg$/.test(name)) return 'assets/icons/[name][extname]'
+          return 'assets/[name][extname]'
+        }
+      }
     },
     emptyOutDir: true,
     cssCodeSplit: true,
     sourcemap: true,
     minify: false,
-    target: "esnext",
-    assetsInlineLimit: 0,
-  },
-});
+    target: 'esnext',
+    assetsInlineLimit: 0
+  }
+})

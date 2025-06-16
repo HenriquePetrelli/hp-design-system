@@ -2,32 +2,47 @@
   <div
     style="
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
     "
   >
-    <HpButton
-      label="Quero prosseguir"
+    <HpButtonSecondary
+      label="Quero prosseguir 1"
       icon="BE0010"
-      color="white"
       icon-position="right"
-    ></HpButton>
-    <!-- <HpCheckbox
-      background-color="red"
-      border-color="green"
-      check-color="yellow"
-      label="TESTE"
-    ></HpCheckbox>
+      color="green"
+      size="large"
+      background-color="#2cb9c1"
+      :tabindex="1"
+    />
 
-    <Icon name="AA0010" size="lg" color="red" />
-    <Icon name="AA0010" size="md" color="green" />
-    <Icon name="AA0010" size="sm" color="blue" /> -->
-    <HpIcon name="AA0020" size="lg" color="red" />
+    <br />
+    <br />
+    <br />
+
+    <HpButtonSecondary
+      label="Quero prosseguir 2"
+      icon="BE0010"
+      icon-position="left"
+      color="red"
+      size="regular"
+      background-color="secondary"
+      disabled
+      :tabindex="2"
+    />
+
+    <br />
+    <br />
+    <br />
+
+    <HpButtonPrimary label="Quero prosseguir 3" icon="BE0010" :tabindex="3" />
+
+    <HpButtonSecondary label="Quero prosseguir 3" icon="BE0010" :tabindex="3" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { HpButton, HpCheckbox, HpIcon } from "./components/index";
-// import Icon from './components/icons/icon/Icon.vue'
+import { HpButtonPrimary, HpButtonSecondary } from './components/index'
 </script>
