@@ -14,13 +14,15 @@
     "declarationDir": "./dist/types",
     "isolatedModules": true,
     "skipLibCheck": true,
-    "types": ["vite/client", "vite-plugin-svg-icons/client"],
+    "types": ["vite/client", "vite-plugin-svg-icons/client", "@storybook/vue3-vite"],
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
-      "@styles/*": ["styles/*"],
-      "@assets/*": ["assets/*"],
-      "@composables/*": ["composables/*"]
+      "@/*": ["src/*"],
+      "@components": ["src/components/index.ts"],
+      "@components/*": ["src/components/*"],
+      "@styles/*": ["src/styles/*"],
+      "@assets/*": ["src/assets/*"],
+      "@composables/*": ["src/composables/*"]
     }
   },
   "include": [
@@ -28,9 +30,14 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/index.ts",
-    "src/env.d.ts",
-    "src/components/**/*", // Verifique se os componentes estão incluídos aqui
-    "stories/IconList.stories.ts"
+    "stories/**/*.ts",
+    "stories/**/*.tsx",
+    "stories/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.spec.ts",
+    "**/*.test.ts"
   ]
 }

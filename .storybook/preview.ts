@@ -1,21 +1,18 @@
-import type { Preview } from "@storybook/vue3";
-import "@assets/fonts/Quicksand-Bold.ttf";
-import "@assets/fonts/Quicksand-Light.ttf";
-import "@assets/fonts/Quicksand-Medium.ttf";
-import "@assets/fonts/Quicksand-Regular.ttf";
-import "@assets/fonts/Quicksand-SemiBold.ttf";
-import "virtual:svg-icons-register";
-import "./preview.css";
+import type { Preview } from '@storybook/vue3'
+import 'virtual:svg-icons-register'
+import './preview.scss'
+import '@styles/style.scss'
 
 const preview: Preview = {
   parameters: {
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i,
-      },
-    },
-  },
-};
+        date: /Date$/i
+      }
+    }
+  }
+}
 
-export default preview;
+export default preview

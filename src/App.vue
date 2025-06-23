@@ -42,6 +42,7 @@
     <br />
 
     <HpButtonTertiary label="Quero prosseguir 3" icon="BE0010" :tabindex="3" />
+    <p>TESTE</p>
   </div>
 </template>
 

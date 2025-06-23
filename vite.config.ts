@@ -56,7 +56,8 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@assets': path.resolve(__dirname, './src/assets'),
-      '@styles': path.resolve(__dirname, './src/styles')
+      '@styles': path.resolve(__dirname, './src/styles'),
+      '@components': path.resolve(__dirname, './src/components')
     }
   },
   css: {
@@ -70,6 +71,7 @@ export default defineConfig({
       }
     }
   },
+  assetsInclude: ['**/*.ttf'],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
@@ -86,9 +88,9 @@ export default defineConfig({
         },
         assetFileNames: (assetInfo) => {
           const name = assetInfo.name || 'asset'
-          if (name.endsWith('.css')) return 'css/[name][extname]'
+          if (name.endsWith('.css')) return 'assets/css/[name][extname]'
           if (/\.(ttf|otf|woff|woff2)$/i.test(name))
-            return 'fonts/[name][extname]'
+            return 'assets/fonts/[name][extname]' // Mudei de 'fonts/' para 'assets/fonts/'
           if (/\.svg$/.test(name)) return 'assets/icons/[name][extname]'
           return 'assets/[name][extname]'
         }

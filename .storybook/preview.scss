@@ -1,0 +1,15 @@
+// 1. Importe o arquivo _fonts.scss (ajuste o caminho conforme sua estrutura)
+@use '../src/styles/fonts' as *;
+// 2. Aplique a fonte 'Nunito' como padrão no Storybook
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400; // Peso Regular
+}
+
+// (Opcional) Defina estilos adicionais para títulos, etc.
+.sbdocs h1,
+.sbdocs h2,
+.sbdocs h3 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700; // Peso Bold
+}

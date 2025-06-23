@@ -50,7 +50,7 @@ const props = defineProps({
   },
   tabindex: {
     type: Number,
-    required: true
+    default: 0
   },
   disabled: {
     type: Boolean,

@@ -1,4 +1,6 @@
 .button-primary {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
   display: flex;
   align-items: center;
   padding: 12px 20px;
@@ -8,9 +10,13 @@
   cursor: pointer;
   outline: none;
   font-size: 17px;
-  font-weight: 600;
   background-color: var(--color-primary);
   color: var(--color-text);
+
+  &:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+  }
 
   &:not(:disabled):hover {
     transform: scale(1.0175);
@@ -18,11 +24,6 @@
 
   &:not(:disabled):active {
     transform: scale(0.985);
-  }
-
-  &:not(:disabled):focus {
-    outline: 1px solid #333131;
-    // border: 1px solid #333131;
   }
 
   &--disabled,
@@ -37,9 +38,13 @@
   &__icon {
     &--left {
       margin-right: 0.8rem;
+      display: flex;
+      align-items: center;
     }
     &--right {
       margin-left: 0.8rem;
+      display: flex;
+      align-items: center;
     }
   }
 

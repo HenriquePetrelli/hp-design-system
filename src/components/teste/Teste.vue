@@ -17,76 +17,73 @@
       <span :style="{ backgroundColor: colorProp }">{{ colorProp }}</span>
     </p>
     <p>Date: {{ dateProp }}</p>
-    <p>File: {{ fileProp ? fileProp.name : "No file selected" }}</p>
+    <p>File: {{ fileProp ? fileProp.name : 'No file selected' }}</p>
   </div>
 </template>
 
-<script>
-export default {
-  name: "Teste",
-  props: {
-    textProp: {
-      type: String,
-      default: "Hello Storybook",
-    },
-    booleanProp: {
-      type: Boolean,
-      default: true,
-    },
-    numberProp: {
-      type: Number,
-      default: 42,
-    },
-    rangeProp: {
-      type: Number,
-      default: 50,
-    },
-    radioProp: {
-      type: String,
-      default: "Option 1",
-    },
-    inlineRadioProp: {
-      type: String,
-      default: "Option 1",
-    },
-    checkProp: {
-      type: Array,
-      default: () => ["Option 1", "Option 3"],
-    },
-    inlineCheckProp: {
-      type: Array,
-      default: () => ["Option 1", "Option 3"],
-    },
-    selectProp: {
-      type: String,
-      default: "Option 2",
-    },
-    multiSelectProp: {
-      type: Array,
-      default: () => ["Option 1", "Option 2"],
-    },
-    objectProp: {
-      type: Object,
-      default: () => ({ key1: "value1", key2: "value2" }),
-    },
-    arrayProp: {
-      type: Array,
-      default: () => ["Item 1", "Item 2"],
-    },
-    colorProp: {
-      type: String,
-      default: "#ff00ff",
-    },
-    dateProp: {
-      type: String,
-      default: new Date().toISOString().substr(0, 10),
-    },
-    fileProp: {
-      type: Object,
-      default: null,
-    },
+<script setup>
+defineProps: ({
+  textProp: {
+    type: String,
+    default: 'Hello Storybook'
   },
-};
+  booleanProp: {
+    type: Boolean,
+    default: true
+  },
+  numberProp: {
+    type: Number,
+    default: 42
+  },
+  rangeProp: {
+    type: Number,
+    default: 50
+  },
+  radioProp: {
+    type: String,
+    default: 'Option 1'
+  },
+  inlineRadioProp: {
+    type: String,
+    default: 'Option 1'
+  },
+  checkProp: {
+    type: Array,
+    default: () => ['Option 1', 'Option 3']
+  },
+  inlineCheckProp: {
+    type: Array,
+    default: () => ['Option 1', 'Option 3']
+  },
+  selectProp: {
+    type: String,
+    default: 'Option 2'
+  },
+  multiSelectProp: {
+    type: Array,
+    default: () => ['Option 1', 'Option 2']
+  },
+  objectProp: {
+    type: Object,
+    default: () => ({ key1: 'value1', key2: 'value2' })
+  },
+  arrayProp: {
+    type: Array,
+    default: () => ['Item 1', 'Item 2']
+  },
+  colorProp: {
+    type: String,
+    default: '#ff00ff'
+  },
+  dateProp: {
+    type: String,
+    default: new Date().toISOString().substr(0, 10)
+  },
+  fileProp: {
+    type: Object,
+    default: null
+  }
+})
 </script>
 
 <style scoped>

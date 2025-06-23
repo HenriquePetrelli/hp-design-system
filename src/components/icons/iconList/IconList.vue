@@ -101,62 +101,63 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import IconListButton from "./components/IconListButton.vue";
-import AllIcons from "@assets/icons/icons.json";
+import { computed } from 'vue'
+import IconListButton from './components/IconListButton.vue'
+import AllIcons from '@assets/icons/icons.json'
 
 const props = defineProps({
   color: {
     type: String,
-    default: "#757abf",
-  },
-});
+    default: '#757abf'
+  }
+})
 
 const isDarkMode = computed(() => {
-  const element = document.getElementsByClassName("docs-story")[0];
-  const backgroundColor = window.getComputedStyle(element).backgroundColor;
-  return backgroundColor === "rgb(51, 51, 51)";
-});
+  // const element = document.getElementsByClassName("docs-story")[0];
+  // const backgroundColor = window.getComputedStyle(element).backgroundColor;
+  // return backgroundColor === "rgb(51, 51, 51)";
+  return false
+})
 
 const socialMediaIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("AA")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('AA')).sort()
+)
 const communicationIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("AB")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('AB')).sort()
+)
 const techIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("AC")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('AC')).sort()
+)
 const developmentIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("AD")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('AD')).sort()
+)
 const otherBrandIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("AE")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('AE')).sort()
+)
 const menuIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("BA")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('BA')).sort()
+)
 const arrowIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("BB")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('BB')).sort()
+)
 const userIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("BC")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('BC')).sort()
+)
 const toolsIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("BD")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('BD')).sort()
+)
 const symbolsIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("BE")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('BE')).sort()
+)
 const actionsIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("BF")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('BF')).sort()
+)
 const otherDigitalIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("BG")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('BG')).sort()
+)
 const placeIcons = computed(() =>
-  AllIcons.filter((name) => name.startsWith("C")).sort(),
-);
+  AllIcons.filter((name) => name.startsWith('C')).sort()
+)
 </script>
 
 <style lang="scss" scoped>

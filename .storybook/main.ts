@@ -1,22 +1,21 @@
-import type { StorybookConfig } from "@storybook/vue3-vite";
+import type { StorybookConfig } from '@storybook/vue3-vite'
 
 const config: StorybookConfig = {
-  stories: ["../stories/*.stories.ts"],
-
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@chromatic-com/storybook",
-    "@storybook/addon-interactions",
+    '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
+    '@storybook/addon-interactions',
   ],
-
   framework: {
-    name: "@storybook/vue3-vite",
+    name: '@storybook/vue3-vite',
     options: {},
   },
-
   docs: {
-    autodocs: true,
+    autodocs: 'tag',
   },
-};
-export default config;
+  typescript: {
+    check: true,
+  },
+}
+export default config

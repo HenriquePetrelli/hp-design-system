@@ -1,25 +1,17 @@
-import HpButtonPrimary from './button/buttonPrimary/ButtonPrimary.vue'
-import HpButtonSecondary from './button/buttonSecondary/ButtonSecondary.vue'
-import HpButtonTertiary from './button/buttonTertiary/ButtonTertiary.vue'
-import HpCheckbox from './inputs/checkbox/Checkbox.vue'
-import HpIcon from './icons/icon/Icon.vue'
-import HpTeste from './teste/Teste.vue'
+// Exportação padrão dos componentes
+export { default as HpButtonPrimary } from './button/buttonPrimary/ButtonPrimary.vue'
+export { default as HpButtonSecondary } from './button/buttonSecondary/ButtonSecondary.vue'
+export { default as HpButtonTertiary } from './button/buttonTertiary/ButtonTertiary.vue'
+export { default as HpCheckbox } from './inputs/checkbox/Checkbox.vue'
+export { default as HpIcon } from './icons/icon/Icon.vue'
+export { default as HpTeste } from './teste/Teste.vue'
 
-// Exportação dos componentes
-export {
-  HpCheckbox,
-  HpIcon,
-  HpTeste,
-  HpButtonPrimary,
-  HpButtonSecondary,
-  HpButtonTertiary
-}
-
-export interface ComponentLibrary {
-  HpButtonPrimary: typeof HpButtonPrimary
-  HpButtonSecondary: typeof HpButtonSecondary
-  HpButtonTertiary: typeof HpButtonTertiary
-  HpCheckbox: typeof HpCheckbox
-  HpIcon: typeof HpIcon
-  HpTeste: typeof HpTeste
+// Tipo da biblioteca (opcional, se estiver usando TypeScript)
+export type ComponentLibrary = {
+  HpButtonPrimary: typeof import('./button/buttonPrimary/ButtonPrimary.vue').default
+  HpButtonSecondary: typeof import('./button/buttonSecondary/ButtonSecondary.vue').default
+  HpButtonTertiary: typeof import('./button/buttonTertiary/ButtonTertiary.vue').default
+  HpCheckbox: typeof import('./inputs/checkbox/Checkbox.vue').default
+  HpIcon: typeof import('./icons/icon/Icon.vue').default
+  HpTeste: typeof import('./teste/Teste.vue').default
 }
