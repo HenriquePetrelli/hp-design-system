@@ -1,13 +1,8 @@
-// src/styles/styles.scss
-
-// Importações de base
 @use 'fonts';
 @use 'variables' as *;
 @use 'colors' as *;
 
-// Variáveis CSS globais
 :root {
-  // Definição de fonte com fallback
   font-family: 'Nunito', sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -18,47 +13,42 @@
 
   // Esquema de cores (light mode)
   color-scheme: light;
+  --color-background: rgb(229, 229, 229);
   --color-primary: rgb(55, 39, 114);
   --color-secondary: rgb(255 127 80);
-  --color-background: rgb(229, 229, 229);
-  --color-text: rgb(51, 51, 51);
   --color-success: rgb(130, 169, 67);
-  --color-alert: rgb(193, 158, 61);
+  --color-warning: rgb(193, 158, 61);
+  --color-info: rgb(52, 73, 102);
   --color-error: rgb(121 1 24);
-  --color-text-disabled: #807c7b;
+  --color-success-background: rgb(243 255 243);
+  --color-warning-background: rgb(255 249 245);
+  --color-info-background: rgb(230 235 245);
+  --color-error-background: rgb(251 243 244);
+  --color-text: rgb(51, 51, 51);
+  --color-text-disabled: rgb(128, 124, 123);
 
-  // Dark mode (opcional)
+  // Esquema de cores (dark mode)
   @media (prefers-color-scheme: dark) {
+    --color-background: rgb(51, 51, 51);
     --color-primary: rgb(55, 39, 114);
     --color-secondary: rgb(255 127 80);
-    --color-background: rgb(51, 51, 51);
+    --color-success: rgb(130, 169, 67);
+    --color-warning: rgb(193, 158, 61);
+    --color-info: rgb(52, 73, 102);
+    --color-error: rgb(121 1 24);
+    --color-success-background: rgb(243 255 243);
+    --color-warning-background: rgb(255 249 245);
+    --color-info-background: rgb(230 235 245);
+    --color-error-background: rgb(251 243 244);
     --color-text: rgb(229, 229, 229);
-    // ... mantém as outras cores
+    --color-text-disabled: rgb(128, 124, 123);
   }
 }
 
-// Reset básico
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-// Classes utilitárias para fontes (opcional)
-.font-light {
-  font-weight: 300 !important;
-}
-.font-regular {
-  font-weight: 400 !important;
-}
-.font-medium {
-  font-weight: 500 !important;
-}
-.font-semibold {
-  font-weight: 600 !important;
-}
-.font-bold {
-  font-weight: 700 !important;
 }
