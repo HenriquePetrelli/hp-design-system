@@ -3,18 +3,9 @@ import ButtonPrimary from './ButtonPrimary.vue'
 import { ButtonColor, ButtonSize, IconPosition } from '../ButtonTypes'
 
 const meta: Meta<typeof ButtonPrimary> = {
-  title: 'Componentes/Button/ButtonPrimary',
+  title: 'Components/Button/ButtonPrimary',
   component: ButtonPrimary,
   tags: ['autodocs'],
-  parameters: {
-    docs: {
-      source: {
-        // Remove <template> e mantém apenas o componente
-        transform: (code: string) =>
-          code.replace(/^<template>\s*|\s*<\/template>$/g, '').trim()
-      }
-    }
-  },
   argTypes: {
     label: {
       control: 'text',

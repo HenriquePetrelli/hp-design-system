@@ -3,18 +3,9 @@ import ButtonSecondary from './ButtonSecondary.vue'
 import { ButtonSize, IconPosition } from '../ButtonTypes'
 
 const meta: Meta<typeof ButtonSecondary> = {
-  title: 'Componentes/Button/ButtonSecondary',
+  title: 'Components/Button/ButtonSecondary',
   component: ButtonSecondary,
   tags: ['autodocs'],
-  parameters: {
-    docs: {
-      source: {
-        // Remove <template> e mantém apenas o componente
-        transform: (code: string) =>
-          code.replace(/^<template>\s*|\s*<\/template>$/g, '').trim()
-      }
-    }
-  },
   argTypes: {
     label: {
       control: 'text',

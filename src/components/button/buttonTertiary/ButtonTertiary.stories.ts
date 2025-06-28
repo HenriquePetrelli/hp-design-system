@@ -3,17 +3,9 @@ import ButtonTertiary from './ButtonTertiary.vue'
 import { ButtonSize, IconPosition } from '../ButtonTypes'
 
 const meta: Meta<typeof ButtonTertiary> = {
-  title: 'Componentes/Button/ButtonTertiary',
+  title: 'Components/Button/ButtonTertiary',
   component: ButtonTertiary,
   tags: ['autodocs'],
-  parameters: {
-    docs: {
-      source: {
-        transform: (code: string) =>
-          code.replace(/^<template>\s*|\s*<\/template>$/g, '').trim()
-      }
-    }
-  },
   argTypes: {
     label: {
       control: 'text',
