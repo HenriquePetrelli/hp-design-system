@@ -36,7 +36,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { IconPosition, ButtonSize } from '../ButtonTypes'
-import Icon from '../../icons/icon/Icon.vue'
+import Icon from '../../icon/Icon.vue'
 
 const props = defineProps({
   label: {
@@ -69,11 +69,11 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['click'])
+const emit = defineEmits(['action:click'])
 
 const handleClick = (event: Event) => {
   if (!props.disabled) {
-    emit('click', event)
+    emit('action:click', event)
   }
 }
 

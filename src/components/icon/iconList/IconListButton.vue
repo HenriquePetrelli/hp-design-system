@@ -2,13 +2,7 @@
   <div style="display: flex; flex-wrap: wrap; gap: 16px">
     <div v-for="(icon, id) in icons" :key="id" style="text-align: center">
       <div
-        style="
-          margin-top: 8px;
-          margin-bottom: 16px;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        "
+        style="margin-top: 8px; display: flex; align-items: center; gap: 8px"
       >
         <button @click="copyToClipboard(icon)" class="icon-button">
           <Icon :name="icon" size="lg" :color="color" />
@@ -20,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import Icon from '../../icon/Icon.vue'
+import Icon from '../Icon.vue'
 
 defineProps({
   isDarkMode: {
@@ -37,14 +31,14 @@ defineProps({
   }
 })
 
-const copyToClipboard = (text: string) => {
+const copyToClipboard = (icon: string) => {
   navigator.clipboard
-    .writeText(text)
+    .writeText(icon)
     .then(() => {
-      alert('Ícone copiado!')
+      alert(`Ícone ${icon} copiado!`)
     })
     .catch((error) => {
-      console.error('Failed to copy text: ', error)
+      console.error('Falha ao copiar ícone: ', error)
     })
 }
 </script>
@@ -60,9 +54,13 @@ const copyToClipboard = (text: string) => {
   align-items: center;
   gap: 12px;
   transition: transform 0.2s ease-in-out;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
 }
 
 .icon-button:hover {
+  border: 2px solid #ddd;
   transform: scale(1.1);
 }
 

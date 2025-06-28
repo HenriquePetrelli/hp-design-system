@@ -1,9 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/vue3'
-import HpIcon from '@components/icons/icon/Icon.vue'
+import HpIcon from '@components/icon/Icon.vue'
 import AllIcons from '@assets/icons/icons.json'
 
 const meta: Meta = {
-  title: 'Assets/Icons/HpIcon',
+  title: 'Components/Icon',
   component: HpIcon,
   argTypes: {
     name: {

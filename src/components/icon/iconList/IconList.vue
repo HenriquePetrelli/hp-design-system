@@ -88,7 +88,7 @@
       :is-dark-mode="isDarkMode"
     />
 
-    <h1>D - Places</h1>
+    <h1>C - Places</h1>
     <IconListButton
       :icons="placeIcons"
       :color="color"
@@ -102,7 +102,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import IconListButton from './components/IconListButton.vue'
+import IconListButton from './IconListButton.vue'
 import AllIcons from '@assets/icons/icons.json'
 
 const props = defineProps({
@@ -168,6 +168,7 @@ const placeIcons = computed(() =>
 
 h1,
 h3 {
+  margin-top: 32px;
   color: black;
 }
 </style>

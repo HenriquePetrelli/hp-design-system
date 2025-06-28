@@ -7,7 +7,7 @@ interface IconListArgs {
 }
 
 const meta: Meta = {
-  title: 'Assets/Icons/AllIcons',
+  title: 'Assets/All Icons',
   component: IconList,
   argTypes: {
     color: {
