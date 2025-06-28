@@ -28,7 +28,7 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-      - name: Build package (if needed)
+      - name: Build package
         run: npm run build
 
       - name: Verify package
