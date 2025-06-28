@@ -6,7 +6,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-left: 100vh;
+      min-height: 100vh;
     "
   >
     <HpButtonPrimary
