@@ -1,0 +1,43 @@
+.button-icon-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 400;
+  background-color: var(--background-color);
+  border: 0;
+  cursor: pointer;
+
+  &--large {
+    width: 64px;
+    height: 64px;
+  }
+
+  &--small {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+  }
+
+  &:not(:disabled):hover {
+    transform: scale(1.0175);
+    opacity: 0.9;
+  }
+
+  &:not(:disabled):active {
+    transform: scale(0.985);
+  }
+
+  &--disabled,
+  &:disabled {
+    opacity: 0.5;
+  }
+}
