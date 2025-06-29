@@ -52,7 +52,7 @@ const emit = defineEmits([
   'action:alertManualClose'
 ])
 
-let timeoutId: number | null = null
+let timeoutId: ReturnType<typeof setTimeout> | null = null
 
 const closeAutomatically = () => {
   emit('action:alertAutoClose')
