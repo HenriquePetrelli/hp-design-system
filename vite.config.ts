@@ -38,7 +38,7 @@ export default defineConfig({
         {
           src: path.resolve(__dirname, 'src/assets/icons/*.svg'),
           dest: 'assets/icons',
-          rename: (name, ext) => `${name}${ext}` // Mantém o nome original
+          rename: (name, ext) => `${name}${ext}`
         },
         {
           src: path.resolve(__dirname, 'src/assets/icons/icon.json'),
@@ -49,7 +49,7 @@ export default defineConfig({
     cssInjectedByJs({
       styleId: 'hp-design-system-styles',
       topExecutionPriority: false,
-      relativeCSSInjection: true // Adicionado para melhor compatibilidade
+      relativeCSSInjection: true
     })
   ],
   resolve: {
@@ -90,7 +90,7 @@ export default defineConfig({
           const name = assetInfo.name || 'asset'
           if (name.endsWith('.css')) return 'assets/css/[name][extname]'
           if (/\.(ttf|otf|woff|woff2)$/i.test(name))
-            return 'assets/fonts/[name][extname]' // Mudei de 'fonts/' para 'assets/fonts/'
+            return 'assets/fonts/[name][extname]'
           if (/\.svg$/.test(name)) return 'assets/icons/[name][extname]'
           return 'assets/[name][extname]'
         }

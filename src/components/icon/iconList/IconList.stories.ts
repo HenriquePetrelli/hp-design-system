@@ -1,7 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/vue3'
 import IconList from './IconList.vue'
 
-// Definindo o tipo dos argumentos
 interface IconListArgs {
   color: string
 }
