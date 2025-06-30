@@ -86,7 +86,7 @@ export const Large: Story = {
 export const CustomColors: Story = {
   args: {
     color: '#FF5722',
-    secondaryColor: '#4CAF50'
+    secondaryColor: '#cabe94'
   }
 }
 
@@ -121,21 +121,17 @@ export const Dot1: Story = {
 
 export const Ring3: Story = {
   args: {
-    type: 'ring3'
+    type: 'engine',
+    secondaryColor: 'white'
   },
-  name: 'Ring 3'
+  name: 'Engine'
 }
 
 export const Clock: Story = {
   args: {
-    type: 'clock'
+    type: 'clock',
+    secondaryColor: 'black',
+    size: 'lg'
   },
   name: 'Clock'
-}
-
-export const Search: Story = {
-  args: {
-    type: 'search'
-  },
-  name: 'Search'
 }
