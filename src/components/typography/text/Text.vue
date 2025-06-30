@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { TextSize } from '../TextTypes'
+import { TextSize } from '../TypographyTypes'
 
 defineProps({
   size: {

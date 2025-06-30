@@ -17,7 +17,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { HeadingLevel } from '../TextTypes'
+import { HeadingLevel } from '../TypographyTypes'
 
 const props = defineProps({
   level: {

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import Text from './Text.vue'
-import { TextSize } from '../TextTypes'
+import { TextSize } from '../TypographyTypes'
 
 const meta: Meta<typeof Text> = {
-  title: 'Components/Text/Text',
+  title: 'Components/Typography/Text',
   component: Text,
   tags: ['autodocs'],
   argTypes: {

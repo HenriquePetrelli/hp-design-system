@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import Heading from './Heading.vue'
-import { HeadingLevel } from '../TextTypes'
+import { HeadingLevel } from '../TypographyTypes'
 
 const meta: Meta<typeof Heading> = {
-  title: 'Components/Text/Heading',
+  title: 'Components/Typography/Heading',
   component: Heading,
   tags: ['autodocs'],
   argTypes: {
