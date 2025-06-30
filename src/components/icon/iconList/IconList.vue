@@ -100,7 +100,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { computed } from 'vue'
 import IconListButton from './IconListButton.vue'
 import AllIcons from '@assets/icons/icons.json'

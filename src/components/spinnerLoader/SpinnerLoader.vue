@@ -30,7 +30,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { computed } from 'vue'
 import { SpinnerLoaderSize } from './SpinnerLoaderTypes'
 
@@ -63,11 +63,13 @@ const spinnerSizeMapper = {
   [SpinnerLoaderSize.LARGE]: 32
 }
 
-const getSpinnerSize = (size) => {
-  if (size in spinnerSizeMapper) {
-    return spinnerSizeMapper[size]
+const getSpinnerSize = (size: string | number): number => {
+  if (typeof size === 'string' && size in spinnerSizeMapper) {
+    return spinnerSizeMapper[size as SpinnerLoaderSize]
   }
-  return props.size
+  return typeof size === 'number'
+    ? size
+    : Number(size) || spinnerSizeMapper[SpinnerLoaderSize.REGULAR]
 }
 
 // Estilos computados com fallback values
@@ -75,9 +77,9 @@ const spinnerStyles = computed(() => ({
   '--spinner-size': `${getSpinnerSize(props.size)}px`,
   '--spinner-color': props.color || '#FF3D00',
   '--spinner-secondary-color': props.secondaryColor || '#FFF',
-  '--spinner-speed': `${Math.max(0.1, props.speed)}s`,
-  '--spinner-clock-speed': `${Math.max(0.1, props.speed) * 6}s`,
-  '--spinner-dots-speed': `${Math.max(0.1, props.speed) * 1.4}s`
+  '--spinner-speed': `${Math.max(0.1, Number(props.speed))}s`,
+  '--spinner-clock-speed': `${Math.max(0.1, Number(props.speed)) * 6}s`,
+  '--spinner-dots-speed': `${Math.max(0.1, Number(props.speed)) * 1.4}s`
 }))
 </script>
 
