@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import BaseText from './BaseText.vue'
-import { BaseTextSize } from '../TextTypes'
+import Text from './Text.vue'
+import { TextSize } from '../TextTypes'
 
-const meta: Meta<typeof BaseText> = {
-  title: 'Components/Text/BaseText',
-  component: BaseText,
+const meta: Meta<typeof Text> = {
+  title: 'Components/Text/Text',
+  component: Text,
   tags: ['autodocs'],
   argTypes: {
     size: {
       control: 'select',
-      options: Object.values(BaseTextSize),
+      options: Object.values(TextSize),
       description: 'Tamanho do texto'
     },
     color: {
@@ -24,7 +24,7 @@ const meta: Meta<typeof BaseText> = {
 
 export default meta
 
-type Story = StoryObj<typeof BaseText>
+type Story = StoryObj<typeof Text>
 
 // Story básico
 export const Default: Story = {
@@ -34,7 +34,7 @@ export const Default: Story = {
 // Texto extra pequeno
 export const ExtraSmall: Story = {
   args: {
-    size: BaseTextSize.EXTRA_SMALL,
+    size: TextSize.EXTRA_SMALL,
     default: 'Texto extra pequeno'
   }
 }
@@ -42,7 +42,7 @@ export const ExtraSmall: Story = {
 // Texto pequeno
 export const Small: Story = {
   args: {
-    size: BaseTextSize.SMALL,
+    size: TextSize.SMALL,
     default: 'Texto pequeno'
   }
 }
@@ -50,7 +50,7 @@ export const Small: Story = {
 // Texto médio (default)
 export const Medium: Story = {
   args: {
-    size: BaseTextSize.MEDIUM,
+    size: TextSize.MEDIUM,
     default: 'Texto médio (tamanho padrão)'
   }
 }
@@ -58,7 +58,7 @@ export const Medium: Story = {
 // Texto grande
 export const Large: Story = {
   args: {
-    size: BaseTextSize.LARGE,
+    size: TextSize.LARGE,
     default: 'Texto grande'
   }
 }
@@ -66,7 +66,7 @@ export const Large: Story = {
 // Texto extra grande
 export const ExtraLarge: Story = {
   args: {
-    size: BaseTextSize.EXTRA_LARGE,
+    size: TextSize.EXTRA_LARGE,
     default: 'Texto extra grande'
   }
 }
@@ -74,7 +74,7 @@ export const ExtraLarge: Story = {
 // Texto extra extra grande
 export const ExtraExtraLarge: Story = {
   args: {
-    size: BaseTextSize.EXTRA_EXTRA_LARGE,
+    size: TextSize.EXTRA_EXTRA_LARGE,
     default: 'Texto extra extra grande'
   }
 }
