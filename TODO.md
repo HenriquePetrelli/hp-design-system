@@ -1,7 +1,7 @@
 Para V1
 [x] Criar ButtonIconContextual
-[ ] Criar BaseText
-[ ] Criar Heading
+[x] Criar BaseText
+[x] Criar Heading
 [ ] Criar Checkbox
 [ ] Criar Modal
 [ ] Criar ToggleSwitch
