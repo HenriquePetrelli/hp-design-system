@@ -11,33 +11,38 @@
   border: 0;
   cursor: pointer;
 
-  &--large {
+  &--lg {
     width: 64px;
     height: 64px;
   }
 
-  &--small {
+  &--sm {
     width: 32px;
     height: 32px;
     font-size: 15px;
   }
 
-  &:focus-visible {
+  &--is-loading {
+    cursor: default;
+  }
+
+  &:not(:disabled):not(.button-icon-primary--is-loading):focus-visible {
     outline: 2px solid var(--color-secondary);
     outline-offset: 2px;
   }
 
-  &:not(:disabled):hover {
+  &:not(:disabled):not(.button-icon-primary--is-loading):hover {
     transform: scale(1.0175);
     opacity: 0.9;
   }
 
-  &:not(:disabled):active {
+  &:not(:disabled):not(.button-icon-primary--is-loading):active {
     transform: scale(0.985);
   }
 
   &--disabled,
-  &:disabled {
+  &:not(.button-icon-primary--is-loading):disabled {
     opacity: 0.5;
+    cursor: default;
   }
 }

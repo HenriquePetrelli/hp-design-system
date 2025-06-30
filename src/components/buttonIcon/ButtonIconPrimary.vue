@@ -1,21 +1,36 @@
 <template>
   <button
-    @click="handleClick()"
+    @click="handleClick"
     :aria-label="label"
     :tabindex="tabindex"
     class="button-icon-primary"
     :class="{
-      'button-icon-primary--small': size === ButtonIconSize.SMALL,
-      'button-icon-primary--large': size === ButtonIconSize.LARGE,
-      'button-icon-primary--disabled': disabled
+      'button-icon-primary--sm': size === ButtonIconSize.SMALL,
+      'button-icon-primary--lg': size === ButtonIconSize.LARGE,
+      'button-icon-primary--disabled': disabled,
+      'button-icon-primary--is-loading': isLoading
     }"
     :style="{
       '--background-color': computedBackgroundColor
     }"
+    :aria-disabled="disabled || isLoading"
+    :disabled="disabled || isLoading"
   >
-    <HpIcon v-if="!isLoading" :name="icon" :color="computedIconColor" />
+    <HpIcon
+      v-if="!isLoading"
+      :name="icon"
+      :size="size"
+      :color="computedIconColor"
+    />
 
-    <HpSpinnerLoader v-else :type="icon" :color="computedIconColor" size="md" />
+    <HpSpinnerLoader
+      v-else
+      type="circle1"
+      color="white"
+      :secondaryColor="computedBackgroundColor"
+      :size="size"
+      :speed="0.8"
+    />
   </button>
 </template>
 
@@ -61,8 +76,10 @@ const props = defineProps({
 
 const emit = defineEmits(['action:click'])
 
-const handleClick = () => {
-  emit('action:click')
+const handleClick = (event: Event) => {
+  if (!props.disabled) {
+    emit('action:click', event)
+  }
 }
 
 const computedIconColor = computed(() => {

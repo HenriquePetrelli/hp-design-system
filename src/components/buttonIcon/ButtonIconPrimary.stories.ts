@@ -82,12 +82,11 @@ export const Disabled: Story = {
   }
 }
 
-// Botão com loading
-export const Loading: Story = {
+// Botão com ícone diferente
+export const DifferentIcon: Story = {
   args: {
-    label: 'Botão carregando',
-    icon: 'AA0010',
-    isLoading: true
+    label: 'Ícone diferente',
+    icon: 'AA0020'
   }
 }
 
@@ -101,11 +100,11 @@ export const CustomColors: Story = {
   }
 }
 
-// Botão com ícone diferente
-export const DifferentIcon: Story = {
+// Botão com loading
+export const Loading: Story = {
   args: {
-    label: 'Ícone diferente',
-    icon: 'AA0020'
+    label: 'Botão carregando',
+    isLoading: true
   }
 }
 
@@ -113,9 +112,7 @@ export const DifferentIcon: Story = {
 export const LoadingWithCustomColors: Story = {
   args: {
     label: 'Loading com cores',
-    icon: 'AA0010',
     isLoading: true,
-    backgroundColor: '#9C27B0',
-    iconColor: '#FFFFFF'
+    backgroundColor: '#00a392'
   }
 }
