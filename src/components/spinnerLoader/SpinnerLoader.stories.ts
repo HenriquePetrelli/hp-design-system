@@ -30,10 +30,8 @@ const meta: Meta<typeof SpinnerLoader> = {
       description: 'Tipo de spinner a ser exibido'
     },
     size: {
-      control: {
-        type: 'select',
-        options: Object.values(SpinnerLoaderSize)
-      },
+      control: 'select',
+      options: Object.values(SpinnerLoaderSize),
       description:
         'Tamanho do spinner (pode ser um valor numérico ou um dos tamanhos pré-definidos)'
     },
