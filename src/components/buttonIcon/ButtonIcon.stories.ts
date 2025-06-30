@@ -3,7 +3,7 @@ import ButtonIcon from './ButtonIcon.vue'
 import { ButtonIconSize } from './ButtonIconTypes'
 
 const meta: Meta<typeof ButtonIcon> = {
-  title: 'Components/ButtonIcon/ButtonIcon',
+  title: 'Components/ButtonIcon',
   component: ButtonIcon,
   tags: ['autodocs'],
   argTypes: {

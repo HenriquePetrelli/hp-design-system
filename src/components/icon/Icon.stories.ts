@@ -1,68 +1,38 @@
-import type { Meta, StoryFn } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 import HpIcon from '@components/icon/Icon.vue'
 import AllIcons from '@assets/icons/icons.json'
 
 const meta: Meta = {
   title: 'Components/Icon',
   component: HpIcon,
+  tags: ['autodocs'],
   argTypes: {
     name: {
       control: 'select',
       options: AllIcons,
-      description: 'Identificador do ícone',
-      table: {
-        category: 'Propriedades',
-        disable: false,
-        sortOrder: 1
-      }
+      description: 'Identificador do ícone'
     },
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
-      description: 'Tamanho do ícone',
-      table: {
-        category: 'Propriedades',
-        type: {
-          summary: 'string',
-          detail: "sm(small): '1rem'\nmd(medium): '2rem'\nlg(large): '3rem'"
-        },
-        defaultValue: { summary: 'md' },
-        disable: false,
-        sortOrder: 2
-      }
+      description: 'Tamanho do ícone'
     },
     color: {
       control: 'color',
-      description: 'Cor em formato hexadecimal, rgb ou nome da cor',
-      table: {
-        category: 'Propriedades',
-        type: {
-          summary: 'string',
-          detail: "hex: '#ccc'\nrgb: 'rgb(204, 204, 204)'\nnome: 'grey'"
-        },
-        defaultValue: { summary: '#000000' },
-        disable: false,
-        sortOrder: 3
-      }
+      description: 'Cor em formato hexadecimal, rgb ou nome da cor'
     }
   }
 }
 
 export default meta
 
-const Template: StoryFn<{ name: string; size: string; color: string }> = (
-  args
-) => ({
-  components: { HpIcon },
-  setup() {
-    return { args }
-  },
-  template: '<HpIcon :name="args.name" :size="args.size" :color="args.color" />'
-})
+type Story = StoryObj<typeof HpIcon>
 
-export const Default = Template.bind({})
-Default.args = {
-  name: 'AA0010',
-  size: 'md',
-  color: '#ccc'
+// Story básico
+export const Default: Story = {
+  args: {
+    name: 'AA0010',
+    size: 'md',
+    color: '#ccc'
+  }
 }
