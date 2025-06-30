@@ -1,0 +1,18 @@
+.icon {
+  width: 2em;
+  height: 2em;
+  fill: currentColor;
+
+  &--small {
+    width: 1em;
+    height: 1em;
+  }
+  &--medium {
+    width: 2em;
+    height: 2em;
+  }
+  &--large {
+    width: 3em;
+    height: 3em;
+  }
+}

@@ -10,50 +10,32 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed } from 'vue'
 
 const props = defineProps({
   name: {
     type: String,
-    required: true,
+    required: true
   },
   size: {
     type: String,
-    default: "md",
+    default: 'md'
   },
   color: {
     type: String,
-    default: "currentColor",
-  },
-});
+    default: 'currentColor'
+  }
+})
 
 const sizeClass = computed(() => {
   return (
     {
-      sm: "icon-small",
-      md: "icon-medium",
-      lg: "icon-large",
-    }[props.size] || "icon-medium"
-  );
-});
+      sm: 'icon--small',
+      md: 'icon--medium',
+      lg: 'icon--large'
+    }[props.size] || 'icon--medium'
+  )
+})
 </script>
 
-<style>
-.icon {
-  width: 2em;
-  height: 2em;
-  fill: currentColor;
-}
-.icon-small {
-  width: 1em;
-  height: 1em;
-}
-.icon-medium {
-  width: 2em;
-  height: 2em;
-}
-.icon-large {
-  width: 3em;
-  height: 3em;
-}
-</style>
+<style scoped lang="scss" src="./Icon.scss" />
