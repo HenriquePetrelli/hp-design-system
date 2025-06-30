@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import ButtonIconPrimary from './ButtonIconPrimary.vue'
+import ButtonIcon from './ButtonIcon.vue'
 import { ButtonIconSize } from './ButtonIconTypes'
 
-const meta: Meta<typeof ButtonIconPrimary> = {
-  title: 'Components/ButtonIcon/ButtonIconPrimary',
-  component: ButtonIconPrimary,
+const meta: Meta<typeof ButtonIcon> = {
+  title: 'Components/ButtonIcon/ButtonIcon',
+  component: ButtonIcon,
   tags: ['autodocs'],
   argTypes: {
     label: {
@@ -45,13 +45,13 @@ const meta: Meta<typeof ButtonIconPrimary> = {
 
 export default meta
 
-type Story = StoryObj<typeof ButtonIconPrimary>
+type Story = StoryObj<typeof ButtonIcon>
 
 // Story básico
 export const Default: Story = {
   args: {
     label: 'Ícone de exemplo',
-    icon: 'AA0010'
+    icon: 'BD0020'
   }
 }
 
@@ -59,7 +59,7 @@ export const Default: Story = {
 export const Small: Story = {
   args: {
     label: 'Botão pequeno',
-    icon: 'AA0010',
+    icon: 'BE0010',
     size: ButtonIconSize.SMALL
   }
 }
@@ -68,7 +68,7 @@ export const Small: Story = {
 export const Large: Story = {
   args: {
     label: 'Botão grande',
-    icon: 'AA0010',
+    icon: 'BE0010',
     size: ButtonIconSize.LARGE
   }
 }
@@ -77,16 +77,17 @@ export const Large: Story = {
 export const Disabled: Story = {
   args: {
     label: 'Botão desabilitado',
-    icon: 'AA0010',
+    icon: 'BE0120',
     disabled: true
   }
 }
 
-// Botão com ícone diferente
-export const DifferentIcon: Story = {
+// Botão com background
+export const WithBackgroud: Story = {
   args: {
-    label: 'Ícone diferente',
-    icon: 'AA0020'
+    label: 'Botão carregando',
+    hasBackground: true,
+    icon: 'BE0120'
   }
 }
 
@@ -94,7 +95,7 @@ export const DifferentIcon: Story = {
 export const CustomColors: Story = {
   args: {
     label: 'Cores customizadas',
-    icon: 'AA0010',
+    icon: 'BE0120',
     backgroundColor: '#4CAF50',
     iconColor: '#FFEB3B'
   }
@@ -113,6 +114,7 @@ export const LoadingWithCustomColors: Story = {
   args: {
     label: 'Loading com cores',
     isLoading: true,
-    backgroundColor: '#00a392'
+    backgroundColor: '#00a392',
+    iconColor: 'black'
   }
 }

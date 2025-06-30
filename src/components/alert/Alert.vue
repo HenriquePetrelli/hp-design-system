@@ -9,7 +9,7 @@
     >
       <p class="alert__container__message">{{ message }}</p>
 
-      <HpButtonIconPrimary
+      <HpButtonIcon
         class="alert__container__icon"
         label="Fechar modal"
         icon="BE0031"
@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted } from 'vue'
 import { AlertType } from './AlertTypes'
-import { HpButtonIconPrimary } from '@components'
+import { HpButtonIcon } from '@components'
 
 const props = defineProps({
   message: {

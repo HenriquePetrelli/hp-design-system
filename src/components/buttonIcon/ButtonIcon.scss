@@ -1,4 +1,4 @@
-.button-icon-primary {
+.button-icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,22 +26,28 @@
     cursor: default;
   }
 
-  &:not(:disabled):not(.button-icon-primary--is-loading):focus-visible {
+  &:not(:disabled):not(.button-icon--is-loading):focus-visible {
     outline: 2px solid var(--color-secondary);
     outline-offset: 2px;
   }
 
-  &:not(:disabled):not(.button-icon-primary--is-loading):hover {
+  &:not(:disabled):not(.button-icon--is-loading):hover {
     transform: scale(1.0175);
     opacity: 0.9;
   }
 
-  &:not(:disabled):not(.button-icon-primary--is-loading):active {
+  &[style*='--background-color: transparent']:not(:disabled):not(
+      .button-icon--is-loading
+    ):hover {
+    background-color: rgba(var(--icon-color), 0.1);
+  }
+
+  &:not(:disabled):not(.button-icon--is-loading):active {
     transform: scale(0.985);
   }
 
   &--disabled,
-  &:not(.button-icon-primary--is-loading):disabled {
+  &:not(.button-icon--is-loading):disabled {
     opacity: 0.5;
     cursor: default;
   }

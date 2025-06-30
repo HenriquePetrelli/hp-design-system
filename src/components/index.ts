@@ -1,7 +1,7 @@
 export { default as HpButtonPrimary } from './button/buttonPrimary/ButtonPrimary.vue'
 export { default as HpButtonSecondary } from './button/buttonSecondary/ButtonSecondary.vue'
 export { default as HpButtonTertiary } from './button/buttonTertiary/ButtonTertiary.vue'
-export { default as HpButtonIconPrimary } from './buttonIcon/ButtonIconPrimary.vue'
+export { default as HpButtonIcon } from './buttonIcon/ButtonIcon.vue'
 export { default as HpAlert } from './alert/Alert.vue'
 export { default as HpSpinnerLoader } from './spinnerLoader/SpinnerLoader.vue'
 export { default as HpCheckbox } from './inputs/checkbox/Checkbox.vue'
