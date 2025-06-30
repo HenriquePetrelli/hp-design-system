@@ -30,6 +30,7 @@
 
   &--disabled,
   &:disabled {
+    cursor: default;
     color: var(--color-text-disabled);
   }
 
@@ -54,9 +55,4 @@
     display: block;
     color: inherit;
   }
-}
-
-.button-primary:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
 }
