@@ -4,7 +4,7 @@ export { default as HpButtonTertiary } from './button/buttonTertiary/ButtonTerti
 export { default as HpButtonIcon } from './buttonIcon/ButtonIcon.vue'
 export { default as HpAlert } from './alert/Alert.vue'
 export { default as HpSpinnerLoader } from './spinnerLoader/SpinnerLoader.vue'
-export { default as HpCheckbox } from './inputs/checkbox/Checkbox.vue'
+export { default as HpCheckbox } from './checkbox/Checkbox.vue'
 export { default as HpIcon } from './icon/Icon.vue'
 export { default as HpText } from './typography/Text/Text.vue'
 export { default as HpHeading } from './typography/heading/Heading.vue'

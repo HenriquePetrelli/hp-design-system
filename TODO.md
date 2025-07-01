@@ -2,10 +2,10 @@ Para V1
 [x] Criar ButtonIconContextual
 [x] Criar BaseText
 [x] Criar Heading
-[ ] Criar Checkbox
+[x] Criar Checkbox
+[ ] Criar RadioButton
 [ ] Criar Modal
 [ ] Criar ToggleSwitch
-[ ] Criar RadioButton
 [ ] Criar Input/InputRange
 [ ] Criar Input/InputSelect
 [ ] Criar Input/InputText
