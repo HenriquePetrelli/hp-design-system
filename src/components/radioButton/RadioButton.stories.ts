@@ -2,18 +2,6 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
 import RadioButton from './RadioButton.vue'
 
-interface RadioButtonProps {
-  modelValue?: string | number | boolean
-  value?: string | number | boolean
-  checked?: boolean
-  disabled?: boolean
-  rounded?: boolean
-  hasAnimation?: boolean
-  dotColor?: string
-  backgroundColor?: string
-  borderColor?: string
-}
-
 const meta: Meta<typeof RadioButton> = {
   title: 'Components/RadioButton',
   component: RadioButton,
@@ -35,7 +23,7 @@ export default meta
 type Story = StoryObj<typeof RadioButton>
 
 const Template: Story = {
-  render: (args: RadioButtonProps) => ({
+  render: (args) => ({
     components: { RadioButton },
     setup() {
       const argsTyped = args as any
