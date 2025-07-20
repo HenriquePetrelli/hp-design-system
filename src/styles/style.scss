@@ -1,6 +1,6 @@
-@use 'fonts';
-@use 'variables' as *;
-@use 'colors' as *;
+@use '_fonts';
+@use '_variables' as *;
+@use '_colors' as *;
 
 :root {
   font-family: 'Nunito', sans-serif;
@@ -11,38 +11,39 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  // Esquema de cores (light mode)
+  // Default light theme
   color-scheme: light;
-  --color-background: rgb(229, 229, 229);
-  --color-primary: rgb(55, 39, 114);
-  --color-secondary: rgb(255 127 80);
-  --color-success: rgb(130, 169, 67);
-  --color-warning: rgb(193, 158, 61);
-  --color-info: rgb(52, 73, 102);
-  --color-error: rgb(121 1 24);
-  --color-success-background: rgb(243 255 243);
-  --color-warning-background: rgb(255 249 245);
-  --color-info-background: rgb(230 235 245);
-  --color-error-background: rgb(251 243 244);
-  --color-text: rgb(51, 51, 51);
-  --color-text-disabled: rgb(128, 124, 123);
+  --color-background: #{$color-background-light};
+  --color-primary: #{$color-primary-light};
+  --color-secondary: #{$color-secondary-light};
+  --color-success: #{$color-success-light};
+  --color-warning: #{$color-warning-light};
+  --color-info: #{$color-info-light};
+  --color-error: #{$color-error-light};
+  --color-success-background: #{$color-success-background-light};
+  --color-warning-background: #{$color-warning-background-light};
+  --color-info-background: #{$color-info-background-light};
+  --color-error-background: #{$color-error-background-light};
+  --color-text: #{$color-text-light};
+  --color-text-disabled: #{$color-text-disabled-light};
+}
 
-  // Esquema de cores (dark mode)
-  @media (prefers-color-scheme: dark) {
-    --color-background: rgb(51, 51, 51);
-    --color-primary: rgb(55, 39, 114);
-    --color-secondary: rgb(255 127 80);
-    --color-success: rgb(130, 169, 67);
-    --color-warning: rgb(193, 158, 61);
-    --color-info: rgb(52, 73, 102);
-    --color-error: rgb(121 1 24);
-    --color-success-background: rgb(243 255 243);
-    --color-warning-background: rgb(255 249 245);
-    --color-info-background: rgb(230 235 245);
-    --color-error-background: rgb(251 243 244);
-    --color-text: rgb(229, 229, 229);
-    --color-text-disabled: rgb(128, 124, 123);
-  }
+// Dark theme
+.dark {
+  color-scheme: dark;
+  --color-background: #{$color-background-dark};
+  --color-primary: #{$color-primary-dark};
+  --color-secondary: #{$color-secondary-dark};
+  --color-success: #{$color-success-dark};
+  --color-warning: #{$color-warning-dark};
+  --color-info: #{$color-info-dark};
+  --color-error: #{$color-error-dark};
+  --color-success-background: #{$color-success-background-dark};
+  --color-warning-background: #{$color-warning-background-dark};
+  --color-info-background: #{$color-info-background-dark};
+  --color-error-background: #{$color-error-background-dark};
+  --color-text: #{$color-text-dark};
+  --color-text-disabled: #{$color-text-disabled-dark};
 }
 
 *,
@@ -51,4 +52,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

@@ -4,8 +4,9 @@ Para V1
 [x] Criar Heading
 [x] Criar Checkbox
 [x] Criar RadioButton
-[ ] Criar Modal
-[ ] Criar ToggleSwitch
+[x] Criar Modal
+[x] Criar ToggleSwitch
+[x] Criar ThemeSwitcher
 [ ] Criar Input/InputRange
 [ ] Criar Input/InputSelect
 [ ] Criar Input/InputText
