@@ -9,7 +9,7 @@ Para V1
 [x] Criar ThemeSwitcher
 [ ] Criar Input/InputRange
 [ ] Criar Input/InputSelect
-[ ] Criar Input/InputText
+[x] Criar Input/InputText
 [ ] Adicionar tokens de medidas (REM)
 [ ] Adicionar tokens de media querie
 [ ] Adicionar tokens de cores
@@ -29,6 +29,7 @@ Para V3
 [ ] Adicionar lib Axe para acessibilidade
 [ ] Deixar componentes 100% acessíveis
 [ ] Criar README.md
+[ ] Passar documentação para do storybook para português
 [ ] Adicionar testes unitários com jest e testing-library
 [ ] Adicionar teste visual com cypress
 [ ] Publicar storybook em netlify
@@ -37,6 +38,7 @@ Para V4
 [ ] Criar Input/InputMoney
 [ ] Criar Input/InputPassword
 [ ] Criar Input/InputPin
+[ ] Criar Mascara em Inputs
 [ ] Criar Popover
 [ ] Criar Countdown
 [ ] Criar Chip

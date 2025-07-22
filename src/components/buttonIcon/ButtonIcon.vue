@@ -48,7 +48,7 @@ const props = defineProps({
   },
   icon: {
     type: String,
-    default: ''
+    required: true
   },
   hasBackground: {
     type: Boolean,
