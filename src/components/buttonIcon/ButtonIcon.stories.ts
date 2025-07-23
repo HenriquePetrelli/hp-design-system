@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import ButtonIcon from './ButtonIcon.vue'
 import { ButtonIconSize } from './ButtonIconTypes'
+import AllIcons from '@assets/icons/icons.json'
 
 const meta: Meta<typeof ButtonIcon> = {
   title: 'Components/ButtonIcon',
@@ -12,9 +13,11 @@ const meta: Meta<typeof ButtonIcon> = {
       description: 'Texto para acessibilidade (aria-label)'
     },
     icon: {
-      control: 'text',
-      description: 'Nome do ícone a ser exibido'
+      control: 'select',
+      options: AllIcons,
+      description: 'Identificador do ícone'
     },
+
     backgroundColor: {
       control: 'color',
       description: 'Cor de fundo do botão'

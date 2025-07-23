@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import InputText from '@components/input/inputText/InputText.vue'
+import AllIcons from '@assets/icons/icons.json'
 import { ref } from 'vue'
 
 interface InputTextProps {
@@ -33,12 +34,14 @@ const meta: Meta<typeof InputText> = {
     placeholder: { control: 'text' },
     required: { control: 'boolean' },
     leadingIcon: {
-      control: 'text',
-      description: 'Icon name from HpIcon component'
+      control: 'select',
+      options: AllIcons,
+      description: 'Identificador do ícone'
     },
     trailingIcon: {
-      control: 'text',
-      description: 'Icon name from HpIcon component'
+      control: 'select',
+      options: AllIcons,
+      description: 'Identificador do ícone'
     },
     iconHasAction: {
       control: 'boolean',
