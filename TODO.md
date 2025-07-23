@@ -7,9 +7,10 @@ Para V1
 [x] Criar Modal
 [x] Criar ToggleSwitch
 [x] Criar ThemeSwitcher
-[ ] Criar Input/InputRange
-[ ] Criar Input/InputSelect
 [x] Criar Input/InputText
+[x] Criar Input/InputNumber
+[ ] Criar Input/InputSelect
+[ ] Criar Input/InputRange
 [ ] Adicionar tokens de medidas (REM)
 [ ] Adicionar tokens de media querie
 [ ] Adicionar tokens de cores
