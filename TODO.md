@@ -9,7 +9,7 @@ Para V1
 [x] Criar ThemeSwitcher
 [x] Criar Input/InputText
 [x] Criar Input/InputNumber
-[ ] Criar Input/InputSelect
+[x] Criar Input/InputSelect
 [ ] Criar Input/InputRange
 [ ] Adicionar tokens de medidas (REM)
 [ ] Adicionar tokens de media querie
@@ -23,14 +23,18 @@ Para V2
 [ ] Criar Templates/HelperView
 [ ] Criar Navbar
 [ ] Criar Progress/ProgressBar
+[ ] Criar SideBar
+[ ] Criar SkeletonLoader
+[ ] Criar Table
 [ ] Adicionar dark-mode
 [ ] Adicionar semantic-release para versionamento automatizado
 
 Para V3
 [ ] Adicionar lib Axe para acessibilidade
-[ ] Deixar componentes 100% acessíveis
+[ ] Deixar componentes 100% acessíveis utilizando ARC Toolkit
+[ ] Deixar componentes acessíveis para leitor de tela NVDA
 [ ] Criar README.md
-[ ] Passar documentação para do storybook para português
+[ ] Passar documentação do storybook para português
 [ ] Adicionar testes unitários com jest e testing-library
 [ ] Adicionar teste visual com cypress
 [ ] Publicar storybook em netlify
@@ -48,8 +52,5 @@ Para V4
 [ ] Criar Avatar
 [ ] Criar Pagination
 [ ] Criar Progress/ProgressStep
-[ ] Criar SideBar
-[ ] Criar SkeletonLoader
-[ ] Criar Table
 [ ] Criar Chart/DonutChart
 [ ] Criar Chart/LineChart

@@ -1,13 +1,60 @@
 @use '../src/styles/fonts' as *;
 
-body {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 400;
+html,
+body,
+#root,
+#storybook-root {
+  height: auto !important;
+  min-height: auto !important;
+  overflow: visible !important;
 }
 
-.sbdocs h1,
-.sbdocs h2,
-.sbdocs h3 {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
+.sb-show-main {
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  height: auto !important;
+}
+
+#storybook-root {
+  overflow: visible !important;
+  height: auto !important;
+  display: block;
+}
+
+.docs-story {
+  overflow: visible !important;
+  height: auto !important;
+
+  .sb-unstyled {
+    overflow: visible !important;
+    height: auto !important;
+
+    > div {
+      overflow: visible !important;
+      height: auto !important;
+    }
+  }
+}
+
+#storybook-preview-iframe {
+  height: auto !important;
+  min-height: auto !important;
+  overflow: visible !important;
+}
+
+.sb-story {
+  width: 100% !important;
+  height: auto !important;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+* {
+  max-height: none !important;
+  overflow: visible !important;
 }
