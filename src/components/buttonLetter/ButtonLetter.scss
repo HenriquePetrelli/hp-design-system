@@ -1,0 +1,54 @@
+.button-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  border: 0;
+  cursor: pointer;
+
+  background-color: var(--background-color);
+
+  transition: background-color 0.2s ease, transform 0.15s ease,
+    opacity 0.15s ease;
+
+  &--lg {
+    width: 64px;
+    height: 64px;
+    font-size: 1.4rem;
+  }
+
+  &--sm {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  &--is-loading {
+    cursor: default;
+  }
+
+  &:not(:disabled):not(.button-letter--is-loading):hover {
+    transform: scale(1.0175);
+  }
+
+  &:not(:disabled):not(.button-letter--is-loading):active {
+    transform: scale(0.985);
+  }
+
+  &:not(:disabled):not(.button-letter--is-loading):focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+  }
+
+  &--disabled,
+  &:disabled {
+    cursor: default;
+  }
+}
