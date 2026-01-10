@@ -27,7 +27,7 @@
     <HpSpinnerLoader
       v-else
       type="circle1"
-      :color="computedIconColor || 'var(--color-primary)'"
+      :color="computedIconColor || '#000'"
       :secondaryColor="computedBackgroundColor"
       :size="size"
       :speed="0.8"
@@ -90,7 +90,7 @@ const handleClick = (event: Event) => {
 
 const computedIconColor = computed(() => {
   if (props.backgroundColor || props.hasBackground)
-    return props.iconColor || '#fff'
+    return props.iconColor || '#000000'
   else return props.iconColor || 'var(--color-primary)'
 })
 

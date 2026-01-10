@@ -1,5 +1,7 @@
 <template>
-  <div :class="{ dark: isDarkMode }">
+  <div class="icon-list">
+    <!-- :class="{ dark: isDarkMode }" -->
+
     <h1>A - Brands</h1>
 
     <h3>AA - Social Media</h3>
@@ -88,6 +90,13 @@
       :is-dark-mode="isDarkMode"
     />
 
+    <h3>BH - Money</h3>
+    <IconListButton
+      :icons="moneyIcons"
+      :color="color"
+      :is-dark-mode="isDarkMode"
+    />
+
     <h1>C - Places</h1>
     <IconListButton
       :icons="placeIcons"
@@ -155,6 +164,9 @@ const actionsIcons = computed(() =>
 const otherDigitalIcons = computed(() =>
   AllIcons.filter((name) => name.startsWith('BG')).sort()
 )
+const moneyIcons = computed(() =>
+  AllIcons.filter((name) => name.startsWith('BH')).sort()
+)
 const placeIcons = computed(() =>
   AllIcons.filter((name) => name.startsWith('C')).sort()
 )
@@ -170,5 +182,9 @@ h1,
 h3 {
   margin-top: 32px;
   color: black;
+}
+
+.icon-list {
+  padding: 32px;
 }
 </style>

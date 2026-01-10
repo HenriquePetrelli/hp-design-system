@@ -90,6 +90,7 @@ export const WithBackgroud: Story = {
   args: {
     label: 'Botão carregando',
     hasBackground: true,
+    backgroundColor: '#4CAF50',
     icon: 'BE0120'
   }
 }
@@ -108,7 +109,8 @@ export const CustomColors: Story = {
 export const Loading: Story = {
   args: {
     label: 'Botão carregando',
-    isLoading: true
+    isLoading: true,
+    iconColor: '#000000'
   }
 }
 
