@@ -1,10 +1,11 @@
 {
-  "name": "hp-design-system",
-  "version": "1.1.1",
+  "name": "@henriquepetrelli/hp-design-system",
+  "version": "1.1.30",
   "type": "module",
   "main": "./dist/hp-design-system.umd.js",
   "module": "./dist/hp-design-system.es.js",
   "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
   "files": [
     "dist"
   ],
@@ -13,9 +14,12 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/hp-design-system.es.js",
       "require": "./dist/hp-design-system.umd.js"
-    }
+    },
+    "./style.css": "./dist/style.css"
   },
-  "sideEffects": true,
+  "sideEffects": [
+    "./dist/style.css"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "rimraf dist && vue-tsc && vite build",
@@ -27,16 +31,14 @@
     "prepare": "npm run build"
   },
   "peerDependencies": {
-    "sass": "^1.89.2",
-    "vue": "^3.4.35"
+    "vue": "^3.4.0"
   },
   "dependencies": {
-    "@types/node": "^24.0.7",
-    "@vitejs/plugin-vue": "^5.0.5",
-    "glob": "^11.0.3",
-    "vue": "^3.4.35"
+    "glob": "^11.0.3"
   },
   "devDependencies": {
+    "@types/node": "^24.0.7",
+    "@vitejs/plugin-vue": "^5.0.5",
     "@eslint/js": "^9.29.0",
     "@storybook/addon-a11y": "^8.6.14",
     "@storybook/addon-essentials": "^8.6.14",
@@ -51,7 +53,6 @@
     "sass": "^1.89.2",
     "typescript": "^5.5.4",
     "vite": "^5.3.1",
-    "vite-plugin-css-injected-by-js": "^3.3.0",
     "vite-plugin-static-copy": "^1.0.6",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^2.0.21"
