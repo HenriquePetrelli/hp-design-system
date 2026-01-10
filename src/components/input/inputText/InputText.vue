@@ -19,7 +19,7 @@
         {{ label }}
       </legend>
       <label
-        v-if="isFocused || modelValue !== '' || placeholder !== ''"
+        v-if="showInputLabel"
         :for="id"
         class="input__label"
         :class="{ 'input__label--required': required }"
@@ -105,6 +105,10 @@ const props = defineProps({
     type: String,
     required: true
   },
+  hideLabel: {
+    type: Boolean,
+    default: false
+  },
   id: {
     type: String,
     default: () => `input-text-${Math.random().toString(36).substring(2, 9)}`
@@ -164,6 +168,11 @@ const emit = defineEmits(['update:modelValue', 'action:iconClick'])
 
 const input = ref(null)
 const isFocused = ref(false)
+const showInputLabel = computed(
+  () =>
+    !props.hideLabel &&
+    (isFocused || props.modelValue !== '' || props.placeholder !== '')
+)
 const hasValue = computed(() => String(props.modelValue).length > 0)
 const hasPlaceholder = computed(() => String(props.placeholder).length > 0)
 const placeholderFormatted = computed(() => {
