@@ -10,7 +10,11 @@ Para V1
 [x] Criar Input/InputText
 [x] Criar Input/InputNumber
 [x] Criar Input/InputSelect
-[ ] Criar Input/InputRange
+[x] Criar Input/InputRange
+[x] Criar Card
+[x] Criar Progress/ProgressBar
+[x] Criar ButtonLetter
+[x] Criar DataTable
 [ ] Adicionar tokens de medidas (REM)
 [ ] Adicionar tokens de media querie
 [ ] Adicionar tokens de cores
@@ -22,10 +26,8 @@ Para V2
 [ ] Criar SearchBar
 [ ] Criar Templates/HelperView
 [ ] Criar Navbar
-[ ] Criar Progress/ProgressBar
 [ ] Criar SideBar
 [ ] Criar SkeletonLoader
-[ ] Criar Table
 [ ] Adicionar dark-mode
 [ ] Adicionar semantic-release para versionamento automatizado
 
