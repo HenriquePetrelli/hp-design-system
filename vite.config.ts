@@ -3,7 +3,6 @@ import vue from '@vitejs/plugin-vue'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import path from 'path'
-import cssInjectedByJs from 'vite-plugin-css-injected-by-js'
 
 export default defineConfig({
   plugins: [
@@ -14,6 +13,7 @@ export default defineConfig({
         }
       }
     }),
+
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
       symbolId: 'icon-[name]',
@@ -29,6 +29,7 @@ export default defineConfig({
         ]
       }
     }),
+
     viteStaticCopy({
       targets: [
         {
@@ -37,21 +38,16 @@ export default defineConfig({
         },
         {
           src: path.resolve(__dirname, 'src/assets/icons/*.svg'),
-          dest: 'assets/icons',
-          rename: (name, ext) => `${name}${ext}`
+          dest: 'assets/icons'
         },
         {
           src: path.resolve(__dirname, 'src/assets/icons/icon.json'),
           dest: 'assets/icons'
         }
       ]
-    }),
-    cssInjectedByJs({
-      styleId: 'hp-design-system-styles',
-      topExecutionPriority: false,
-      relativeCSSInjection: true
     })
   ],
+
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -61,25 +57,28 @@ export default defineConfig({
       '@composables': path.resolve(__dirname, './src/composables')
     }
   },
+
   css: {
     preprocessorOptions: {
       scss: {
         additionalData: `
           @use "@styles/variables" as *;
-          @use "@styles/colors" as *;
         `,
         implementation: 'sass'
       }
     }
   },
+
   assetsInclude: ['**/*.ttf'],
+
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'hp-design-system',
+      name: 'HpDesignSystem',
       formats: ['es', 'umd'],
       fileName: (format) => `hp-design-system.${format}.js`
     },
+
     rollupOptions: {
       external: ['vue'],
       output: {
@@ -87,18 +86,29 @@ export default defineConfig({
         globals: {
           vue: 'Vue'
         },
+
         assetFileNames: (assetInfo) => {
-          const name = assetInfo.name || 'asset'
-          if (name.endsWith('.css')) return 'assets/css/[name][extname]'
-          if (/\.(ttf|otf|woff|woff2)$/i.test(name))
+          const name = assetInfo.name || ''
+
+          if (name.endsWith('.css')) {
+            return 'style.css'
+          }
+
+          if (/\.(ttf|otf|woff|woff2)$/i.test(name)) {
             return 'assets/fonts/[name][extname]'
-          if (/\.svg$/.test(name)) return 'assets/icons/[name][extname]'
+          }
+
+          if (/\.svg$/i.test(name)) {
+            return 'assets/icons/[name][extname]'
+          }
+
           return 'assets/[name][extname]'
         }
       }
     },
+
     emptyOutDir: true,
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     sourcemap: true,
     minify: false,
     target: 'esnext',
