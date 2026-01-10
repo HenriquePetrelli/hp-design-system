@@ -1,17 +1,43 @@
 <template>
-  <div class="theme-switcher-container">
+  <!-- Theme switcher sem animação -->
+  <div v-if="!hasAnimation">
+    <button
+      class="theme-switcher"
+      type="button"
+      role="switch"
+      :aria-checked="isDarkMode"
+      aria-label="Alternar entre tema claro e escuro"
+      @click="handleToggle"
+      @keydown.enter.prevent="handleToggle"
+      @keydown.space.prevent="handleToggle"
+      :style="{
+        '--hover-bg-color': computedButtonHoverBackgroundColor,
+        '--icon-color': computedButtonIconColor
+      }"
+    >
+      <HpIcon
+        class="theme-switcher__icon"
+        :name="computedButtonIcon"
+        size="sm"
+        :color="computedButtonIconColor"
+      />
+    </button>
+  </div>
+
+  <!-- Theme switcher com animação -->
+  <div v-else class="theme-switcher-animation">
     <input
       type="checkbox"
       :id="id"
       class="toggle--checkbox"
       v-model="isDarkMode"
-      :checked="modelValue"
       @change="toggleTheme"
       role="switch"
       :aria-checked="isDarkMode"
       aria-label="Alternar entre tema claro e escuro"
       tabindex="-1"
     />
+
     <label
       :for="id"
       class="toggle--label"
@@ -22,17 +48,17 @@
         '--dark-border-color': computedDarkBorderColor
       }"
       tabindex="0"
-      @keydown.enter.prevent="handleKeydown"
-      @keydown.space.prevent="handleKeydown"
+      @keydown.enter.prevent="handleToggle"
+      @keydown.space.prevent="handleToggle"
     >
       <span class="toggle--label-background"></span>
     </label>
-    <div class="background"></div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
+import { HpIcon } from '@components'
 
 const props = defineProps({
   modelValue: {
@@ -43,72 +69,100 @@ const props = defineProps({
     type: String,
     default: () => `theme-${Math.random().toString(36).substring(2, 9)}`
   },
-  lightBorderColor: {
-    type: String,
-    default: ''
+  hasAnimation: {
+    type: Boolean,
+    default: true
   },
-  lightBackgroundColor: {
-    type: String,
-    default: ''
-  },
-  darkBorderColor: {
-    type: String,
-    default: ''
-  },
-  darkBackgroundColor: {
-    type: String,
-    default: ''
-  }
+
+  /* Toggle animado */
+  lightBorderColor: String,
+  lightBackgroundColor: String,
+  darkBorderColor: String,
+  darkBackgroundColor: String,
+
+  /* Ícone */
+  lightIconColor: String,
+  darkIconColor: String,
+
+  /* Hover */
+  lightHoverBackgroundColor: String,
+  darkHoverBackgroundColor: String
 })
 
-const isDarkMode = ref(false)
+const emit = defineEmits(['update:modelValue'])
 
-const toggleTheme = () => {
-  if (isDarkMode.value) {
-    document.documentElement.classList.remove('light')
-    document.documentElement.classList.add('dark')
-    localStorage.setItem('theme', 'dark')
-  } else {
-    document.documentElement.classList.remove('dark')
-    document.documentElement.classList.add('light')
-    localStorage.setItem('theme', 'light')
-  }
+const getStoredTheme = () => localStorage.getItem('theme') || 'light'
+const isStoredDark = () => getStoredTheme() === 'dark'
+
+const isDarkMode = ref(isStoredDark())
+
+const applyTheme = (isDark) => {
+  const theme = isDark ? 'dark' : 'light'
+  document.documentElement.setAttribute('data-theme', theme)
+  localStorage.setItem('theme', theme)
 }
 
-const handleKeydown = () => {
+const toggleTheme = () => {
+  applyTheme(isDarkMode.value)
+  emit('update:modelValue', isDarkMode.value)
+}
+
+const handleToggle = () => {
   isDarkMode.value = !isDarkMode.value
   toggleTheme()
 }
 
 onMounted(() => {
-  const savedTheme =
-    localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light')
-  isDarkMode.value = savedTheme === 'dark'
-  if (isDarkMode.value) {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.add('light')
+  const isDark = isStoredDark()
+  isDarkMode.value = isDark
+  applyTheme(isDark)
+  emit('update:modelValue', isDark)
+})
+
+watch(
+  () => props.modelValue,
+  (value) => {
+    if (value !== isDarkMode.value) {
+      isDarkMode.value = value
+      applyTheme(value)
+    }
   }
-})
+)
 
-const computedLightBorderColor = computed(() => {
-  return props.lightBorderColor || '#72cce3'
-})
+/* 🎨 Ícone */
+const computedButtonIcon = computed(() =>
+  isDarkMode.value ? 'BE0130' : 'BE0140'
+)
 
-const computedLightBackgroundColor = computed(() => {
-  return props.lightBackgroundColor || '#96dcee'
-})
+const computedButtonIconColor = computed(() =>
+  isDarkMode.value
+    ? props.darkIconColor || '#f3c32e'
+    : props.lightIconColor || '#000000'
+)
 
-const computedDarkBorderColor = computed(() => {
-  return props.darkBorderColor || '#072f5f'
-})
+/* 🎯 Hover background */
+const computedButtonHoverBackgroundColor = computed(() =>
+  isDarkMode.value
+    ? props.darkHoverBackgroundColor || '#717171'
+    : props.lightHoverBackgroundColor || 'rgba(0, 0, 0, 0.08)'
+)
 
-const computedDarkBackgroundColor = computed(() => {
-  return props.darkBackgroundColor || '#1261a0'
-})
+/* 🎚 Toggle animado */
+const computedLightBorderColor = computed(
+  () => props.lightBorderColor || '#72cce3'
+)
+
+const computedLightBackgroundColor = computed(
+  () => props.lightBackgroundColor || '#96dcee'
+)
+
+const computedDarkBorderColor = computed(
+  () => props.darkBorderColor || '#072f5f'
+)
+
+const computedDarkBackgroundColor = computed(
+  () => props.darkBackgroundColor || '#1261a0'
+)
 </script>
 
-<style scoped lang="scss" src="./ThemeSwitcher.scss"></style>
+<style scoped lang="scss" src="./ThemeSwitcher.scss" />
