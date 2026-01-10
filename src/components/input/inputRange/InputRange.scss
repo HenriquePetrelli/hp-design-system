@@ -1,0 +1,143 @@
+.input-range {
+  --track-height: 6px;
+  --thumb-size: 20px;
+  --thumb-border: 2px;
+  --active-color: #005fcc;
+  --inactive-color: #dddddd;
+  --error-color: #d32f2f;
+  --success-color: #388e3c;
+
+  width: 100%;
+  margin-bottom: 1.5rem;
+
+  &__fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__legend {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #666;
+    font-weight: 600;
+  }
+
+  &__required {
+    color: #d32f2f;
+    margin-left: 0.25rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__slider {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    height: var(--track-height);
+    background: var(--inactive-color);
+    border-radius: 10px;
+    outline: none;
+    margin: 10px 0;
+    transition: background 0.3s ease;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: var(--thumb-size);
+      height: var(--thumb-size);
+      background: #ffffff;
+      border: var(--thumb-border) solid var(--active-color);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    &::-moz-range-thumb {
+      width: var(--thumb-size);
+      height: var(--thumb-size);
+      background: #ffffff;
+      border: var(--thumb-border) solid var(--active-color);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    &:focus {
+      outline: none;
+
+      &::-webkit-slider-thumb {
+        box-shadow: 0 0 0 3px rgba(0, 95, 204, 0.2);
+      }
+
+      &::-moz-range-thumb {
+        box-shadow: 0 0 0 3px rgba(0, 95, 204, 0.2);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+
+      &::-webkit-slider-thumb {
+        border-color: #999999;
+        cursor: not-allowed;
+      }
+
+      &::-moz-range-thumb {
+        border-color: #999999;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__value-display {
+    min-width: 50px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  &__value {
+    color: var(--active-color);
+  }
+
+  &__unit {
+    margin-left: 0.25rem;
+    color: #666;
+  }
+
+  &__footer {
+    margin-top: 0.25rem;
+  }
+
+  &__helper-text {
+    font-size: 0.75rem;
+    color: #666;
+  }
+
+  /* Status styles */
+  &--error {
+    --active-color: var(--error-color);
+
+    .input-range__helper-text {
+      color: var(--error-color);
+      font-weight: 600;
+    }
+  }
+
+  &--success {
+    --active-color: var(--success-color);
+
+    .input-range__helper-text {
+      color: var(--success-color);
+      font-weight: 600;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.7;
+  }
+}
