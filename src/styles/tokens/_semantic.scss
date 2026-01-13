@@ -1,0 +1,40 @@
+:root {
+  /* Typography */
+  --font-family-base: 'Nunito Sans', system-ui, -apple-system,
+    BlinkMacSystemFont, sans-serif;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Text */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-600);
+  --color-text-muted: var(--color-gray-500);
+  --color-text-inverse: var(--color-white);
+
+  /* Background */
+  --color-surface: var(--color-white);
+  --color-surface-muted: var(--color-gray-50);
+  --color-surface-inverse: var(--color-gray-900);
+
+  /* Border */
+  --color-border: var(--color-gray-200);
+  --color-border-strong: var(--color-gray-300);
+
+  /* Brand */
+  --color-brand: var(--color-primary-600);
+  --color-brand-hover: var(--color-primary-700);
+
+  /* Feedback */
+  --color-success: var(--color-success-500);
+  --color-warning: var(--color-warning-500);
+  --color-danger: var(--color-danger-500);
+}

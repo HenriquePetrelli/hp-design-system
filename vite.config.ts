@@ -30,10 +30,11 @@ export default defineConfig({
       }
     }),
 
+    // Copiar assets da lib (fontes e ícones)
     viteStaticCopy({
       targets: [
         {
-          src: path.resolve(__dirname, 'src/assets/fonts/*.ttf'),
+          src: path.resolve(__dirname, 'src/assets/fonts/*.{ttf,woff,woff2}'),
           dest: 'assets/fonts'
         },
         {
@@ -61,15 +62,12 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `
-          @use "@styles/variables" as *;
-        `,
         implementation: 'sass'
       }
     }
   },
 
-  assetsInclude: ['**/*.ttf'],
+  assetsInclude: ['**/*.ttf', '**/*.woff', '**/*.woff2'],
 
   build: {
     lib: {

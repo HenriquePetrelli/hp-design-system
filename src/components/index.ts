@@ -1,6 +1,3 @@
-import '@/styles/style.scss'
-import '@/styles/_colors.scss'
-
 export { default as HpButtonPrimary } from './button/buttonPrimary/ButtonPrimary.vue'
 export { default as HpButtonSecondary } from './button/buttonSecondary/ButtonSecondary.vue'
 export { default as HpButtonTertiary } from './button/buttonTertiary/ButtonTertiary.vue'

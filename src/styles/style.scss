@@ -1,164 +1,19 @@
-@use '_fonts';
-@use '_variables' as *;
-@use '_colors' as *;
+/* Base */
+@use './base/fonts';
 
-// -------------------------
-// Estilos internos da lib
-// -------------------------
+/* Tokens */
+@use './tokens/palette';
+@use './tokens/layout';
+@use './tokens/semantic';
+@use './tokens/themes';
 
-// ThemeSwitcher
-.theme-switcher-container {
-  position: relative;
-  display: inline-block;
-
-  .background {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    transition: all 250ms ease-in;
-    background: var(--color-background, #fff); // fallback
-  }
-}
-
-.toggle--checkbox {
-  position: absolute;
-  opacity: 0;
-  height: 0;
-  width: 0;
-}
-
-.toggle--label {
-  width: 48px;
-  height: 24px;
-  border-radius: 12px;
-  border: 2px solid var(--color-primary, #000); // fallback
-  display: flex;
-  position: relative;
-  transition: all 350ms ease-in;
-  cursor: pointer;
-
-  &:focus-visible {
-    outline: 2px solid #005fcc;
-    outline-offset: 2px;
-    transition: 0s;
-  }
-
-  .toggle--label-background {
-    width: 4px;
-    height: 2px;
-    border-radius: 2px;
-    position: relative;
-    background: #fff;
-    left: 28px;
-    top: 11px;
-    transition: all 150ms ease-in;
-
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      border-radius: 2px;
-      background: #fff;
-      transition: all 150ms ease-in;
-    }
-
-    &:before {
-      top: -4px;
-      width: 10px;
-      height: 2px;
-      left: -5px;
-    }
-
-    &:after {
-      top: 4px;
-      width: 10px;
-      height: 2px;
-      left: -3px;
-    }
-  }
-
-  &:before {
-    content: '';
-    width: 18px;
-    height: 18px;
-    border: 2px solid #f5eb71;
-    position: absolute;
-    border-radius: 50%;
-    background: #fffaa8;
-    top: 1px;
-    left: 1px;
-    transition: all 350ms ease-in;
-    animation-name: reverse;
-    animation-duration: 350ms;
-    animation-fill-mode: forwards;
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    box-shadow: #e8e8ea 1px 0 0 1px, #e8e8ea -2px 4px 0 -1px;
-    background: #e8e8ea;
-    left: 29px;
-    top: 5px;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    opacity: 0;
-    transition: all 250ms ease-in;
-  }
-}
-
-// Animações
-@keyframes switch {
-  0% {
-    left: 1px;
-  }
-  60% {
-    left: 1px;
-    width: 23px;
-  }
-  100% {
-    left: 25px;
-    width: 18px;
-  }
-}
-
-@keyframes reverse {
-  0% {
-    left: 25px;
-    width: 18px;
-  }
-  60% {
-    left: 15px;
-    width: 23px;
-  }
-  100% {
-    left: 1px;
-  }
-}
-
-// Reset básico
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
+/* Global reset (opcional) */
+* {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Nunito', sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  background-color: var(--color-background, #fff);
-  color: var(--color-text, #000);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
 }
