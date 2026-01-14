@@ -65,7 +65,7 @@ const copyToClipboard = (icon: string) => {
 }
 
 span {
-  font-family: 'Nunito';
+  font-family: 'Nunito Sans';
   font-weight: 600;
 }
 

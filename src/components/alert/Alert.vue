@@ -88,7 +88,7 @@ const computedColorType = computed(() => {
 
 const computedBackgroundType = computed(() => {
   if (Object.values(AlertType).includes(props.type as AlertType)) {
-    return `var(--color-${props.type}-background)`
+    return `var(--color-${props.type}-bg)`
   }
   return props.type
 })
