@@ -13,15 +13,12 @@ jobs:
     steps:
       - name: Check NPM token expiration and create reminder
         uses: actions/github-script@v7
+        env:
+          NPM_TOKEN_EXPIRES_AT: ${{ secrets.NPM_TOKEN_EXPIRES_AT }}
         with:
           script: |
             const DAYS_BEFORE_EXPIRATION = 14
 
-            /*
-              🔐 IMPORTANTE
-              Armazene a data de expiração do token em um secret:
-              NPM_TOKEN_EXPIRES_AT = YYYY-MM-DD
-            */
             const expiresAt = process.env.NPM_TOKEN_EXPIRES_AT
 
             if (!expiresAt) {
@@ -40,11 +37,6 @@ jobs:
               return
             }
 
-            if (daysLeft <= 0) {
-              console.log("Token já expirou.")
-            }
-
-            // Evita criar issues duplicadas
             const { data: issues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -82,5 +74,3 @@ The **NPM_TOKEN** used for automated publishing will expire in **${daysLeft} day
               body,
               labels: ["npm-token", "automation"]
             })
-        env:
-          NPM_TOKEN_EXPIRES_AT: ${{ secrets.NPM_TOKEN_EXPIRES_AT }}
