@@ -3,37 +3,34 @@ name: NPM Token Expiration Reminder
 on:
   schedule:
     # Executa 1x por mês (dia 1 às 09:00 UTC)
-    - cron: "0 9 1 * *"
+    - cron: '0 9 1 * *'
   workflow_dispatch:
 
 jobs:
-  check-npm-token:
+  reminder:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check NPM token expiration and create reminder
+      - name: Check NPM token expiration and create issue
         uses: actions/github-script@v7
-        env:
-          NPM_TOKEN_EXPIRES_AT: ${{ secrets.NPM_TOKEN_EXPIRES_AT }}
         with:
           script: |
             const DAYS_BEFORE_EXPIRATION = 14
 
             const expiresAt = process.env.NPM_TOKEN_EXPIRES_AT
-
             if (!expiresAt) {
-              core.warning("Secret NPM_TOKEN_EXPIRES_AT não definido.")
+              core.warning("NPM_TOKEN_EXPIRES_AT secret not set")
               return
             }
 
             const expirationDate = new Date(expiresAt)
             const now = new Date()
-
-            const diffTime = expirationDate - now
-            const daysLeft = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+            const daysLeft = Math.ceil(
+              (expirationDate - now) / (1000 * 60 * 60 * 24)
+            )
 
             if (daysLeft > DAYS_BEFORE_EXPIRATION) {
-              console.log(`Token válido por mais ${daysLeft} dias. Nenhuma ação necessária.`)
+              console.log(`Token valid for ${daysLeft} more days`)
               return
             }
 
@@ -45,32 +42,34 @@ jobs:
             })
 
             if (issues.length > 0) {
-              console.log("Já existe um lembrete aberto.")
+              console.log("Reminder already exists")
               return
             }
 
-            const body = `
-### ⚠️ Action required: NPM Token expiring
-
-The **NPM_TOKEN** used for automated publishing will expire in **${daysLeft} days**.
-
-#### What to do
-1. Create a new **Granular Access Token** on npm
-   - Permission: **Read & Write**
-   - Scope: **@henriquepetrelli**
-   - Expiration: **90 days**
-   - Enable **2FA bypass**
-2. Update the \`NPM_TOKEN\` secret in **GitHub Actions**
-3. Update the \`NPM_TOKEN_EXPIRES_AT\` secret with the new expiration date
-4. Revoke the old token
-
-⚠️ If this is not done, automated publishing will fail.
-`
+            const body = [
+              "### ⚠️ Action required: NPM Token expiring",
+              "",
+              `The **NPM_TOKEN** used for automated publishing will expire in **${daysLeft} days**.`,
+              "",
+              "#### Steps",
+              "1. Create a new **Granular Access Token** on npm",
+              "   - Permission: **Read & Write**",
+              "   - Scope: **@henriquepetrelli**",
+              "   - Expiration: **90 days**",
+              "   - **2FA bypass enabled**",
+              "2. Update the `NPM_TOKEN` secret in **GitHub Actions**",
+              "3. Update the `NPM_TOKEN_EXPIRES_AT` secret",
+              "4. Revoke the old token",
+              "",
+              "⚠️ If this is not done, automated publishing will fail."
+            ].join("\n")
 
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: "⚠️ NPM token expiring",
+              title: "⚠️ Rotate NPM_TOKEN (CI publish)",
               body,
               labels: ["npm-token", "automation"]
             })
+        env:
+          NPM_TOKEN_EXPIRES_AT: ${{ secrets.NPM_TOKEN_EXPIRES_AT }}
