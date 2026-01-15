@@ -34,7 +34,7 @@
               }"
               :style="{ width: column.width }"
             >
-              <HpText size="xs" weight="semibold">
+              <HpText size="xs" color="var(--color-text-secondary)">
                 {{ column.label }}
               </HpText>
             </th>
@@ -43,7 +43,9 @@
               v-if="$slots.actions"
               class="data-table__header-cell data-table__header-cell--right"
             >
-              <HpText size="xs" weight="semibold">Ações</HpText>
+              <HpText size="xs" color="var(--color-text-secondary)"
+                >Ações</HpText
+              >
             </th>
           </tr>
         </thead>
@@ -77,7 +79,7 @@
                 'data-table__cell--center': column.align === 'center'
               }"
             >
-              <HpText size="sm">
+              <HpText size="sm" color="var(--color-text-primary)">
                 {{ item[column.key] }}
               </HpText>
             </td>

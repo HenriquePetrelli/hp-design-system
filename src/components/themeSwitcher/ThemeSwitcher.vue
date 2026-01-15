@@ -71,7 +71,7 @@ const props = defineProps({
   },
   hasAnimation: {
     type: Boolean,
-    default: true
+    default: false
   },
 
   /* Toggle animado */

@@ -2,7 +2,7 @@
   <div class="playground">
     <!-- <HpToggleSwitch v-model="value" /> -->
 
-    <!-- <HpThemeSwitcher v-model="value2" /> -->
+    <HpThemeSwitcher v-model="value2" style="position: fixed; top: 30px" />
 
     <!-- <HpThemeSwitcher v-model="value2" :hasAnimation="false" /> -->
     <!-- <HpInputRange label="Selecione uma opção" v-model="selectedValue" /> -->
@@ -52,9 +52,9 @@
       style="width: 100%"
       :items="projects"
       :columns="[
-        { key: 'name', label: 'Projeto' },
-        { key: 'owner', label: 'Responsável' },
-        { key: 'status', label: 'Status' }
+        { key: 'name', label: 'Projeto', align: 'left' },
+        { key: 'owner', label: 'Responsável', align: 'left' },
+        { key: 'status', label: 'Status', align: 'left' }
       ]"
       hasDivider
     >
