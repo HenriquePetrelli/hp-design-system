@@ -1,28 +1,34 @@
 .button-secondary {
   font-family: 'Nunito Sans', sans-serif;
+  font-weight: 600;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  min-width: 120px;
   padding: 12px 20px;
+
   border: 0;
   border-radius: 8px;
-  min-width: 120px;
-  cursor: pointer;
-  outline: none;
-  font-size: 17px;
-  font-weight: 600;
-  color: black;
   background-color: transparent;
 
+  font-size: 17px;
+  cursor: pointer;
+  color: var(--button-color);
+
+  outline: none;
+  transition: transform 0.15s ease, background-color 0.15s ease,
+    box-shadow 0.15s ease;
+
   &:focus-visible {
-    outline: 2px solid var(--color-secondary);
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
   }
 
   &:not(:disabled):hover {
     transform: scale(1.0175);
-    background-color: color-mix(in srgb, var(--hover-color) 5%, transparent);
-    color: var(--hover-color);
+    background-color: color-mix(in srgb, var(--button-color) 8%, transparent);
   }
 
   &:not(:disabled):active {
@@ -40,15 +46,15 @@
   }
 
   &__icon {
+    display: flex;
+    align-items: center;
+
     &--left {
       margin-right: 0.8rem;
-      display: flex;
-      align-items: center;
     }
+
     &--right {
       margin-left: 0.8rem;
-      display: flex;
-      align-items: center;
     }
   }
 

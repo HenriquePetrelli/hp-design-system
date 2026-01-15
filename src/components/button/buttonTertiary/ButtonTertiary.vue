@@ -5,9 +5,7 @@
       'button-tertiary--large': size === ButtonSize.LARGE,
       'button-tertiary--disabled': disabled
     }"
-    :style="{
-      '--hover-color': computedColor
-    }"
+    :style="computedStyles"
     :aria-label="ariaLabel || label"
     :aria-disabled="disabled"
     :disabled="disabled"
@@ -51,10 +49,23 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+
+  /**
+   * Cor do texto no estado normal
+   */
   color: {
+    type: String,
+    default: '#000000'
+  },
+
+  /**
+   * Cor do texto no hover
+   */
+  hoverColor: {
     type: String,
     default: '#FF7F50'
   },
+
   size: {
     type: String,
     default: ButtonSize.REGULAR
@@ -77,9 +88,13 @@ const handleClick = (event: Event) => {
   }
 }
 
-const computedColor = computed(() => {
-  return props.color || '#fca311'
-})
+/**
+ * CSS variables totalmente dinâmicas
+ */
+const computedStyles = computed(() => ({
+  '--text-color': props.color,
+  '--hover-color': props.hoverColor
+}))
 </script>
 
 <style lang="scss" scoped src="./ButtonTertiary.scss" />

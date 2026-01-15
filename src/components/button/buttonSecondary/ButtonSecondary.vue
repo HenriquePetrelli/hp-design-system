@@ -6,7 +6,7 @@
       'button-secondary--disabled': disabled
     }"
     :style="{
-      '--hover-color': computedColor
+      '--button-color': color
     }"
     :aria-label="ariaLabel || label"
     :aria-disabled="disabled"
@@ -15,9 +15,9 @@
   >
     <span
       v-if="icon && iconPosition === IconPosition.LEFT"
-      class="button-secondary__icon--left"
+      class="button-secondary__icon button-secondary__icon--left"
     >
-      <Icon :name="icon" size="sm" />
+      <Icon :name="icon" size="sm" :color="color" />
     </span>
 
     <span class="button-secondary__label">
@@ -26,16 +26,15 @@
 
     <span
       v-if="icon && iconPosition === IconPosition.RIGHT"
-      class="button-secondary__icon--right"
+      class="button-secondary__icon button-secondary__icon--right"
     >
-      <Icon :name="icon" size="sm" />
+      <Icon :name="icon" size="sm" :color="color" />
     </span>
   </button>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { IconPosition, ButtonSize } from '../ButtonTypes'
+import { ButtonSize, IconPosition } from '../ButtonTypes'
 import Icon from '../../icon/Icon.vue'
 
 const props = defineProps({
@@ -51,18 +50,23 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+
+  /** 100% dinâmico */
   color: {
     type: String,
-    default: '#FF7F50'
+    default: 'var(--color-secondary)'
   },
+
   size: {
     type: String,
     default: ButtonSize.REGULAR
   },
+
   icon: {
     type: String,
     default: ''
   },
+
   iconPosition: {
     type: String,
     default: IconPosition.LEFT
@@ -76,10 +80,6 @@ const handleClick = (event: Event) => {
     emit('action:click', event)
   }
 }
-
-const computedColor = computed(() => {
-  return props.color || '#fca311'
-})
 </script>
 
 <style lang="scss" scoped src="./ButtonSecondary.scss" />

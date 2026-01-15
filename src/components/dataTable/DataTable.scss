@@ -1,62 +1,81 @@
 .data-table {
   background-color: var(--color-surface);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
   padding: 16px;
 
-  /* ===== Search ===== */
-  &__search {
-    width: 100%;
-    margin-bottom: 16px;
+  /* ================= Elevation ================= */
+
+  &--elevated {
+    box-shadow: var(--shadow-sm);
   }
 
-  /* ===== Table ===== */
+  &__search {
+    margin-bottom: 12px;
+  }
+
+  &__wrapper {
+    overflow-x: auto;
+  }
+
   &__table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+    border-collapse: collapse;
   }
 
-  /* ===== Header ===== */
+  /* ================= Header ================= */
+
   &__header-cell {
+    padding: 8px 14px;
     background-color: var(--color-background);
-    padding: 12px 24px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--color-text-tertiary);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
 
     &--right {
       text-align: right;
     }
+
+    &--center {
+      text-align: center;
+    }
   }
 
-  /* ===== Body ===== */
+  /* ================= Cells ================= */
 
   &__cell {
-    padding: 16px 24px;
+    padding: 10px 14px;
     font-size: 14px;
-    vertical-align: middle;
+    color: var(--color-text-primary);
 
     &--right {
       text-align: right;
+    }
+
+    &--center {
+      text-align: center;
     }
 
     &--actions {
       display: flex;
       justify-content: flex-end;
       gap: 8px;
-      padding: 30px 24px;
+    }
+
+    &--empty {
+      text-align: center;
+      padding: 20px;
     }
   }
 
-  /* ===== Modifiers ===== */
-  &--has-row-line {
-    .data-table__row:not(:last-child) .data-table__cell {
-      border-bottom: 1px solid #0000001a;
+  /* ================= Divider ================= */
+
+  &--has-divider {
+    tbody tr:not(:first-child):not(:has(.data-table__cell--empty)) {
+      td {
+        border-top: 1px solid var(--color-border);
+      }
     }
   }
 }

@@ -2,8 +2,9 @@
   <article
     class="card"
     :class="cardClasses"
-    :aria-labelledby="titleId"
-    :aria-describedby="descriptionId"
+    :aria-labelledby="title ? titleId : undefined"
+    :aria-describedby="description ? descriptionId : undefined"
+    tabindex="0"
   >
     <header v-if="$slots.header" class="card__header">
       <slot name="header" />
@@ -31,19 +32,35 @@
 import { computed } from 'vue'
 
 const props = defineProps({
-  title: { type: String, default: '' },
-  description: { type: String, default: '' },
-  variant: { type: String, default: 'default' },
-  interactive: { type: Boolean, default: false }
+  title: {
+    type: String,
+    default: ''
+  },
+  description: {
+    type: String,
+    default: ''
+  },
+  variant: {
+    type: String,
+    default: 'default' // default | outlined | elevated
+  },
+  interactive: {
+    type: Boolean,
+    default: false
+  }
 })
 
-const titleId = `card-title-${Math.random().toString(36).slice(2)}`
-const descriptionId = `card-desc-${Math.random().toString(36).slice(2)}`
+const uid = Math.random().toString(36).slice(2)
+
+const titleId = `card-title-${uid}`
+const descriptionId = `card-description-${uid}`
 
 const cardClasses = computed(() => ({
-  [`card--${props.variant}`]: true,
+  'card--default': props.variant === 'default',
+  'card--outlined': props.variant === 'outlined',
+  'card--elevated': props.variant === 'elevated',
   'card--interactive': props.interactive
 }))
 </script>
 
-<style lang="scss" scoped src="./Card.scss"></style>
+<style lang="scss" scoped src="./Card.scss" />

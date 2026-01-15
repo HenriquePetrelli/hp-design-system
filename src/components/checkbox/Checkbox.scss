@@ -1,90 +1,121 @@
 .checkbox {
-  font-size: 17px;
-  font-weight: 400;
-  letter-spacing: 0px;
-  line-height: 26px;
   display: inline-flex;
-  flex-direction: row;
   align-items: center;
-  position: relative;
-  color: var(--border-color);
-  z-index: 0;
-  gap: 8px;
+  gap: 0.5rem;
+
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--color-text-primary);
   cursor: pointer;
+  position: relative;
+
+  --checkbox-border-color: var(--color-border);
+  --checkbox-bg-color: var(--color-primary);
+  --checkbox-icon-color: var(--color-text-inverse);
 
   &--disabled {
-    opacity: 0.6;
     cursor: not-allowed;
+    opacity: 0.6;
   }
 
+  /* =====================
+     Input (hidden)
+  ====================== */
+
   &__input {
-    all: unset;
     position: absolute;
     opacity: 0;
-    z-index: -1;
+    pointer-events: none;
 
-    &:focus-visible + .checkbox__container {
-      outline: 2px solid #0066ff;
+    &:focus-visible + .checkbox__box {
+      outline: 2px solid var(--color-focus);
       outline-offset: 2px;
     }
   }
 
-  &__container {
+  /* =====================
+     Box
+  ====================== */
+
+  &__box {
     width: 24px;
     height: 24px;
+
     border-radius: 8px;
-    border: 2px solid var(--border-color);
-    cursor: pointer;
+    border: 2px solid var(--checkbox-border-color);
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
-    box-sizing: border-box;
+
+    background-color: transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease,
+      transform 0.15s ease;
 
     &--rounded {
       border-radius: 50%;
     }
   }
 
+  &--checked &__box {
+    background-color: var(--checkbox-bg-color);
+    border-color: var(--checkbox-bg-color);
+  }
+
+  /* =====================
+     Icon
+  ====================== */
+
   &__icon {
-    stroke: var(--icon-color);
+    stroke: var(--checkbox-icon-color);
     stroke-width: 2;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
 
     &--animated {
-      animation: check-appear 0.6s ease-out forwards;
-      transform-origin: center;
+      animation: checkbox-check 0.4s ease-out forwards;
     }
   }
+
+  /* =====================
+     Label
+  ====================== */
 
   &__label {
     user-select: none;
   }
 
-  &:has(.checkbox__icon) &__container {
-    background-color: var(--background-color);
+  /* =====================
+     Hover / Active
+  ====================== */
+
+  &:hover:not(.checkbox--disabled):not(.checkbox--checked) &__box {
+    border-color: color-mix(
+      in srgb,
+      var(--checkbox-border-color) 70%,
+      transparent
+    );
   }
 
-  &:hover:not(.checkbox--disabled):not(:has(.checkbox__icon)) &__container {
-    border-color: color-mix(in srgb, var(--border-color) 70%, transparent);
+  &:active:not(.checkbox--disabled) &__box {
+    transform: scale(0.95);
   }
 }
 
-@keyframes check-appear {
-  0% {
-    transform: scale(0.5);
+/* =====================
+   Animation
+===================== */
+
+@keyframes checkbox-check {
+  from {
+    transform: scale(0.6);
     opacity: 0;
-    stroke-dashoffset: 15;
   }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
-  100% {
+  to {
     transform: scale(1);
     opacity: 1;
-    stroke-dashoffset: 0;
   }
 }

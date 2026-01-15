@@ -21,7 +21,11 @@ const meta: Meta<typeof ButtonTertiary> = {
     },
     color: {
       control: 'color',
-      description: 'Cor do texto e hover'
+      description: 'Cor do texto'
+    },
+    hoverColor: {
+      control: 'color',
+      description: 'Cor do texto no hover'
     },
     size: {
       control: 'select',

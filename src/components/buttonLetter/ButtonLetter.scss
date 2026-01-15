@@ -14,9 +14,16 @@
   cursor: pointer;
 
   background-color: var(--background-color);
+  color: var(--text-color);
 
-  transition: background-color 0.2s ease, transform 0.15s ease,
-    opacity 0.15s ease;
+  transition: transform 0.15s ease, background-color 0.15s ease,
+    color 0.15s ease, opacity 0.15s ease;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   &--lg {
     width: 64px;
@@ -35,20 +42,29 @@
   }
 
   &:not(:disabled):not(.button-letter--is-loading):hover {
-    transform: scale(1.0175);
+    transform: scale(1.05);
+    color: var(--hover-color);
+  }
+
+  &[style*='--background-color: transparent']:not(:disabled):not(
+      .button-letter--is-loading
+    ):hover {
+    background-color: rgba(var(--letter-color-rgb), 0.12);
   }
 
   &:not(:disabled):not(.button-letter--is-loading):active {
-    transform: scale(0.985);
+    transform: scale(0.95);
   }
 
   &:not(:disabled):not(.button-letter--is-loading):focus-visible {
-    outline: 2px solid var(--color-secondary);
+    outline: 2px solid var(--hover-color);
     outline-offset: 2px;
   }
 
   &--disabled,
   &:disabled {
     cursor: default;
+    color: var(--disabled-color);
+    opacity: 0.5;
   }
 }

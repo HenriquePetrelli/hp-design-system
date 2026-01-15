@@ -1,38 +1,37 @@
 <template>
   <label
-    :for="id"
     class="checkbox"
-    :style="{
-      '--border-color': computedBorderColor
+    :class="{
+      'checkbox--disabled': disabled,
+      'checkbox--checked': isChecked
     }"
-    :class="{ 'checkbox--disabled': disabled }"
+    :for="id"
+    :style="{
+      '--checkbox-border-color': computedBorderColor,
+      '--checkbox-bg-color': computedBackgroundColor,
+      '--checkbox-icon-color': computedIconColor
+    }"
   >
     <input
-      type="checkbox"
-      class="checkbox__input"
       :id="id"
+      class="checkbox__input"
+      type="checkbox"
       :checked="isChecked"
       :disabled="disabled"
       @change="handleChange"
     />
 
-    <span
-      class="checkbox__container"
-      :class="{ 'checkbox__container--rounded': rounded }"
-      :style="{ '--background-color': computedBackgroundColor }"
-    >
+    <span class="checkbox__box" :class="{ 'checkbox__box--rounded': rounded }">
       <svg
         v-if="isChecked"
         class="checkbox__icon"
         :class="{ 'checkbox__icon--animated': hasAnimation }"
-        :style="{
-          '--icon-color': computedIconColor
-        }"
-        width="12px"
-        height="9px"
+        width="12"
+        height="9"
         viewBox="0 0 12 9"
+        aria-hidden="true"
       >
-        <polyline points="1 5 4 8 11 1"></polyline>
+        <polyline points="1 5 4 8 11 1" />
       </svg>
     </span>
 
@@ -42,7 +41,7 @@
   </label>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 
 const props = defineProps({
@@ -56,7 +55,7 @@ const props = defineProps({
   },
   id: {
     type: String,
-    default: () => `checkbox-${Math.random().toString(36).substring(2, 9)}`
+    default: () => `checkbox-${Math.random().toString(36).slice(2, 9)}`
   },
   disabled: {
     type: Boolean,
@@ -86,10 +85,8 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue'])
 
-// Estado interno inicializado com o valor da prop checked
 const internalChecked = ref(props.checked)
 
-// Valor computado que prioriza modelValue quando disponível
 const isChecked = computed(() => {
   return props.modelValue !== undefined
     ? props.modelValue
@@ -97,32 +94,36 @@ const isChecked = computed(() => {
 })
 
 const handleChange = (event: Event) => {
-  const newValue = (event.target as HTMLInputElement).checked
+  const value = (event.target as HTMLInputElement).checked
+
   if (props.modelValue !== undefined) {
-    emit('update:modelValue', newValue)
+    emit('update:modelValue', value)
   } else {
-    internalChecked.value = newValue
+    internalChecked.value = value
   }
 }
 
-// Atualiza o estado interno quando a prop checked muda
 watch(
   () => props.checked,
-  (newVal) => {
-    internalChecked.value = newVal
+  (value) => {
+    internalChecked.value = value
   }
 )
 
-const computedBackgroundColor = computed(() => {
-  return props.backgroundColor || 'black'
-})
+/* =====================
+   Computed tokens
+===================== */
 
 const computedBorderColor = computed(() => {
-  return props.borderColor || 'black'
+  return props.borderColor || 'var(--color-border)'
+})
+
+const computedBackgroundColor = computed(() => {
+  return props.backgroundColor || 'var(--color-primary)'
 })
 
 const computedIconColor = computed(() => {
-  return props.iconColor || 'white'
+  return props.iconColor || 'var(--color-text-inverse)'
 })
 </script>
 

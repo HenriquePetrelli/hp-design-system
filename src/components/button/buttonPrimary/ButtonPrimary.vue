@@ -6,8 +6,8 @@
       'button-primary--disabled': disabled
     }"
     :style="{
-      backgroundColor: computedBackgroundColor,
-      color: computedColor
+      backgroundColor: backgroundColor,
+      color: color
     }"
     :aria-label="ariaLabel || label"
     :aria-disabled="disabled"
@@ -16,27 +16,26 @@
   >
     <span
       v-if="icon && iconPosition === IconPosition.LEFT"
-      class="button-primary__icon--left"
+      class="button-primary__icon button-primary__icon--left"
     >
-      <Icon :name="icon" size="sm" :color="computedColor" />
+      <Icon :name="icon" size="sm" :color="color" />
     </span>
 
-    <span class="button-primary__label" :style="{ color: computedColor }">
+    <span class="button-primary__label">
       {{ label }}
     </span>
 
     <span
       v-if="icon && iconPosition === IconPosition.RIGHT"
-      class="button-primary__icon--right"
+      class="button-primary__icon button-primary__icon--right"
     >
-      <Icon :name="icon" size="sm" :color="computedColor" />
+      <Icon :name="icon" size="sm" :color="color" />
     </span>
   </button>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { ButtonColor, IconPosition, ButtonSize } from '../ButtonTypes'
+import { ButtonSize, IconPosition } from '../ButtonTypes'
 import Icon from '../../icon/Icon.vue'
 
 const props = defineProps({
@@ -48,30 +47,31 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  tabindex: {
-    type: Number,
-    default: 0
-  },
   disabled: {
     type: Boolean,
     default: false
   },
+
   backgroundColor: {
     type: String,
-    default: ButtonColor.PRIMARY
+    default: 'var(--color-primary)'
   },
+
   color: {
     type: String,
-    default: 'white'
+    default: 'var(--color-text-inverse)'
   },
+
   size: {
     type: String,
     default: ButtonSize.REGULAR
   },
+
   icon: {
     type: String,
     default: ''
   },
+
   iconPosition: {
     type: String,
     default: IconPosition.LEFT
@@ -85,19 +85,6 @@ const handleClick = (event: Event) => {
     emit('action:click', event)
   }
 }
-
-const computedColor = computed(() => {
-  return props.color || 'inherit'
-})
-
-const computedBackgroundColor = computed(() => {
-  if (
-    Object.values(ButtonColor).includes(props.backgroundColor as ButtonColor)
-  ) {
-    return `var(--color-${props.backgroundColor})`
-  }
-  return props.backgroundColor
-})
 </script>
 
 <style lang="scss" scoped src="./ButtonPrimary.scss" />

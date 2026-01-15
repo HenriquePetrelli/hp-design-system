@@ -1,26 +1,33 @@
 .button-primary {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 400;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  min-width: 120px;
   padding: 12px 20px;
+
   border: 0;
   border-radius: 8px;
-  min-width: 120px;
   cursor: pointer;
-  outline: none;
+
   font-size: 17px;
-  background-color: var(--color-primary);
-  color: var(--color-text);
+  background-color: inherit;
+  color: inherit;
+
+  outline: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 
   &:focus-visible {
-    outline: 2px solid var(--color-secondary);
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
   }
 
   &:not(:disabled):hover {
     transform: scale(1.0175);
+    box-shadow: var(--shadow-sm);
   }
 
   &:not(:disabled):active {
@@ -29,6 +36,7 @@
 
   &--disabled,
   &:disabled {
+    cursor: default;
     opacity: 0.5;
   }
 
@@ -37,15 +45,15 @@
   }
 
   &__icon {
+    display: flex;
+    align-items: center;
+
     &--left {
       margin-right: 0.8rem;
-      display: flex;
-      align-items: center;
     }
+
     &--right {
       margin-left: 0.8rem;
-      display: flex;
-      align-items: center;
     }
   }
 
@@ -53,9 +61,4 @@
     display: block;
     color: inherit;
   }
-}
-
-.button-primary:disabled {
-  cursor: default;
-  opacity: 0.5;
 }

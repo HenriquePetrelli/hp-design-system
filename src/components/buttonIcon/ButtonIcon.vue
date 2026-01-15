@@ -1,8 +1,5 @@
 <template>
   <button
-    @click="handleClick"
-    :aria-label="label"
-    :tabindex="tabindex"
     class="button-icon"
     :class="{
       'button-icon--sm': size === ButtonIconSize.SMALL,
@@ -10,25 +7,20 @@
       'button-icon--disabled': disabled,
       'button-icon--is-loading': isLoading
     }"
-    :style="{
-      '--background-color': computedBackgroundColor,
-      '--icon-color': convertHexToRgb(computedIconColor)
-    }"
+    :style="computedStyles"
+    :aria-label="label"
     :aria-disabled="disabled || isLoading"
     :disabled="disabled || isLoading"
+    :tabindex="tabindex"
+    @click="handleClick"
   >
-    <HpIcon
-      v-if="!isLoading"
-      :name="icon"
-      :size="size"
-      :color="computedIconColor"
-    />
+    <HpIcon v-if="!isLoading" :name="icon" :size="size" :color="color" />
 
     <HpSpinnerLoader
       v-else
       type="circle1"
-      :color="computedIconColor || '#000'"
-      :secondaryColor="computedBackgroundColor"
+      :color="color"
+      :secondaryColor="backgroundColor || 'transparent'"
       :size="size"
       :speed="0.8"
     />
@@ -50,17 +42,21 @@ const props = defineProps({
     type: String,
     required: true
   },
-  hasBackground: {
-    type: Boolean,
-    default: false
+  color: {
+    type: String,
+    default: 'currentColor'
+  },
+  hoverColor: {
+    type: String,
+    default: ''
   },
   backgroundColor: {
     type: String,
-    default: ''
+    default: 'transparent'
   },
-  iconColor: {
+  disabledColor: {
     type: String,
-    default: ''
+    default: 'var(--color-text-disabled)'
   },
   disabled: {
     type: Boolean,
@@ -72,7 +68,7 @@ const props = defineProps({
   },
   isLoading: {
     type: Boolean,
-    defualt: false
+    default: false
   },
   size: {
     type: String,
@@ -83,22 +79,18 @@ const props = defineProps({
 const emit = defineEmits(['action:click'])
 
 const handleClick = (event: Event) => {
-  if (!props.disabled) {
+  if (!props.disabled && !props.isLoading) {
     emit('action:click', event)
   }
 }
 
-const computedIconColor = computed(() => {
-  if (props.backgroundColor || props.hasBackground)
-    return props.iconColor || '#000000'
-  else return props.iconColor || 'var(--color-primary)'
-})
-
-const computedBackgroundColor = computed(() => {
-  if (props.backgroundColor) return props.backgroundColor
-  if (props.hasBackground) return 'var(--color-primary)'
-  return 'transparent'
-})
+const computedStyles = computed(() => ({
+  '--background-color': props.backgroundColor,
+  '--icon-color': convertHexToRgb(props.color),
+  '--text-color': props.color,
+  '--hover-color': props.hoverColor || props.color,
+  '--disabled-color': props.disabledColor
+}))
 </script>
 
 <style lang="scss" scoped src="./ButtonIcon.scss" />

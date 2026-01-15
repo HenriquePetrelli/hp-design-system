@@ -22,7 +22,7 @@ const meta: Meta<typeof ButtonIcon> = {
       control: 'color',
       description: 'Cor de fundo do botão'
     },
-    iconColor: {
+    color: {
       control: 'color',
       description: 'Cor do ícone'
     },
@@ -89,7 +89,6 @@ export const Disabled: Story = {
 export const WithBackgroud: Story = {
   args: {
     label: 'Botão carregando',
-    hasBackground: true,
     backgroundColor: '#4CAF50',
     icon: 'BE0120'
   }
@@ -101,7 +100,7 @@ export const CustomColors: Story = {
     label: 'Cores customizadas',
     icon: 'BE0120',
     backgroundColor: '#4CAF50',
-    iconColor: '#FFEB3B'
+    color: '#FFEB3B'
   }
 }
 
@@ -110,7 +109,7 @@ export const Loading: Story = {
   args: {
     label: 'Botão carregando',
     isLoading: true,
-    iconColor: '#000000'
+    color: '#000000'
   }
 }
 
@@ -120,6 +119,6 @@ export const LoadingWithCustomColors: Story = {
     label: 'Loading com cores',
     isLoading: true,
     backgroundColor: '#00a392',
-    iconColor: 'black'
+    color: 'black'
   }
 }

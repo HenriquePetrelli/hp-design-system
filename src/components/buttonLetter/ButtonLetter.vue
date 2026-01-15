@@ -1,10 +1,5 @@
 <template>
   <button
-    @click="handleClick"
-    :aria-label="label"
-    :aria-disabled="disabled || isLoading"
-    :disabled="disabled || isLoading"
-    :tabindex="disabled ? -1 : 0"
     class="button-letter"
     :class="{
       'button-letter--sm': size === ButtonLetterSize.SMALL,
@@ -12,19 +7,22 @@
       'button-letter--disabled': disabled,
       'button-letter--is-loading': isLoading
     }"
-    :style="{
-      '--background-color': computedBackgroundColor,
-      '--letter-color-rgb': letterColorRgb,
-      color: computedLetterColor
-    }"
+    :style="computedStyles"
+    :aria-label="label"
+    :aria-disabled="disabled || isLoading"
+    :disabled="disabled || isLoading"
+    :tabindex="disabled || isLoading ? -1 : tabindex"
+    @click="handleClick"
   >
-    <span v-if="!isLoading">{{ letter }}</span>
+    <span v-if="!isLoading" class="button-letter__content">
+      {{ letter }}
+    </span>
 
     <HpSpinnerLoader
       v-else
       type="circle1"
-      :color="computedLetterColor || 'var(--color-primary)'"
-      :secondaryColor="computedBackgroundColor"
+      :color="color"
+      :secondaryColor="backgroundColor || 'transparent'"
       :size="size"
       :speed="0.8"
     />
@@ -46,17 +44,21 @@ const props = defineProps({
     type: String,
     required: true
   },
-  hasBackground: {
-    type: Boolean,
-    default: false
+  color: {
+    type: String,
+    default: 'currentColor'
+  },
+  hoverColor: {
+    type: String,
+    default: ''
   },
   backgroundColor: {
     type: String,
-    default: ''
+    default: 'transparent'
   },
-  letterColor: {
+  disabledColor: {
     type: String,
-    default: ''
+    default: 'var(--color-text-disabled)'
   },
   disabled: {
     type: Boolean,
@@ -84,33 +86,13 @@ const handleClick = (event: Event) => {
   }
 }
 
-/**
- * COR DO TEXTO (sempre uma cor válida)
- */
-const computedLetterColor = computed(() => {
-  if (props.hasBackground || props.backgroundColor) {
-    return props.letterColor || '#000000'
-  }
-
-  return props.letterColor || 'var(--color-primary)'
-})
-
-/**
- * BACKGROUND
- */
-const computedBackgroundColor = computed(() => {
-  if (props.backgroundColor) return props.backgroundColor
-  if (props.hasBackground) return 'var(--color-primary)'
-  return 'transparent'
-})
-
-/**
- * RGB usado SOMENTE para efeitos visuais (hover)
- */
-const letterColorRgb = computed(() => {
-  const color = computedLetterColor.value
-  return color ? convertHexToRgb(color) : ''
-})
+const computedStyles = computed(() => ({
+  '--background-color': props.backgroundColor,
+  '--text-color': props.color,
+  '--hover-color': props.hoverColor || props.color,
+  '--letter-color-rgb': convertHexToRgb(props.color),
+  '--disabled-color': props.disabledColor
+}))
 </script>
 
 <style lang="scss" scoped src="./ButtonLetter.scss" />

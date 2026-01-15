@@ -6,12 +6,15 @@
         '--background-color': computedBackgroundType,
         '--color': computedColorType
       }"
+      role="alert"
     >
-      <p class="alert__container__message">{{ message }}</p>
+      <p class="alert__message">
+        {{ message }}
+      </p>
 
       <HpButtonIcon
-        class="alert__container__icon"
-        label="Fechar modal"
+        class="alert__icon"
+        label="Fechar alerta"
         icon="BE0031"
         size="md"
         :icon-color="computedColorType"

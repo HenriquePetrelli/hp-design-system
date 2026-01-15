@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import ButtonPrimary from './ButtonPrimary.vue'
-import { ButtonColor, ButtonSize, IconPosition } from '../ButtonTypes'
+import { ButtonSize, IconPosition } from '../ButtonTypes'
 
 const meta: Meta<typeof ButtonPrimary> = {
   title: 'Components/Button/ButtonPrimary',
@@ -15,17 +15,12 @@ const meta: Meta<typeof ButtonPrimary> = {
       control: 'text',
       description: 'Texto para acessibilidade (aria-label)'
     },
-    tabindex: {
-      control: { type: 'number', min: 0 },
-      description: 'Ordem de tabulação'
-    },
     disabled: {
       control: 'boolean',
       description: 'Estado desabilitado do botão'
     },
     backgroundColor: {
-      control: 'select',
-      options: Object.values(ButtonColor),
+      control: 'color',
       description: 'Cor de fundo do botão'
     },
     color: {
@@ -98,7 +93,7 @@ export const WithRightIcon: Story = {
 export const CustomColor: Story = {
   args: {
     label: 'Custom Color',
-    backgroundColor: ButtonColor.SECONDARY,
+    backgroundColor: '#007BFF',
     color: '#fff'
   }
 }

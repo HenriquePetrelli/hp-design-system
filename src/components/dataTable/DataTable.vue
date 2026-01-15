@@ -2,7 +2,10 @@
   <section
     class="data-table"
     role="region"
-    :class="{ 'data-table--has-row-line': hasRowLine }"
+    :class="{
+      'data-table--has-divider': hasDivider,
+      'data-table--elevated': elevated
+    }"
   >
     <!-- Search -->
     <HpInputText
@@ -14,77 +17,81 @@
       :aria-label="placeholderSearch"
       :label="placeholderSearch"
       :hideLabel="true"
+      size="sm"
     />
 
-    <table class="data-table__table">
-      <!-- Header -->
-      <thead>
-        <tr class="data-table__row">
-          <th
-            v-for="(column, index) in columns"
-            :key="index"
-            class="data-table__header-cell"
-            :class="{
-              'data-table__header-cell--right': column.align === 'right'
-            }"
-            :style="{ width: column.width }"
-          >
-            <HpText>{{ column.label }}</HpText>
-          </th>
+    <div class="data-table__wrapper">
+      <table class="data-table__table">
+        <thead>
+          <tr class="data-table__row data-table__row--header">
+            <th
+              v-for="(column, index) in columns"
+              :key="index"
+              class="data-table__header-cell"
+              :class="{
+                'data-table__header-cell--right': column.align === 'right',
+                'data-table__header-cell--center': column.align === 'center'
+              }"
+              :style="{ width: column.width }"
+            >
+              <HpText size="xs" weight="semibold">
+                {{ column.label }}
+              </HpText>
+            </th>
 
-          <th
-            v-if="$slots.actions"
-            class="data-table__header-cell data-table__header-cell--right"
-          >
-            <HpText>Ações</HpText>
-          </th>
-        </tr>
-      </thead>
+            <th
+              v-if="$slots.actions"
+              class="data-table__header-cell data-table__header-cell--right"
+            >
+              <HpText size="xs" weight="semibold">Ações</HpText>
+            </th>
+          </tr>
+        </thead>
 
-      <!-- Body -->
-      <tbody class="data-table__body">
-        <!-- Empty state -->
-        <tr v-if="filteredItems.length === 0" class="data-table__row">
-          <td
-            class="data-table__cell"
-            :colspan="columns.length + ($slots.actions ? 1 : 0)"
-            role="status"
-            aria-live="polite"
-          >
-            <HpText>Nenhum resultado encontrado.</HpText>
-          </td>
-        </tr>
+        <tbody class="data-table__body">
+          <!-- Empty state -->
+          <tr v-if="filteredItems.length === 0">
+            <td
+              class="data-table__cell data-table__cell--empty"
+              :colspan="columns.length + ($slots.actions ? 1 : 0)"
+            >
+              <HpText size="sm" color="var(--color-text-muted)">
+                Nenhum resultado encontrado.
+              </HpText>
+            </td>
+          </tr>
 
-        <tr
-          v-else
-          v-for="(item, rowIndex) in filteredItems"
-          :key="rowIndex"
-          class="data-table__row"
-        >
-          <td
-            v-for="column in columns"
-            :key="column.key"
-            class="data-table__cell"
-            :class="{
-              'data-table__cell--right': column.align === 'right'
-            }"
-            :data-label="column.label"
+          <!-- Rows -->
+          <tr
+            v-else
+            v-for="(item, rowIndex) in filteredItems"
+            :key="rowIndex"
+            class="data-table__row"
           >
-            <HpText>
-              {{ item[column.key] }}
-            </HpText>
-          </td>
+            <td
+              v-for="column in columns"
+              :key="column.key"
+              class="data-table__cell"
+              :class="{
+                'data-table__cell--right': column.align === 'right',
+                'data-table__cell--center': column.align === 'center'
+              }"
+            >
+              <HpText size="sm">
+                {{ item[column.key] }}
+              </HpText>
+            </td>
 
-          <!-- Actions -->
-          <td
-            v-if="$slots.actions"
-            class="data-table__cell data-table__cell--actions"
-          >
-            <slot name="actions" :item="item" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <td
+              v-if="$slots.actions"
+              class="data-table__cell data-table__cell--actions"
+            >
+              <slot name="actions" :item="item" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 </template>
 
@@ -95,22 +102,15 @@ import { HpInputText, HpText } from '@components'
 type DataItem = Record<string, any>
 
 const props = defineProps({
-  searchable: {
-    type: Boolean,
-    default: true
-  },
-  placeholderSearch: {
-    type: String,
-    default: 'Digite para buscar...'
-  },
-  hasRowLine: {
-    type: Boolean,
-    default: false
-  },
-  items: {
-    type: Array as PropType<DataItem[]>,
-    required: true
-  },
+  searchable: { type: Boolean, default: true },
+  placeholderSearch: { type: String, default: 'Digite para buscar...' },
+
+  /** Visual */
+  hasDivider: { type: Boolean, default: false },
+  elevated: { type: Boolean, default: true },
+
+  /** Data */
+  items: { type: Array as PropType<DataItem[]>, required: true },
   columns: {
     type: Array as PropType<
       {
@@ -129,10 +129,14 @@ const search = ref('')
 const filteredItems = computed(() => {
   if (!search.value) return props.items
 
+  const query = search.value.toLowerCase()
+
   return props.items.filter((item) =>
-    JSON.stringify(item).toLowerCase().includes(search.value.toLowerCase())
+    Object.values(item).some((value) =>
+      String(value).toLowerCase().includes(query)
+    )
   )
 })
 </script>
 
-<style src="./DataTable.scss" scoped lang="scss" />
+<style scoped lang="scss" src="./DataTable.scss" />

@@ -56,7 +56,7 @@
         { key: 'owner', label: 'Responsável' },
         { key: 'status', label: 'Status' }
       ]"
-      hasRowLine
+      hasDivider
     >
       <template #actions="{ item }">
         <HpButtonIcon

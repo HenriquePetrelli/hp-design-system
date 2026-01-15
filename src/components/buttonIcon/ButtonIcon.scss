@@ -5,11 +5,12 @@
   width: 48px;
   height: 48px;
   border-radius: 50px;
-  font-size: 12px;
-  font-weight: 400;
-  background-color: var(--background-color);
   border: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
   cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease,
+    color 0.15s ease, opacity 0.15s ease;
 
   &--lg {
     width: 64px;
@@ -19,7 +20,6 @@
   &--sm {
     width: 32px;
     height: 32px;
-    font-size: 15px;
   }
 
   &--is-loading {
@@ -27,28 +27,29 @@
   }
 
   &:not(:disabled):not(.button-icon--is-loading):focus-visible {
-    outline: 2px solid var(--color-secondary);
+    outline: 2px solid var(--hover-color);
     outline-offset: 2px;
   }
 
   &:not(:disabled):not(.button-icon--is-loading):hover {
-    transform: scale(1.0175);
-    opacity: 0.9;
+    transform: scale(1.05);
+    color: var(--hover-color);
   }
 
   &[style*='--background-color: transparent']:not(:disabled):not(
       .button-icon--is-loading
     ):hover {
-    background-color: rgba(var(--icon-color), 0.1);
+    background-color: rgba(var(--icon-color), 0.12);
   }
 
   &:not(:disabled):not(.button-icon--is-loading):active {
-    transform: scale(0.985);
+    transform: scale(0.95);
   }
 
   &--disabled,
   &:not(.button-icon--is-loading):disabled {
-    opacity: 0.5;
     cursor: default;
+    color: var(--disabled-color);
+    opacity: 0.5;
   }
 }
