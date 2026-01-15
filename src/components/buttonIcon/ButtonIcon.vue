@@ -14,14 +14,14 @@
     :tabindex="tabindex"
     @click="handleClick"
   >
-    <HpIcon v-if="!isLoading" :name="icon" :size="size" :color="color" />
+    <HpIcon v-if="!isLoading" :name="icon" :size="iconSize" :color="color" />
 
     <HpSpinnerLoader
       v-else
       type="circle1"
       :color="color"
       :secondaryColor="backgroundColor || 'transparent'"
-      :size="size"
+      :size="iconSize"
       :speed="0.8"
     />
   </button>
@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { HpIcon, HpSpinnerLoader } from '@components'
-import { ButtonIconSize } from './ButtonIconTypes'
+import { ButtonIconSize, type ButtonIconSizeValue } from './ButtonIconTypes'
 import { convertHexToRgb } from '@composables/convertColorType'
 
 const props = defineProps({
@@ -70,19 +70,35 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+
   size: {
-    type: String,
+    type: String as () => ButtonIconSizeValue,
     default: ButtonIconSize.REGULAR
   }
 })
 
-const emit = defineEmits(['action:click'])
+const emit = defineEmits<{
+  (e: 'action:click', event: Event): void
+}>()
 
 const handleClick = (event: Event) => {
   if (!props.disabled && !props.isLoading) {
     emit('action:click', event)
   }
 }
+
+const normalizedSize = computed<ButtonIconSize>(() => {
+  switch (props.size) {
+    case 'sm':
+      return ButtonIconSize.SMALL
+    case 'lg':
+      return ButtonIconSize.LARGE
+    default:
+      return ButtonIconSize.REGULAR
+  }
+})
+
+const iconSize = computed(() => normalizedSize.value)
 
 const computedStyles = computed(() => ({
   '--background-color': props.backgroundColor,
@@ -93,4 +109,4 @@ const computedStyles = computed(() => ({
 }))
 </script>
 
-<style lang="scss" scoped src="./ButtonIcon.scss" />
+<style scoped lang="scss" src="./ButtonIcon.scss" />

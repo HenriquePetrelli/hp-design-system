@@ -3,3 +3,5 @@ export enum ButtonIconSize {
   REGULAR = 'md',
   LARGE = 'lg'
 }
+
+export type ButtonIconSizeValue = 'sm' | 'md' | 'lg'

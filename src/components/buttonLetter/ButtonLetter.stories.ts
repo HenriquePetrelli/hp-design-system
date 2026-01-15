@@ -20,7 +20,7 @@ const meta: Meta<typeof ButtonLetter> = {
       control: 'color',
       description: 'Cor de fundo do botão'
     },
-    letterColor: {
+    color: {
       control: 'color',
       description: 'Cor da letra'
     },
@@ -87,7 +87,6 @@ export const Disabled: Story = {
 export const WithBackgroud: Story = {
   args: {
     label: 'Botão carregando',
-    hasBackground: true,
     backgroundColor: '#4CAF50',
     letter: 'H'
   }
@@ -99,7 +98,7 @@ export const CustomColors: Story = {
     label: 'Cores customizadas',
     letter: 'H',
     backgroundColor: '#4CAF50',
-    letterColor: '#FFEB3B'
+    color: '#FFEB3B'
   }
 }
 
@@ -109,7 +108,7 @@ export const Loading: Story = {
     label: 'Botão carregando',
     letter: 'H',
     isLoading: true,
-    letterColor: '#000000'
+    color: '#000000'
   }
 }
 
@@ -120,6 +119,6 @@ export const LoadingWithCustomColors: Story = {
     isLoading: true,
     backgroundColor: '#00a392',
     letter: 'H',
-    letterColor: 'black'
+    color: 'black'
   }
 }
