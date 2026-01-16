@@ -12,7 +12,7 @@
   padding: 16px;
 
   &__container {
-    background-color: white;
+    background-color: var(--color-surface);
     border-radius: 8px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -41,7 +41,7 @@
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--color-border);
     position: relative;
   }
 
@@ -65,7 +65,7 @@
   &__title {
     font-size: 18px;
     font-weight: 600;
-    color: black;
+    color: var(--color-text-primary);
     margin: 0;
     flex: 1;
     text-align: center;
@@ -96,7 +96,7 @@
 
   &__footer {
     padding: 10px 20px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid var(--color-border);
     display: flex;
     justify-content: center;
     gap: 12px;

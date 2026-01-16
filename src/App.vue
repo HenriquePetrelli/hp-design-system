@@ -1,8 +1,26 @@
 <template>
   <div class="playground">
+    <HpThemeSwitcher v-model="value2" style="position: fixed; top: 30px" />
     <!-- <HpToggleSwitch v-model="value" /> -->
 
-    <HpThemeSwitcher v-model="value2" style="position: fixed; top: 30px" />
+    <!-- <HpHeader>
+      <template #header-left>
+        <HpButtonIcon label="Menu" icon="BE0010" />
+      </template>
+
+      <template #header-center>TESTE</template>
+
+      <template #header-right>
+        <HpButtonLetter
+          hasBackground
+          backgroundColor="var(--color-primary)"
+          color="#ffffff"
+          letter="HP"
+          size="sm"
+          label="Abrir perfil"
+        />
+      </template>
+    </HpHeader> -->
 
     <!-- <HpThemeSwitcher v-model="value2" :hasAnimation="false" /> -->
     <!-- <HpInputRange label="Selecione uma opção" v-model="selectedValue" /> -->
@@ -47,7 +65,7 @@
       </HpText>
     </template>
   </HpDataTable> -->
-
+    <!-- 
     <HpDataTable
       style="width: 100%"
       :items="projects"
@@ -74,7 +92,7 @@
           @click="deleteProject(item.id)"
         />
       </template>
-    </HpDataTable>
+    </HpDataTable> -->
 
     <!-- <HpDataTable
     title="Logs"
@@ -87,6 +105,10 @@
       { key: 'value', label: 'ID', sortable: true }
     ]"
   /> -->
+
+    <HpModal :isOpen="isOpen" title="Editar Colaborador" size="md">
+      TESTE
+    </HpModal>
   </div>
 </template>
 
@@ -108,8 +130,10 @@ import {
   HpInputNumber,
   HpInputRange,
   HpCard,
-  HpDataTable
+  HpDataTable,
+  HpButtonLetter
 } from './components/index'
+const isOpen = ref(true)
 
 const selectedValue = ref(null)
 
