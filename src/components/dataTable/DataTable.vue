@@ -81,9 +81,16 @@
                 'data-table__cell--center': column.align === 'center'
               }"
             >
-              <HpText size="sm" color="var(--color-text-primary)">
-                {{ item[column.key] }}
-              </HpText>
+              <slot
+                :name="`cell-${column.key}`"
+                :item="item"
+                :value="item[column.key]"
+                :column="column"
+              >
+                <HpText size="sm" color="var(--color-text-primary)">
+                  {{ item[column.key] }}
+                </HpText>
+              </slot>
             </td>
 
             <td
