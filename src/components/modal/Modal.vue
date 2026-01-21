@@ -36,14 +36,14 @@
             v-if="hasSecondaryButton"
             :label="secondaryButtonLabel"
             :color="secondaryButtonColor"
-            @click="handlePrimaryButtonClick"
+            @click="handleSecondaryButtonClick"
           />
 
           <HpButtonPrimary
             v-if="hasPrimaryButton"
             :label="primaryButtonLabel"
             :backgroundColor="primaryButtonColor"
-            @click="handleSecondaryButtonClick"
+            @click="handlePrimaryButtonClick"
           />
         </div>
 

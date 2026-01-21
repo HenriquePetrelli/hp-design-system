@@ -1,6 +1,5 @@
 .input {
   position: relative;
-  margin-bottom: 1.5rem;
 
   &__fieldset {
     display: block;
@@ -268,7 +267,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.8rem;
     font-size: 16px;
     border: 1px solid var(--color-border);
     border-radius: 12px;
@@ -278,7 +277,7 @@
     width: 100%;
     text-align: left;
     padding-left: 1rem;
-    min-height: 56px;
+    min-height: 52px;
     min-width: 180px;
 
     &:hover:not(.is-disabled) {
@@ -350,7 +349,9 @@
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.2s, transform 0.2s;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
 }
 
 .fade-enter-from,

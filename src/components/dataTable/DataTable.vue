@@ -7,6 +7,8 @@
       'data-table--elevated': elevated
     }"
   >
+    <slot name="filters" />
+
     <!-- Search -->
     <HpInputText
       v-if="searchable"
@@ -92,6 +94,35 @@
             </td>
           </tr>
         </tbody>
+
+        <tfoot
+          v-if="
+            $slots['footer-left'] ||
+            $slots['footer-center'] ||
+            $slots['footer-right']
+          "
+        >
+          <tr>
+            <td
+              class="data-table__footer-cell"
+              :colspan="columns.length + ($slots.actions ? 1 : 0)"
+            >
+              <div class="data-table__footer-content">
+                <div class="data-table__footer-left">
+                  <slot name="footer-left" />
+                </div>
+
+                <div class="data-table__footer-center">
+                  <slot name="footer-center" />
+                </div>
+
+                <div class="data-table__footer-right">
+                  <slot name="footer-right" />
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   </section>
