@@ -475,10 +475,6 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside)
-  const ariaLive = document.getElementById('aria-live-message')
-  if (ariaLive) {
-    document.body.removeChild(ariaLive)
-  }
 })
 
 defineExpose({
