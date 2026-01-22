@@ -55,6 +55,7 @@
 
         <!-- ================= BODY ================= -->
         <tbody class="data-table__body">
+          <!-- Empty state -->
           <tr v-if="filteredItems.length === 0">
             <td
               class="data-table__cell data-table__cell--empty"
@@ -66,6 +67,7 @@
             </td>
           </tr>
 
+          <!-- Rows -->
           <tr
             v-else
             v-for="(item, rowIndex) in filteredItems"
@@ -111,36 +113,36 @@
           "
         >
           <tr>
-            <!-- COLUNA FANTASMA (quando só existe footer-right) -->
-            <td
-              v-if="ghostColspan > 0"
-              class="data-table__footer-cell"
-              :colspan="ghostColspan"
-            />
+            <td class="data-table__footer-cell" :colspan="totalColumns">
+              <div
+                class="data-table__footer"
+                :class="{
+                  'has-left': !!$slots['footer-left'],
+                  'has-center': !!$slots['footer-center'],
+                  'has-right': !!$slots['footer-right']
+                }"
+              >
+                <div
+                  v-if="$slots['footer-left']"
+                  class="data-table__footer-left"
+                >
+                  <slot name="footer-left" />
+                </div>
 
-            <!-- LEFT -->
-            <td
-              v-if="$slots['footer-left']"
-              class="data-table__footer-cell data-table__footer-cell--left"
-            >
-              <slot name="footer-left" />
-            </td>
+                <div
+                  v-if="$slots['footer-center']"
+                  class="data-table__footer-center"
+                >
+                  <slot name="footer-center" />
+                </div>
 
-            <!-- CENTER -->
-            <td
-              v-if="$slots['footer-center']"
-              class="data-table__footer-cell data-table__footer-cell--center"
-              :colspan="footerCenterColspan"
-            >
-              <slot name="footer-center" />
-            </td>
-
-            <!-- RIGHT (sempre última coluna) -->
-            <td
-              v-if="$slots['footer-right']"
-              class="data-table__footer-cell data-table__footer-cell--right"
-            >
-              <slot name="footer-right" />
+                <div
+                  v-if="$slots['footer-right']"
+                  class="data-table__footer-right"
+                >
+                  <slot name="footer-right" />
+                </div>
+              </div>
             </td>
           </tr>
         </tfoot>
@@ -193,30 +195,6 @@ const filteredItems = computed(() => {
 const totalColumns = computed(
   () => props.columns.length + (slots.actions ? 1 : 0)
 )
-
-const ghostColspan = computed(() => {
-  if (
-    slots['footer-right'] &&
-    !slots['footer-left'] &&
-    !slots['footer-center']
-  ) {
-    return totalColumns.value - 1
-  }
-
-  if (
-    slots['footer-left'] &&
-    !slots['footer-center'] &&
-    slots['footer-right']
-  ) {
-    return totalColumns.value - 2
-  }
-
-  return 0
-})
-
-const footerCenterColspan = computed(() => {
-  return totalColumns.value - 3
-})
 </script>
 
 <style scoped lang="scss" src="./DataTable.scss" />
