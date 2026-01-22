@@ -2,6 +2,7 @@
   <div class="playground">
     <HpThemeSwitcher v-model="value2" style="position: fixed; top: 30px" />
     <!-- <HpToggleSwitch v-model="value" /> -->
+    <!-- <HpInputText label="Sua idade" /> -->
 
     <!-- <HpHeader>
       <template #header-left>
@@ -9,6 +10,7 @@
       </template>
 
       <template #header-center>TESTE</template>
+
 
       <template #header-right>
         <HpButtonLetter
@@ -22,18 +24,98 @@
       </template>
     </HpHeader> -->
 
+    <HpDataTable
+      :items="users"
+      :columns="[
+        { key: 'name', label: 'Nome' },
+        { key: 'status', label: 'E-mail' },
+        { key: 'role', label: 'Perfil' }
+      ]"
+    >
+      <template #cell-status="{ value }">
+        <strong
+          ><HpText size="sm" color="var(--color-success)">
+            {{ value }}
+          </HpText></strong
+        >
+      </template>
+
+      <!-- <template #footer-left>
+        <HpText size="lg" color="var(--color-text-primary)">Valor Total</HpText>
+      </template> -->
+
+      <template #footer-right>
+        <HpText
+          style="padding-right: 40px"
+          size="lg"
+          color="var(--color-text-primary)"
+          >R$ 3.000</HpText
+        >
+      </template>
+    </HpDataTable>
+
     <!-- <HpThemeSwitcher v-model="value2" :hasAnimation="false" /> -->
     <!-- <HpInputRange label="Selecione uma opção" v-model="selectedValue" /> -->
 
     <!-- <HpDataTable
-    title="Usuários"
-    :items="users"
-    :columns="[
-      { key: 'name', label: 'Nome', sortable: true },
-      { key: 'email', label: 'E-mail' },
-      { key: 'role', label: 'Perfil' }
-    ]"
-  /> -->
+      title="Usuários"
+      :items="users"
+      :columns="[
+        { key: 'name', label: 'Nome' },
+        { key: 'email', label: 'E-mail' },
+        { key: 'role', label: 'Perfil' }
+      ]"
+    >
+      <template #filters>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          "
+        >
+          <HpText size="lg" color="var(--color-text-primary)"
+            >Detalhamento por Benefício</HpText
+          >
+          <HpInputSelect
+            label="status"
+            v-model="value1"
+            :options="options"
+            placeholder="Filtrar por status"
+            size="sm"
+          ></HpInputSelect>
+        </div>
+      </template>
+
+      <template #footer-left>
+        <HpText size="sm" color="var(--color-text-primary)">Valor Total</HpText>
+      </template>
+
+      <template #footer-right>
+        <HpText size="sm" color="var(--color-text-primary)">R$ 3.000</HpText>
+      </template> -->
+
+    <!-- <template #footer>
+        <tr
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          "
+        >
+          <td>
+            <HpText size="lg" color="var(--color-text-primary)"
+              >Valor Total</HpText
+            >
+          </td>
+          <td>
+            <HpText size="lg" color="var(--color-text-primary)"
+              >R$ 3.000</HpText
+            >
+          </td>
+        </tr>
+      </template> -->
+    <!-- </HpDataTable> -->
 
     <!-- <HpDataTable
     title="Benefícios"
@@ -106,9 +188,9 @@
     ]"
   /> -->
 
-    <HpModal :isOpen="isOpen" title="Editar Colaborador" size="md">
+    <!-- <HpModal :isOpen="isOpen" title="Editar Colaborador" size="md">
       TESTE
-    </HpModal>
+    </HpModal> -->
   </div>
 </template>
 
@@ -131,13 +213,31 @@ import {
   HpInputRange,
   HpCard,
   HpDataTable,
-  HpButtonLetter
+  HpButtonLetter,
+  HpInputText,
+  HpInputSelect
 } from './components/index'
 const isOpen = ref(true)
 
 const selectedValue = ref(null)
 
 const value2 = ref(true)
+const value1 = ref()
+
+const options = [
+  {
+    value: 'option1',
+    label: 'Opção 1'
+  },
+  {
+    value: 'option2',
+    label: 'Opção 2'
+  },
+  {
+    value: 'option3',
+    label: 'Opção 3'
+  }
+]
 
 const plans = [
   { id: 1, name: 'Básico', price: 'R$ 29', active: 'Sim' },
@@ -160,8 +260,8 @@ const benefits = [
 ]
 
 const users = [
-  { id: 1, name: 'Henrique', email: 'henrique@email.com', role: 'Admin' },
-  { id: 2, name: 'Maria', email: 'maria@email.com', role: 'User' }
+  { id: 1, name: 'Henrique', status: 'henrique@email.com', role: 'Admin' },
+  { id: 2, name: 'Maria', status: 'maria@email.com', role: 'User' }
 ]
 
 const salaries = [

@@ -24,6 +24,7 @@
 
     <div class="data-table__wrapper">
       <table class="data-table__table">
+        <!-- ================= HEADER ================= -->
         <thead>
           <tr class="data-table__row data-table__row--header">
             <th
@@ -45,19 +46,19 @@
               v-if="$slots.actions"
               class="data-table__header-cell data-table__header-cell--right"
             >
-              <HpText size="xs" color="var(--color-text-secondary)"
-                >Ações</HpText
-              >
+              <HpText size="xs" color="var(--color-text-secondary)">
+                Ações
+              </HpText>
             </th>
           </tr>
         </thead>
 
+        <!-- ================= BODY ================= -->
         <tbody class="data-table__body">
-          <!-- Empty state -->
           <tr v-if="filteredItems.length === 0">
             <td
               class="data-table__cell data-table__cell--empty"
-              :colspan="columns.length + ($slots.actions ? 1 : 0)"
+              :colspan="totalColumns"
             >
               <HpText size="sm" color="var(--color-text-muted)">
                 Nenhum resultado encontrado.
@@ -65,7 +66,6 @@
             </td>
           </tr>
 
-          <!-- Rows -->
           <tr
             v-else
             v-for="(item, rowIndex) in filteredItems"
@@ -102,6 +102,7 @@
           </tr>
         </tbody>
 
+        <!-- ================= FOOTER ================= -->
         <tfoot
           v-if="
             $slots['footer-left'] ||
@@ -110,23 +111,36 @@
           "
         >
           <tr>
+            <!-- COLUNA FANTASMA (quando só existe footer-right) -->
             <td
+              v-if="ghostColspan > 0"
               class="data-table__footer-cell"
-              :colspan="columns.length + ($slots.actions ? 1 : 0)"
+              :colspan="ghostColspan"
+            />
+
+            <!-- LEFT -->
+            <td
+              v-if="$slots['footer-left']"
+              class="data-table__footer-cell data-table__footer-cell--left"
             >
-              <div class="data-table__footer-content">
-                <div class="data-table__footer-left">
-                  <slot name="footer-left" />
-                </div>
+              <slot name="footer-left" />
+            </td>
 
-                <div class="data-table__footer-center">
-                  <slot name="footer-center" />
-                </div>
+            <!-- CENTER -->
+            <td
+              v-if="$slots['footer-center']"
+              class="data-table__footer-cell data-table__footer-cell--center"
+              :colspan="footerCenterColspan"
+            >
+              <slot name="footer-center" />
+            </td>
 
-                <div class="data-table__footer-right">
-                  <slot name="footer-right" />
-                </div>
-              </div>
+            <!-- RIGHT (sempre última coluna) -->
+            <td
+              v-if="$slots['footer-right']"
+              class="data-table__footer-cell data-table__footer-cell--right"
+            >
+              <slot name="footer-right" />
             </td>
           </tr>
         </tfoot>
@@ -136,20 +150,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, PropType } from 'vue'
+import { ref, computed, PropType, useSlots } from 'vue'
 import { HpInputText, HpText } from '@components'
 
 type DataItem = Record<string, any>
 
+const slots = useSlots()
+
 const props = defineProps({
   searchable: { type: Boolean, default: true },
   placeholderSearch: { type: String, default: 'Digite para buscar...' },
-
-  /** Visual */
   hasDivider: { type: Boolean, default: false },
   elevated: { type: Boolean, default: true },
-
-  /** Data */
   items: { type: Array as PropType<DataItem[]>, required: true },
   columns: {
     type: Array as PropType<
@@ -176,6 +188,34 @@ const filteredItems = computed(() => {
       String(value).toLowerCase().includes(query)
     )
   )
+})
+
+const totalColumns = computed(
+  () => props.columns.length + (slots.actions ? 1 : 0)
+)
+
+const ghostColspan = computed(() => {
+  if (
+    slots['footer-right'] &&
+    !slots['footer-left'] &&
+    !slots['footer-center']
+  ) {
+    return totalColumns.value - 1
+  }
+
+  if (
+    slots['footer-left'] &&
+    !slots['footer-center'] &&
+    slots['footer-right']
+  ) {
+    return totalColumns.value - 2
+  }
+
+  return 0
+})
+
+const footerCenterColspan = computed(() => {
+  return totalColumns.value - 3
 })
 </script>
 

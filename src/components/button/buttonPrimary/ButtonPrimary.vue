@@ -51,7 +51,6 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-
   backgroundColor: {
     type: String,
     default: 'var(--color-primary)'
