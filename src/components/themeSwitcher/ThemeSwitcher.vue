@@ -1,5 +1,4 @@
 <template>
-  <!-- Theme switcher sem animação -->
   <div v-if="!hasAnimation">
     <button
       class="theme-switcher"
@@ -24,7 +23,6 @@
     </button>
   </div>
 
-  <!-- Theme switcher com animação -->
   <div v-else class="theme-switcher-animation">
     <input
       type="checkbox"
@@ -73,18 +71,12 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-
-  /* Toggle animado */
   lightBorderColor: String,
   lightBackgroundColor: String,
   darkBorderColor: String,
   darkBackgroundColor: String,
-
-  /* Ícone */
   lightIconColor: String,
   darkIconColor: String,
-
-  /* Hover */
   lightHoverBackgroundColor: String,
   darkHoverBackgroundColor: String
 })
@@ -129,7 +121,6 @@ watch(
   }
 )
 
-/* 🎨 Ícone */
 const computedButtonIcon = computed(() =>
   isDarkMode.value ? 'BE0130' : 'BE0140'
 )
@@ -140,14 +131,12 @@ const computedButtonIconColor = computed(() =>
     : props.lightIconColor || '#000000'
 )
 
-/* 🎯 Hover background */
 const computedButtonHoverBackgroundColor = computed(() =>
   isDarkMode.value
     ? props.darkHoverBackgroundColor || '#717171'
     : props.lightHoverBackgroundColor || 'rgba(0, 0, 0, 0.08)'
 )
 
-/* 🎚 Toggle animado */
 const computedLightBorderColor = computed(
   () => props.lightBorderColor || '#72cce3'
 )

@@ -1,7 +1,5 @@
 <template>
   <div class="icon-list">
-    <!-- :class="{ dark: isDarkMode }" -->
-
     <h1>A - Brands</h1>
 
     <h3>AA - Social Media</h3>

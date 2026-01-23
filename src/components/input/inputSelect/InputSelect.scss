@@ -127,10 +127,6 @@
   }
 }
 
-/* =========================
-   Accessibility
-========================= */
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -140,10 +136,6 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
 }
-
-/* =========================
-   Autocomplete
-========================= */
 
 .autocomplete-wrapper {
   position: relative;
@@ -222,10 +214,6 @@
     cursor: not-allowed;
   }
 }
-
-/* =========================
-   Custom Select
-========================= */
 
 .custom-select {
   position: relative;

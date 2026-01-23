@@ -2,13 +2,10 @@
   --track-height: 6px;
   --thumb-size: 20px;
   --thumb-border: 2px;
-
-  /* Tokens semânticos */
   --range-active-color: var(--color-action-primary);
   --range-inactive-color: var(--color-border);
   --range-thumb-bg: var(--color-surface);
   --range-focus-ring: var(--color-focus);
-
   width: 100%;
   margin-bottom: 1.5rem;
 
@@ -113,10 +110,6 @@
     font-size: 0.75rem;
     color: var(--color-text-muted);
   }
-
-  /* =========================
-     Status
-  ========================= */
 
   &--error {
     --range-active-color: var(--color-feedback-error);

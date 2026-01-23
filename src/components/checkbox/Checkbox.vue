@@ -108,10 +108,6 @@ watch(
   }
 )
 
-/* =====================
-   Computed semantic tokens
-===================== */
-
 const computedBorderColor = computed(() => {
   return props.borderColor || 'var(--checkbox-border-color)'
 })

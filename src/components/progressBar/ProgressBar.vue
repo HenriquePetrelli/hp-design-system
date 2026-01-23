@@ -6,7 +6,6 @@
       '--progress-bar-color': barColor || undefined
     }"
   >
-    <!-- Header -->
     <div v-if="hasLabel" class="progress-bar__header">
       <span class="progress-bar__label" :id="labelId">
         {{ label }}
@@ -15,7 +14,6 @@
       <span class="progress-bar__value"> {{ normalizedValue }}% </span>
     </div>
 
-    <!-- Progress -->
     <div class="progress-bar__wrapper">
       <progress
         class="progress-bar__track"
@@ -47,14 +45,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-
-  /** Sobrescreve a cor do track (opcional) */
   backgroundColor: {
     type: String,
     default: ''
   },
-
-  /** Sobrescreve a cor da barra (opcional) */
   barColor: {
     type: String,
     default: ''

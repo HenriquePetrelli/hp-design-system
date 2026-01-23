@@ -42,10 +42,6 @@
     color: var(--card-text-secondary);
   }
 
-  /* =========================
-     Variants
-  ========================= */
-
   &--default {
     border-color: transparent;
   }
@@ -57,10 +53,6 @@
   &--elevated {
     box-shadow: var(--card-shadow-elevated);
   }
-
-  /* =========================
-     Interactive
-  ========================= */
 
   &--interactive {
     cursor: pointer;

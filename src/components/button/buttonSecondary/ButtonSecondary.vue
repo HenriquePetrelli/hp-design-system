@@ -56,23 +56,18 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-
-  /** Override opcional */
   color: {
     type: String,
     default: ''
   },
-
   size: {
     type: String,
     default: ButtonSize.REGULAR
   },
-
   icon: {
     type: String,
     default: ''
   },
-
   iconPosition: {
     type: String,
     default: IconPosition.LEFT

@@ -1,12 +1,10 @@
 <template>
   <div class="spinner-loader" :class="`spinner-${type}`" :style="spinnerStyles">
-    <!-- Circle Spinners -->
     <div v-if="type === 'circle1'" class="spinner-circle-1"></div>
     <div v-if="type === 'circle2'" class="spinner-circle-2"></div>
     <div v-if="type === 'circle3'" class="spinner-circle-3"></div>
     <div v-if="type === 'circle4'" class="spinner-circle-4"></div>
 
-    <!-- Dot Spinners -->
     <div v-if="type === 'dot1'" class="spinner-dot-1">
       <div v-for="i in 3" :key="`dot1-${i}`" class="dot"></div>
     </div>
@@ -15,12 +13,10 @@
     <div v-if="type === 'dot4'" class="spinner-dot-4"></div>
     <div v-if="type === 'dot5'" class="spinner-dot-5"></div>
 
-    <!-- Ring Spinners -->
     <div v-if="type === 'ring1'" class="spinner-ring-1"></div>
     <div v-if="type === 'ring2'" class="spinner-ring-2"></div>
     <div v-if="type === 'ring3'" class="spinner-ring-3"></div>
 
-    <!-- Special Spinners -->
     <div v-if="type === 'clock'" class="spinner-clock">
       <div class="clock-hand"></div>
     </div>
@@ -33,7 +29,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 
-// === Declarando enums sem "export" para uso interno ===
 enum SpinnerLoaderSize {
   SMALL = 'small',
   REGULAR = 'regular',
@@ -69,7 +64,6 @@ const props = defineProps({
   }
 })
 
-// Mapeamentos tipados
 const spinnerSizeMapper: Record<SpinnerLoaderSize, number> = {
   [SpinnerLoaderSize.SMALL]: 16,
   [SpinnerLoaderSize.REGULAR]: 24,
@@ -82,7 +76,6 @@ const spinnerSpeedMapper: Record<SpinnerLoaderSpeed, number> = {
   [SpinnerLoaderSpeed.SLOW]: 2
 }
 
-// Funções para obter valores com fallback
 const getSpinnerSize = (size: string | number): number => {
   if (typeof size === 'string' && size in spinnerSizeMapper) {
     return spinnerSizeMapper[size as SpinnerLoaderSize]
@@ -101,7 +94,6 @@ const getSpinnerSpeed = (speed: string | number): number => {
     : spinnerSpeedMapper[SpinnerLoaderSpeed.NORMAL]
 }
 
-// Estilos computados com CSS variables
 const spinnerStyles = computed(() => {
   const sizePx = `${getSpinnerSize(props.size)}px`
   const speedSec = `${getSpinnerSpeed(props.speed)}s`

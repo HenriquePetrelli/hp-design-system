@@ -82,9 +82,6 @@ onUnmounted(() => {
   }
 })
 
-/**
- * 🔒 Mapeamento SEM alterar valor final das cores
- */
 const computedColorType = computed(() => {
   switch (props.type) {
     case AlertType.SUCCESS:

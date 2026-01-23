@@ -1,6 +1,5 @@
 .data-table {
   --cell-padding-x: 14px;
-
   background-color: var(--color-surface);
   color: var(--color-text-primary);
   border-radius: 12px;
@@ -26,7 +25,7 @@
 
   &__header-cell {
     padding: 16px var(--cell-padding-x);
-    background-color: var(--color-surface); // ✅ corrigido
+    background-color: var(--color-surface);
     text-transform: uppercase;
     font-size: 11px;
     letter-spacing: 0.08em;

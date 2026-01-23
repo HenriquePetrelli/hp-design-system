@@ -49,33 +49,22 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-
-  /**
-   * Override da cor do texto (opcional)
-   */
   color: {
     type: String,
     default: 'var(--button-tertiary-text)'
   },
-
-  /**
-   * Override da cor no hover/focus (opcional)
-   */
   hoverColor: {
     type: String,
     default: 'var(--button-tertiary-text-hover)'
   },
-
   size: {
     type: String,
     default: ButtonSize.REGULAR
   },
-
   icon: {
     type: String,
     default: ''
   },
-
   iconPosition: {
     type: String,
     default: IconPosition.LEFT
@@ -89,10 +78,6 @@ const handleClick = (event: Event) => {
     emit('action:click', event)
   }
 }
-
-/**
- * CSS variables semânticas com override via props
- */
 const computedStyles = computed(() => ({
   '--button-tertiary-text': props.color,
   '--button-tertiary-hover-text': props.hoverColor

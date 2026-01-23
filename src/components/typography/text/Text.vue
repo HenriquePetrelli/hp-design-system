@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts" setup>
-// Enum interno para tamanhos de texto
 const TextSize = {
   EXTRA_SMALL: 'xs',
   SMALL: 'sm',

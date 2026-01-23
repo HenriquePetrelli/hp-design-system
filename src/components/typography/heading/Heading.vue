@@ -18,7 +18,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 
-// Enum interno para os níveis de heading
 const HeadingLevel = {
   H1: 1,
   H2: 2,
