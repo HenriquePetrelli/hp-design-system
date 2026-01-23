@@ -1,10 +1,5 @@
-/* =====================================================
-   Light (default)
-   ===================================================== */
 :root {
-  /* =====================================================
-     FOUNDATION — Neutral
-     ===================================================== */
+  /* Neutral */
   --color-neutral-0: #ffffff;
   --color-neutral-50: #f5f5f5;
   --color-neutral-100: #f0f0f0;
@@ -15,59 +10,43 @@
   --color-neutral-600: #424242;
   --color-neutral-700: #212121;
 
-  /* =====================================================
-     FOUNDATION — Brand
-     ===================================================== */
+  /* Brand */
   --color-brand-primary: #372772;
   --color-brand-primary-hover: #2b1e5c;
   --color-brand-secondary: #ff7f50;
 
-  /* =====================================================
-     FOUNDATION — Feedback
-     ===================================================== */
+  /* Feedback */
   --color-feedback-success: #2e7d32;
   --color-feedback-warning: #f9a825;
   --color-feedback-info: #306cb3;
   --color-feedback-error: #b71c1c;
-
   --color-feedback-success-bg: #e8f5e9;
   --color-feedback-warning-bg: #fff8e1;
   --color-feedback-info-bg: #e3f2fd;
   --color-feedback-error-bg: #fdecea;
 
-  /* =====================================================
-     SEMANTIC — Surface
-     ===================================================== */
+  /* Surface */
   --surface-background: var(--color-neutral-50);
   --surface-default: var(--color-neutral-0);
   --surface-hover: var(--color-neutral-100);
 
-  /* =====================================================
-     SEMANTIC — Text
-     ===================================================== */
+  /* Text */
   --text-primary: var(--color-neutral-700);
   --text-secondary: var(--color-neutral-600);
   --text-muted: var(--color-neutral-500);
   --text-disabled: var(--color-neutral-400);
   --text-inverse: var(--color-neutral-0);
 
-  /* =====================================================
-     SEMANTIC — Border & Focus
-     ===================================================== */
+  /* Border */
   --border-default: var(--color-neutral-200);
   --border-strong: var(--color-neutral-300);
   --border-focus: var(--color-feedback-info);
 
-  /* =====================================================
-     🔁 LEGACY / ALIASES (NÃO REMOVER)
-     ===================================================== */
-
-  /* Estados (Alert, Badge, etc) */
+  /* Feedback */
   --color-success: var(--color-feedback-success);
   --color-warning: var(--color-feedback-warning);
   --color-info: var(--color-feedback-info);
   --color-error: var(--color-feedback-error);
-
   --color-success-bg: var(--color-feedback-success-bg);
   --color-warning-bg: var(--color-feedback-warning-bg);
   --color-info-bg: var(--color-feedback-info-bg);
@@ -91,7 +70,7 @@
   --color-focus: var(--border-focus);
 
   /* =====================================================
-     COMPONENT TOKENS — Button Primary
+     COMPONENT — Button Primary
      ===================================================== */
   --button-primary-bg: var(--color-brand-primary);
   --button-primary-bg-hover: var(--color-brand-primary-hover);
@@ -99,7 +78,7 @@
   --button-primary-focus: var(--color-focus);
 
   /* =====================================================
-     COMPONENT TOKENS — Button Secondary
+     COMPONENT — Button Secondary
      ===================================================== */
   --button-secondary-color: var(--color-brand-secondary);
   --button-secondary-hover-bg: color-mix(
@@ -111,14 +90,14 @@
   --button-secondary-focus: var(--color-focus);
 
   /* =====================================================
-     COMPONENT TOKENS — Button Tertiary
+     COMPONENT — Button Tertiary
      ===================================================== */
   --button-tertiary-text: var(--color-text-primary);
   --button-tertiary-text-hover: var(--color-brand-secondary);
   --button-tertiary-focus: var(--color-focus);
 
   /* =====================================================
-   SEMANTIC — Button Icon
+   COMPONENT — Button Icon
    ===================================================== */
   --button-icon-color: var(--text-primary);
   --button-icon-hover-color: var(--color-brand-primary);
@@ -127,7 +106,7 @@
   --button-icon-focus-ring: var(--border-focus);
 
   /* =====================================================
-   SEMANTIC — Button Letter
+   COMPONENT — Button Letter
    ===================================================== */
   --button-letter-color: var(--text-primary);
   --button-letter-hover-color: var(--color-brand-primary);
@@ -136,7 +115,7 @@
   --button-letter-focus-ring: var(--border-focus);
 
   /* =====================================================
-   SEMANTIC — Card
+   COMPONENT — Card
    ===================================================== */
   --card-bg: var(--color-surface);
   --card-text-primary: var(--color-text-primary);
@@ -147,7 +126,7 @@
   --card-focus-ring: var(--color-focus);
 
   /* =====================================================
-   SEMANTIC — Checkbox
+   COMPONENT — Checkbox
    ===================================================== */
   --checkbox-border-color: var(--border-default);
   --checkbox-bg-color: var(--color-brand-primary);
@@ -160,15 +139,15 @@
     transparent
   );
 
-  /* ------------------------
-   ProgressBar
------------------------- */
+  /* =====================================================
+   COMPONENT — ProgressBar
+   ===================================================== */
   --progress-track-color: var(--color-border);
   --progress-bar-color: var(--color-brand-primary);
   --progress-text-color: var(--color-text-primary);
 
   /* =====================================================
-   SEMANTIC — Radio
+   COMPONENT — Radio
    ===================================================== */
   --radio-border-color: var(--border-default);
   --radio-border-color-hover: var(--color-brand-primary);
@@ -179,39 +158,32 @@
   --radio-disabled-opacity: 0.6;
 
   /* =====================================================
-   SEMANTIC — Sidebar
+   COMPONENT — Sidebar
    ===================================================== */
   --sidebar-bg: var(--color-surface);
   --sidebar-border-color: var(--color-border);
   --sidebar-shadow: var(--shadow-md);
-
   --sidebar-item-text: var(--color-text-primary);
   --sidebar-item-icon: var(--color-text-secondary);
   --sidebar-item-hover-bg: var(--color-surface-hover);
-
   --sidebar-item-active-bg: var(--color-brand-primary);
   --sidebar-item-active-text: var(--color-text-inverse);
   --sidebar-item-active-shadow: var(--shadow-sm);
 
   /* =====================================================
-   SEMANTIC — Spinner / Loader
+   COMPONENT — Spinner
    ===================================================== */
   --spinner-color: var(--color-brand-primary);
   --spinner-secondary-color: var(--color-border);
   --spinner-muted-color: var(--color-text-secondary);
-
   --spinner-size-sm: 16px;
   --spinner-size-md: 24px;
   --spinner-size-lg: 32px;
-
   --spinner-speed-fast: 0.8s;
   --spinner-speed-normal: 1s;
   --spinner-speed-slow: 1.4s;
 }
 
-/* =====================================================
-   Dark theme
-   ===================================================== */
 [data-theme='dark'] {
   /* Neutral */
   --color-neutral-0: #000000;
@@ -234,7 +206,6 @@
   --color-feedback-warning: #ffca28;
   --color-feedback-info: #64b5f6;
   --color-feedback-error: #ef5350;
-
   --color-feedback-success-bg: #1b2a1b;
   --color-feedback-warning-bg: #332900;
   --color-feedback-info-bg: #1e1e1e;
@@ -258,7 +229,7 @@
   --border-focus: #90caf9;
 
   /* =====================================================
-     COMPONENT TOKENS — Button Primary
+     COMPONENT — Button Primary
      ===================================================== */
   --button-primary-bg: var(--color-brand-primary);
   --button-primary-bg-hover: var(--color-brand-primary-hover);
@@ -266,7 +237,7 @@
   --button-primary-focus: var(--border-focus);
 
   /* =====================================================
-     COMPONENT TOKENS — Button Secondary
+     COMPONENT — Button Secondary
      ===================================================== */
   --button-secondary-color: var(--color-brand-secondary);
   --button-secondary-hover-bg: color-mix(
@@ -278,14 +249,14 @@
   --button-secondary-focus: var(--border-focus);
 
   /* =====================================================
-     COMPONENT TOKENS — Button Tertiary
+     COMPONENT — Button Tertiary
      ===================================================== */
   --button-tertiary-text: var(--color-text-primary);
   --button-tertiary-text-hover: var(--color-brand-secondary);
   --button-tertiary-focus: var(--border-focus);
 
   /* =====================================================
-     SEMANTIC — Button Icon
+     COMPONENT — Button Icon
      ===================================================== */
   --button-icon-color: var(--text-primary);
   --button-icon-hover-color: var(--color-brand-primary);
@@ -294,7 +265,7 @@
   --button-icon-focus-ring: var(--border-focus);
 
   /* =====================================================
-     SEMANTIC — Button Letter
+     COMPONENT — Button Letter
      ===================================================== */
   --button-letter-color: var(--text-primary);
   --button-letter-hover-color: var(--color-brand-primary);
@@ -303,7 +274,7 @@
   --button-letter-focus-ring: var(--border-focus);
 
   /* =====================================================
-     SEMANTIC — Card
+     COMPONENT — Card
      ===================================================== */
   --card-bg: var(--color-surface);
   --card-text-primary: var(--color-text-primary);
@@ -314,7 +285,7 @@
   --card-focus-ring: var(--color-focus);
 
   /* =====================================================
-     SEMANTIC — Checkbox
+     COMPONENT — Checkbox
      ===================================================== */
   --checkbox-border-color: var(--border-default);
   --checkbox-bg-color: var(--color-brand-primary);
@@ -327,15 +298,15 @@
     transparent
   );
 
-  /* ------------------------
-   ProgressBar
------------------------- */
+  /* =====================================================
+   COMPONENT — ProgressBar
+   ===================================================== */
   --progress-track-color: var(--color-border);
   --progress-bar-color: var(--color-brand-primary);
   --progress-text-color: var(--color-text-primary);
 
   /* =====================================================
-   SEMANTIC — Radio
+   COMPONENT — Radio
    ===================================================== */
   --radio-border-color: var(--border-default);
   --radio-border-color-hover: var(--color-brand-primary);
@@ -346,31 +317,27 @@
   --radio-disabled-opacity: 0.6;
 
   /* =====================================================
-   SEMANTIC — Sidebar
+   COMPONENT — Sidebar
    ===================================================== */
   --sidebar-bg: var(--color-surface);
   --sidebar-border-color: var(--color-border);
   --sidebar-shadow: var(--shadow-md);
-
   --sidebar-item-text: var(--color-text-primary);
   --sidebar-item-icon: var(--color-text-secondary);
   --sidebar-item-hover-bg: var(--color-surface-hover);
-
   --sidebar-item-active-bg: var(--color-brand-primary);
   --sidebar-item-active-text: var(--color-text-inverse);
   --sidebar-item-active-shadow: var(--shadow-sm);
 
   /* =====================================================
-   SEMANTIC — Spinner / Loader
+   COMPONENT — Spinner
    ===================================================== */
   --spinner-color: var(--color-brand-primary);
   --spinner-secondary-color: var(--color-border);
   --spinner-muted-color: var(--color-text-secondary);
-
   --spinner-size-sm: 16px;
   --spinner-size-md: 24px;
   --spinner-size-lg: 32px;
-
   --spinner-speed-fast: 0.8s;
   --spinner-speed-normal: 1s;
   --spinner-speed-slow: 1.4s;

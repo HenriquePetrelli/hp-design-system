@@ -1,14 +1,10 @@
-/* Base */
 @use './base/_fonts';
-
-/* Tokens */
 @use './tokens/_palette';
 @use './tokens/_layout';
 @use './tokens/_semantic';
 @use './tokens/_themes';
 @use './tokens/_semantic-aliases';
 
-/* Global reset (opcional) */
 * {
   box-sizing: border-box;
 }
