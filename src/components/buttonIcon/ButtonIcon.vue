@@ -7,20 +7,19 @@
       'button-icon--disabled': disabled,
       'button-icon--is-loading': isLoading
     }"
-    :style="computedStyles"
     :aria-label="label"
     :aria-disabled="disabled || isLoading"
     :disabled="disabled || isLoading"
     :tabindex="tabindex"
     @click="handleClick"
   >
-    <HpIcon v-if="!isLoading" :name="icon" :size="iconSize" :color="color" />
+    <HpIcon v-if="!isLoading" :name="icon" :size="iconSize" />
 
     <HpSpinnerLoader
       v-else
       type="circle1"
-      :color="color"
-      :secondaryColor="backgroundColor || 'transparent'"
+      :color="'var(--button-icon-color)'"
+      :secondaryColor="'transparent'"
       :size="iconSize"
       :speed="0.8"
     />
@@ -31,7 +30,6 @@
 import { computed } from 'vue'
 import { HpIcon, HpSpinnerLoader } from '@components'
 import { ButtonIconSize, type ButtonIconSizeValue } from './ButtonIconTypes'
-import { convertHexToRgb } from '@composables/convertColorType'
 
 const props = defineProps({
   label: {
@@ -41,22 +39,6 @@ const props = defineProps({
   icon: {
     type: String,
     required: true
-  },
-  color: {
-    type: String,
-    default: 'currentColor'
-  },
-  hoverColor: {
-    type: String,
-    default: ''
-  },
-  backgroundColor: {
-    type: String,
-    default: 'transparent'
-  },
-  disabledColor: {
-    type: String,
-    default: 'var(--color-text-disabled)'
   },
   disabled: {
     type: Boolean,
@@ -70,7 +52,6 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-
   size: {
     type: String as () => ButtonIconSizeValue,
     default: ButtonIconSize.REGULAR
@@ -99,14 +80,6 @@ const normalizedSize = computed<ButtonIconSize>(() => {
 })
 
 const iconSize = computed(() => normalizedSize.value)
-
-const computedStyles = computed(() => ({
-  '--background-color': props.backgroundColor,
-  '--icon-color': convertHexToRgb(props.color),
-  '--text-color': props.color,
-  '--hover-color': props.hoverColor || props.color,
-  '--disabled-color': props.disabledColor
-}))
 </script>
 
 <style scoped lang="scss" src="./ButtonIcon.scss" />

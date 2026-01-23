@@ -1,5 +1,11 @@
 <template>
-  <div class="progress-bar">
+  <div
+    class="progress-bar"
+    :style="{
+      '--progress-track-color': backgroundColor || undefined,
+      '--progress-bar-color': barColor || undefined
+    }"
+  >
     <!-- Header -->
     <div v-if="hasLabel" class="progress-bar__header">
       <span class="progress-bar__label" :id="labelId">
@@ -16,7 +22,6 @@
         :value="value"
         :max="max"
         :aria-labelledby="label ? labelId : undefined"
-        :style="trackStyle"
       />
     </div>
   </div>
@@ -42,10 +47,14 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+
+  /** Sobrescreve a cor do track (opcional) */
   backgroundColor: {
     type: String,
     default: ''
   },
+
+  /** Sobrescreve a cor da barra (opcional) */
   barColor: {
     type: String,
     default: ''
@@ -58,11 +67,6 @@ const normalizedValue = computed(() => {
   const percent = (props.value / props.max) * 100
   return Math.min(100, Math.max(0, Math.round(percent)))
 })
-
-const trackStyle = computed(() => ({
-  '--track-color': props.backgroundColor || 'var(--color-border, #e5e7eb)',
-  '--bar-color': props.barColor || 'var(--color-danger, #b91c1c)'
-}))
 </script>
 
-<style lang="scss" scoped src="./ProgressBar.scss"></style>
+<style scoped lang="scss" src="./ProgressBar.scss" />

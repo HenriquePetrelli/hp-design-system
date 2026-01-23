@@ -4,13 +4,16 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  border-radius: 50px;
+  border-radius: 999px;
   border: 0;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: transparent;
+  color: var(--button-icon-color);
   cursor: pointer;
-  transition: transform 0.15s ease, background-color 0.15s ease,
-    color 0.15s ease, opacity 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
 
   &--lg {
     width: 64px;
@@ -27,19 +30,14 @@
   }
 
   &:not(:disabled):not(.button-icon--is-loading):focus-visible {
-    outline: 2px solid var(--hover-color);
+    outline: 2px solid var(--button-icon-focus-ring);
     outline-offset: 2px;
   }
 
   &:not(:disabled):not(.button-icon--is-loading):hover {
+    color: var(--button-icon-hover-color);
+    background-color: var(--button-icon-hover-bg);
     transform: scale(1.05);
-    color: var(--hover-color);
-  }
-
-  &[style*='--background-color: transparent']:not(:disabled):not(
-      .button-icon--is-loading
-    ):hover {
-    background-color: rgba(var(--icon-color), 0.12);
   }
 
   &:not(:disabled):not(.button-icon--is-loading):active {
@@ -49,7 +47,7 @@
   &--disabled,
   &:not(.button-icon--is-loading):disabled {
     cursor: default;
-    color: var(--disabled-color);
+    color: var(--button-icon-disabled-color);
     opacity: 0.5;
   }
 }

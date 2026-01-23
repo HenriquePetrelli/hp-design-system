@@ -5,9 +5,7 @@
       'button-secondary--large': size === ButtonSize.LARGE,
       'button-secondary--disabled': disabled
     }"
-    :style="{
-      '--button-color': color
-    }"
+    :style="color ? { '--button-color': color } : undefined"
     :aria-label="ariaLabel || label"
     :aria-disabled="disabled"
     :disabled="disabled"
@@ -17,7 +15,11 @@
       v-if="icon && iconPosition === IconPosition.LEFT"
       class="button-secondary__icon button-secondary__icon--left"
     >
-      <Icon :name="icon" size="sm" :color="color" />
+      <Icon
+        :name="icon"
+        size="sm"
+        :color="color || 'var(--button-secondary-color)'"
+      />
     </span>
 
     <span class="button-secondary__label">
@@ -28,7 +30,11 @@
       v-if="icon && iconPosition === IconPosition.RIGHT"
       class="button-secondary__icon button-secondary__icon--right"
     >
-      <Icon :name="icon" size="sm" :color="color" />
+      <Icon
+        :name="icon"
+        size="sm"
+        :color="color || 'var(--button-secondary-color)'"
+      />
     </span>
   </button>
 </template>
@@ -51,10 +57,10 @@ const props = defineProps({
     default: false
   },
 
-  /** 100% dinâmico */
+  /** Override opcional */
   color: {
     type: String,
-    default: 'var(--color-secondary)'
+    default: ''
   },
 
   size: {

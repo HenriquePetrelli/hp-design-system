@@ -6,19 +6,13 @@
   border-radius: 12px;
   padding: 16px;
 
-  /* ================= Elevation ================= */
-
   &--elevated {
     box-shadow: var(--shadow-sm);
   }
 
-  /* ================= Search ================= */
-
   &__search {
     margin-bottom: 12px;
   }
-
-  /* ================= Wrapper ================= */
 
   &__wrapper {
     overflow-x: auto;
@@ -30,11 +24,9 @@
     border-spacing: 0;
   }
 
-  /* ================= Header ================= */
-
   &__header-cell {
     padding: 16px var(--cell-padding-x);
-    background-color: var(--color-background);
+    background-color: var(--color-surface); // ✅ corrigido
     text-transform: uppercase;
     font-size: 11px;
     letter-spacing: 0.08em;
@@ -59,8 +51,6 @@
       border-bottom-right-radius: 8px;
     }
   }
-
-  /* ================= Cells ================= */
 
   &__cell {
     padding: 10px var(--cell-padding-x);
@@ -87,8 +77,6 @@
     }
   }
 
-  /* ================= Footer ================= */
-
   &__footer {
     display: grid;
     align-items: center;
@@ -99,44 +87,33 @@
     box-sizing: border-box;
   }
 
-  /* ===== GRID CONFIGURAÇÕES ===== */
-
-  /* left + center + right */
   &__footer.has-left.has-center.has-right {
     grid-template-columns: auto 1fr auto;
   }
 
-  /* left + right */
   &__footer.has-left.has-right:not(.has-center) {
     grid-template-columns: auto 1fr auto;
   }
 
-  /* apenas center */
   &__footer.has-center:not(.has-left):not(.has-right) {
     grid-template-columns: 1fr;
   }
 
-  /* apenas left */
   &__footer.has-left:not(.has-center):not(.has-right) {
     grid-template-columns: 1fr;
   }
 
-  /* apenas right */
   &__footer.has-right:not(.has-left):not(.has-center) {
     grid-template-columns: 1fr;
   }
 
-  /* center + right */
   &__footer.has-center.has-right:not(.has-left) {
     grid-template-columns: 1fr auto;
   }
 
-  /* left + center */
   &__footer.has-left.has-center:not(.has-right) {
     grid-template-columns: auto 1fr;
   }
-
-  /* ===== POSICIONAMENTO ===== */
 
   &__footer-left {
     justify-self: start;
@@ -152,8 +129,6 @@
     justify-self: end;
     text-align: right;
   }
-
-  /* ================= Divider ================= */
 
   &--has-divider {
     tbody tr:not(:first-child):not(:has(.data-table__cell--empty)) {

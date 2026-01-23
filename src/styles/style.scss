@@ -1,11 +1,12 @@
 /* Base */
-@use './base/fonts';
+@use './base/_fonts';
 
 /* Tokens */
-@use './tokens/palette';
-@use './tokens/layout';
-@use './tokens/semantic';
-@use './tokens/themes';
+@use './tokens/_palette';
+@use './tokens/_layout';
+@use './tokens/_semantic';
+@use './tokens/_themes';
+@use './tokens/_semantic-aliases';
 
 /* Global reset (opcional) */
 * {

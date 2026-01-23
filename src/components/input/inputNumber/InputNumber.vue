@@ -14,9 +14,8 @@
     }"
   >
     <fieldset class="input__fieldset">
-      <legend style="display: none" :aria-hidden="true">
-        {{ label }}
-      </legend>
+      <legend aria-hidden="true">{{ label }}</legend>
+
       <label
         v-if="isFocused || modelValueFormatted !== null || placeholder !== ''"
         :for="id"
@@ -25,18 +24,19 @@
       >
         {{ label }}
       </label>
+
       <div class="input__wrapper">
         <HpIcon
+          v-if="leadingIcon"
           aria-hidden="true"
           :name="leadingIcon"
           size="sm"
-          v-if="leadingIcon"
           class="input__icon input__icon--leading"
         />
 
         <input
-          :id="id"
           ref="input"
+          :id="id"
           type="number"
           class="input__field"
           :value="modelValueFormatted"
@@ -44,45 +44,43 @@
           @focus="handleFocus"
           @blur="handleBlur"
           :readonly="readonly"
-          :aria-readonly="readonly"
           :disabled="disabled"
           :placeholder="placeholderFormatted"
           :required="required"
-          :maxlength="15"
           :min="minValue"
           :max="maxValue"
-          :aria-labelledby="`${id}-label`"
-          :aria-describedby="helperText ? `${id}-helper-text` : undefined"
           :aria-invalid="status === 'error'"
         />
 
         <div class="input__buttons-container">
           <button
             type="button"
+            class="input__buttons-container--button"
             :disabled="disabled || readonly || isMinValue"
             @click="handleDecreaseClick"
-            :aria-label="`Diminui em ${incrementBy}`"
-            class="input__buttons-container--button"
+            aria-label="Diminuir valor"
           >
-            <HpIcon name="BE0051" size="sm" color="#666666" />
+            <HpIcon name="BE0051" size="sm" />
           </button>
-          <div class="input__buttons-container--divider"></div>
+
+          <div class="input__buttons-container--divider" />
+
           <button
             type="button"
+            class="input__buttons-container--button"
             :disabled="disabled || readonly || isMaxValue"
             @click="handleIncreaseClick"
-            :aria-label="`Aumenta em ${incrementBy}`"
-            class="input__buttons-container--button"
+            aria-label="Aumentar valor"
           >
-            <HpIcon name="BE0041" size="sm" color="#666666" />
+            <HpIcon name="BE0041" size="sm" />
           </button>
         </div>
       </div>
     </fieldset>
+
     <div class="input__footer">
       <span
         v-if="helperText"
-        :id="`${id}-helper-text`"
         class="input__helper-text"
         :class="{ [`input__helper-text--${status}`]: status !== 'default' }"
       >
@@ -97,58 +95,25 @@ import { ref, computed } from 'vue'
 import { HpIcon } from '@components'
 
 const props = defineProps({
-  modelValue: {
-    type: Number,
-    default: null
-  },
-  label: {
-    type: String,
-    required: true
-  },
-  incrementBy: {
-    type: Number,
-    default: 1
-  },
-  minValue: {
-    type: Number,
-    default: 0
-  },
-  maxValue: {
-    type: Number,
-    default: null
-  },
+  modelValue: { type: Number, default: null },
+  label: { type: String, required: true },
+  incrementBy: { type: Number, default: 1 },
+  minValue: { type: Number, default: 0 },
+  maxValue: { type: Number, default: null },
   id: {
     type: String,
-    default: () => `input-number-${Math.random().toString(36).substring(2, 9)}`
+    default: () => `input-number-${Math.random().toString(36).slice(2)}`
   },
-  helperText: {
-    type: String,
-    default: ''
-  },
-  readonly: {
-    type: Boolean,
-    default: false
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
-  placeholder: {
-    type: String,
-    default: ''
-  },
-  required: {
-    type: Boolean,
-    default: false
-  },
-  leadingIcon: {
-    type: String,
-    default: ''
-  },
+  helperText: { type: String, default: '' },
+  readonly: Boolean,
+  disabled: Boolean,
+  placeholder: String,
+  required: Boolean,
+  leadingIcon: String,
   status: {
     type: String,
     default: 'default',
-    validator: (value) => ['default', 'error', 'success'].includes(value)
+    validator: (v) => ['default', 'error', 'success'].includes(v)
   }
 })
 
@@ -159,88 +124,36 @@ const isFocused = ref(false)
 
 const modelValueFormatted = computed({
   get: () => props.modelValue,
-  set: (value) => {
-    let newValue = value === '' ? null : Number(value)
-
-    if (isNaN(newValue) && newValue !== null) {
-      newValue = props.minValue || 0
-    }
-
-    if (newValue !== null) {
-      if (props.minValue !== null && newValue < props.minValue) {
-        newValue = props.minValue
-      }
-
-      if (props.maxValue !== null && newValue > props.maxValue) {
-        newValue = props.maxValue
-      }
-    }
-
-    emit('update:modelValue', newValue)
-  }
+  set: (value) => emit('update:modelValue', value === '' ? null : Number(value))
 })
 
-const isMinValue = computed(() => {
-  return props.minValue !== null && modelValueFormatted.value !== null
-    ? modelValueFormatted.value <= props.minValue
-    : false
-})
+const isMinValue = computed(
+  () => props.minValue !== null && modelValueFormatted.value <= props.minValue
+)
 
-const isMaxValue = computed(() => {
-  return props.maxValue !== null && modelValueFormatted.value !== null
-    ? modelValueFormatted.value >= props.maxValue
-    : false
-})
+const isMaxValue = computed(
+  () => props.maxValue !== null && modelValueFormatted.value >= props.maxValue
+)
 
 const hasValue = computed(() => modelValueFormatted.value !== null)
-const hasPlaceholder = computed(() => String(props.placeholder).length > 0)
+const hasPlaceholder = computed(() => !!props.placeholder)
 
-const placeholderFormatted = computed(() => {
-  if (props.placeholder) return props.placeholder
-  if (!isFocused.value) return props.label + (props.required ? ' *' : '')
-  return ''
-})
+const placeholderFormatted = computed(() =>
+  props.placeholder ? props.placeholder : !isFocused.value ? props.label : ''
+)
 
-const handleInput = (event) => {
-  const value = event.target.value
+const handleInput = (e) => (modelValueFormatted.value = e.target.value)
+const handleFocus = () =>
+  !props.disabled && !props.readonly && (isFocused.value = true)
+const handleBlur = () => (isFocused.value = false)
 
-  if (value.length > 15) {
-    event.target.value = value.slice(0, 15)
-    return
-  }
+const handleDecreaseClick = () =>
+  (modelValueFormatted.value =
+    (modelValueFormatted.value || 0) - props.incrementBy)
 
-  modelValueFormatted.value = event.target.value
-}
-
-const handleFocus = () => {
-  if (!props.readonly && !props.disabled) {
-    isFocused.value = true
-  }
-}
-
-const handleBlur = () => {
-  isFocused.value = false
-}
-
-const handleDecreaseClick = () => {
-  const currentValue = modelValueFormatted.value || 0
-  modelValueFormatted.value = currentValue - props.incrementBy
-}
-
-const handleIncreaseClick = () => {
-  const currentValue = modelValueFormatted.value || 0
-  modelValueFormatted.value = currentValue + props.incrementBy
-}
-
-const focusInput = () => {
-  if (input.value && !props.readonly && !props.disabled) {
-    input.value.focus()
-  }
-}
-
-defineExpose({
-  focusInput
-})
+const handleIncreaseClick = () =>
+  (modelValueFormatted.value =
+    (modelValueFormatted.value || 0) + props.incrementBy)
 </script>
 
 <style scoped lang="scss" src="./InputNumber.scss" />

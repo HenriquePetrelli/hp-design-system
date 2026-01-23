@@ -39,29 +39,17 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
+  modelValue: { type: Boolean, required: true },
+  disabled: { type: Boolean, default: false },
   id: {
     type: String,
     default: () => `toggle-${Math.random().toString(36).substring(2, 9)}`
   },
-  thumbColor: {
-    type: String,
-    default: ''
-  },
-  backgroundColor: {
-    type: String,
-    default: ''
-  }
+  thumbColor: { type: String, default: '' },
+  backgroundColor: { type: String, default: '' }
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -76,20 +64,14 @@ const handleChange = (event: Event) => {
 const toggleWithKeyboard = () => {
   if (!props.disabled) {
     emit('update:modelValue', !props.modelValue)
-
-    if (inputRef.value) {
-      inputRef.value.checked = !props.modelValue
-    }
+    if (inputRef.value) inputRef.value.checked = !props.modelValue
   }
 }
 
-const computedBackgroundColor = computed(() => {
-  return props.backgroundColor || '#372772'
-})
-
-const computedThumbColor = computed(() => {
-  return props.thumbColor || '#ffffff'
-})
+const computedBackgroundColor = computed(
+  () => props.backgroundColor || '#372772'
+)
+const computedThumbColor = computed(() => props.thumbColor || '#ffffff')
 </script>
 
-<style lang="scss" scoped src="./ToggleSwitch.scss" />
+<style scoped lang="scss" src="./ToggleSwitch.scss" />

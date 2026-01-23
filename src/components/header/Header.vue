@@ -1,13 +1,15 @@
 <template>
   <header class="header">
     <div class="header__left">
-      <slot name="header-left"></slot>
+      <slot name="header-left" />
     </div>
 
-    <slot name="header-center"></slot>
+    <div class="header__center">
+      <slot name="header-center" />
+    </div>
 
     <div class="header__right">
-      <slot name="header-right"></slot>
+      <slot name="header-right" />
     </div>
   </header>
 </template>

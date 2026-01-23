@@ -5,7 +5,7 @@
 
   width: 48px;
   height: 48px;
-  border-radius: 50px;
+  border-radius: 999px;
 
   font-size: 1rem;
   font-weight: 600;
@@ -13,11 +13,14 @@
   border: 0;
   cursor: pointer;
 
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: transparent;
+  color: var(--button-letter-color);
 
-  transition: transform 0.15s ease, background-color 0.15s ease,
-    color 0.15s ease, opacity 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
 
   &__content {
     display: flex;
@@ -42,14 +45,9 @@
   }
 
   &:not(:disabled):not(.button-letter--is-loading):hover {
+    color: var(--button-letter-hover-color);
+    background-color: var(--button-letter-hover-bg);
     transform: scale(1.05);
-    color: var(--hover-color);
-  }
-
-  &[style*='--background-color: transparent']:not(:disabled):not(
-      .button-letter--is-loading
-    ):hover {
-    background-color: rgba(var(--letter-color-rgb), 0.12);
   }
 
   &:not(:disabled):not(.button-letter--is-loading):active {
@@ -57,14 +55,14 @@
   }
 
   &:not(:disabled):not(.button-letter--is-loading):focus-visible {
-    outline: 2px solid var(--hover-color);
+    outline: 2px solid var(--button-letter-focus-ring);
     outline-offset: 2px;
   }
 
   &--disabled,
   &:disabled {
     cursor: default;
-    color: var(--disabled-color);
+    color: var(--button-letter-disabled-color);
     opacity: 0.5;
   }
 }

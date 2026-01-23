@@ -7,7 +7,6 @@
       'button-letter--disabled': disabled,
       'button-letter--is-loading': isLoading
     }"
-    :style="computedStyles"
     :aria-label="label"
     :aria-disabled="disabled || isLoading"
     :disabled="disabled || isLoading"
@@ -21,8 +20,8 @@
     <HpSpinnerLoader
       v-else
       type="circle1"
-      :color="color"
-      :secondaryColor="backgroundColor || 'transparent'"
+      :color="'var(--button-letter-color)'"
+      :secondaryColor="'transparent'"
       :size="size"
       :speed="0.8"
     />
@@ -30,10 +29,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
 import { HpSpinnerLoader } from '@components'
 import { ButtonLetterSize } from './ButtonLetterTypes'
-import { convertHexToRgb } from '@composables/convertColorType'
 
 const props = defineProps({
   label: {
@@ -43,22 +40,6 @@ const props = defineProps({
   letter: {
     type: String,
     required: true
-  },
-  color: {
-    type: String,
-    default: 'currentColor'
-  },
-  hoverColor: {
-    type: String,
-    default: ''
-  },
-  backgroundColor: {
-    type: String,
-    default: 'transparent'
-  },
-  disabledColor: {
-    type: String,
-    default: 'var(--color-text-disabled)'
   },
   disabled: {
     type: Boolean,
@@ -78,21 +59,15 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['action:click'])
+const emit = defineEmits<{
+  (e: 'action:click', event: Event): void
+}>()
 
 const handleClick = (event: Event) => {
   if (!props.disabled && !props.isLoading) {
     emit('action:click', event)
   }
 }
-
-const computedStyles = computed(() => ({
-  '--background-color': props.backgroundColor,
-  '--text-color': props.color,
-  '--hover-color': props.hoverColor || props.color,
-  '--letter-color-rgb': convertHexToRgb(props.color),
-  '--disabled-color': props.disabledColor
-}))
 </script>
 
-<style lang="scss" scoped src="./ButtonLetter.scss" />
+<style scoped lang="scss" src="./ButtonLetter.scss" />

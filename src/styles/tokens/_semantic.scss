@@ -1,7 +1,5 @@
 :root {
-  /* Typography */
-  --font-family-base: 'Nunito Sans', system-ui, -apple-system,
-    BlinkMacSystemFont, sans-serif;
+  --font-family-base: 'Nunito Sans', system-ui, sans-serif;
 
   --font-size-xs: 12px;
   --font-size-sm: 14px;
@@ -15,26 +13,24 @@
   --font-weight-bold: 700;
 
   /* Text */
-  --color-text-primary: var(--color-gray-900);
-  --color-text-secondary: var(--color-gray-600);
-  --color-text-muted: var(--color-gray-500);
-  --color-text-inverse: var(--color-white);
+  --text-primary: var(--semantic-text-primary);
+  --text-secondary: var(--semantic-text-secondary);
+  --text-muted: var(--semantic-text-muted);
+  --text-disabled: var(--semantic-text-disabled);
+  --text-inverse: var(--semantic-text-inverse);
 
-  /* Background */
-  --color-surface: var(--color-white);
-  --color-surface-muted: var(--color-gray-50);
-  --color-surface-inverse: var(--color-gray-900);
-
-  /* Border */
-  --color-border: var(--color-gray-200);
-  --color-border-strong: var(--color-gray-300);
+  /* Surface */
+  --surface-background: var(--semantic-background);
+  --surface-default: var(--semantic-surface);
+  --surface-hover: var(--semantic-surface-hover);
 
   /* Brand */
-  --color-brand: var(--color-primary-600);
-  --color-brand-hover: var(--color-primary-700);
+  --brand-primary: var(--semantic-brand-primary);
+  --brand-primary-hover: var(--semantic-brand-primary-hover);
+  --brand-secondary: var(--semantic-brand-secondary);
 
-  /* Feedback */
-  --color-success: var(--color-success-500);
-  --color-warning: var(--color-warning-500);
-  --color-danger: var(--color-danger-500);
+  /* Border */
+  --border-default: var(--semantic-border);
+  --border-strong: var(--semantic-border-strong);
+  --focus-ring: var(--semantic-focus-ring);
 }

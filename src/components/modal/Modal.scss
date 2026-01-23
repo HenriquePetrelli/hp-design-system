@@ -1,10 +1,7 @@
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  inset: 0;
+  background-color: var(--color-overlay);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,8 +11,7 @@
   &__container {
     background-color: var(--color-surface);
     border-radius: 8px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--color-shadow);
     display: flex;
     flex-direction: column;
     max-height: 90vh;
@@ -45,21 +41,36 @@
     position: relative;
   }
 
-  &__back-button {
+  &__back-button,
+  &__close-button {
     background: none;
     border: none;
     cursor: pointer;
     padding: 4px;
-    margin-right: 12px;
-    color: #6b7280;
+    color: var(--color-text-muted);
+    transition: color 0.2s ease;
 
     &:hover {
-      color: #4b5563;
+      color: var(--color-text-secondary);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--color-focus);
+      border-radius: 4px;
     }
 
     svg {
       display: block;
     }
+  }
+
+  &__back-button {
+    margin-right: 12px;
+  }
+
+  &__close-button {
+    margin-left: 12px;
   }
 
   &__title {
@@ -71,27 +82,11 @@
     text-align: center;
   }
 
-  &__close-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    margin-left: 12px;
-    color: #6b7280;
-
-    &:hover {
-      color: #4b5563;
-    }
-
-    svg {
-      display: block;
-    }
-  }
-
   &__content {
     padding: 20px;
     overflow-y: auto;
     flex: 1;
+    color: var(--color-text-primary);
   }
 
   &__footer {
@@ -103,6 +98,7 @@
   }
 }
 
+/* Transitions */
 .modal-enter-active,
 .modal-leave-active {
   transition: opacity 0.3s ease;
@@ -115,7 +111,9 @@
 
 .modal-enter-active .modal__container,
 .modal-leave-active .modal__container {
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .modal-enter-from .modal__container,

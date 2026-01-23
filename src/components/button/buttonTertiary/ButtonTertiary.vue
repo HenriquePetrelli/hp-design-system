@@ -13,7 +13,7 @@
   >
     <span
       v-if="icon && iconPosition === IconPosition.LEFT"
-      class="button-tertiary__icon--left"
+      class="button-tertiary__icon button-tertiary__icon--left"
     >
       <Icon :name="icon" size="sm" />
     </span>
@@ -24,7 +24,7 @@
 
     <span
       v-if="icon && iconPosition === IconPosition.RIGHT"
-      class="button-tertiary__icon--right"
+      class="button-tertiary__icon button-tertiary__icon--right"
     >
       <Icon :name="icon" size="sm" />
     </span>
@@ -51,29 +51,31 @@ const props = defineProps({
   },
 
   /**
-   * Cor do texto no estado normal
+   * Override da cor do texto (opcional)
    */
   color: {
     type: String,
-    default: '#000000'
+    default: 'var(--button-tertiary-text)'
   },
 
   /**
-   * Cor do texto no hover
+   * Override da cor no hover/focus (opcional)
    */
   hoverColor: {
     type: String,
-    default: '#FF7F50'
+    default: 'var(--button-tertiary-text-hover)'
   },
 
   size: {
     type: String,
     default: ButtonSize.REGULAR
   },
+
   icon: {
     type: String,
     default: ''
   },
+
   iconPosition: {
     type: String,
     default: IconPosition.LEFT
@@ -89,11 +91,11 @@ const handleClick = (event: Event) => {
 }
 
 /**
- * CSS variables totalmente dinâmicas
+ * CSS variables semânticas com override via props
  */
 const computedStyles = computed(() => ({
-  '--text-color': props.color,
-  '--hover-color': props.hoverColor
+  '--button-tertiary-text': props.color,
+  '--button-tertiary-hover-text': props.hoverColor
 }))
 </script>
 

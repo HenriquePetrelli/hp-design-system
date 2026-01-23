@@ -2,12 +2,12 @@
   <svg
     :class="['icon', sizeClass]"
     xmlns="http://www.w3.org/2000/svg"
-    :aria-hidden="decorative"
-    :role="decorative ? 'presentation' : 'img'"
-    :aria-label="decorative ? undefined : ariaLabel"
-    :style="{ color }"
+    :aria-hidden="isDecorative"
+    :role="isDecorative ? 'presentation' : 'img'"
+    :aria-label="!isDecorative ? ariaLabel : undefined"
+    :style="{ '--icon-color': color }"
   >
-    <use :xlink:href="`#icon-${name}`" />
+    <use :href="`#icon-${name}`" />
   </svg>
 </template>
 
@@ -27,7 +27,7 @@ const props = defineProps({
     default: 'md'
   },
 
-  /** Cor do ícone (usa color / currentColor) */
+  /** Cor do ícone (usa currentColor por padrão) */
   color: {
     type: String,
     default: 'currentColor'
@@ -54,6 +54,13 @@ const sizeClass = computed(() => {
       lg: 'icon--lg'
     }[props.size] || 'icon--md'
   )
+})
+
+/**
+ * Se não houver ariaLabel, o ícone deve ser decorativo
+ */
+const isDecorative = computed(() => {
+  return props.decorative || !props.ariaLabel
 })
 </script>
 

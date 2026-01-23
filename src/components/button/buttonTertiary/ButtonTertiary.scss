@@ -1,30 +1,36 @@
 .button-tertiary {
   font-family: 'Nunito Sans', sans-serif;
+  font-weight: 600;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  min-width: 120px;
   padding: 12px 20px;
+
   border: 0;
   border-radius: 8px;
-  min-width: 120px;
+  background-color: transparent;
+
+  font-size: 17px;
   cursor: pointer;
   outline: none;
-  font-size: 17px;
-  font-weight: 600;
 
-  background-color: transparent;
-  color: var(--text-color);
+  color: var(--button-tertiary-text);
 
-  transition: color 0.2s ease, transform 0.15s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.15s ease;
 
   &:not(:disabled):focus-visible {
-    outline: 2px solid var(--hover-color);
+    outline: 2px solid var(--button-tertiary-focus);
     outline-offset: 2px;
   }
 
   &:not(:disabled):hover {
     transform: scale(1.0175);
-    color: var(--hover-color);
+    color: var(--button-tertiary-hover-text);
   }
 
   &:not(:disabled):active {
@@ -34,7 +40,7 @@
   &--disabled,
   &:disabled {
     cursor: default;
-    color: var(--color-text-disabled);
+    color: var(--button-tertiary-disabled-text);
   }
 
   &--large {
@@ -42,16 +48,15 @@
   }
 
   &__icon {
+    display: flex;
+    align-items: center;
+
     &--left {
       margin-right: 0.8rem;
-      display: flex;
-      align-items: center;
     }
 
     &--right {
       margin-left: 0.8rem;
-      display: flex;
-      align-items: center;
     }
   }
 

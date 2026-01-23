@@ -15,20 +15,23 @@
 
   font-size: 17px;
   cursor: pointer;
-  color: var(--button-color);
+
+  color: var(--button-color, var(--button-secondary-color));
 
   outline: none;
-  transition: transform 0.15s ease, background-color 0.15s ease,
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
     box-shadow 0.15s ease;
 
   &:focus-visible {
-    outline: 2px solid var(--color-focus);
+    outline: 2px solid var(--button-secondary-focus);
     outline-offset: 2px;
   }
 
   &:not(:disabled):hover {
     transform: scale(1.0175);
-    background-color: color-mix(in srgb, var(--button-color) 8%, transparent);
+    background-color: var(--button-secondary-hover-bg);
   }
 
   &:not(:disabled):active {
@@ -38,7 +41,7 @@
   &--disabled,
   &:disabled {
     cursor: default;
-    color: var(--color-text-disabled);
+    color: var(--button-secondary-disabled-color);
   }
 
   &--large {

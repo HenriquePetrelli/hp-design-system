@@ -25,32 +25,28 @@
     </HpHeader> -->
 
     <HpDataTable
+      class="costs__table"
+      label="costs list"
       :items="users"
       :columns="[
         { key: 'name', label: 'Nome' },
-        { key: 'status', label: 'E-mail' },
-        { key: 'role', label: 'Perfil' }
+        { key: 'email', label: 'E-mail' },
+        { key: 'role', label: 'Perfil' },
+        { key: 'roles', label: 'Perfil' }
       ]"
+      :searchable="false"
+      hasDivider
     >
-      <template #cell-status="{ value }">
-        <strong
-          ><HpText size="sm" color="var(--color-success)">
-            {{ value }}
-          </HpText></strong
-        >
-      </template>
-
       <!-- <template #footer-left>
         <HpText size="lg" color="var(--color-text-primary)">Valor Total</HpText>
       </template> -->
 
+      <template #footer-left>
+        <HpText size="lg" color="var(--color-text-primary)">Valor Total</HpText>
+      </template>
+
       <template #footer-right>
-        <HpText
-          style="padding-right: 40px"
-          size="lg"
-          color="var(--color-text-primary)"
-          >R$ 3.000</HpText
-        >
+        <HpText size="lg" color="var(--color-text-primary)">R$ 3.000</HpText>
       </template>
     </HpDataTable>
 
@@ -195,7 +191,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import {
   HpButtonPrimary,
   HpButtonTertiary,
@@ -223,6 +219,31 @@ const selectedValue = ref(null)
 
 const value2 = ref(true)
 const value1 = ref()
+
+const categoryFilter = ref('All')
+
+const benefitCategoryMapper = {
+  Health: {
+    label: 'Saúde',
+    color: 'green'
+  },
+  Food: {
+    label: 'Alimentação',
+    color: 'orange'
+  },
+  Education: {
+    label: 'Educação',
+    color: 'blue'
+  },
+  Financial: {
+    label: 'Financeiro',
+    color: 'purple'
+  },
+  Security: {
+    label: 'Segurança',
+    color: 'red'
+  }
+}
 
 const options = [
   {
@@ -260,8 +281,20 @@ const benefits = [
 ]
 
 const users = [
-  { id: 1, name: 'Henrique', status: 'henrique@email.com', role: 'Admin' },
-  { id: 2, name: 'Maria', status: 'maria@email.com', role: 'User' }
+  {
+    id: 1,
+    name: 'Henrique',
+    email: 'henrique@email.com',
+    role: 'Admin',
+    roles: 'R$ 3.000'
+  },
+  {
+    id: 2,
+    name: 'Maria',
+    email: 'maria@email.com',
+    role: 'User',
+    roles: 'R$ 30.000'
+  }
 ]
 
 const salaries = [

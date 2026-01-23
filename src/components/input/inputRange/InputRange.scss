@@ -2,10 +2,12 @@
   --track-height: 6px;
   --thumb-size: 20px;
   --thumb-border: 2px;
-  --active-color: #005fcc;
-  --inactive-color: #dddddd;
-  --error-color: #d32f2f;
-  --success-color: #388e3c;
+
+  /* Tokens semânticos */
+  --range-active-color: var(--color-action-primary);
+  --range-inactive-color: var(--color-border);
+  --range-thumb-bg: var(--color-surface);
+  --range-focus-ring: var(--color-focus);
 
   width: 100%;
   margin-bottom: 1.5rem;
@@ -20,12 +22,12 @@
     display: block;
     margin-bottom: 0.5rem;
     font-size: 1rem;
-    color: #666;
     font-weight: 600;
+    color: var(--color-text-secondary);
   }
 
   &__required {
-    color: #d32f2f;
+    color: var(--color-feedback-error);
     margin-left: 0.25rem;
   }
 
@@ -39,7 +41,7 @@
     flex-grow: 1;
     -webkit-appearance: none;
     height: var(--track-height);
-    background: var(--inactive-color);
+    background: var(--range-inactive-color);
     border-radius: 10px;
     outline: none;
     margin: 10px 0;
@@ -49,8 +51,8 @@
       -webkit-appearance: none;
       width: var(--thumb-size);
       height: var(--thumb-size);
-      background: #ffffff;
-      border: var(--thumb-border) solid var(--active-color);
+      background: var(--range-thumb-bg);
+      border: var(--thumb-border) solid var(--range-active-color);
       border-radius: 50%;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -59,8 +61,8 @@
     &::-moz-range-thumb {
       width: var(--thumb-size);
       height: var(--thumb-size);
-      background: #ffffff;
-      border: var(--thumb-border) solid var(--active-color);
+      background: var(--range-thumb-bg);
+      border: var(--thumb-border) solid var(--range-active-color);
       border-radius: 50%;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -69,26 +71,19 @@
     &:focus {
       outline: none;
 
-      &::-webkit-slider-thumb {
-        box-shadow: 0 0 0 3px rgba(0, 95, 204, 0.2);
-      }
-
+      &::-webkit-slider-thumb,
       &::-moz-range-thumb {
-        box-shadow: 0 0 0 3px rgba(0, 95, 204, 0.2);
+        box-shadow: 0 0 0 3px var(--range-focus-ring);
       }
     }
 
     &:disabled {
-      opacity: 0.7;
+      opacity: 0.6;
       cursor: not-allowed;
 
-      &::-webkit-slider-thumb {
-        border-color: #999999;
-        cursor: not-allowed;
-      }
-
+      &::-webkit-slider-thumb,
       &::-moz-range-thumb {
-        border-color: #999999;
+        border-color: var(--color-text-muted);
         cursor: not-allowed;
       }
     }
@@ -98,15 +93,16 @@
     min-width: 50px;
     text-align: center;
     font-weight: 600;
+    color: var(--color-text-primary);
   }
 
   &__value {
-    color: var(--active-color);
+    color: var(--range-active-color);
   }
 
   &__unit {
     margin-left: 0.25rem;
-    color: #666;
+    color: var(--color-text-secondary);
   }
 
   &__footer {
@@ -115,24 +111,27 @@
 
   &__helper-text {
     font-size: 0.75rem;
-    color: #666;
+    color: var(--color-text-muted);
   }
 
-  /* Status styles */
+  /* =========================
+     Status
+  ========================= */
+
   &--error {
-    --active-color: var(--error-color);
+    --range-active-color: var(--color-feedback-error);
 
     .input-range__helper-text {
-      color: var(--error-color);
+      color: var(--color-feedback-error);
       font-weight: 600;
     }
   }
 
   &--success {
-    --active-color: var(--success-color);
+    --range-active-color: var(--color-feedback-success);
 
     .input-range__helper-text {
-      color: var(--success-color);
+      color: var(--color-feedback-success);
       font-weight: 600;
     }
   }

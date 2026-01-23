@@ -82,18 +82,35 @@ onUnmounted(() => {
   }
 })
 
+/**
+ * 🔒 Mapeamento SEM alterar valor final das cores
+ */
 const computedColorType = computed(() => {
-  if (Object.values(AlertType).includes(props.type as AlertType)) {
-    return `var(--color-${props.type})`
+  switch (props.type) {
+    case AlertType.SUCCESS:
+      return 'var(--color-feedback-success)'
+    case AlertType.WARNING:
+      return 'var(--color-feedback-warning)'
+    case AlertType.ERROR:
+      return 'var(--color-feedback-error)'
+    case AlertType.INFO:
+    default:
+      return 'var(--color-feedback-info)'
   }
-  return props.type
 })
 
 const computedBackgroundType = computed(() => {
-  if (Object.values(AlertType).includes(props.type as AlertType)) {
-    return `var(--color-${props.type}-bg)`
+  switch (props.type) {
+    case AlertType.SUCCESS:
+      return 'var(--color-feedback-success-bg)'
+    case AlertType.WARNING:
+      return 'var(--color-feedback-warning-bg)'
+    case AlertType.ERROR:
+      return 'var(--color-feedback-error-bg)'
+    case AlertType.INFO:
+    default:
+      return 'var(--color-feedback-info-bg)'
   }
-  return props.type
 })
 </script>
 

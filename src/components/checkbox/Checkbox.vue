@@ -87,11 +87,9 @@ const emit = defineEmits(['update:modelValue'])
 
 const internalChecked = ref(props.checked)
 
-const isChecked = computed(() => {
-  return props.modelValue !== undefined
-    ? props.modelValue
-    : internalChecked.value
-})
+const isChecked = computed(() =>
+  props.modelValue !== undefined ? props.modelValue : internalChecked.value
+)
 
 const handleChange = (event: Event) => {
   const value = (event.target as HTMLInputElement).checked
@@ -111,19 +109,19 @@ watch(
 )
 
 /* =====================
-   Computed tokens
+   Computed semantic tokens
 ===================== */
 
 const computedBorderColor = computed(() => {
-  return props.borderColor || 'var(--color-border)'
+  return props.borderColor || 'var(--checkbox-border-color)'
 })
 
 const computedBackgroundColor = computed(() => {
-  return props.backgroundColor || 'var(--color-primary)'
+  return props.backgroundColor || 'var(--checkbox-bg-color)'
 })
 
 const computedIconColor = computed(() => {
-  return props.iconColor || 'var(--color-text-inverse)'
+  return props.iconColor || 'var(--checkbox-icon-color)'
 })
 </script>
 

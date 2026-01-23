@@ -5,10 +5,6 @@
       'button-primary--large': size === ButtonSize.LARGE,
       'button-primary--disabled': disabled
     }"
-    :style="{
-      backgroundColor: backgroundColor,
-      color: color
-    }"
     :aria-label="ariaLabel || label"
     :aria-disabled="disabled"
     :disabled="disabled"
@@ -18,7 +14,7 @@
       v-if="icon && iconPosition === IconPosition.LEFT"
       class="button-primary__icon button-primary__icon--left"
     >
-      <Icon :name="icon" size="sm" :color="color" />
+      <Icon :name="icon" size="sm" />
     </span>
 
     <span class="button-primary__label">
@@ -29,7 +25,7 @@
       v-if="icon && iconPosition === IconPosition.RIGHT"
       class="button-primary__icon button-primary__icon--right"
     >
-      <Icon :name="icon" size="sm" :color="color" />
+      <Icon :name="icon" size="sm" />
     </span>
   </button>
 </template>
@@ -51,26 +47,14 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  backgroundColor: {
-    type: String,
-    default: 'var(--color-primary)'
-  },
-
-  color: {
-    type: String,
-    default: 'var(--color-text-inverse)'
-  },
-
   size: {
     type: String,
     default: ButtonSize.REGULAR
   },
-
   icon: {
     type: String,
     default: ''
   },
-
   iconPosition: {
     type: String,
     default: IconPosition.LEFT

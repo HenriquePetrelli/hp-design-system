@@ -32,7 +32,19 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { SpinnerLoaderSize } from './SpinnerLoaderTypes'
+
+// === Declarando enums sem "export" para uso interno ===
+enum SpinnerLoaderSize {
+  SMALL = 'small',
+  REGULAR = 'regular',
+  LARGE = 'large'
+}
+
+enum SpinnerLoaderSpeed {
+  FAST = 'fast',
+  NORMAL = 'normal',
+  SLOW = 'slow'
+}
 
 const props = defineProps({
   type: {
@@ -53,34 +65,58 @@ const props = defineProps({
   },
   speed: {
     type: [String, Number],
-    default: 1
+    default: SpinnerLoaderSpeed.NORMAL
   }
 })
 
-const spinnerSizeMapper = {
+// Mapeamentos tipados
+const spinnerSizeMapper: Record<SpinnerLoaderSize, number> = {
   [SpinnerLoaderSize.SMALL]: 16,
   [SpinnerLoaderSize.REGULAR]: 24,
   [SpinnerLoaderSize.LARGE]: 32
 }
 
+const spinnerSpeedMapper: Record<SpinnerLoaderSpeed, number> = {
+  [SpinnerLoaderSpeed.FAST]: 0.5,
+  [SpinnerLoaderSpeed.NORMAL]: 1,
+  [SpinnerLoaderSpeed.SLOW]: 2
+}
+
+// Funções para obter valores com fallback
 const getSpinnerSize = (size: string | number): number => {
   if (typeof size === 'string' && size in spinnerSizeMapper) {
     return spinnerSizeMapper[size as SpinnerLoaderSize]
   }
   return typeof size === 'number'
     ? size
-    : Number(size) || spinnerSizeMapper[SpinnerLoaderSize.REGULAR]
+    : spinnerSizeMapper[SpinnerLoaderSize.REGULAR]
 }
 
-// Estilos computados com fallback values
-const spinnerStyles = computed(() => ({
-  '--spinner-size': `${getSpinnerSize(props.size)}px`,
-  '--spinner-color': props.color || '#FF3D00',
-  '--spinner-secondary-color': props.secondaryColor || '#FFF',
-  '--spinner-speed': `${Math.max(0.1, Number(props.speed))}s`,
-  '--spinner-clock-speed': `${Math.max(0.1, Number(props.speed)) * 6}s`,
-  '--spinner-dots-speed': `${Math.max(0.1, Number(props.speed)) * 1.4}s`
-}))
+const getSpinnerSpeed = (speed: string | number): number => {
+  if (typeof speed === 'string' && speed in spinnerSpeedMapper) {
+    return spinnerSpeedMapper[speed as SpinnerLoaderSpeed]
+  }
+  return typeof speed === 'number'
+    ? Math.max(0.1, speed)
+    : spinnerSpeedMapper[SpinnerLoaderSpeed.NORMAL]
+}
+
+// Estilos computados com CSS variables
+const spinnerStyles = computed(() => {
+  const sizePx = `${getSpinnerSize(props.size)}px`
+  const speedSec = `${getSpinnerSpeed(props.speed)}s`
+  const speedClock = `${getSpinnerSpeed(props.speed) * 6}s`
+  const speedDots = `${getSpinnerSpeed(props.speed) * 1.4}s`
+
+  return {
+    '--spinner-size': sizePx,
+    '--spinner-color': props.color || '#FF3D00',
+    '--spinner-secondary-color': props.secondaryColor || '#FFF',
+    '--spinner-speed': speedSec,
+    '--spinner-clock-speed': speedClock,
+    '--spinner-dots-speed': speedDots
+  }
+})
 </script>
 
 <style lang="scss" src="./SpinnerLoader.scss"></style>

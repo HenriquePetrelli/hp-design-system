@@ -15,18 +15,22 @@
 </template>
 
 <script lang="ts" setup>
-import { TextSize } from '../TypographyTypes'
+// Enum interno para tamanhos de texto
+const TextSize = {
+  EXTRA_SMALL: 'xs',
+  SMALL: 'sm',
+  MEDIUM: 'md',
+  LARGE: 'lg',
+  EXTRA_LARGE: 'xl',
+  EXTRA_EXTRA_LARGE: 'xxl'
+} as const
 
-defineProps({
-  size: {
-    type: String,
-    default: TextSize.MEDIUM
-  },
-  color: {
-    type: String,
-    default: 'black'
-  }
-})
+type TextSizeType = (typeof TextSize)[keyof typeof TextSize]
+
+const props = defineProps<{
+  size?: TextSizeType
+  color?: string
+}>()
 </script>
 
 <style lang="scss" scoped src="./Text.scss" />

@@ -1,0 +1,39 @@
+:root {
+  --semantic-background: var(--surface-background);
+  --semantic-surface: var(--surface-default);
+  --semantic-surface-hover: var(--surface-hover);
+
+  --semantic-text-primary: var(--text-primary);
+  --semantic-text-secondary: var(--text-secondary);
+  --semantic-text-muted: var(--text-muted);
+  --semantic-text-disabled: var(--text-disabled);
+  --semantic-text-inverse: var(--text-inverse);
+
+  --semantic-brand-primary: var(--color-brand-primary);
+  --semantic-brand-primary-hover: var(--color-brand-primary-hover);
+  --semantic-brand-secondary: var(--color-brand-secondary);
+
+  --semantic-border: var(--border-default);
+  --semantic-border-strong: var(--border-strong);
+  --semantic-focus-ring: var(--border-focus);
+}
+
+[data-theme='dark'] {
+  --semantic-background: var(--surface-background);
+  --semantic-surface: var(--surface-default);
+  --semantic-surface-hover: var(--surface-hover);
+
+  --semantic-text-primary: var(--text-primary);
+  --semantic-text-secondary: var(--text-secondary);
+  --semantic-text-muted: var(--text-muted);
+  --semantic-text-disabled: var(--text-disabled);
+  --semantic-text-inverse: var(--text-inverse);
+
+  --semantic-brand-primary: var(--color-brand-primary);
+  --semantic-brand-primary-hover: var(--color-brand-primary-hover);
+  --semantic-brand-secondary: var(--color-brand-secondary);
+
+  --semantic-border: var(--border-default);
+  --semantic-border-strong: var(--border-strong);
+  --semantic-focus-ring: var(--border-focus);
+}

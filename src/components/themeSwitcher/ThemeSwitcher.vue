@@ -56,7 +56,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
 import { HpIcon } from '@components'
 
@@ -96,7 +96,7 @@ const isStoredDark = () => getStoredTheme() === 'dark'
 
 const isDarkMode = ref(isStoredDark())
 
-const applyTheme = (isDark) => {
+const applyTheme = (isDark: boolean) => {
   const theme = isDark ? 'dark' : 'light'
   document.documentElement.setAttribute('data-theme', theme)
   localStorage.setItem('theme', theme)

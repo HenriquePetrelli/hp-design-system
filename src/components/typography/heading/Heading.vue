@@ -17,22 +17,25 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { HeadingLevel } from '../TypographyTypes'
 
-const props = defineProps({
-  level: {
-    type: Number,
-    default: HeadingLevel.H3
-  },
-  color: {
-    type: String,
-    default: 'black'
-  }
-})
+// Enum interno para os níveis de heading
+const HeadingLevel = {
+  H1: 1,
+  H2: 2,
+  H3: 3,
+  H4: 4,
+  H5: 5,
+  H6: 6
+} as const
 
-const headingTag = computed(() => {
-  return `h${props.level}`
-})
+type HeadingLevelType = (typeof HeadingLevel)[keyof typeof HeadingLevel]
+
+const props = defineProps<{
+  level?: HeadingLevelType
+  color?: string
+}>()
+
+const headingTag = computed(() => `h${props.level ?? HeadingLevel.H3}`)
 </script>
 
-<style lang="scss" scoped src="./Heading.scss" />
+<style scoped lang="scss" src="./Heading.scss" />

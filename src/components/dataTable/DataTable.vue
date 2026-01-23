@@ -9,7 +9,6 @@
   >
     <slot name="filters" />
 
-    <!-- Search -->
     <HpInputText
       v-if="searchable"
       class="data-table__search"
@@ -24,7 +23,6 @@
 
     <div class="data-table__wrapper">
       <table class="data-table__table">
-        <!-- ================= HEADER ================= -->
         <thead>
           <tr class="data-table__row data-table__row--header">
             <th
@@ -53,9 +51,7 @@
           </tr>
         </thead>
 
-        <!-- ================= BODY ================= -->
         <tbody class="data-table__body">
-          <!-- Empty state -->
           <tr v-if="filteredItems.length === 0">
             <td
               class="data-table__cell data-table__cell--empty"
@@ -67,7 +63,6 @@
             </td>
           </tr>
 
-          <!-- Rows -->
           <tr
             v-else
             v-for="(item, rowIndex) in filteredItems"
@@ -104,7 +99,6 @@
           </tr>
         </tbody>
 
-        <!-- ================= FOOTER ================= -->
         <tfoot
           v-if="
             $slots['footer-left'] ||

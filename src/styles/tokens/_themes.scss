@@ -1,139 +1,377 @@
-/* Light (default) */
+/* =====================================================
+   Light (default)
+   ===================================================== */
 :root {
   /* =====================================================
-     Superfícies
+     FOUNDATION — Neutral
      ===================================================== */
-  --color-background: #f5f5f5;
-  --color-surface: #ffffff;
-  --color-surface-hover: #f0f0f0;
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f5f5f5;
+  --color-neutral-100: #f0f0f0;
+  --color-neutral-200: #e0e0e0;
+  --color-neutral-300: #bdbdbd;
+  --color-neutral-400: #9e9e9e;
+  --color-neutral-500: #616161;
+  --color-neutral-600: #424242;
+  --color-neutral-700: #212121;
 
   /* =====================================================
-     Texto
+     FOUNDATION — Brand
      ===================================================== */
-  --color-text-primary: #212121;
-  --color-text-secondary: #424242;
-  --color-text-muted: #616161;
-  --color-text-disabled: #9e9e9e;
-  --color-text-inverse: #ffffff;
+  --color-brand-primary: #372772;
+  --color-brand-primary-hover: #2b1e5c;
+  --color-brand-secondary: #ff7f50;
 
   /* =====================================================
-     Brand
+     FOUNDATION — Feedback
      ===================================================== */
-  --color-primary: #372772;
-  --color-primary-hover: #2b1e5c;
-  --color-secondary: #ff7f50;
+  --color-feedback-success: #2e7d32;
+  --color-feedback-warning: #f9a825;
+  --color-feedback-info: #306cb3;
+  --color-feedback-error: #b71c1c;
+
+  --color-feedback-success-bg: #e8f5e9;
+  --color-feedback-warning-bg: #fff8e1;
+  --color-feedback-info-bg: #e3f2fd;
+  --color-feedback-error-bg: #fdecea;
 
   /* =====================================================
-     Estados
+     SEMANTIC — Surface
      ===================================================== */
-  --color-success: #2e7d32;
-  --color-warning: #f9a825;
-  --color-info: #306cb3;
-  --color-error: #b71c1c;
-
-  --color-success-bg: #e8f5e9;
-  --color-warning-bg: #fff8e1;
-  --color-info-bg: #e3f2fd;
-  --color-error-bg: #fdecea;
+  --surface-background: var(--color-neutral-50);
+  --surface-default: var(--color-neutral-0);
+  --surface-hover: var(--color-neutral-100);
 
   /* =====================================================
-     Bordas / foco
+     SEMANTIC — Text
      ===================================================== */
-  --color-border: #e0e0e0;
-  --color-border-strong: #bdbdbd;
-  --color-focus: #306cb3;
+  --text-primary: var(--color-neutral-700);
+  --text-secondary: var(--color-neutral-600);
+  --text-muted: var(--color-neutral-500);
+  --text-disabled: var(--color-neutral-400);
+  --text-inverse: var(--color-neutral-0);
 
   /* =====================================================
-     Elevação
+     SEMANTIC — Border & Focus
      ===================================================== */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.16);
+  --border-default: var(--color-neutral-200);
+  --border-strong: var(--color-neutral-300);
+  --border-focus: var(--color-feedback-info);
 
   /* =====================================================
-     Tokens semânticos (componentes)
+     🔁 LEGACY / ALIASES (NÃO REMOVER)
      ===================================================== */
 
-  /* Ícones */
-  --color-icon-default: var(--color-text-secondary);
-  --color-icon-muted: var(--color-text-muted);
-  --color-icon-inverse: var(--color-text-inverse);
+  /* Estados (Alert, Badge, etc) */
+  --color-success: var(--color-feedback-success);
+  --color-warning: var(--color-feedback-warning);
+  --color-info: var(--color-feedback-info);
+  --color-error: var(--color-feedback-error);
 
-  --color-icon-primary: var(--color-primary);
-  --color-icon-secondary: var(--color-secondary);
-  --color-icon-success: var(--color-success);
-  --color-icon-warning: var(--color-warning);
-  --color-icon-info: var(--color-info);
-  --color-icon-error: var(--color-error);
+  --color-success-bg: var(--color-feedback-success-bg);
+  --color-warning-bg: var(--color-feedback-warning-bg);
+  --color-info-bg: var(--color-feedback-info-bg);
+  --color-error-bg: var(--color-feedback-error-bg);
 
-  /* Bordas de destaque (ex: listas, cards, alerts) */
-  --color-border-info: var(--color-info);
-  --color-border-success: var(--color-success);
-  --color-border-warning: var(--color-warning);
-  --color-border-error: var(--color-error);
+  /* Texto */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-disabled: var(--text-disabled);
+  --color-text-inverse: var(--text-inverse);
+
+  /* Superfícies */
+  --color-background: var(--surface-background);
+  --color-surface: var(--surface-default);
+  --color-surface-hover: var(--surface-hover);
+
+  /* Bordas */
+  --color-border: var(--border-default);
+  --color-border-strong: var(--border-strong);
+  --color-focus: var(--border-focus);
+
+  /* =====================================================
+     COMPONENT TOKENS — Button Primary
+     ===================================================== */
+  --button-primary-bg: var(--color-brand-primary);
+  --button-primary-bg-hover: var(--color-brand-primary-hover);
+  --button-primary-text: var(--color-text-inverse);
+  --button-primary-focus: var(--color-focus);
+
+  /* =====================================================
+     COMPONENT TOKENS — Button Secondary
+     ===================================================== */
+  --button-secondary-color: var(--color-brand-secondary);
+  --button-secondary-hover-bg: color-mix(
+    in srgb,
+    var(--color-brand-secondary) 8%,
+    transparent
+  );
+  --button-secondary-disabled-color: var(--color-text-disabled);
+  --button-secondary-focus: var(--color-focus);
+
+  /* =====================================================
+     COMPONENT TOKENS — Button Tertiary
+     ===================================================== */
+  --button-tertiary-text: var(--color-text-primary);
+  --button-tertiary-text-hover: var(--color-brand-secondary);
+  --button-tertiary-focus: var(--color-focus);
+
+  /* =====================================================
+   SEMANTIC — Button Icon
+   ===================================================== */
+  --button-icon-color: var(--text-primary);
+  --button-icon-hover-color: var(--color-brand-primary);
+  --button-icon-hover-bg: rgba(0, 0, 0, 0.08);
+  --button-icon-disabled-color: var(--text-disabled);
+  --button-icon-focus-ring: var(--border-focus);
+
+  /* =====================================================
+   SEMANTIC — Button Letter
+   ===================================================== */
+  --button-letter-color: var(--text-primary);
+  --button-letter-hover-color: var(--color-brand-primary);
+  --button-letter-hover-bg: rgba(0, 0, 0, 0.08);
+  --button-letter-disabled-color: var(--text-disabled);
+  --button-letter-focus-ring: var(--border-focus);
+
+  /* =====================================================
+   SEMANTIC — Card
+   ===================================================== */
+  --card-bg: var(--color-surface);
+  --card-text-primary: var(--color-text-primary);
+  --card-text-secondary: var(--color-text-secondary);
+  --card-border-color: var(--color-border);
+  --card-shadow-elevated: var(--shadow-md);
+  --card-shadow-hover: var(--shadow-lg);
+  --card-focus-ring: var(--color-focus);
+
+  /* =====================================================
+   SEMANTIC — Checkbox
+   ===================================================== */
+  --checkbox-border-color: var(--border-default);
+  --checkbox-bg-color: var(--color-brand-primary);
+  --checkbox-icon-color: var(--text-inverse);
+  --checkbox-label-color: var(--text-primary);
+  --checkbox-focus-ring: var(--border-focus);
+  --checkbox-hover-border: color-mix(
+    in srgb,
+    var(--checkbox-border-color) 70%,
+    transparent
+  );
+
+  /* ------------------------
+   ProgressBar
+------------------------ */
+  --progress-track-color: var(--color-border);
+  --progress-bar-color: var(--color-brand-primary);
+  --progress-text-color: var(--color-text-primary);
+
+  /* =====================================================
+   SEMANTIC — Radio
+   ===================================================== */
+  --radio-border-color: var(--border-default);
+  --radio-border-color-hover: var(--color-brand-primary);
+  --radio-bg-checked: var(--color-brand-primary);
+  --radio-dot-color: var(--text-inverse);
+  --radio-label-color: var(--text-primary);
+  --radio-focus-ring: var(--border-focus);
+  --radio-disabled-opacity: 0.6;
+
+  /* =====================================================
+   SEMANTIC — Sidebar
+   ===================================================== */
+  --sidebar-bg: var(--color-surface);
+  --sidebar-border-color: var(--color-border);
+  --sidebar-shadow: var(--shadow-md);
+
+  --sidebar-item-text: var(--color-text-primary);
+  --sidebar-item-icon: var(--color-text-secondary);
+  --sidebar-item-hover-bg: var(--color-surface-hover);
+
+  --sidebar-item-active-bg: var(--color-brand-primary);
+  --sidebar-item-active-text: var(--color-text-inverse);
+  --sidebar-item-active-shadow: var(--shadow-sm);
+
+  /* =====================================================
+   SEMANTIC — Spinner / Loader
+   ===================================================== */
+  --spinner-color: var(--color-brand-primary);
+  --spinner-secondary-color: var(--color-border);
+  --spinner-muted-color: var(--color-text-secondary);
+
+  --spinner-size-sm: 16px;
+  --spinner-size-md: 24px;
+  --spinner-size-lg: 32px;
+
+  --spinner-speed-fast: 0.8s;
+  --spinner-speed-normal: 1s;
+  --spinner-speed-slow: 1.4s;
 }
 
 /* =====================================================
    Dark theme
    ===================================================== */
 [data-theme='dark'] {
-  /* Superfícies */
-  --color-background: #121212;
-  --color-surface: #1e1e1e;
-  --color-surface-hover: #2a2a2a;
-
-  /* Texto */
-  --color-text-primary: #f5f5f5;
-  --color-text-secondary: #e0e0e0;
-  --color-text-muted: #bdbdbd;
-  --color-text-disabled: #757575;
-  --color-text-inverse: #000000;
+  /* Neutral */
+  --color-neutral-0: #000000;
+  --color-neutral-50: #121212;
+  --color-neutral-100: #1e1e1e;
+  --color-neutral-200: #2a2a2a;
+  --color-neutral-300: #3d3d3d;
+  --color-neutral-400: #757575;
+  --color-neutral-500: #bdbdbd;
+  --color-neutral-600: #e0e0e0;
+  --color-neutral-700: #f5f5f5;
 
   /* Brand */
-  --color-primary: #8b7bd9;
-  --color-primary-hover: #a091ff;
-  --color-secondary: #ff9f7a;
+  --color-brand-primary: #8b7bd9;
+  --color-brand-primary-hover: #a091ff;
+  --color-brand-secondary: #ff9f7a;
 
-  /* Estados */
-  --color-success: #66bb6a;
-  --color-warning: #ffca28;
-  --color-info: #64b5f6;
-  --color-error: #ef5350;
+  /* Feedback */
+  --color-feedback-success: #66bb6a;
+  --color-feedback-warning: #ffca28;
+  --color-feedback-info: #64b5f6;
+  --color-feedback-error: #ef5350;
 
-  --color-success-bg: #1b2a1b;
-  --color-warning-bg: #332900;
-  --color-info-bg: #1e1e1e;
-  --color-error-bg: #3a1515;
+  --color-feedback-success-bg: #1b2a1b;
+  --color-feedback-warning-bg: #332900;
+  --color-feedback-info-bg: #1e1e1e;
+  --color-feedback-error-bg: #3a1515;
 
-  /* Bordas / foco */
-  --color-border: #2a2a2a;
-  --color-border-strong: #3d3d3d;
-  --color-focus: #90caf9;
+  /* Surface */
+  --surface-background: var(--color-neutral-50);
+  --surface-default: var(--color-neutral-100);
+  --surface-hover: var(--color-neutral-200);
 
-  /* Elevação */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6);
-  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.7);
-  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.8);
+  /* Text */
+  --text-primary: var(--color-neutral-700);
+  --text-secondary: var(--color-neutral-600);
+  --text-muted: var(--color-neutral-500);
+  --text-disabled: var(--color-neutral-400);
+  --text-inverse: var(--color-neutral-0);
+
+  /* Border */
+  --border-default: var(--color-neutral-200);
+  --border-strong: var(--color-neutral-300);
+  --border-focus: #90caf9;
 
   /* =====================================================
-     Tokens semânticos (componentes)
+     COMPONENT TOKENS — Button Primary
      ===================================================== */
+  --button-primary-bg: var(--color-brand-primary);
+  --button-primary-bg-hover: var(--color-brand-primary-hover);
+  --button-primary-text: var(--color-text-inverse);
+  --button-primary-focus: var(--border-focus);
 
-  /* Ícones */
-  --color-icon-default: var(--color-text-secondary);
-  --color-icon-muted: var(--color-text-muted);
-  --color-icon-inverse: var(--color-text-inverse);
+  /* =====================================================
+     COMPONENT TOKENS — Button Secondary
+     ===================================================== */
+  --button-secondary-color: var(--color-brand-secondary);
+  --button-secondary-hover-bg: color-mix(
+    in srgb,
+    var(--color-brand-secondary) 12%,
+    transparent
+  );
+  --button-secondary-disabled-color: var(--color-text-disabled);
+  --button-secondary-focus: var(--border-focus);
 
-  --color-icon-primary: var(--color-primary);
-  --color-icon-secondary: var(--color-secondary);
-  --color-icon-success: var(--color-success);
-  --color-icon-warning: var(--color-warning);
-  --color-icon-info: var(--color-info);
-  --color-icon-error: var(--color-error);
+  /* =====================================================
+     COMPONENT TOKENS — Button Tertiary
+     ===================================================== */
+  --button-tertiary-text: var(--color-text-primary);
+  --button-tertiary-text-hover: var(--color-brand-secondary);
+  --button-tertiary-focus: var(--border-focus);
 
-  /* Bordas de destaque */
-  --color-border-info: var(--color-info);
-  --color-border-success: var(--color-success);
-  --color-border-warning: var(--color-warning);
-  --color-border-error: var(--color-error);
+  /* =====================================================
+     SEMANTIC — Button Icon
+     ===================================================== */
+  --button-icon-color: var(--text-primary);
+  --button-icon-hover-color: var(--color-brand-primary);
+  --button-icon-hover-bg: rgba(255, 255, 255, 0.12);
+  --button-icon-disabled-color: var(--text-disabled);
+  --button-icon-focus-ring: var(--border-focus);
+
+  /* =====================================================
+     SEMANTIC — Button Letter
+     ===================================================== */
+  --button-letter-color: var(--text-primary);
+  --button-letter-hover-color: var(--color-brand-primary);
+  --button-letter-hover-bg: rgba(255, 255, 255, 0.12);
+  --button-letter-disabled-color: var(--text-disabled);
+  --button-letter-focus-ring: var(--border-focus);
+
+  /* =====================================================
+     SEMANTIC — Card
+     ===================================================== */
+  --card-bg: var(--color-surface);
+  --card-text-primary: var(--color-text-primary);
+  --card-text-secondary: var(--color-text-secondary);
+  --card-border-color: var(--color-border);
+  --card-shadow-elevated: var(--shadow-md);
+  --card-shadow-hover: var(--shadow-lg);
+  --card-focus-ring: var(--color-focus);
+
+  /* =====================================================
+     SEMANTIC — Checkbox
+     ===================================================== */
+  --checkbox-border-color: var(--border-default);
+  --checkbox-bg-color: var(--color-brand-primary);
+  --checkbox-icon-color: var(--text-inverse);
+  --checkbox-label-color: var(--text-primary);
+  --checkbox-focus-ring: var(--border-focus);
+  --checkbox-hover-border: color-mix(
+    in srgb,
+    var(--checkbox-border-color) 70%,
+    transparent
+  );
+
+  /* ------------------------
+   ProgressBar
+------------------------ */
+  --progress-track-color: var(--color-border);
+  --progress-bar-color: var(--color-brand-primary);
+  --progress-text-color: var(--color-text-primary);
+
+  /* =====================================================
+   SEMANTIC — Radio
+   ===================================================== */
+  --radio-border-color: var(--border-default);
+  --radio-border-color-hover: var(--color-brand-primary);
+  --radio-bg-checked: var(--color-brand-primary);
+  --radio-dot-color: var(--text-inverse);
+  --radio-label-color: var(--text-primary);
+  --radio-focus-ring: var(--border-focus);
+  --radio-disabled-opacity: 0.6;
+
+  /* =====================================================
+   SEMANTIC — Sidebar
+   ===================================================== */
+  --sidebar-bg: var(--color-surface);
+  --sidebar-border-color: var(--color-border);
+  --sidebar-shadow: var(--shadow-md);
+
+  --sidebar-item-text: var(--color-text-primary);
+  --sidebar-item-icon: var(--color-text-secondary);
+  --sidebar-item-hover-bg: var(--color-surface-hover);
+
+  --sidebar-item-active-bg: var(--color-brand-primary);
+  --sidebar-item-active-text: var(--color-text-inverse);
+  --sidebar-item-active-shadow: var(--shadow-sm);
+
+  /* =====================================================
+   SEMANTIC — Spinner / Loader
+   ===================================================== */
+  --spinner-color: var(--color-brand-primary);
+  --spinner-secondary-color: var(--color-border);
+  --spinner-muted-color: var(--color-text-secondary);
+
+  --spinner-size-sm: 16px;
+  --spinner-size-md: 24px;
+  --spinner-size-lg: 32px;
+
+  --spinner-speed-fast: 0.8s;
+  --spinner-speed-normal: 1s;
+  --spinner-speed-slow: 1.4s;
 }
