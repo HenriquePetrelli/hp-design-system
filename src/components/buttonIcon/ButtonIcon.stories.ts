@@ -17,15 +17,6 @@ const meta: Meta<typeof ButtonIcon> = {
       options: AllIcons,
       description: 'Identificador do ícone'
     },
-
-    backgroundColor: {
-      control: 'color',
-      description: 'Cor de fundo do botão'
-    },
-    color: {
-      control: 'color',
-      description: 'Cor do ícone'
-    },
     disabled: {
       control: 'boolean',
       description: 'Estado desabilitado do botão'
@@ -89,7 +80,6 @@ export const Disabled: Story = {
 export const WithBackgroud: Story = {
   args: {
     label: 'Botão carregando',
-    backgroundColor: '#4CAF50',
     icon: 'BE0120'
   }
 }
@@ -98,9 +88,7 @@ export const WithBackgroud: Story = {
 export const CustomColors: Story = {
   args: {
     label: 'Cores customizadas',
-    icon: 'BE0120',
-    backgroundColor: '#4CAF50',
-    color: '#FFEB3B'
+    icon: 'BE0120'
   }
 }
 
@@ -108,8 +96,7 @@ export const CustomColors: Story = {
 export const Loading: Story = {
   args: {
     label: 'Botão carregando',
-    isLoading: true,
-    color: '#000000'
+    isLoading: true
   }
 }
 
@@ -117,8 +104,6 @@ export const Loading: Story = {
 export const LoadingWithCustomColors: Story = {
   args: {
     label: 'Loading com cores',
-    isLoading: true,
-    backgroundColor: '#00a392',
-    color: 'black'
+    isLoading: true
   }
 }

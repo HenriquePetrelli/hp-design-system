@@ -19,14 +19,6 @@ const meta: Meta<typeof ButtonPrimary> = {
       control: 'boolean',
       description: 'Estado desabilitado do botão'
     },
-    backgroundColor: {
-      control: 'color',
-      description: 'Cor de fundo do botão'
-    },
-    color: {
-      control: 'color',
-      description: 'Cor do texto e ícone'
-    },
     size: {
       control: 'select',
       options: Object.values(ButtonSize),
@@ -92,8 +84,6 @@ export const WithRightIcon: Story = {
 // Story com cor personalizada
 export const CustomColor: Story = {
   args: {
-    label: 'Custom Color',
-    backgroundColor: '#007BFF',
-    color: '#fff'
+    label: 'Custom Color'
   }
 }
