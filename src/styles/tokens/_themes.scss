@@ -1,5 +1,7 @@
 :root {
-  /* Neutral */
+  /* =====================================================
+     NEUTRAL
+     ===================================================== */
   --color-neutral-0: #ffffff;
   --color-neutral-50: #f5f5f5;
   --color-neutral-100: #f0f0f0;
@@ -10,12 +12,16 @@
   --color-neutral-600: #424242;
   --color-neutral-700: #212121;
 
-  /* Brand */
+  /* =====================================================
+     BRAND
+     ===================================================== */
   --color-brand-primary: #372772;
   --color-brand-primary-hover: #2b1e5c;
   --color-brand-secondary: #ff7f50;
 
-  /* Feedback */
+  /* =====================================================
+     FEEDBACK
+     ===================================================== */
   --color-feedback-success: #2e7d32;
   --color-feedback-warning: #f9a825;
   --color-feedback-info: #306cb3;
@@ -25,167 +31,152 @@
   --color-feedback-info-bg: #e3f2fd;
   --color-feedback-error-bg: #fdecea;
 
-  /* Surface */
-  --surface-background: var(--color-neutral-50);
-  --surface-default: var(--color-neutral-0);
-  --surface-hover: var(--color-neutral-100);
-
-  /* Text */
-  --text-primary: var(--color-neutral-700);
-  --text-secondary: var(--color-neutral-600);
-  --text-muted: var(--color-neutral-500);
-  --text-disabled: var(--color-neutral-400);
-  --text-inverse: var(--color-neutral-0);
-
-  /* Border */
-  --border-default: var(--color-neutral-200);
-  --border-strong: var(--color-neutral-300);
-  --border-focus: var(--color-feedback-info);
-
-  /* Feedback */
-  --color-success: var(--color-feedback-success);
-  --color-warning: var(--color-feedback-warning);
-  --color-info: var(--color-feedback-info);
-  --color-error: var(--color-feedback-error);
-  --color-success-bg: var(--color-feedback-success-bg);
-  --color-warning-bg: var(--color-feedback-warning-bg);
-  --color-info-bg: var(--color-feedback-info-bg);
-  --color-error-bg: var(--color-feedback-error-bg);
-
-  /* Texto */
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  --color-text-disabled: var(--text-disabled);
-  --color-text-inverse: var(--text-inverse);
-
-  /* Superfícies */
-  --color-background: var(--surface-background);
-  --color-surface: var(--surface-default);
-  --color-surface-hover: var(--surface-hover);
-
-  /* Bordas */
-  --color-border: var(--border-default);
-  --color-border-strong: var(--border-strong);
-  --color-focus: var(--border-focus);
-
   /* =====================================================
-     COMPONENT — Button Primary
+     SURFACE
      ===================================================== */
-  --button-primary-bg: var(--color-brand-primary);
-  --button-primary-bg-hover: var(--color-brand-primary-hover);
-  --button-primary-text: var(--color-text-inverse);
-  --button-primary-focus: var(--color-focus);
+  --color-surface-background: var(--color-neutral-50);
+  --color-surface-default: var(--color-neutral-0);
+  --color-surface-hover: var(--color-neutral-100);
+  --color-surface: var(--color-surface-default);
 
   /* =====================================================
-     COMPONENT — Button Secondary
+     TEXT
      ===================================================== */
-  --button-secondary-color: var(--color-brand-secondary);
-  --button-secondary-hover-bg: color-mix(
-    in srgb,
-    var(--color-brand-secondary) 8%,
-    transparent
-  );
-  --button-secondary-disabled-color: var(--color-text-disabled);
-  --button-secondary-focus: var(--color-focus);
+  --color-text-primary: var(--color-neutral-700);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-disabled: var(--color-neutral-400);
+  --color-text-inverse: var(--color-neutral-0);
 
   /* =====================================================
-     COMPONENT — Button Tertiary
+     BORDER
      ===================================================== */
-  --button-tertiary-text: var(--color-text-primary);
-  --button-tertiary-text-hover: var(--color-brand-secondary);
-  --button-tertiary-focus: var(--color-focus);
+  --color-border-default: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-300);
+  --color-border-focus: var(--color-feedback-info);
 
   /* =====================================================
-   COMPONENT — Button Icon
-   ===================================================== */
-  --button-icon-color: var(--text-primary);
-  --button-icon-hover-color: var(--color-brand-primary);
-  --button-icon-hover-bg: rgba(0, 0, 0, 0.08);
-  --button-icon-disabled-color: var(--text-disabled);
-  --button-icon-focus-ring: var(--border-focus);
+     SHADOWS
+     ===================================================== */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.12);
 
   /* =====================================================
-   COMPONENT — Button Letter
-   ===================================================== */
-  --button-letter-color: var(--text-primary);
-  --button-letter-hover-color: var(--color-brand-primary);
-  --button-letter-hover-bg: rgba(0, 0, 0, 0.08);
-  --button-letter-disabled-color: var(--text-disabled);
-  --button-letter-focus-ring: var(--border-focus);
-
-  /* =====================================================
-   COMPONENT — Card
-   ===================================================== */
-  --card-bg: var(--color-surface);
-  --card-text-primary: var(--color-text-primary);
-  --card-text-secondary: var(--color-text-secondary);
-  --card-border-color: var(--color-border);
-  --card-shadow-elevated: var(--shadow-md);
-  --card-shadow-hover: var(--shadow-lg);
-  --card-focus-ring: var(--color-focus);
-
-  /* =====================================================
-   COMPONENT — Checkbox
-   ===================================================== */
-  --checkbox-border-color: var(--border-default);
-  --checkbox-bg-color: var(--color-brand-primary);
-  --checkbox-icon-color: var(--text-inverse);
-  --checkbox-label-color: var(--text-primary);
-  --checkbox-focus-ring: var(--border-focus);
-  --checkbox-hover-border: color-mix(
-    in srgb,
-    var(--checkbox-border-color) 70%,
-    transparent
-  );
-
-  /* =====================================================
-   COMPONENT — ProgressBar
-   ===================================================== */
-  --progress-track-color: var(--color-border);
-  --progress-bar-color: var(--color-brand-primary);
-  --progress-text-color: var(--color-text-primary);
-
-  /* =====================================================
-   COMPONENT — Radio
-   ===================================================== */
-  --radio-border-color: var(--border-default);
-  --radio-border-color-hover: var(--color-brand-primary);
-  --radio-bg-checked: var(--color-brand-primary);
-  --radio-dot-color: var(--text-inverse);
-  --radio-label-color: var(--text-primary);
-  --radio-focus-ring: var(--border-focus);
-  --radio-disabled-opacity: 0.6;
-
-  /* =====================================================
-   COMPONENT — Sidebar
-   ===================================================== */
-  --sidebar-bg: var(--color-surface);
-  --sidebar-border-color: var(--color-border);
-  --sidebar-shadow: var(--shadow-md);
-  --sidebar-item-text: var(--color-text-primary);
-  --sidebar-item-icon: var(--color-text-secondary);
-  --sidebar-item-hover-bg: var(--color-surface-hover);
-  --sidebar-item-active-bg: var(--color-brand-primary);
-  --sidebar-item-active-text: var(--color-text-inverse);
-  --sidebar-item-active-shadow: var(--shadow-sm);
-
-  /* =====================================================
-   COMPONENT — Spinner
-   ===================================================== */
-  --spinner-color: var(--color-brand-primary);
-  --spinner-secondary-color: var(--color-border);
-  --spinner-muted-color: var(--color-text-secondary);
+     SPINNER
+     ===================================================== */
   --spinner-size-sm: 16px;
   --spinner-size-md: 24px;
   --spinner-size-lg: 32px;
   --spinner-speed-fast: 0.8s;
   --spinner-speed-normal: 1s;
   --spinner-speed-slow: 1.4s;
+
+  /* =====================================================
+     BUTTONS
+     ===================================================== */
+  --color-button-primary-bg: var(--color-brand-primary);
+  --color-button-primary-bg-hover: var(--color-brand-primary-hover);
+  --color-button-primary-text: var(--color-text-inverse);
+  --color-button-primary-focus: var(--color-border-focus);
+
+  --color-button-secondary-text: var(--color-brand-secondary);
+  --color-button-secondary-hover-bg: color-mix(
+    in srgb,
+    var(--color-brand-secondary) 8%,
+    transparent
+  );
+  --color-button-secondary-disabled-text: var(--color-text-disabled);
+  --color-button-secondary-focus: var(--color-border-focus);
+
+  --color-button-tertiary-text: var(--color-text-primary);
+  --color-button-tertiary-text-hover: var(--color-brand-secondary);
+  --color-button-tertiary-focus: var(--color-border-focus);
+
+  --color-button-icon-color: var(--color-text-primary);
+  --color-button-icon-hover-color: var(--color-brand-primary);
+  --color-button-icon-hover-bg: rgba(0, 0, 0, 0.08);
+  --color-button-icon-disabled-color: var(--color-text-disabled);
+  --color-button-icon-focus-ring: var(--color-border-focus);
+
+  --color-button-letter-color: var(--color-text-primary);
+  --color-button-letter-hover-color: var(--color-brand-primary);
+  --color-button-letter-hover-bg: rgba(0, 0, 0, 0.08);
+  --color-button-letter-disabled-color: var(--color-text-disabled);
+  --color-button-letter-focus-ring: var(--color-border-focus);
+
+  /* =====================================================
+     CARD
+     ===================================================== */
+  --color-card-bg: var(--color-surface-default);
+  --color-card-text-primary: var(--color-text-primary);
+  --color-card-text-secondary: var(--color-text-secondary);
+  --color-card-border-color: var(--color-border-default);
+  --color-card-shadow-elevated: var(--shadow-md);
+  --color-card-shadow-hover: var(--shadow-lg);
+  --color-card-focus-ring: var(--color-border-focus);
+
+  /* =====================================================
+     CHECKBOX
+     ===================================================== */
+  --color-checkbox-border-color: var(--color-border-default);
+  --color-checkbox-bg-color: var(--color-brand-primary);
+  --color-checkbox-icon-color: var(--color-text-inverse);
+  --color-checkbox-label-color: var(--color-text-primary);
+  --color-checkbox-focus-ring: var(--color-border-focus);
+  --color-checkbox-hover-border: color-mix(
+    in srgb,
+    var(--color-checkbox-border-color) 70%,
+    transparent
+  );
+
+  /* =====================================================
+   INPUT STATES
+   ===================================================== */
+  --color-action-muted: var(--color-neutral-50);
+  --color-action-hover: var(--color-neutral-100);
+  --color-border-error: var(--color-feedback-error);
+  --color-border-success: var(--color-feedback-success);
+
+  /* =====================================================
+     RADIO
+     ===================================================== */
+  --color-radio-border-color: var(--color-border-default);
+  --color-radio-border-color-hover: var(--color-brand-primary);
+  --color-radio-bg-checked: var(--color-brand-primary);
+  --color-radio-dot-color: var(--color-text-inverse);
+  --color-radio-label-color: var(--color-text-primary);
+  --color-radio-focus-ring: var(--color-border-focus);
+  --color-radio-disabled-opacity: 0.6;
+
+  /* =====================================================
+     PROGRESS
+     ===================================================== */
+  --color-progress-track-color: var(--color-border-default);
+  --color-progress-bar-color: var(--color-brand-primary);
+  --color-progress-text-color: var(--color-text-primary);
+
+  /* =====================================================
+     SIDEBAR
+     ===================================================== */
+  --color-sidebar-bg: var(--color-surface-default);
+  --color-sidebar-border-color: var(--color-border-default);
+  --color-sidebar-shadow: var(--shadow-md);
+  --color-sidebar-item-text: var(--color-text-primary);
+  --color-sidebar-item-icon: var(--color-text-secondary);
+  --color-sidebar-item-hover-bg: var(--color-surface-hover);
+  --color-sidebar-item-active-bg: var(--color-brand-primary);
+  --color-sidebar-item-active-text: var(--color-text-inverse);
+  --color-sidebar-item-active-shadow: var(--shadow-sm);
 }
 
+/* =====================================================
+   DARK THEME
+   ===================================================== */
 [data-theme='dark'] {
-  /* Neutral */
+  /* =====================================================
+     NEUTRAL
+     ===================================================== */
   --color-neutral-0: #000000;
   --color-neutral-50: #121212;
   --color-neutral-100: #1e1e1e;
@@ -196,12 +187,16 @@
   --color-neutral-600: #e0e0e0;
   --color-neutral-700: #f5f5f5;
 
-  /* Brand */
+  /* =====================================================
+     BRAND
+     ===================================================== */
   --color-brand-primary: #8b7bd9;
   --color-brand-primary-hover: #a091ff;
   --color-brand-secondary: #ff9f7a;
 
-  /* Feedback */
+  /* =====================================================
+     FEEDBACK
+     ===================================================== */
   --color-feedback-success: #66bb6a;
   --color-feedback-warning: #ffca28;
   --color-feedback-info: #64b5f6;
@@ -211,134 +206,123 @@
   --color-feedback-info-bg: #1e1e1e;
   --color-feedback-error-bg: #3a1515;
 
-  /* Surface */
-  --surface-background: var(--color-neutral-50);
-  --surface-default: var(--color-neutral-100);
-  --surface-hover: var(--color-neutral-200);
-
-  /* Text */
-  --text-primary: var(--color-neutral-700);
-  --text-secondary: var(--color-neutral-600);
-  --text-muted: var(--color-neutral-500);
-  --text-disabled: var(--color-neutral-400);
-  --text-inverse: var(--color-neutral-0);
-
-  /* Border */
-  --border-default: var(--color-neutral-200);
-  --border-strong: var(--color-neutral-300);
-  --border-focus: #90caf9;
-
   /* =====================================================
-     COMPONENT — Button Primary
+     SURFACE
      ===================================================== */
-  --button-primary-bg: var(--color-brand-primary);
-  --button-primary-bg-hover: var(--color-brand-primary-hover);
-  --button-primary-text: var(--color-text-inverse);
-  --button-primary-focus: var(--border-focus);
+  --color-surface-background: var(--color-neutral-50);
+  --color-surface-default: var(--color-neutral-100);
+  --color-surface-hover: var(--color-neutral-200);
+  --color-surface: var(--color-surface-default);
 
   /* =====================================================
-     COMPONENT — Button Secondary
+     TEXT
      ===================================================== */
-  --button-secondary-color: var(--color-brand-secondary);
-  --button-secondary-hover-bg: color-mix(
-    in srgb,
-    var(--color-brand-secondary) 12%,
-    transparent
-  );
-  --button-secondary-disabled-color: var(--color-text-disabled);
-  --button-secondary-focus: var(--border-focus);
+  --color-text-primary: var(--color-neutral-700);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-disabled: var(--color-neutral-400);
+  --color-text-inverse: var(--color-neutral-0);
 
   /* =====================================================
-     COMPONENT — Button Tertiary
+     BORDER
      ===================================================== */
-  --button-tertiary-text: var(--color-text-primary);
-  --button-tertiary-text-hover: var(--color-brand-secondary);
-  --button-tertiary-focus: var(--border-focus);
+  --color-border-default: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-300);
+  --color-border-focus: #90caf9;
 
   /* =====================================================
-     COMPONENT — Button Icon
+     SHADOWS
      ===================================================== */
-  --button-icon-color: var(--text-primary);
-  --button-icon-hover-color: var(--color-brand-primary);
-  --button-icon-hover-bg: rgba(255, 255, 255, 0.12);
-  --button-icon-disabled-color: var(--text-disabled);
-  --button-icon-focus-ring: var(--border-focus);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.12);
 
   /* =====================================================
-     COMPONENT — Button Letter
+     SPINNER
      ===================================================== */
-  --button-letter-color: var(--text-primary);
-  --button-letter-hover-color: var(--color-brand-primary);
-  --button-letter-hover-bg: rgba(255, 255, 255, 0.12);
-  --button-letter-disabled-color: var(--text-disabled);
-  --button-letter-focus-ring: var(--border-focus);
-
-  /* =====================================================
-     COMPONENT — Card
-     ===================================================== */
-  --card-bg: var(--color-surface);
-  --card-text-primary: var(--color-text-primary);
-  --card-text-secondary: var(--color-text-secondary);
-  --card-border-color: var(--color-border);
-  --card-shadow-elevated: var(--shadow-md);
-  --card-shadow-hover: var(--shadow-lg);
-  --card-focus-ring: var(--color-focus);
-
-  /* =====================================================
-     COMPONENT — Checkbox
-     ===================================================== */
-  --checkbox-border-color: var(--border-default);
-  --checkbox-bg-color: var(--color-brand-primary);
-  --checkbox-icon-color: var(--text-inverse);
-  --checkbox-label-color: var(--text-primary);
-  --checkbox-focus-ring: var(--border-focus);
-  --checkbox-hover-border: color-mix(
-    in srgb,
-    var(--checkbox-border-color) 70%,
-    transparent
-  );
-
-  /* =====================================================
-   COMPONENT — ProgressBar
-   ===================================================== */
-  --progress-track-color: var(--color-border);
-  --progress-bar-color: var(--color-brand-primary);
-  --progress-text-color: var(--color-text-primary);
-
-  /* =====================================================
-   COMPONENT — Radio
-   ===================================================== */
-  --radio-border-color: var(--border-default);
-  --radio-border-color-hover: var(--color-brand-primary);
-  --radio-bg-checked: var(--color-brand-primary);
-  --radio-dot-color: var(--text-inverse);
-  --radio-label-color: var(--text-primary);
-  --radio-focus-ring: var(--border-focus);
-  --radio-disabled-opacity: 0.6;
-
-  /* =====================================================
-   COMPONENT — Sidebar
-   ===================================================== */
-  --sidebar-bg: var(--color-surface);
-  --sidebar-border-color: var(--color-border);
-  --sidebar-shadow: var(--shadow-md);
-  --sidebar-item-text: var(--color-text-primary);
-  --sidebar-item-icon: var(--color-text-secondary);
-  --sidebar-item-hover-bg: var(--color-surface-hover);
-  --sidebar-item-active-bg: var(--color-brand-primary);
-  --sidebar-item-active-text: var(--color-text-inverse);
-  --sidebar-item-active-shadow: var(--shadow-sm);
-
-  /* =====================================================
-   COMPONENT — Spinner
-   ===================================================== */
-  --spinner-color: var(--color-brand-primary);
-  --spinner-secondary-color: var(--color-border);
-  --spinner-muted-color: var(--color-text-secondary);
   --spinner-size-sm: 16px;
   --spinner-size-md: 24px;
   --spinner-size-lg: 32px;
   --spinner-speed-fast: 0.8s;
   --spinner-speed-normal: 1s;
   --spinner-speed-slow: 1.4s;
+
+  /* =====================================================
+     BUTTONS, CARD, CHECKBOX, RADIO, SIDEBAR, PROGRESS
+     ===================================================== */
+  --color-button-primary-bg: var(--color-brand-primary);
+  --color-button-primary-bg-hover: var(--color-brand-primary-hover);
+  --color-button-primary-text: var(--color-text-inverse);
+  --color-button-primary-focus: var(--color-border-focus);
+
+  --color-button-secondary-text: var(--color-brand-secondary);
+  --color-button-secondary-hover-bg: color-mix(
+    in srgb,
+    var(--color-brand-secondary) 12%,
+    transparent
+  );
+  --color-button-secondary-disabled-text: var(--color-text-disabled);
+  --color-button-secondary-focus: var(--color-border-focus);
+
+  --color-button-tertiary-text: var(--color-text-primary);
+  --color-button-tertiary-text-hover: var(--color-brand-secondary);
+  --color-button-tertiary-focus: var(--color-border-focus);
+
+  --color-button-icon-color: var(--color-text-primary);
+  --color-button-icon-hover-color: var(--color-brand-primary);
+  --color-button-icon-hover-bg: rgba(255, 255, 255, 0.12);
+  --color-button-icon-disabled-color: var(--color-text-disabled);
+  --color-button-icon-focus-ring: var(--color-border-focus);
+
+  --color-button-letter-color: var(--color-text-primary);
+  --color-button-letter-hover-color: var(--color-brand-primary);
+  --color-button-letter-hover-bg: rgba(255, 255, 255, 0.12);
+  --color-button-letter-disabled-color: var(--color-text-disabled);
+  --color-button-letter-focus-ring: var(--color-border-focus);
+
+  --color-card-bg: var(--color-surface-default);
+  --color-card-text-primary: var(--color-text-primary);
+  --color-card-text-secondary: var(--color-text-secondary);
+  --color-card-border-color: var(--color-border-default);
+  --color-card-shadow-elevated: var(--shadow-md);
+  --color-card-shadow-hover: var(--shadow-lg);
+  --color-card-focus-ring: var(--color-border-focus);
+
+  --color-checkbox-border-color: var(--color-border-default);
+  --color-checkbox-bg-color: var(--color-brand-primary);
+  --color-checkbox-icon-color: var(--color-text-inverse);
+  --color-checkbox-label-color: var(--color-text-primary);
+  --color-checkbox-focus-ring: var(--color-border-focus);
+  --color-checkbox-hover-border: color-mix(
+    in srgb,
+    var(--color-checkbox-border-color) 70%,
+    transparent
+  );
+
+  --color-action-muted: var(--color-neutral-100);
+  --color-action-hover: var(--color-neutral-200);
+  --color-border-error: var(--color-feedback-error);
+  --color-border-success: var(--color-feedback-success);
+
+  --color-radio-border-color: var(--color-border-default);
+  --color-radio-border-color-hover: var(--color-brand-primary);
+  --color-radio-bg-checked: var(--color-brand-primary);
+  --color-radio-dot-color: var(--color-text-inverse);
+  --color-radio-label-color: var(--color-text-primary);
+  --color-radio-focus-ring: var(--color-border-focus);
+  --color-radio-disabled-opacity: 0.6;
+
+  --color-progress-track-color: var(--color-border-default);
+  --color-progress-bar-color: var(--color-brand-primary);
+  --color-progress-text-color: var(--color-text-primary);
+
+  --color-sidebar-bg: var(--color-surface-default);
+  --color-sidebar-border-color: var(--color-border-default);
+  --color-sidebar-shadow: var(--shadow-md);
+  --color-sidebar-item-text: var(--color-text-primary);
+  --color-sidebar-item-icon: var(--color-text-secondary);
+  --color-sidebar-item-hover-bg: var(--color-surface-hover);
+  --color-sidebar-item-active-bg: var(--color-brand-primary);
+  --color-sidebar-item-active-text: var(--color-text-inverse);
+  --color-sidebar-item-active-shadow: var(--shadow-sm);
 }

@@ -17,20 +17,20 @@
   cursor: pointer;
   outline: none;
 
-  color: var(--button-tertiary-text);
+  color: var(--color-button-tertiary-text);
 
   transition:
     color 0.2s ease,
     transform 0.15s ease;
 
   &:not(:disabled):focus-visible {
-    outline: 2px solid var(--button-tertiary-focus);
+    outline: 2px solid var(--color-button-tertiary-focus);
     outline-offset: 2px;
   }
 
   &:not(:disabled):hover {
     transform: scale(1.0175);
-    color: var(--button-tertiary-hover-text);
+    color: var(--color-button-tertiary-text-hover); // corrigido
   }
 
   &:not(:disabled):active {
@@ -40,7 +40,7 @@
   &--disabled,
   &:disabled {
     cursor: default;
-    color: var(--button-tertiary-disabled-text);
+    color: var(--color-text-disabled); // corrigido
   }
 
   &--large {

@@ -15,7 +15,7 @@
       v-if="icon && iconPosition === IconPosition.LEFT"
       class="button-tertiary__icon button-tertiary__icon--left"
     >
-      <Icon :name="icon" size="sm" />
+      <HpIcon :name="icon" size="sm" />
     </span>
 
     <span class="button-tertiary__label">
@@ -26,7 +26,7 @@
       v-if="icon && iconPosition === IconPosition.RIGHT"
       class="button-tertiary__icon button-tertiary__icon--right"
     >
-      <Icon :name="icon" size="sm" />
+      <HpIcon :name="icon" size="sm" />
     </span>
   </button>
 </template>
@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { IconPosition, ButtonSize } from '../ButtonTypes'
-import Icon from '../../icon/Icon.vue'
+import { HpIcon } from '@components'
 
 const props = defineProps({
   label: {
@@ -51,11 +51,11 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'var(--button-tertiary-text)'
+    default: 'var(--color-button-tertiary-text)'
   },
   hoverColor: {
     type: String,
-    default: 'var(--button-tertiary-text-hover)'
+    default: 'var(--color-button-tertiary-text-hover)'
   },
   size: {
     type: String,
@@ -79,8 +79,8 @@ const handleClick = (event: Event) => {
   }
 }
 const computedStyles = computed(() => ({
-  '--button-tertiary-text': props.color,
-  '--button-tertiary-hover-text': props.hoverColor
+  '--color-button-tertiary-text': props.color,
+  '--color-button-tertiary-hover-text': props.hoverColor
 }))
 </script>
 

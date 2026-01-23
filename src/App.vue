@@ -355,7 +355,7 @@ const deleteProject = (id: number) => {
 <style>
 .playground {
   cursor: default;
-  background-color: var(--color-background);
+  background-color: var(--color-surface-background);
   display: flex;
   flex-direction: column;
   align-items: center;

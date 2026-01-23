@@ -5,7 +5,7 @@
         style="margin-top: 8px; display: flex; align-items: center; gap: 8px"
       >
         <button @click="copyToClipboard(icon)" class="icon-button">
-          <Icon :name="icon" size="lg" :color="color" />
+          <HpIcon :name="icon" size="lg" :color="color" />
           <span :class="{ 'label-white': isDarkMode }">{{ icon }}</span>
         </button>
       </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import Icon from '../Icon.vue'
+import { HpIcon } from '@components'
 
 defineProps({
   isDarkMode: {

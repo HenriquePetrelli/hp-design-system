@@ -18,7 +18,7 @@
     <HpSpinnerLoader
       v-else
       type="circle1"
-      :color="'var(--button-icon-color)'"
+      :color="'var(--color-button-icon-color)'"
       :secondaryColor="'transparent'"
       :size="iconSize"
       :speed="0.8"

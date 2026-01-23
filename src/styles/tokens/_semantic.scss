@@ -1,36 +1,32 @@
-:root {
-  --font-family-base: 'Nunito Sans', system-ui, sans-serif;
+/* Text Colors */
+$text-primary: var(--color-text-primary);
+$text-secondary: var(--color-text-secondary);
+$text-muted: var(--color-text-muted);
+$text-disabled: var(--color-text-disabled);
+$text-inverse: var(--color-text-inverse);
 
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-lg: 18px;
-  --font-size-xl: 20px;
+/* Backgrounds */
+$bg-surface: var(--color-surface);
+$bg-surface-default: var(--color-surface-default);
+$bg-surface-hover: var(--color-surface-hover);
 
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+/* Borders */
+$border-default: var(--color-border-default);
+$border-strong: var(--color-border-strong);
+$border-focus: var(--color-border-focus);
 
-  /* Text */
-  --text-primary: var(--semantic-text-primary);
-  --text-secondary: var(--semantic-text-secondary);
-  --text-muted: var(--semantic-text-muted);
-  --text-disabled: var(--semantic-text-disabled);
-  --text-inverse: var(--semantic-text-inverse);
+/* Brand */
+$brand-primary: var(--color-brand-primary);
+$brand-primary-hover: var(--color-brand-primary-hover);
+$brand-secondary: var(--color-brand-secondary);
 
-  /* Surface */
-  --surface-background: var(--semantic-background);
-  --surface-default: var(--semantic-surface);
-  --surface-hover: var(--semantic-surface-hover);
+/* Feedback */
+$success: var(--color-feedback-success);
+$warning: var(--color-feedback-warning);
+$info: var(--color-feedback-info);
+$error: var(--color-feedback-error);
 
-  /* Brand */
-  --brand-primary: var(--semantic-brand-primary);
-  --brand-primary-hover: var(--semantic-brand-primary-hover);
-  --brand-secondary: var(--semantic-brand-secondary);
-
-  /* Border */
-  --border-default: var(--semantic-border);
-  --border-strong: var(--semantic-border-strong);
-  --focus-ring: var(--semantic-focus-ring);
-}
+$success-bg: var(--color-feedback-success-bg);
+$warning-bg: var(--color-feedback-warning-bg);
+$info-bg: var(--color-feedback-info-bg);
+$error-bg: var(--color-feedback-error-bg);

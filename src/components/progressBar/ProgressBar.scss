@@ -1,7 +1,7 @@
 .progress-bar {
-  --progress-track-color: var(--color-border);
-  --progress-bar-color: var(--color-brand-primary);
-  --progress-text-color: var(--color-text-primary);
+  --progress-track-color: var(--color-progress-track-color);
+  --progress-bar-color: var(--color-progress-bar-color);
+  --progress-text-color: var(--color-progress-text-color);
 
   display: flex;
   flex-direction: column;

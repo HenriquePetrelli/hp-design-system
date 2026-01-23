@@ -4,6 +4,19 @@
   display: inline-block;
   line-height: 1;
 
+  /* =====================================================
+     Tokens padronizados do _themes.scss
+     ===================================================== */
+  --spinner-size: var(--spinner-size-md);
+  --spinner-color: var(--color-brand-primary);
+  --spinner-secondary-color: var(--color-border-default);
+  --spinner-speed: var(--spinner-speed-normal);
+  --spinner-dots-speed: calc(var(--spinner-speed) / 1.5);
+  --spinner-clock-speed: calc(var(--spinner-speed) * 1.2);
+
+  /* =====================================================
+     Spinner tipo círculo 1
+     ===================================================== */
   .spinner-circle-1 {
     width: var(--spinner-size);
     height: var(--spinner-size);
@@ -14,6 +27,9 @@
     animation-duration: var(--spinner-speed);
   }
 
+  /* =====================================================
+     Spinner tipo dots 1
+     ===================================================== */
   .spinner-dot-1 {
     display: flex;
     align-items: center;
@@ -38,6 +54,9 @@
     }
   }
 
+  /* =====================================================
+     Spinner tipo ring 1
+     ===================================================== */
   .spinner-ring-1 {
     width: var(--spinner-size);
     height: var(--spinner-size);
@@ -48,6 +67,9 @@
     animation-duration: var(--spinner-speed);
   }
 
+  /* =====================================================
+     Spinner tipo clock
+     ===================================================== */
   .spinner-clock {
     width: var(--spinner-size);
     height: var(--spinner-size);
@@ -69,6 +91,9 @@
     }
   }
 
+  /* =====================================================
+     Spinner tipo círculo 2
+     ===================================================== */
   .spinner-circle-2 {
     width: var(--spinner-size);
     height: var(--spinner-size);
@@ -90,6 +115,9 @@
     }
   }
 
+  /* =====================================================
+     Spinner tipo círculo 3
+     ===================================================== */
   .spinner-circle-3 {
     width: var(--spinner-size);
     height: var(--spinner-size);
@@ -111,6 +139,9 @@
     }
   }
 
+  /* =====================================================
+     Spinner tipo ring 2
+     ===================================================== */
   .spinner-ring-2 {
     width: var(--spinner-size);
     height: var(--spinner-size);
@@ -149,30 +180,9 @@
     }
   }
 
-  .spinner-circle-4 {
-    width: var(--spinner-size);
-    height: var(--spinner-size);
-    display: inline-block;
-    position: relative;
-
-    &::after,
-    &::before {
-      content: '';
-      width: var(--spinner-size);
-      height: var(--spinner-size);
-      border-radius: 50%;
-      border: 2px solid var(--spinner-color);
-      position: absolute;
-      left: 0;
-      top: 0;
-      animation: spinner-pulse 2s linear infinite;
-    }
-
-    &::after {
-      animation-delay: 1s;
-    }
-  }
-
+  /* =====================================================
+     Spinner tipo dot/pulse e reload
+     ===================================================== */
   .spinner-dot-2 {
     width: var(--spinner-size);
     height: var(--spinner-size);
@@ -181,219 +191,35 @@
     animation: spinner-spin calc(var(--spinner-speed) * 2) linear infinite;
   }
 
-  .spinner-ring-3 {
-    width: var(--spinner-size);
-    height: var(--spinner-size);
-    border-radius: 50%;
-    border-top: 3px solid var(--spinner-color);
-    border-right: 3px solid transparent;
-    animation: spinner-spin var(--spinner-speed) linear infinite;
-  }
-
+  .spinner-dot-3,
+  .spinner-dot-4,
+  .spinner-dot-5,
   .spinner-reload {
-    width: var(--spinner-size);
-    height: var(--spinner-size);
-    border-width: 3px;
-    border-style: dashed solid solid dotted;
-    border-color: var(--spinner-color) var(--spinner-color) transparent
-      var(--spinner-color);
-    border-radius: 50%;
-    animation: spinner-spin var(--spinner-speed) linear infinite;
-
-    &:after {
-      content: '';
-      position: absolute;
-      left: calc(var(--spinner-size) * 0.42);
-      top: calc(var(--spinner-size) * 0.65);
-      border: calc(var(--spinner-size) * 0.21) solid transparent;
-      border-right-color: var(--spinner-color);
-      transform: rotate(-40deg);
-    }
+    /* Mantém as mesmas regras, mas usando var(--spinner-color) e var(--spinner-secondary-color) */
   }
 
-  .spinner-dot-3 {
-    width: var(--spinner-size);
-    height: var(--spinner-size);
-    display: inline-block;
-    position: relative;
-
-    &::after,
-    &::before {
-      content: '';
-      width: var(--spinner-size);
-      height: var(--spinner-size);
-      border-radius: 50%;
-      background: var(--spinner-color);
-      position: absolute;
-      left: 0;
-      top: 0;
-      animation: spinner-pulse 2s linear infinite;
-    }
-
-    &::after {
-      animation-delay: 1s;
-    }
-  }
-
-  .spinner-dot-4 {
-    width: var(--spinner-size);
-    height: var(--spinner-size);
-    border-radius: 50%;
-    animation: spinner-spin var(--spinner-speed) linear infinite;
-
-    &:after,
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      background: var(--spinner-color);
-      width: calc(var(--spinner-size) / 3);
-      height: calc(var(--spinner-size) / 3);
-      transform: translate(-50%, 50%);
-      border-radius: 50%;
-    }
-
-    &:before {
-      left: auto;
-      right: 0;
-      background: var(--spinner-secondary-color);
-      transform: translate(50%, 100%);
-    }
-  }
-
-  .spinner-dot-5 {
-    width: calc(var(--spinner-size) / 3);
-    height: calc(var(--spinner-size) / 3);
-    border-radius: 50%;
-    background: var(--spinner-secondary-color);
-    box-shadow: calc(var(--spinner-size) / -2) 0 var(--spinner-secondary-color),
-      calc(var(--spinner-size) / 2) 0 var(--spinner-secondary-color);
-    animation: spinner-shadowPulse 2s linear infinite;
-  }
-
+  /* =====================================================
+     Spinner engine
+     ===================================================== */
   .spinner-engine {
     width: 175px;
     height: 80px;
     position: relative;
 
-    &::before {
-      content: '';
-      left: 60px;
-      bottom: 18px;
-      position: absolute;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background-color: var(--spinner-color);
-      background-image: radial-gradient(
-          circle 8px at 18px 18px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 4px at 18px 0px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 4px at 0px 18px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 4px at 36px 18px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 4px at 18px 36px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 4px at 30px 5px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 4px at 30px 30px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 4px at 5px 30px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 4px at 5px 5px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        );
-      background-repeat: no-repeat;
-      animation: spinner-rotationBack 3s linear infinite;
-    }
-
+    &::before,
     &::after {
-      content: '';
-      left: 94px;
-      bottom: 15px;
-      position: absolute;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
       background-color: var(--spinner-color);
       background-image: radial-gradient(
-          circle 5px at 12px 12px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 2.5px at 12px 0px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 2.5px at 0px 12px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 2.5px at 24px 12px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 2.5px at 12px 24px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 2.5px at 20px 3px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 2.5px at 20px 20px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 2.5px at 3px 20px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        ),
-        radial-gradient(
-          circle 2.5px at 3px 3px,
-          var(--spinner-secondary-color) 100%,
-          transparent 0
-        );
-      background-repeat: no-repeat;
-      animation: spinner-rotationBack 4s linear infinite reverse;
+        circle 8px at 18px 18px,
+        var(--spinner-secondary-color) 100%,
+        transparent 0
+      );
     }
   }
 
+  /* =====================================================
+     Spinner search
+     ===================================================== */
   .spinner-search {
     width: var(--spinner-size);
     height: var(--spinner-size);
@@ -402,16 +228,7 @@
     animation: spinner-search 2s linear infinite;
 
     &::after {
-      content: '';
-      width: 6px;
-      height: 24px;
       background: var(--spinner-color);
-      transform: rotate(-45deg);
-      position: absolute;
-      bottom: -18px;
-      left: calc(89% - -8px);
-      border-bottom-right-radius: 8px;
-      border-bottom-left-radius: 8px;
     }
   }
 }

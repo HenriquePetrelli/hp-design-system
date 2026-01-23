@@ -94,15 +94,15 @@ const handleChange = () => {
 }
 
 const computedBackgroundColor = computed(() => {
-  return props.backgroundColor || 'var(--radio-bg-checked)'
+  return props.backgroundColor || 'var(--color-radio-bg-checked)'
 })
 
 const computedBorderColor = computed(() => {
-  return props.borderColor || 'var(--radio-border-color-hover)'
+  return props.borderColor || 'var(--color-radio-border-color-hover)'
 })
 
 const computedDotColor = computed(() => {
-  return props.dotColor || 'var(--radio-dot-color)'
+  return props.dotColor || 'var(--color-radio-dot-color)'
 })
 </script>
 

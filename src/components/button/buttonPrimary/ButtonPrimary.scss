@@ -15,8 +15,8 @@
 
   font-size: 17px;
 
-  background-color: var(--button-primary-bg);
-  color: var(--button-primary-text);
+  background-color: var(--color-button-primary-bg);
+  color: var(--color-button-primary-text);
 
   outline: none;
   transition:
@@ -24,12 +24,12 @@
     box-shadow 0.15s ease;
 
   &:focus-visible {
-    outline: 2px solid var(--button-primary-focus);
+    outline: 2px solid var(--color-button-primary-focus);
     outline-offset: 2px;
   }
 
   &:not(:disabled):hover {
-    background-color: var(--button-primary-bg-hover);
+    background-color: var(--color-button-primary-bg-hover);
     transform: scale(1.0175);
     box-shadow: var(--shadow-sm);
   }

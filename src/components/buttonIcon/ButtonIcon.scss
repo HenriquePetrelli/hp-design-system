@@ -7,7 +7,7 @@
   border-radius: 999px;
   border: 0;
   background-color: transparent;
-  color: var(--button-icon-color);
+  color: var(--color-button-icon-color);
   cursor: pointer;
   transition:
     transform 0.15s ease,
@@ -30,13 +30,13 @@
   }
 
   &:not(:disabled):not(.button-icon--is-loading):focus-visible {
-    outline: 2px solid var(--button-icon-focus-ring);
+    outline: 2px solid var(--color-button-icon-focus-ring);
     outline-offset: 2px;
   }
 
   &:not(:disabled):not(.button-icon--is-loading):hover {
-    color: var(--button-icon-hover-color);
-    background-color: var(--button-icon-hover-bg);
+    color: var(--color-button-icon-hover-color);
+    background-color: var(--color-button-icon-hover-bg);
     transform: scale(1.05);
   }
 
@@ -47,7 +47,7 @@
   &--disabled,
   &:not(.button-icon--is-loading):disabled {
     cursor: default;
-    color: var(--button-icon-disabled-color);
+    color: var(--color-button-icon-disabled-color);
     opacity: 0.5;
   }
 }

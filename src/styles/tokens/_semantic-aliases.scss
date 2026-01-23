@@ -1,39 +1,59 @@
-:root {
-  --semantic-background: var(--surface-background);
-  --semantic-surface: var(--surface-default);
-  --semantic-surface-hover: var(--surface-hover);
+// ================================
+// _semantic-aliases.scss
+// ================================
 
-  --semantic-text-primary: var(--text-primary);
-  --semantic-text-secondary: var(--text-secondary);
-  --semantic-text-muted: var(--text-muted);
-  --semantic-text-disabled: var(--text-disabled);
-  --semantic-text-inverse: var(--text-inverse);
+/* Buttons */
+$btn-primary-bg: var(--color-button-primary-bg);
+$btn-primary-bg-hover: var(--color-button-primary-bg-hover);
+$btn-primary-text: var(--color-button-primary-text);
+$btn-primary-focus: var(--color-button-primary-focus);
 
-  --semantic-brand-primary: var(--color-brand-primary);
-  --semantic-brand-primary-hover: var(--color-brand-primary-hover);
-  --semantic-brand-secondary: var(--color-brand-secondary);
+$btn-secondary-text: var(--color-button-secondary-text);
+$btn-secondary-hover-bg: var(--color-button-secondary-hover-bg);
+$btn-secondary-disabled-text: var(--color-button-secondary-disabled-text);
+$btn-secondary-focus: var(--color-button-secondary-focus);
 
-  --semantic-border: var(--border-default);
-  --semantic-border-strong: var(--border-strong);
-  --semantic-focus-ring: var(--border-focus);
-}
+$btn-tertiary-text: var(--color-button-tertiary-text);
+$btn-tertiary-text-hover: var(--color-button-tertiary-text-hover);
+$btn-tertiary-focus: var(--color-button-tertiary-focus);
 
-[data-theme='dark'] {
-  --semantic-background: var(--surface-background);
-  --semantic-surface: var(--surface-default);
-  --semantic-surface-hover: var(--surface-hover);
+/* Card */
+$card-bg: var(--color-card-bg);
+$card-text-primary: var(--color-card-text-primary);
+$card-text-secondary: var(--color-card-text-secondary);
+$card-border: var(--color-card-border-color);
+$card-shadow-elevated: var(--color-card-shadow-elevated);
+$card-shadow-hover: var(--color-card-shadow-hover);
+$card-focus-ring: var(--color-card-focus-ring);
 
-  --semantic-text-primary: var(--text-primary);
-  --semantic-text-secondary: var(--text-secondary);
-  --semantic-text-muted: var(--text-muted);
-  --semantic-text-disabled: var(--text-disabled);
-  --semantic-text-inverse: var(--text-inverse);
+/* Checkbox */
+$checkbox-border: var(--color-checkbox-border-color);
+$checkbox-bg: var(--color-checkbox-bg-color);
+$checkbox-icon: var(--color-checkbox-icon-color);
+$checkbox-label: var(--color-checkbox-label-color);
+$checkbox-focus: var(--color-checkbox-focus-ring);
+$checkbox-hover-border: var(--color-checkbox-hover-border);
 
-  --semantic-brand-primary: var(--color-brand-primary);
-  --semantic-brand-primary-hover: var(--color-brand-primary-hover);
-  --semantic-brand-secondary: var(--color-brand-secondary);
+/* Radio */
+$radio-border: var(--color-radio-border-color);
+$radio-border-hover: var(--color-radio-border-color-hover);
+$radio-bg-checked: var(--color-radio-bg-checked);
+$radio-dot: var(--color-radio-dot-color);
+$radio-label: var(--color-radio-label-color);
+$radio-focus: var(--color-radio-focus-ring);
 
-  --semantic-border: var(--border-default);
-  --semantic-border-strong: var(--border-strong);
-  --semantic-focus-ring: var(--border-focus);
-}
+/* Progress */
+$progress-track: var(--color-progress-track-color);
+$progress-bar: var(--color-progress-bar-color);
+$progress-text: var(--color-progress-text-color);
+
+/* Sidebar */
+$sidebar-bg: var(--color-sidebar-bg);
+$sidebar-border: var(--color-sidebar-border-color);
+$sidebar-shadow: var(--color-sidebar-shadow);
+$sidebar-item-text: var(--color-sidebar-item-text);
+$sidebar-item-icon: var(--color-sidebar-item-icon);
+$sidebar-item-hover-bg: var(--color-sidebar-item-hover-bg);
+$sidebar-item-active-bg: var(--color-sidebar-item-active-bg);
+$sidebar-item-active-text: var(--color-sidebar-item-active-text);
+$sidebar-item-active-shadow: var(--color-sidebar-item-active-shadow);

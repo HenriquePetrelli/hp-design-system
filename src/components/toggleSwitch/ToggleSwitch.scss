@@ -14,6 +14,19 @@
     opacity: 0;
     width: 0;
     height: 0;
+
+    &:checked + .toggle-switch__label .toggle-switch__track {
+      background-color: var(--background-color);
+    }
+
+    &:checked + .toggle-switch__label .toggle-switch__thumb {
+      transform: translateX(24px);
+    }
+
+    &:disabled + .toggle-switch__label {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
   }
 
   &__label {
@@ -57,18 +70,5 @@
     font-size: 14px;
     line-height: 1.5;
     color: var(--text-color, #333);
-  }
-
-  &__input:checked + &__label &__track {
-    background-color: var(--background-color);
-  }
-
-  &__input:checked + &__label &__thumb {
-    transform: translateX(24px);
-  }
-
-  &__input:disabled + &__label {
-    cursor: not-allowed;
-    opacity: 0.6;
   }
 }

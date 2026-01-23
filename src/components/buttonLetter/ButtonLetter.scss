@@ -10,7 +10,7 @@
   border: 0;
   cursor: pointer;
   background-color: transparent;
-  color: var(--button-letter-color);
+  color: var(--color-button-letter-color);
   transition:
     transform 0.15s ease,
     background-color 0.15s ease,
@@ -40,8 +40,8 @@
   }
 
   &:not(:disabled):not(.button-letter--is-loading):hover {
-    color: var(--button-letter-hover-color);
-    background-color: var(--button-letter-hover-bg);
+    color: var(--color-button-letter-hover-color);
+    background-color: var(--color-button-letter-hover-bg);
     transform: scale(1.05);
   }
 
@@ -50,14 +50,14 @@
   }
 
   &:not(:disabled):not(.button-letter--is-loading):focus-visible {
-    outline: 2px solid var(--button-letter-focus-ring);
+    outline: 2px solid var(--color-button-letter-focus-ring);
     outline-offset: 2px;
   }
 
   &--disabled,
   &:disabled {
     cursor: default;
-    color: var(--button-letter-disabled-color);
+    color: var(--color-button-letter-disabled-color);
     opacity: 0.5;
   }
 }

@@ -7,7 +7,7 @@
     }"
   >
     <fieldset class="input-range__fieldset">
-      <legend v-if="label" class="input-range__legend">
+      <legend v-if="label" class="input-range__legend" :id="`${id}-label`">
         {{ label }}
         <span v-if="required" class="input-range__required">*</span>
       </legend>
@@ -48,49 +48,22 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref } from 'vue'
 
 const props = defineProps({
-  modelValue: {
-    type: Number,
-    default: 0
-  },
-  label: {
-    type: String,
-    default: ''
-  },
+  modelValue: { type: Number, default: 0 },
+  label: { type: String, default: '' },
   id: {
     type: String,
     default: () => `input-range-${Math.random().toString(36).substring(2, 9)}`
   },
-  min: {
-    type: Number,
-    default: 0
-  },
-  max: {
-    type: Number,
-    default: 100
-  },
-  step: {
-    type: Number,
-    default: 1
-  },
-  unit: {
-    type: String,
-    default: ''
-  },
-  helperText: {
-    type: String,
-    default: ''
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
-  required: {
-    type: Boolean,
-    default: false
-  },
+  min: { type: Number, default: 0 },
+  max: { type: Number, default: 100 },
+  step: { type: Number, default: 1 },
+  unit: { type: String, default: '' },
+  helperText: { type: String, default: '' },
+  disabled: { type: Boolean, default: false },
+  required: { type: Boolean, default: false },
   status: {
     type: String,
     default: 'default',
@@ -99,7 +72,6 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['update:modelValue', 'change'])
-
 const input = ref(null)
 
 const handleInput = (event) => {
@@ -111,14 +83,10 @@ const handleChange = (event) => {
 }
 
 const focusInput = () => {
-  if (input.value && !props.disabled) {
-    input.value.focus()
-  }
+  if (input.value && !props.disabled) input.value.focus()
 }
 
-defineExpose({
-  focusInput
-})
+defineExpose({ focusInput })
 </script>
 
 <style scoped lang="scss" src="./InputRange.scss" />

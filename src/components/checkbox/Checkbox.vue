@@ -7,9 +7,9 @@
     }"
     :for="id"
     :style="{
-      '--checkbox-border-color': computedBorderColor,
-      '--checkbox-bg-color': computedBackgroundColor,
-      '--checkbox-icon-color': computedIconColor
+      '--color-checkbox-border-color': computedBorderColor,
+      '--color-checkbox-bg-color': computedBackgroundColor,
+      '--color-checkbox-icon-color': computedIconColor
     }"
   >
     <input
@@ -109,15 +109,15 @@ watch(
 )
 
 const computedBorderColor = computed(() => {
-  return props.borderColor || 'var(--checkbox-border-color)'
+  return props.borderColor || 'var(--color-checkbox-border-color)'
 })
 
 const computedBackgroundColor = computed(() => {
-  return props.backgroundColor || 'var(--checkbox-bg-color)'
+  return props.backgroundColor || 'var(--color-checkbox-bg-color)'
 })
 
 const computedIconColor = computed(() => {
-  return props.iconColor || 'var(--checkbox-icon-color)'
+  return props.iconColor || 'var(--color-checkbox-icon-color)'
 })
 </script>
 

@@ -11,8 +11,11 @@
     width: 100%;
     min-height: 64px;
     padding: 20px 50px;
-    background-color: var(--background-color);
+
+    /* usa as variáveis passadas dinamicamente via :style */
+    background-color: var(--color-background-color);
     color: var(--color);
+
     font-weight: bold;
   }
 
@@ -26,7 +29,7 @@
     display: flex;
 
     &:hover {
-      background-color: #a6a09f33;
+      background-color: rgba(166, 160, 159, 0.2);
     }
   }
 }

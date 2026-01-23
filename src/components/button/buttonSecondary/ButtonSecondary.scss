@@ -1,5 +1,5 @@
 .button-secondary {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: var(--font-family-base); // usa o token global
   font-weight: 600;
 
   display: flex;
@@ -16,7 +16,7 @@
   font-size: 17px;
   cursor: pointer;
 
-  color: var(--button-color, var(--button-secondary-color));
+  color: var(--button-color, var(--color-button-secondary-text));
 
   outline: none;
   transition:
@@ -25,13 +25,13 @@
     box-shadow 0.15s ease;
 
   &:focus-visible {
-    outline: 2px solid var(--button-secondary-focus);
+    outline: 2px solid var(--color-button-secondary-focus);
     outline-offset: 2px;
   }
 
   &:not(:disabled):hover {
     transform: scale(1.0175);
-    background-color: var(--button-secondary-hover-bg);
+    background-color: var(--color-button-secondary-hover-bg);
   }
 
   &:not(:disabled):active {
@@ -41,7 +41,7 @@
   &--disabled,
   &:disabled {
     cursor: default;
-    color: var(--button-secondary-disabled-color);
+    color: var(--color-button-secondary-disabled-text);
   }
 
   &--large {

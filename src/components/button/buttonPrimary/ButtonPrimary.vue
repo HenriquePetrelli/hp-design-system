@@ -14,7 +14,7 @@
       v-if="icon && iconPosition === IconPosition.LEFT"
       class="button-primary__icon button-primary__icon--left"
     >
-      <Icon :name="icon" size="sm" />
+      <HpIcon :name="icon" size="sm" />
     </span>
 
     <span class="button-primary__label">
@@ -25,14 +25,14 @@
       v-if="icon && iconPosition === IconPosition.RIGHT"
       class="button-primary__icon button-primary__icon--right"
     >
-      <Icon :name="icon" size="sm" />
+      <HpIcon :name="icon" size="sm" />
     </span>
   </button>
 </template>
 
 <script setup lang="ts">
 import { ButtonSize, IconPosition } from '../ButtonTypes'
-import Icon from '../../icon/Icon.vue'
+import { HpIcon } from '@components'
 
 const props = defineProps({
   label: {

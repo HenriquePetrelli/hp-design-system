@@ -15,10 +15,10 @@
       v-if="icon && iconPosition === IconPosition.LEFT"
       class="button-secondary__icon button-secondary__icon--left"
     >
-      <Icon
+      <HpIcon
         :name="icon"
         size="sm"
-        :color="color || 'var(--button-secondary-color)'"
+        :color="color || 'var(--color-button-secondary-color)'"
       />
     </span>
 
@@ -30,10 +30,10 @@
       v-if="icon && iconPosition === IconPosition.RIGHT"
       class="button-secondary__icon button-secondary__icon--right"
     >
-      <Icon
+      <HpIcon
         :name="icon"
         size="sm"
-        :color="color || 'var(--button-secondary-color)'"
+        :color="color || 'var(--color-button-secondary-color)'"
       />
     </span>
   </button>
@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 import { ButtonSize, IconPosition } from '../ButtonTypes'
-import Icon from '../../icon/Icon.vue'
+import { HpIcon } from '@components'
 
 const props = defineProps({
   label: {

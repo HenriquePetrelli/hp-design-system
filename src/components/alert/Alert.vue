@@ -3,7 +3,7 @@
     <div
       class="alert__container"
       :style="{
-        '--background-color': computedBackgroundType,
+        '--color-background-color': computedBackgroundType,
         '--color': computedColorType
       }"
       role="alert"
