@@ -7,9 +7,9 @@
 :root {
   /* ================= Layout ================= */
 
-  --header-height: var(--spacing-16);
-  --header-padding-x: var(--spacing-6);
-  --header-gap: var(--spacing-3);
+  --header-height: var(--spacing-4xl);
+  --header-padding-x: var(--spacing-xl);
+  --header-gap: var(--spacing-sm);
   --header-z-index: var(--z-index-sticky);
 
   /* ================= Colors ================= */

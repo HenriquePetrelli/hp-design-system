@@ -1,13 +1,13 @@
 :root {
   /* ================= Layout ================= */
 
-  --data-table-padding: var(--spacing-4);
+  --data-table-padding: var(--spacing-md);
   --data-table-radius: var(--radius-lg);
 
-  --data-table-cell-padding-x: var(--spacing-3);
-  --data-table-cell-padding-y: var(--spacing-2);
+  --data-table-cell-padding-x: var(--spacing-sm);
+  --data-table-cell-padding-y: var(--spacing-xs);
 
-  --data-table-footer-padding-y: var(--spacing-3);
+  --data-table-footer-padding-y: var(--spacing-sm);
   --data-table-footer-min-height: 40px;
 
   /* ================= Typography ================= */

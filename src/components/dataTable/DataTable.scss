@@ -11,7 +11,7 @@
   /* ================= Search ================= */
 
   &__search {
-    margin-bottom: var(--spacing-3);
+    margin-bottom: var(--spacing-sm);
   }
 
   /* ================= Wrapper ================= */
@@ -75,12 +75,12 @@
     &--actions {
       display: flex;
       justify-content: flex-end;
-      gap: var(--spacing-2);
+      gap: var(--spacing-xs);
     }
 
     &--empty {
       text-align: center;
-      padding: var(--spacing-5);
+      padding: var(--spacing-lg);
     }
   }
 
