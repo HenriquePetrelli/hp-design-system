@@ -3,7 +3,7 @@ import ButtonSecondary from './ButtonSecondary.vue'
 import { ButtonSize, IconPosition } from '../ButtonTypes'
 
 const meta: Meta<typeof ButtonSecondary> = {
-  title: 'Components/Button/ButtonSecondary',
+  title: 'Components/Buttons/ButtonSecondary',
   component: ButtonSecondary,
   tags: ['autodocs'],
   argTypes: {

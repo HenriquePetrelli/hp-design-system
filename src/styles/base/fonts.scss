@@ -1,3 +1,9 @@
+/**
+ * Registro das fontes do Design System
+ * Responsável apenas por importar e declarar @font-face.
+ * Não deve conter tokens ou variáveis de uso.
+ */
+
 @font-face {
   font-family: 'Nunito Sans';
   src: url('../assets/fonts/NunitoSans-VariableFont.ttf') format('truetype');
@@ -13,19 +19,4 @@
   font-weight: 200 900;
   font-style: italic;
   font-display: swap;
-}
-
-:root {
-  --font-family-base: 'Nunito Sans', system-ui, sans-serif;
-
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-lg: 18px;
-  --font-size-xl: 20px;
-
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
 }

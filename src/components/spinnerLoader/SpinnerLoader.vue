@@ -32,7 +32,8 @@ import { computed } from 'vue'
 enum SpinnerLoaderSize {
   SMALL = 'small',
   REGULAR = 'regular',
-  LARGE = 'large'
+  LARGE = 'large',
+  XLARGE = 'xlarge'
 }
 
 enum SpinnerLoaderSpeed {
@@ -52,11 +53,11 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: '#372772'
+    default: ''
   },
   secondaryColor: {
     type: String,
-    default: '#FFF'
+    default: ''
   },
   speed: {
     type: [String, Number],
@@ -64,49 +65,91 @@ const props = defineProps({
   }
 })
 
-const spinnerSizeMapper: Record<SpinnerLoaderSize, number> = {
-  [SpinnerLoaderSize.SMALL]: 16,
-  [SpinnerLoaderSize.REGULAR]: 24,
-  [SpinnerLoaderSize.LARGE]: 32
+// Mapeamento para tokens CSS (ao invés de valores hardcoded)
+const spinnerSizeMapper: Record<SpinnerLoaderSize, string> = {
+  [SpinnerLoaderSize.SMALL]: 'var(--spinner-size-sm)',
+  [SpinnerLoaderSize.REGULAR]: 'var(--spinner-size-md)',
+  [SpinnerLoaderSize.LARGE]: 'var(--spinner-size-lg)',
+  [SpinnerLoaderSize.XLARGE]: 'var(--spinner-size-xl)'
 }
 
-const spinnerSpeedMapper: Record<SpinnerLoaderSpeed, number> = {
-  [SpinnerLoaderSpeed.FAST]: 0.5,
-  [SpinnerLoaderSpeed.NORMAL]: 1,
-  [SpinnerLoaderSpeed.SLOW]: 2
+const spinnerSpeedMapper: Record<SpinnerLoaderSpeed, string> = {
+  [SpinnerLoaderSpeed.FAST]: 'var(--spinner-speed-fast)',
+  [SpinnerLoaderSpeed.NORMAL]: 'var(--spinner-speed-normal)',
+  [SpinnerLoaderSpeed.SLOW]: 'var(--spinner-speed-slow)'
 }
 
-const getSpinnerSize = (size: string | number): number => {
+// Funções auxiliares usando tokens
+const getSpinnerSize = (size: string | number): string => {
   if (typeof size === 'string' && size in spinnerSizeMapper) {
     return spinnerSizeMapper[size as SpinnerLoaderSize]
   }
-  return typeof size === 'number'
-    ? size
-    : spinnerSizeMapper[SpinnerLoaderSize.REGULAR]
+
+  // Se for número, converte para px (backward compatibility)
+  if (typeof size === 'number') {
+    return `${size}px`
+  }
+
+  // Default para token
+  return spinnerSizeMapper[SpinnerLoaderSize.REGULAR]
 }
 
-const getSpinnerSpeed = (speed: string | number): number => {
+const getSpinnerSpeed = (speed: string | number): string => {
   if (typeof speed === 'string' && speed in spinnerSpeedMapper) {
     return spinnerSpeedMapper[speed as SpinnerLoaderSpeed]
   }
-  return typeof speed === 'number'
-    ? Math.max(0.1, speed)
-    : spinnerSpeedMapper[SpinnerLoaderSpeed.NORMAL]
+
+  // Se for número, converte para segundos (backward compatibility)
+  if (typeof speed === 'number') {
+    return `${Math.max(0.1, speed)}s`
+  }
+
+  // Default para token
+  return spinnerSpeedMapper[SpinnerLoaderSpeed.NORMAL]
+}
+
+// Calcular velocidades derivadas usando tokens ou valores custom
+const getDerivedSpeeds = (speedValue: string) => {
+  // Se for um token CSS (começa com var), mantém o cálculo proporcional
+  if (speedValue.startsWith('var(')) {
+    // Usa multiplicadores como variáveis CSS derivadas
+    return {
+      dots: `calc(${speedValue} / 1.5)`,
+      clock: `calc(${speedValue} * 6)`
+    }
+  }
+
+  // Se for valor em segundos (ex: "1s"), faz cálculo numérico
+  if (speedValue.endsWith('s')) {
+    const numericValue = parseFloat(speedValue)
+    if (!isNaN(numericValue)) {
+      return {
+        dots: `${numericValue / 1.5}s`,
+        clock: `${numericValue * 6}s`
+      }
+    }
+  }
+
+  // Fallback
+  return {
+    dots: 'calc(var(--spinner-speed-normal) / 1.5)',
+    clock: 'calc(var(--spinner-speed-normal) * 6)'
+  }
 }
 
 const spinnerStyles = computed(() => {
-  const sizePx = `${getSpinnerSize(props.size)}px`
-  const speedSec = `${getSpinnerSpeed(props.speed)}s`
-  const speedClock = `${getSpinnerSpeed(props.speed) * 6}s`
-  const speedDots = `${getSpinnerSpeed(props.speed) * 1.4}s`
+  const sizeValue = getSpinnerSize(props.size)
+  const speedValue = getSpinnerSpeed(props.speed)
+  const derivedSpeeds = getDerivedSpeeds(speedValue)
 
   return {
-    '--spinner-size': sizePx,
-    '--spinner-color': props.color || '#FF3D00',
-    '--spinner-secondary-color': props.secondaryColor || '#FFF',
-    '--spinner-speed': speedSec,
-    '--spinner-clock-speed': speedClock,
-    '--spinner-dots-speed': speedDots
+    '--spinner-size': sizeValue,
+    '--spinner-color': props.color || 'var(--spinner-color)',
+    '--spinner-secondary-color':
+      props.secondaryColor || 'var(--spinner-secondary-color)',
+    '--spinner-speed': speedValue,
+    '--spinner-clock-speed': derivedSpeeds.clock,
+    '--spinner-dots-speed': derivedSpeeds.dots
   }
 })
 </script>

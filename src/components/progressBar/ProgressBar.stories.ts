@@ -2,107 +2,133 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import ProgressBar from './ProgressBar.vue'
 
 const meta: Meta<typeof ProgressBar> = {
-  title: 'Components/ProgressBar',
+  title: 'Components/Feedback/ProgressBar',
   component: ProgressBar,
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      control: 'text',
-      description: 'Texto descritivo do progresso (usado para acessibilidade)'
-    },
     value: {
-      control: { type: 'number', min: 0 },
+      control: 'number',
       description: 'Valor atual do progresso'
     },
     max: {
-      control: { type: 'number', min: 1 },
-      description: 'Valor máximo do progresso'
+      control: 'number',
+      description: 'Valor máximo'
+    },
+    label: {
+      control: 'text',
+      description: 'Label do progresso'
     },
     hasLabel: {
       control: 'boolean',
-      description:
-        'Exibe a porcentagem acima da barra, alinhada ao final do progresso'
+      description: 'Mostrar label e valor'
     },
-    backgroundColor: {
-      control: 'color',
-      description: 'Cor de fundo da barra de progresso (track)'
+    status: {
+      control: 'select',
+      options: ['default', 'success', 'warning', 'error', 'info'],
+      description: 'Estado visual'
     },
-    barColor: {
-      control: 'color',
-      description: 'Cor da barra de progresso (fill)'
+    indeterminate: {
+      control: 'boolean',
+      description: 'Estado indeterminado'
     }
   }
 }
 
 export default meta
-
 type Story = StoryObj<typeof ProgressBar>
 
-/**
- * Progress bar padrão
- */
 export const Default: Story = {
   args: {
-    label: 'Progresso',
-    value: 50
-  }
-}
-
-/**
- * Com label flutuante (porcentagem acima da barra)
- */
-export const WithLabel: Story = {
-  args: {
-    label: 'Vale Refeição',
-    value: 85,
+    value: 75,
+    max: 100,
+    label: 'Progresso do Upload',
     hasLabel: true
   }
 }
 
-/**
- * Progresso completo
- */
-export const Complete: Story = {
+export const WithoutLabel: Story = {
   args: {
-    label: 'Progresso completo',
+    value: 50,
+    max: 100,
+    hasLabel: false
+  }
+}
+
+export const Success: Story = {
+  args: {
     value: 100,
-    hasLabel: true
+    max: 100,
+    label: 'Concluído',
+    status: 'success'
   }
 }
 
-/**
- * Valores customizados de máximo
- */
-export const CustomMaxValue: Story = {
+export const Warning: Story = {
   args: {
-    label: 'Uso de benefício',
-    value: 350,
-    max: 500,
-    hasLabel: true
+    value: 80,
+    max: 100,
+    label: 'Quase Cheio',
+    status: 'warning'
   }
 }
 
-/**
- * Cores customizadas
- */
+export const Error: Story = {
+  args: {
+    value: 25,
+    max: 100,
+    label: 'Bateria Fraca',
+    status: 'error'
+  }
+}
+
+export const Info: Story = {
+  args: {
+    value: 40,
+    max: 100,
+    label: 'Processando',
+    status: 'info'
+  }
+}
+
+export const Indeterminate: Story = {
+  args: {
+    indeterminate: true,
+    label: 'Carregando...',
+    indeterminateText: 'Processando, por favor aguarde'
+  }
+}
+
+export const Disabled: Story = {
+  args: {
+    value: 60,
+    max: 100,
+    label: 'Pausado',
+    disabled: true
+  }
+}
+
 export const CustomColors: Story = {
   args: {
-    label: 'Vale Alimentação',
-    value: 60,
-    hasLabel: true,
-    backgroundColor: '#E5E7EB',
-    barColor: '#16A34A'
+    value: 90,
+    max: 100,
+    label: 'Customizado',
+    barColor: '#9C27B0',
+    trackColor: '#E1BEE7'
   }
 }
 
-/**
- * Baixo progresso
- */
-export const LowProgress: Story = {
+export const SmallValue: Story = {
   args: {
-    label: 'Saldo restante',
-    value: 10,
-    hasLabel: true,
-    barColor: '#DC2626'
+    value: 5,
+    max: 100,
+    label: 'Início'
+  }
+}
+
+export const Complete: Story = {
+  args: {
+    value: 100,
+    max: 100,
+    label: 'Concluído 100%'
   }
 }

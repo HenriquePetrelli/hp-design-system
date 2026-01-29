@@ -1,0 +1,126 @@
+/**
+ * Component Tokens — Input Select
+ * Componente de seleção (dropdown) com suporte a autocomplete.
+ */
+
+:root {
+  /* =====================================================
+     DIMENSIONS
+     ===================================================== */
+  --input-select-min-width: 200px;
+  --input-select-min-height: 56px;
+
+  /* =====================================================
+     SPACING
+     ===================================================== */
+  --input-select-padding-y: var(--spacing-md);
+  --input-select-padding-x: var(--spacing-lg);
+  --input-select-label-left: var(--spacing-md);
+  --input-select-label-top: var(--spacing-md);
+  --input-select-label-padding-x: var(--spacing-xs);
+  --input-select-footer-margin-top: var(--spacing-xs);
+  --input-select-helper-margin-left: var(--spacing-xs);
+  --input-select-required-margin-left: var(--spacing-2xs);
+  --input-select-option-padding-y: var(--spacing-sm);
+  --input-select-option-padding-x: var(--spacing-md);
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --input-select-font-family: var(--font-family-base);
+  --input-select-font-size: var(--font-size-md);
+  --input-select-font-weight: var(--font-weight-regular);
+
+  --input-select-label-font-size: var(--font-size-md);
+  --input-select-label-font-weight: var(--font-weight-semibold);
+  --input-select-label-floating-font-size: var(--font-size-sm);
+  --input-select-label-floating-font-weight: var(--font-weight-semibold);
+
+  --input-select-helper-font-size: var(--font-size-sm);
+  --input-select-option-font-size: var(--font-size-md);
+  --input-select-option-selected-font-weight: var(--font-weight-semibold);
+
+  /* =====================================================
+     COLORS - DEFAULT
+     ===================================================== */
+  --input-select-bg: var(--color-surface-default);
+  --input-select-border-color: var(--color-border-default);
+  --input-select-text-color: var(--color-text-primary);
+
+  /* =====================================================
+     COLORS - STATES
+     ===================================================== */
+  --input-select-border-hover: var(--color-border-strong);
+  --input-select-border-focus: var(--color-border-focus);
+  --input-select-border-error: var(--color-feedback-error);
+  --input-select-border-success: var(--color-feedback-success);
+  --input-select-border-disabled: var(--color-text-disabled);
+
+  /* =====================================================
+     COLORS - TEXT
+     ===================================================== */
+  --input-select-label-color: var(--color-text-secondary);
+  --input-select-label-focus-color: var(--color-text-primary);
+  --input-select-label-error-color: var(--color-feedback-error);
+  --input-select-label-success-color: var(--color-feedback-success);
+  --input-select-placeholder-color: var(--color-text-secondary);
+  --input-select-disabled-color: var(--color-text-disabled);
+
+  /* =====================================================
+     COLORS - OPTIONS
+     ===================================================== */
+  --input-select-options-bg: var(--color-surface-default);
+  --input-select-option-hover-bg: var(--color-action-hover);
+  --input-select-option-disabled-color: var(--color-text-muted);
+  --input-select-option-highlighted-bg: var(--color-action-hover);
+
+  /* =====================================================
+     COLORS - HELPER TEXT
+     ===================================================== */
+  --input-select-helper-color: var(--color-text-muted);
+  --input-select-helper-error-color: var(--color-feedback-error);
+  --input-select-helper-success-color: var(--color-feedback-success);
+
+  /* =====================================================
+     BORDER RADIUS
+     ===================================================== */
+  --input-select-border-radius: var(--radius-lg);
+  --input-select-options-border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+
+  /* =====================================================
+     SHADOWS
+     ===================================================== */
+  --input-select-focus-shadow: 0 0 0 2px var(--input-select-border-focus);
+  --input-select-options-shadow: var(--shadow-md);
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+  --input-select-transition: all 0.3s ease;
+  --input-select-label-transition: all 0.2s ease;
+  --input-select-option-transition: background-color 0.2s ease;
+  --input-select-arrow-transition: transform 0.3s ease;
+
+  /* =====================================================
+     Z-INDEX
+     ===================================================== */
+  --input-select-label-z-index: 1;
+  --input-select-floating-label-z-index: 999;
+  --input-select-options-z-index: 1000;
+
+  /* =====================================================
+     DROPDOWN
+     ===================================================== */
+  --input-select-options-max-height: 200px;
+  --input-select-arrow-right: var(--spacing-md);
+
+  /* =====================================================
+     REQUIRED MARKER
+     ===================================================== */
+  --input-select-required-color: var(--color-feedback-error);
+
+  /* =====================================================
+     DISABLED STATE
+     ===================================================== */
+  --input-select-disabled-opacity: 0.7;
+}

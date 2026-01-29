@@ -2,10 +2,12 @@
   <svg
     :class="['icon', sizeClass]"
     xmlns="http://www.w3.org/2000/svg"
-    :aria-hidden="isDecorative"
     :role="isDecorative ? 'presentation' : 'img'"
+    :aria-hidden="isDecorative"
     :aria-label="!isDecorative ? ariaLabel : undefined"
-    :style="{ '--icon-color': color }"
+    :style="{
+      '--icon-color': resolvedColor
+    }"
   >
     <use :href="`#icon-${name}`" />
   </svg>
@@ -27,7 +29,7 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'currentColor'
+    default: ''
   },
   decorative: {
     type: Boolean,
@@ -49,11 +51,12 @@ const sizeClass = computed(() => {
   )
 })
 
-/**
- * Se não houver ariaLabel, o ícone deve ser decorativo
- */
 const isDecorative = computed(() => {
   return props.decorative || !props.ariaLabel
+})
+
+const resolvedColor = computed(() => {
+  return props.color || 'var(--icon-color)'
 })
 </script>
 

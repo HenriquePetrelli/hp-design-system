@@ -1,0 +1,9 @@
+/**
+ * Agregador de tokens semânticos
+ * Centraliza a importação de todos os tokens semânticos.
+ */
+
+@import './color.css';
+@import './text.css';
+@import './surface.css';
+@import './border.css';

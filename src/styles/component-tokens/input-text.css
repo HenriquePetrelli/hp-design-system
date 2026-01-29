@@ -1,0 +1,121 @@
+/**
+ * Component Tokens — Input Text
+ * Campo de entrada de texto com suporte a ícones e validação.
+ */
+
+:root {
+  /* =====================================================
+     DIMENSIONS
+     ===================================================== */
+  --input-text-min-width: 200px;
+  --input-text-min-height: 56px;
+
+  /* =====================================================
+     SPACING
+     ===================================================== */
+  --input-text-margin-bottom: var(--spacing-lg);
+  --input-text-padding-y: var(--spacing-md);
+  --input-text-padding-x: var(--spacing-lg);
+  --input-text-padding-icon: 24px;
+  --input-text-label-left: var(--spacing-md);
+  --input-text-label-top: var(--spacing-md);
+  --input-text-label-padding-x: var(--spacing-xs);
+  --input-text-footer-margin-top: var(--spacing-xs);
+  --input-text-helper-margin-left: var(--spacing-xs);
+  --input-text-counter-margin-right: var(--spacing-xs);
+  --input-text-icon-gap: var(--spacing-md);
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --input-text-font-family: var(--font-family-base);
+  --input-text-font-size: var(--font-size-md);
+  --input-text-font-weight: var(--font-weight-regular);
+
+  --input-text-label-font-size: var(--font-size-md);
+  --input-text-label-font-weight: var(--font-weight-semibold);
+  --input-text-label-floating-font-size: var(--font-size-sm);
+  --input-text-label-floating-font-weight: var(--font-weight-semibold);
+
+  --input-text-helper-font-size: var(--font-size-sm);
+  --input-text-counter-font-size: var(--font-size-sm);
+
+  /* =====================================================
+     COLORS - DEFAULT
+     ===================================================== */
+  --input-text-bg: var(--color-surface-default);
+  --input-text-border-color: var(--color-border-default);
+  --input-text-text-color: var(--color-text-primary);
+
+  /* =====================================================
+     COLORS - STATES
+     ===================================================== */
+  --input-text-border-hover: var(--color-border-strong);
+  --input-text-border-focus: var(--color-border-focus);
+  --input-text-border-error: var(--color-feedback-error);
+  --input-text-border-success: var(--color-feedback-success);
+  --input-text-border-disabled: var(--color-text-disabled);
+
+  /* =====================================================
+     COLORS - TEXT
+     ===================================================== */
+  --input-text-label-color: var(--color-text-secondary);
+  --input-text-label-focus-color: var(--color-text-primary);
+  --input-text-label-error-color: var(--color-feedback-error);
+  --input-text-label-success-color: var(--color-feedback-success);
+  --input-text-placeholder-color: var(--color-text-secondary);
+  --input-text-disabled-color: var(--color-text-disabled);
+  --input-text-disabled-bg: var(--color-surface-default);
+
+  /* =====================================================
+     COLORS - ICONS
+     ===================================================== */
+  --input-text-icon-color: var(--color-text-muted);
+  --input-text-icon-hover-color: var(--color-text-primary);
+  --input-text-icon-disabled-color: var(--color-text-disabled);
+
+  /* =====================================================
+     COLORS - HELPER TEXT
+     ===================================================== */
+  --input-text-helper-color: var(--color-text-muted);
+  --input-text-helper-error-color: var(--color-feedback-error);
+  --input-text-helper-success-color: var(--color-feedback-success);
+
+  /* =====================================================
+     COLORS - COUNTER
+     ===================================================== */
+  --input-text-counter-color: var(--color-text-muted);
+
+  /* =====================================================
+     BORDER RADIUS
+     ===================================================== */
+  --input-text-border-radius: var(--radius-lg);
+
+  /* =====================================================
+     SHADOWS
+     ===================================================== */
+  --input-text-focus-shadow: 0 0 0 2px var(--input-text-border-focus);
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+  --input-text-transition: all 0.3s ease;
+  --input-text-label-transition: all 0.2s ease;
+
+  /* =====================================================
+     Z-INDEX
+     ===================================================== */
+  --input-text-label-z-index: 1;
+  --input-text-floating-label-z-index: 999;
+
+  /* =====================================================
+     REQUIRED MARKER
+     ===================================================== */
+  --input-text-required-color: var(--color-feedback-error);
+  --input-text-required-margin-left: var(--spacing-2xs);
+
+  /* =====================================================
+     DISABLED STATE
+     ===================================================== */
+  --input-text-disabled-opacity: 0.7;
+}

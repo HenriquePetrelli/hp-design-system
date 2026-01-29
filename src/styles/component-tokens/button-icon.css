@@ -1,0 +1,25 @@
+:root {
+  /* =====================================================
+     SIZE
+     ===================================================== */
+  --button-icon-size: 48px;
+  --button-icon-size-sm: 32px;
+  --button-icon-size-lg: 64px;
+  --button-icon-radius: 999px;
+
+  /* =====================================================
+     COLORS
+     ===================================================== */
+  --button-icon-color: var(--color-text-primary);
+  --button-icon-hover-color: var(--color-text-primary);
+  --button-icon-hover-bg: var(--color-surface-hover);
+  --button-icon-disabled-color: var(--color-text-disabled);
+  --button-icon-focus-ring: var(--color-border-focus);
+
+  /* =====================================================
+     EFFECTS
+     ===================================================== */
+  --button-icon-scale-hover: 1.05;
+  --button-icon-scale-active: 0.95;
+  --button-icon-opacity-disabled: 0.5;
+}

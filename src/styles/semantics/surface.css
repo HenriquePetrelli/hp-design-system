@@ -1,0 +1,11 @@
+/**
+ * Tokens semânticos de superfície
+ * Define fundos, cards, containers e estados.
+ */
+
+:root {
+  --color-surface-background: var(--color-neutral-50);
+  --color-surface-default: var(--color-neutral-0);
+  --color-surface-hover: var(--color-neutral-100);
+  --color-surface: var(--color-surface-default);
+}

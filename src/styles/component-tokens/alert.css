@@ -1,0 +1,24 @@
+:root {
+  /* Base */
+  --alert-bg: var(--color-surface-default);
+  --alert-text: var(--color-text-primary);
+
+  /* Success */
+  --alert-success-bg: var(--color-feedback-success-bg);
+  --alert-success-text: var(--color-feedback-success);
+
+  /* Warning */
+  --alert-warning-bg: var(--color-feedback-warning-bg);
+  --alert-warning-text: var(--color-feedback-warning);
+
+  /* Error */
+  --alert-error-bg: var(--color-feedback-error-bg);
+  --alert-error-text: var(--color-feedback-error);
+
+  /* Info */
+  --alert-info-bg: var(--color-feedback-info-bg);
+  --alert-info-text: var(--color-feedback-info);
+
+  /* Icon */
+  --alert-icon-hover-bg: rgba(0, 0, 0, 0.08);
+}

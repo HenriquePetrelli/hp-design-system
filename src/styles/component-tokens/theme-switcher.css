@@ -1,0 +1,84 @@
+/**
+ * Component Tokens — Theme Switcher
+ * Alternador de temas claro/escuro.
+ */
+
+:root {
+  /* =====================================================
+     DIMENSIONS
+     ===================================================== */
+  --theme-switcher-button-size: 32px;
+  --theme-switcher-toggle-width: 48px;
+  --theme-switcher-toggle-height: 24px;
+  --theme-switcher-toggle-handle-size: 18px;
+  --theme-switcher-icon-size: 1.2rem;
+
+  /* =====================================================
+     SPACING
+     ===================================================== */
+  --theme-switcher-border-radius: var(--radius-md);
+  --theme-switcher-toggle-radius: 12px;
+  --theme-switcher-handle-radius: 50%;
+  --theme-switcher-focus-outline-offset: 2px;
+  --theme-switcher-focus-outline-width: 2px;
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --theme-switcher-icon-font-size: 10px;
+
+  /* =====================================================
+     COLORS - LIGHT THEME (default)
+     ===================================================== */
+  --theme-switcher-light-bg: transparent;
+  --theme-switcher-light-hover-bg: rgba(0, 0, 0, 0.08);
+  --theme-switcher-light-icon: var(--color-text-primary);
+  --theme-switcher-light-toggle-bg: var(--color-surface-default);
+  --theme-switcher-light-toggle-border: var(--color-border-default);
+  --theme-switcher-light-toggle-handle-bg: #fffaa8;
+  --theme-switcher-light-toggle-handle-border: #f5eb71;
+
+  /* =====================================================
+     COLORS - DARK THEME
+     ===================================================== */
+  --theme-switcher-dark-bg: transparent;
+  --theme-switcher-dark-hover-bg: rgba(113, 113, 113, 0.3);
+  --theme-switcher-dark-icon: #f3c32e;
+  --theme-switcher-dark-toggle-bg: var(--color-neutral-100);
+  --theme-switcher-dark-toggle-border: var(--color-neutral-300);
+  --theme-switcher-dark-toggle-handle-bg: var(--color-surface-default);
+  --theme-switcher-dark-toggle-handle-border: var(--color-border-default);
+
+  /* =====================================================
+     COLORS - TOGGLE DETAILS
+     ===================================================== */
+  --theme-switcher-toggle-stars-bg: var(--color-surface-default);
+  --theme-switcher-toggle-stars-shadow: var(--color-border-default);
+  --theme-switcher-toggle-background-stars: var(--color-surface-default);
+
+  /* =====================================================
+     COLORS - FOCUS STATE
+     ===================================================== */
+  --theme-switcher-focus-ring: var(--color-border-focus);
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+  --theme-switcher-transition-speed: 0.25s;
+  --theme-switcher-transition-ease: ease;
+  --theme-switcher-toggle-transition: all 350ms ease-in;
+  --theme-switcher-toggle-background-transition: all 150ms ease-in;
+  --theme-switcher-icon-transition: opacity 0.3s ease;
+  --theme-switcher-hover-transform: scale(1.05);
+
+  /* =====================================================
+     ANIMATIONS
+     ===================================================== */
+  --theme-switcher-animation-duration: 350ms;
+  --theme-switcher-animation-delay: 350ms;
+
+  /* =====================================================
+     Z-INDEX
+     ===================================================== */
+  --theme-switcher-icon-z-index: 1;
+}

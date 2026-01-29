@@ -1,9 +1,20 @@
-@use './base/_fonts';
-@use './tokens/_palette';
-@use './tokens/_layout';
-@use './tokens/_semantic';
-@use './tokens/_themes';
-@use './tokens/_semantic-aliases';
+/**
+ * Arquivo principal de estilos do Design System
+ * Responsável por orquestrar a importação de tokens,
+ * temas, fundamentos e estilos base.
+*/
+
+@use './base/fonts';
+
+@import './foundations/palette.css';
+@import './foundations/spacing.css';
+@import './foundations/radius.css';
+@import './foundations/elevation.css';
+@import './foundations/typography.css';
+
+@import './component-tokens/index.css';
+@import './semantics/index.css';
+@import './themes/index.css';
 
 * {
   box-sizing: border-box;
@@ -12,5 +23,5 @@
 body {
   font-family: var(--font-family-base);
   color: var(--color-text-primary);
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-background);
 }

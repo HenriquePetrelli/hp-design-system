@@ -5,14 +5,14 @@
   line-height: 1;
 
   /* =====================================================
-     Tokens padronizados do _themes.scss
+     Tokens padrão - serão sobrescritos pelo Vue se necessário
      ===================================================== */
   --spinner-size: var(--spinner-size-md);
-  --spinner-color: var(--color-brand-primary);
-  --spinner-secondary-color: var(--color-border-default);
+  --spinner-color: var(--spinner-color);
+  --spinner-secondary-color: var(--spinner-secondary-color);
   --spinner-speed: var(--spinner-speed-normal);
   --spinner-dots-speed: calc(var(--spinner-speed) / 1.5);
-  --spinner-clock-speed: calc(var(--spinner-speed) * 1.2);
+  --spinner-clock-speed: calc(var(--spinner-speed) * 6);
 
   /* =====================================================
      Spinner tipo círculo 1
@@ -100,6 +100,7 @@
     border: 3px solid var(--spinner-secondary-color);
     border-radius: 50%;
     animation: spinner-spin var(--spinner-speed) linear infinite;
+    position: relative;
 
     &:after {
       content: '';
@@ -124,6 +125,7 @@
     border: 3px solid var(--spinner-secondary-color);
     border-radius: 50%;
     animation: spinner-spin var(--spinner-speed) linear infinite;
+    position: relative;
 
     &:after {
       content: '';
@@ -137,6 +139,18 @@
       border: 3px solid transparent;
       border-bottom-color: var(--spinner-color);
     }
+  }
+
+  /* =====================================================
+     Spinner tipo círculo 4 (se necessário)
+     ===================================================== */
+  .spinner-circle-4 {
+    width: var(--spinner-size);
+    height: var(--spinner-size);
+    border: 3px solid var(--spinner-secondary-color);
+    border-top-color: var(--spinner-color);
+    border-radius: 50%;
+    animation: spinner-spin var(--spinner-speed) linear infinite;
   }
 
   /* =====================================================
@@ -181,7 +195,19 @@
   }
 
   /* =====================================================
-     Spinner tipo dot/pulse e reload
+     Spinner tipo ring 3
+     ===================================================== */
+  .spinner-ring-3 {
+    width: var(--spinner-size);
+    height: var(--spinner-size);
+    border: 3px solid var(--spinner-secondary-color);
+    border-top-color: var(--spinner-color);
+    border-radius: 50%;
+    animation: spinner-spin var(--spinner-speed) linear infinite;
+  }
+
+  /* =====================================================
+     Spinner tipo dot 2
      ===================================================== */
   .spinner-dot-2 {
     width: var(--spinner-size);
@@ -191,11 +217,89 @@
     animation: spinner-spin calc(var(--spinner-speed) * 2) linear infinite;
   }
 
-  .spinner-dot-3,
-  .spinner-dot-4,
-  .spinner-dot-5,
+  /* =====================================================
+     Spinner tipo dot 3
+     ===================================================== */
+  .spinner-dot-3 {
+    width: var(--spinner-size);
+    height: var(--spinner-size);
+    background-color: var(--spinner-color);
+    border-radius: 50%;
+    animation: spinner-pulse var(--spinner-speed) infinite ease-in-out;
+  }
+
+  /* =====================================================
+     Spinner tipo dot 4
+     ===================================================== */
+  .spinner-dot-4 {
+    width: var(--spinner-size);
+    height: var(--spinner-size);
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: var(--spinner-color);
+      animation: spinner-pulse var(--spinner-speed) infinite ease-in-out;
+    }
+
+    &::after {
+      animation-delay: calc(var(--spinner-speed) / 2);
+    }
+  }
+
+  /* =====================================================
+     Spinner tipo dot 5
+     ===================================================== */
+  .spinner-dot-5 {
+    width: calc(var(--spinner-size) / 4);
+    height: calc(var(--spinner-size) / 4);
+    background: var(--spinner-secondary-color);
+    border-radius: 50%;
+    position: relative;
+    animation: spinner-shadowPulse var(--spinner-speed) infinite linear;
+    animation-delay: calc(var(--spinner-speed) / 3);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--spinner-secondary-color);
+      border-radius: 50%;
+    }
+
+    &::before {
+      left: calc(var(--spinner-size) / -2);
+      animation: spinner-shadowPulse var(--spinner-speed) infinite linear;
+    }
+
+    &::after {
+      right: calc(var(--spinner-size) / -2);
+      animation: spinner-shadowPulse var(--spinner-speed) infinite linear;
+      animation-delay: calc(var(--spinner-speed) / 1.5);
+    }
+  }
+
+  /* =====================================================
+     Spinner tipo reload
+     ===================================================== */
   .spinner-reload {
-    /* Mantém as mesmas regras, mas usando var(--spinner-color) e var(--spinner-secondary-color) */
+    width: var(--spinner-size);
+    height: var(--spinner-size);
+    border: 3px solid var(--spinner-secondary-color);
+    border-top-color: var(--spinner-color);
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-spin var(--spinner-speed) linear infinite;
   }
 
   /* =====================================================
@@ -208,12 +312,26 @@
 
     &::before,
     &::after {
+      content: '';
+      position: absolute;
       background-color: var(--spinner-color);
       background-image: radial-gradient(
         circle 8px at 18px 18px,
         var(--spinner-secondary-color) 100%,
         transparent 0
       );
+      width: 40px;
+      height: 40px;
+      animation: spinner-engine 1s linear infinite;
+    }
+
+    &::before {
+      left: -40px;
+    }
+
+    &::after {
+      left: -20px;
+      animation-delay: 0.5s;
     }
   }
 
@@ -226,9 +344,18 @@
     border: 3px solid var(--spinner-color);
     border-radius: 50%;
     animation: spinner-search 2s linear infinite;
+    position: relative;
 
     &::after {
+      content: '';
+      position: absolute;
+      top: 75%;
+      left: 75%;
+      width: 25%;
+      height: 3px;
       background: var(--spinner-color);
+      transform: rotate(45deg);
+      transform-origin: left center;
     }
   }
 }

@@ -1,7 +1,7 @@
 .theme-switcher {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: var(--theme-switcher-button-size);
+  height: var(--theme-switcher-button-size);
+  border-radius: var(--theme-switcher-border-radius);
   border: none;
   background-color: transparent;
   display: inline-flex;
@@ -9,24 +9,28 @@
   justify-content: center;
   cursor: pointer;
   transition:
-    background-color 0.25s ease,
-    transform 0.15s ease;
+    background-color var(--theme-switcher-transition-speed)
+      var(--theme-switcher-transition-ease),
+    transform var(--theme-switcher-transition-speed)
+      var(--theme-switcher-transition-ease);
 
   &:hover {
-    background-color: var(--hover-bg-color);
-    transform: scale(1.05);
+    background-color: var(--theme-switcher-hover-bg);
+    transform: var(--theme-switcher-hover-transform);
   }
 
   &:focus-visible {
-    outline: 2px solid #005fcc;
-    outline-offset: 2px;
+    outline: var(--theme-switcher-focus-outline-width) solid
+      var(--theme-switcher-focus-ring);
+    outline-offset: var(--theme-switcher-focus-outline-offset);
   }
 
   &__icon {
     rotate: -30deg;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: var(--theme-switcher-icon-size);
+    height: var(--theme-switcher-icon-size);
     pointer-events: none;
+    z-index: var(--theme-switcher-icon-z-index);
   }
 }
 
@@ -44,19 +48,20 @@
 }
 
 .toggle--label {
-  width: 48px;
-  height: 24px;
-  background: var(--light-background-color);
-  border-radius: 12px;
-  border: 2px solid var(--light-border-color);
+  width: var(--theme-switcher-toggle-width);
+  height: var(--theme-switcher-toggle-height);
+  background: var(--theme-switcher-toggle-bg);
+  border-radius: var(--theme-switcher-toggle-radius);
+  border: 2px solid var(--theme-switcher-toggle-border);
   display: flex;
   position: relative;
-  transition: all 350ms ease-in;
+  transition: var(--theme-switcher-toggle-transition);
   cursor: pointer;
 
   &:focus-visible {
-    outline: 2px solid #005fcc;
-    outline-offset: 2px;
+    outline: var(--theme-switcher-focus-outline-width) solid
+      var(--theme-switcher-focus-ring);
+    outline-offset: var(--theme-switcher-focus-outline-offset);
     transition: 0s;
   }
 }
@@ -66,18 +71,18 @@
   height: 2px;
   border-radius: 2px;
   position: relative;
-  background: #fff;
+  background: var(--theme-switcher-toggle-background-stars);
   left: 28px;
   top: 11px;
-  transition: all 150ms ease-in;
+  transition: var(--theme-switcher-toggle-background-transition);
 
   &:before,
   &:after {
     content: '';
     position: absolute;
     border-radius: 2px;
-    background: #fff;
-    transition: all 150ms ease-in;
+    background: var(--theme-switcher-toggle-background-stars);
+    transition: var(--theme-switcher-toggle-background-transition);
   }
 
   &:before {
@@ -97,8 +102,8 @@
 
 /* Toggle animado quando checked */
 .toggle--checkbox:checked + .toggle--label {
-  background: var(--dark-background-color);
-  border-color: var(--dark-border-color);
+  background: var(--theme-switcher-toggle-bg-checked);
+  border-color: var(--theme-switcher-toggle-border-checked);
 }
 
 .toggle--checkbox:checked + .toggle--label .toggle--label-background {
@@ -122,25 +127,25 @@
 /* Bolinha que se move */
 .toggle--label:before {
   content: '';
-  width: 18px;
-  height: 18px;
-  border: 2px solid #f5eb71;
+  width: var(--theme-switcher-toggle-handle-size);
+  height: var(--theme-switcher-toggle-handle-size);
+  border: 2px solid var(--theme-switcher-toggle-handle-border);
   position: absolute;
-  border-radius: 50%;
-  background: #fffaa8;
+  border-radius: var(--theme-switcher-handle-radius);
+  background: var(--theme-switcher-toggle-handle-bg);
   top: 1px;
   left: 1px;
-  transition: all 350ms ease-in;
+  transition: var(--theme-switcher-toggle-transition);
   animation-name: reverse;
-  animation-duration: 350ms;
+  animation-duration: var(--theme-switcher-animation-duration);
   animation-fill-mode: forwards;
 }
 
 .toggle--checkbox:checked + .toggle--label:before {
-  background: #fff;
-  border-color: #e8e8ea;
+  background: var(--theme-switcher-toggle-handle-bg-checked);
+  border-color: var(--theme-switcher-toggle-handle-border-checked);
   animation-name: switch;
-  animation-duration: 350ms;
+  animation-duration: var(--theme-switcher-animation-duration);
   animation-fill-mode: forwards;
 }
 
@@ -149,21 +154,21 @@
   content: '';
   position: absolute;
   box-shadow:
-    #e8e8ea 1px 0 0 1px,
-    #e8e8ea -2px 4px 0 -1px;
-  background: #e8e8ea;
+    var(--theme-switcher-toggle-stars-shadow) 1px 0 0 1px,
+    var(--theme-switcher-toggle-stars-shadow) -2px 4px 0 -1px;
+  background: var(--theme-switcher-toggle-stars-bg);
   left: 29px;
   top: 5px;
   width: 4px;
   height: 4px;
   border-radius: 50%;
   opacity: 0;
-  transition: all 250ms ease-in;
+  transition: var(--theme-switcher-toggle-transition);
 }
 
 .toggle--checkbox:checked + .toggle--label:after {
   opacity: 1;
-  transition-delay: 350ms;
+  transition-delay: var(--theme-switcher-animation-delay);
 }
 
 /* Ícones do sol e lua */
@@ -179,8 +184,8 @@
 
 .sun-icon,
 .moon-icon {
-  font-size: 10px;
-  transition: opacity 0.3s ease;
+  font-size: var(--theme-switcher-icon-font-size);
+  transition: var(--theme-switcher-icon-transition);
 }
 
 .toggle--checkbox:checked + .toggle--label .moon-icon {
@@ -210,14 +215,14 @@
   }
   100% {
     left: 25px;
-    width: 18px;
+    width: var(--theme-switcher-toggle-handle-size);
   }
 }
 
 @keyframes reverse {
   0% {
     left: 25px;
-    width: 18px;
+    width: var(--theme-switcher-toggle-handle-size);
   }
   60% {
     left: 15px;

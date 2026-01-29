@@ -19,7 +19,7 @@ interface InputNumberProps {
 }
 
 const meta: Meta<typeof InputNumber> = {
-  title: 'Components/Input/InputNumber',
+  title: 'Components/Inputs/InputNumber',
   component: InputNumber,
   tags: ['autodocs'],
   argTypes: {

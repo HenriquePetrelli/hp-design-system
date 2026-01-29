@@ -1,242 +1,122 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import InputSelect from '@components/input/inputSelect/InputSelect.vue'
-import { ref } from 'vue'
-
-interface InputSelectProps {
-  modelValue?: string | number | boolean | null
-  label: string
-  options: Array<{ value: any; label: string; disabled?: boolean }>
-  helperText?: string
-  readonly?: boolean
-  disabled?: boolean
-  placeholder?: string
-  required?: boolean
-  status?: 'default' | 'error' | 'success'
-  autocomplete?: boolean
-}
+import InputSelect from './InputSelect.vue'
 
 const meta: Meta<typeof InputSelect> = {
-  title: 'Components/Input/InputSelect',
+  title: 'Components/Inputs/InputSelect',
   component: InputSelect,
   tags: ['autodocs'],
   argTypes: {
-    modelValue: {
-      control: 'select',
-      options: [null, 'option1', 'option2', 'option3']
-    },
     label: {
       control: 'text',
-      defaultValue: 'Selecione uma opção'
+      description: 'Label do select'
     },
-    options: {
-      control: 'object',
-      defaultValue: [
-        { value: 'option1', label: 'Opção 1' },
-        { value: 'option2', label: 'Opção 2' },
-        { value: 'option3', label: 'Opção 3', disabled: true }
-      ]
+    modelValue: {
+      control: 'text',
+      description: 'Valor selecionado'
     },
-    helperText: { control: 'text' },
-    readonly: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    placeholder: { control: 'text' },
-    required: { control: 'boolean' },
+    placeholder: {
+      control: 'text',
+      description: 'Texto placeholder'
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Estado desabilitado'
+    },
+    required: {
+      control: 'boolean',
+      description: 'Campo obrigatório'
+    },
     status: {
       control: 'select',
-      options: ['default', 'error', 'success']
-    },
-    autocomplete: {
-      control: 'boolean',
-      description: 'Ativa o modo de autocomplete'
+      options: ['default', 'error', 'success'],
+      description: 'Estado visual'
     }
   }
 }
 
 export default meta
+type Story = StoryObj<typeof InputSelect>
 
-type Story = StoryObj<InputSelectProps>
-
-const Template: Story = {
-  render: (args) => ({
-    components: { InputSelect },
-    setup() {
-      const modelValue = ref(args.modelValue)
-      return { args, modelValue }
-    },
-    template: `
-        <InputSelect
-          v-bind="args"
-          v-model="modelValue"
-        />
-    `
-  })
-}
+const options = [
+  { label: 'Opção 1', value: '1' },
+  { label: 'Opção 2', value: '2' },
+  { label: 'Opção 3', value: '3' },
+  { label: 'Opção 4 (desabilitada)', value: '4', disabled: true },
+  { label: 'Opção 5', value: '5' }
+]
 
 export const Default: Story = {
-  ...Template,
   args: {
     label: 'Selecione uma opção',
-    options: [
-      { value: 'option1', label: 'Opção 1' },
-      { value: 'option2', label: 'Opção 2' },
-      { value: 'option3', label: 'Opção 3' }
-    ]
+    options,
+    placeholder: 'Escolha...'
   }
 }
 
 export const WithValue: Story = {
-  ...Template,
   args: {
-    label: 'Selecione uma opção',
-    options: [
-      { value: 'option1', label: 'Opção 1' },
-      { value: 'option2', label: 'Opção 2' },
-      { value: 'option3', label: 'Opção 3' }
-    ],
-    modelValue: 'option2'
-  }
-}
-
-export const WithPlaceholder: Story = {
-  ...Template,
-  args: {
-    label: 'Selecione uma opção',
-    placeholder: 'Escolha uma das opções',
-    options: [
-      { value: 'option1', label: 'Opção 1' },
-      { value: 'option2', label: 'Opção 2' },
-      { value: 'option3', label: 'Opção 3' }
-    ]
-  }
-}
-
-export const Required: Story = {
-  ...Template,
-  args: {
-    label: 'Selecione uma opção obrigatória',
-    required: true,
-    options: [
-      { value: 'option1', label: 'Opção 1' },
-      { value: 'option2', label: 'Opção 2' },
-      { value: 'option3', label: 'Opção 3' }
-    ]
+    label: 'País',
+    modelValue: '2',
+    options,
+    placeholder: 'Selecione um país'
   }
 }
 
 export const Disabled: Story = {
-  ...Template,
   args: {
-    label: 'Selecione uma opção desabilitada',
-    disabled: true,
-    modelValue: 'option2',
-    options: [
-      { value: 'option1', label: 'Opção 1' },
-      { value: 'option2', label: 'Opção 2' },
-      { value: 'option3', label: 'Opção 3' }
-    ]
+    label: 'Select Desabilitado',
+    options,
+    disabled: true
   }
 }
 
-export const Readonly: Story = {
-  ...Template,
+export const Required: Story = {
   args: {
-    label: 'Selecione uma opção (somente leitura)',
-    readonly: true,
-    modelValue: 'option2',
+    label: 'Gênero',
     options: [
-      { value: 'option1', label: 'Opção 1' },
-      { value: 'option2', label: 'Opção 2' },
-      { value: 'option3', label: 'Opção 3' }
-    ]
-  }
-}
-
-export const WithHelperText: Story = {
-  ...Template,
-  args: {
-    label: 'Selecione uma opção',
-    helperText: 'Escolha a melhor opção para você',
-    options: [
-      { value: 'option1', label: 'Opção 1' },
-      { value: 'option2', label: 'Opção 2' },
-      { value: 'option3', label: 'Opção 3' }
-    ]
+      { label: 'Masculino', value: 'M' },
+      { label: 'Feminino', value: 'F' },
+      { label: 'Outro', value: 'O' }
+    ],
+    required: true,
+    placeholder: 'Selecione...'
   }
 }
 
 export const ErrorState: Story = {
-  ...Template,
   args: {
-    label: 'Selecione uma opção',
+    label: 'Estado',
+    options,
     status: 'error',
-    helperText: 'Campo obrigatório não preenchido',
-    options: [
-      { value: 'option1', label: 'Opção 1' },
-      { value: 'option2', label: 'Opção 2' },
-      { value: 'option3', label: 'Opção 3' }
-    ]
+    helperText: 'Este campo é obrigatório'
   }
 }
 
 export const SuccessState: Story = {
-  ...Template,
   args: {
-    label: 'Selecione uma opção',
+    label: 'Plano',
+    modelValue: 'premium',
+    options: [
+      { label: 'Básico', value: 'basic' },
+      { label: 'Standard', value: 'standard' },
+      { label: 'Premium', value: 'premium' }
+    ],
     status: 'success',
-    helperText: 'Opção selecionada com sucesso',
-    modelValue: 'option2',
-    options: [
-      { value: 'option1', label: 'Opção 1' },
-      { value: 'option2', label: 'Opção 2' },
-      { value: 'option3', label: 'Opção 3' }
-    ]
+    helperText: 'Plano selecionado com sucesso'
   }
 }
 
-export const WithDisabledOptions: Story = {
-  ...Template,
+export const Autocomplete: Story = {
   args: {
-    label: 'Selecione uma opção',
+    label: 'Buscar Cidade',
     options: [
-      { value: 'option1', label: 'Opção 1' },
-      { value: 'option2', label: 'Opção 2', disabled: true },
-      { value: 'option3', label: 'Opção 3' }
-    ]
-  }
-}
-
-export const AutocompleteMode: Story = {
-  ...Template,
-  args: {
-    label: 'Busque uma opção',
+      { label: 'São Paulo', value: 'sp' },
+      { label: 'Rio de Janeiro', value: 'rj' },
+      { label: 'Belo Horizonte', value: 'bh' },
+      { label: 'Curitiba', value: 'cur' },
+      { label: 'Porto Alegre', value: 'poa' }
+    ],
     autocomplete: true,
-    placeholder: 'Digite para buscar opções',
-    options: [
-      { value: 'apple', label: 'Maçã' },
-      { value: 'banana', label: 'Banana' },
-      { value: 'orange', label: 'Laranja' },
-      { value: 'grape', label: 'Uva' },
-      { value: 'melon', label: 'Melão' }
-    ]
-  }
-}
-
-export const WithLongOptions: Story = {
-  ...Template,
-  args: {
-    label: 'Selecione uma opção longa',
-    options: [
-      {
-        value: 'opt1',
-        label:
-          'Esta é uma opção com um texto muito longo que deve ser truncado corretamente no componente'
-      },
-      {
-        value: 'opt2',
-        label:
-          'Outra opção com texto extenso para testar o comportamento do dropdown'
-      },
-      { value: 'opt3', label: 'Opção normal' }
-    ]
+    placeholder: 'Digite para buscar...'
   }
 }

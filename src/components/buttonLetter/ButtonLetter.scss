@@ -2,15 +2,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 600;
+
+  width: var(--button-letter-size);
+  height: var(--button-letter-size);
+
+  border-radius: var(--button-letter-radius);
   border: 0;
-  cursor: pointer;
   background-color: transparent;
-  color: var(--color-button-letter-color);
+
+  font-family: var(--button-letter-font-family);
+  font-size: var(--button-letter-font-size);
+  font-weight: var(--button-letter-font-weight);
+
+  color: var(--button-letter-color);
+  cursor: pointer;
+
   transition:
     transform 0.15s ease,
     background-color 0.15s ease,
@@ -24,15 +30,15 @@
   }
 
   &--lg {
-    width: 64px;
-    height: 64px;
-    font-size: 1.4rem;
+    width: var(--button-letter-size-lg);
+    height: var(--button-letter-size-lg);
+    font-size: var(--button-letter-font-size-lg);
   }
 
   &--sm {
-    width: 32px;
-    height: 32px;
-    font-size: 0.8rem;
+    width: var(--button-letter-size-sm);
+    height: var(--button-letter-size-sm);
+    font-size: var(--button-letter-font-size-sm);
   }
 
   &--is-loading {
@@ -40,24 +46,24 @@
   }
 
   &:not(:disabled):not(.button-letter--is-loading):hover {
-    color: var(--color-button-letter-hover-color);
-    background-color: var(--color-button-letter-hover-bg);
-    transform: scale(1.05);
+    color: var(--button-letter-hover-color);
+    background-color: var(--button-letter-hover-bg);
+    transform: scale(var(--button-letter-scale-hover));
   }
 
   &:not(:disabled):not(.button-letter--is-loading):active {
-    transform: scale(0.95);
+    transform: scale(var(--button-letter-scale-active));
   }
 
   &:not(:disabled):not(.button-letter--is-loading):focus-visible {
-    outline: 2px solid var(--color-button-letter-focus-ring);
+    outline: 2px solid var(--button-letter-focus-ring);
     outline-offset: 2px;
   }
 
   &--disabled,
   &:disabled {
     cursor: default;
-    color: var(--color-button-letter-disabled-color);
-    opacity: 0.5;
+    color: var(--button-letter-disabled-color);
+    opacity: var(--button-letter-opacity-disabled);
   }
 }

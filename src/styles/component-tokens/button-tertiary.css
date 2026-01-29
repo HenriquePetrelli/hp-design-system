@@ -1,0 +1,37 @@
+:root {
+  /* =====================================================
+     LAYOUT
+     ===================================================== */
+  --button-tertiary-min-width: 120px;
+  --button-tertiary-padding-y: var(--spacing-sm);
+  --button-tertiary-padding-x: var(--spacing-md);
+  --button-tertiary-padding-y-lg: var(--spacing-lg);
+  --button-tertiary-padding-x-lg: var(--spacing-xl);
+  --button-tertiary-border-radius: var(--radius-md);
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --button-tertiary-font-family: var(--font-family-base);
+  --button-tertiary-font-size: var(--font-size-md);
+  --button-tertiary-font-weight: var(--font-weight-semibold);
+
+  /* =====================================================
+     COLORS
+     ===================================================== */
+  --button-tertiary-text: var(--color-text-primary);
+  --button-tertiary-text-hover: var(--color-brand-secondary);
+  --button-tertiary-text-disabled: var(--color-text-disabled);
+  --button-tertiary-focus: var(--color-border-focus);
+
+  /* =====================================================
+     EFFECTS
+     ===================================================== */
+  --button-tertiary-scale-hover: 1.0175;
+  --button-tertiary-scale-active: 0.985;
+
+  /* =====================================================
+     ICON
+     ===================================================== */
+  --button-tertiary-icon-gap: var(--spacing-xs);
+}

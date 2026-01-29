@@ -1,0 +1,103 @@
+/**
+ * Component Tokens — Modal
+ * Componente de diálogo/modal sobreposto à interface.
+ */
+
+:root {
+  /* =====================================================
+     DIMENSIONS
+     ===================================================== */
+  --modal-min-width: 300px;
+  --modal-max-width-sm: 400px;
+  --modal-max-width-md: 600px;
+  --modal-max-width-lg: 800px;
+  --modal-max-height: 90vh;
+
+  /* =====================================================
+     SPACING
+     ===================================================== */
+  --modal-padding: var(--spacing-md);
+  --modal-header-padding-y: var(--spacing-sm);
+  --modal-header-padding-x: var(--spacing-lg);
+  --modal-content-padding: var(--spacing-lg);
+  --modal-footer-padding-y: var(--spacing-sm);
+  --modal-footer-padding-x: var(--spacing-lg);
+  --modal-button-gap: var(--spacing-md);
+  --modal-icon-button-margin: var(--spacing-md);
+  --modal-icon-button-padding: var(--spacing-xs);
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --modal-font-family: var(--font-family-base);
+
+  --modal-title-font-size: var(--font-size-lg);
+  --modal-title-font-weight: var(--font-weight-semibold);
+
+  --modal-content-font-size: var(--font-size-md);
+  --modal-content-font-weight: var(--font-weight-regular);
+
+  /* =====================================================
+     COLORS - OVERLAY
+     ===================================================== */
+  --modal-overlay-bg: rgba(0, 0, 0, 0.5);
+
+  /* =====================================================
+     COLORS - CONTAINER
+     ===================================================== */
+  --modal-container-bg: var(--color-surface-default);
+  --modal-container-border-color: var(--color-border-default);
+
+  /* =====================================================
+     COLORS - HEADER
+     ===================================================== */
+  --modal-header-border-color: var(--color-border-default);
+
+  /* =====================================================
+     COLORS - TEXT
+     ===================================================== */
+  --modal-title-color: var(--color-text-primary);
+  --modal-content-color: var(--color-text-primary);
+
+  /* =====================================================
+     COLORS - ICON BUTTONS
+     ===================================================== */
+  --modal-icon-color: var(--color-text-muted);
+  --modal-icon-hover-color: var(--color-text-secondary);
+  --modal-icon-focus-bg: transparent;
+
+  /* =====================================================
+     COLORS - FOOTER
+     ===================================================== */
+  --modal-footer-border-color: var(--color-border-default);
+
+  /* =====================================================
+     BORDER RADIUS
+     ===================================================== */
+  --modal-container-radius: var(--radius-md);
+  --modal-icon-button-radius: var(--radius-sm);
+
+  /* =====================================================
+     SHADOWS
+     ===================================================== */
+  --modal-container-shadow: var(--shadow-md);
+  --modal-focus-ring: 0 0 0 2px var(--color-border-focus);
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+  --modal-overlay-transition: opacity 0.3s ease;
+  --modal-container-transition: transform 0.3s ease, opacity 0.3s ease;
+  --modal-icon-button-transition: color 0.2s ease;
+
+  /* =====================================================
+     Z-INDEX
+     ===================================================== */
+  --modal-z-index: 1000;
+
+  /* =====================================================
+     BUTTON DEFAULTS
+     ===================================================== */
+  --modal-primary-button-bg: var(--color-brand-primary);
+  --modal-secondary-button-color: var(--color-text-primary);
+}

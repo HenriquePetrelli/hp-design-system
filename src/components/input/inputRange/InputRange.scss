@@ -1,13 +1,15 @@
 .input-range {
-  --track-height: 6px;
-  --thumb-size: 20px;
-  --thumb-border: 2px;
-  --range-active-color: var(--color-brand-primary);
-  --range-inactive-color: var(--color-border-default);
-  --range-thumb-bg: var(--color-surface-default);
-  --range-focus-ring: var(--color-border-focus);
+  --track-height: var(--input-range-track-height);
+  --thumb-size: var(--input-range-thumb-size);
+  --thumb-border: var(--input-range-thumb-border-width);
+  --range-active-color: var(--input-range-track-active);
+  --range-inactive-color: var(--input-range-track-default);
+  --range-thumb-bg: var(--input-range-thumb-bg);
+  --range-focus-ring: var(--input-range-focus-ring);
+
   width: 100%;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--input-range-margin-bottom);
+  font-family: var(--input-range-font-family);
 
   &__fieldset {
     border: 0;
@@ -17,21 +19,21 @@
 
   &__legend {
     display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-text-secondary);
+    margin-bottom: var(--input-range-legend-margin-bottom);
+    font-size: var(--input-range-legend-font-size);
+    font-weight: var(--input-range-legend-font-weight);
+    color: var(--input-range-legend-color);
   }
 
   &__required {
-    color: var(--color-feedback-error);
-    margin-left: 0.25rem;
+    color: var(--input-range-required-color);
+    margin-left: var(--input-range-required-margin-left);
   }
 
   &__wrapper {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--input-range-wrapper-gap);
   }
 
   &__slider {
@@ -39,10 +41,10 @@
     -webkit-appearance: none;
     height: var(--track-height);
     background: var(--range-inactive-color);
-    border-radius: 10px;
+    border-radius: var(--input-range-track-radius);
     outline: none;
-    margin: 10px 0;
-    transition: background 0.3s ease;
+    margin: 10px 0; /* Mantido como valor fixo para melhor UX */
+    transition: var(--input-range-track-transition);
 
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
@@ -50,9 +52,9 @@
       height: var(--thumb-size);
       background: var(--range-thumb-bg);
       border: var(--thumb-border) solid var(--range-active-color);
-      border-radius: 50%;
+      border-radius: var(--input-range-thumb-radius);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: var(--input-range-thumb-transition);
     }
 
     &::-moz-range-thumb {
@@ -60,9 +62,9 @@
       height: var(--thumb-size);
       background: var(--range-thumb-bg);
       border: var(--thumb-border) solid var(--range-active-color);
-      border-radius: 50%;
+      border-radius: var(--input-range-thumb-radius);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: var(--input-range-thumb-transition);
     }
 
     &:focus {
@@ -70,7 +72,8 @@
 
       &::-webkit-slider-thumb,
       &::-moz-range-thumb {
-        box-shadow: 0 0 0 3px var(--range-focus-ring);
+        box-shadow: 0 0 0 var(--input-range-focus-ring-size)
+          var(--range-focus-ring);
       }
     }
 
@@ -80,52 +83,53 @@
 
       &::-webkit-slider-thumb,
       &::-moz-range-thumb {
-        border-color: var(--color-text-muted);
+        border-color: var(--input-range-track-disabled);
         cursor: not-allowed;
       }
     }
   }
 
   &__value-display {
-    min-width: 50px;
+    min-width: 50px; /* Mantido como valor fixo para layout consistente */
     text-align: center;
-    font-weight: 600;
-    color: var(--color-text-primary);
   }
 
   &__value {
-    color: var(--range-active-color);
+    font-size: var(--input-range-value-font-size);
+    font-weight: var(--input-range-value-font-weight);
+    color: var(--input-range-value-color);
   }
 
   &__unit {
-    margin-left: 0.25rem;
-    color: var(--color-text-secondary);
+    margin-left: var(--spacing-xs);
+    font-size: var(--input-range-unit-font-size);
+    color: var(--input-range-unit-color);
   }
 
   &__footer {
-    margin-top: 0.25rem;
+    margin-top: var(--input-range-footer-margin-top);
   }
 
   &__helper-text {
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
+    font-size: var(--input-range-helper-font-size);
+    color: var(--input-range-helper-color);
   }
 
   &--error {
-    --range-active-color: var(--color-feedback-error);
+    --range-active-color: var(--input-range-track-error);
 
     .input-range__helper-text {
-      color: var(--color-feedback-error);
-      font-weight: 600;
+      color: var(--input-range-helper-error-color);
+      font-weight: var(--font-weight-semibold);
     }
   }
 
   &--success {
-    --range-active-color: var(--color-feedback-success);
+    --range-active-color: var(--input-range-track-success);
 
     .input-range__helper-text {
-      color: var(--color-feedback-success);
-      font-weight: 600;
+      color: var(--input-range-helper-success-color);
+      font-weight: var(--font-weight-semibold);
     }
   }
 

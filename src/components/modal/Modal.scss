@@ -1,43 +1,45 @@
 .modal {
   position: fixed;
   inset: 0;
-  background-color: var(--color-overlay);
+  background-color: var(--modal-overlay-bg);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  padding: 16px;
+  z-index: var(--modal-z-index);
+  padding: var(--modal-padding);
+  font-family: var(--modal-font-family);
 
   &__container {
-    background-color: var(--color-surface);
-    border-radius: 8px;
-    box-shadow: var(--shadow-md);
+    background-color: var(--modal-container-bg);
+    border-radius: var(--modal-container-radius);
+    box-shadow: var(--modal-container-shadow);
     display: flex;
     flex-direction: column;
-    max-height: 90vh;
+    max-height: var(--modal-max-height);
     overflow: hidden;
+    min-width: var(--modal-min-width);
 
     &--sm {
       width: 100%;
-      max-width: 400px;
+      max-width: var(--modal-max-width-sm);
     }
 
     &--md {
       width: 100%;
-      max-width: 600px;
+      max-width: var(--modal-max-width-md);
     }
 
     &--lg {
       width: 100%;
-      max-width: 800px;
+      max-width: var(--modal-max-width-lg);
     }
   }
 
   &__header {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
-    border-bottom: 1px solid var(--color-border);
+    padding: var(--modal-header-padding-y) var(--modal-header-padding-x);
+    border-bottom: 1px solid var(--modal-header-border-color);
     position: relative;
   }
 
@@ -46,18 +48,19 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
-    color: var(--color-text-muted);
-    transition: color 0.2s ease;
+    padding: var(--modal-icon-button-padding);
+    color: var(--modal-icon-color);
+    transition: var(--modal-icon-button-transition);
+    background-color: var(--modal-icon-focus-bg);
 
     &:hover {
-      color: var(--color-text-secondary);
+      color: var(--modal-icon-hover-color);
     }
 
     &:focus-visible {
       outline: none;
-      box-shadow: 0 0 0 2px var(--color-border-focus);
-      border-radius: 4px;
+      box-shadow: var(--modal-focus-ring);
+      border-radius: var(--modal-icon-button-radius);
     }
 
     svg {
@@ -66,42 +69,44 @@
   }
 
   &__back-button {
-    margin-right: 12px;
+    margin-right: var(--modal-icon-button-margin);
   }
 
   &__close-button {
-    margin-left: 12px;
+    margin-left: var(--modal-icon-button-margin);
   }
 
   &__title {
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--color-text-primary);
+    font-size: var(--modal-title-font-size);
+    font-weight: var(--modal-title-font-weight);
+    color: var(--modal-title-color);
     margin: 0;
     flex: 1;
     text-align: center;
   }
 
   &__content {
-    padding: 20px;
+    padding: var(--modal-content-padding);
     overflow-y: auto;
     flex: 1;
-    color: var(--color-text-primary);
+    color: var(--modal-content-color);
+    font-size: var(--modal-content-font-size);
+    font-weight: var(--modal-content-font-weight);
   }
 
   &__footer {
-    padding: 10px 20px;
-    border-top: 1px solid var(--color-border);
+    padding: var(--modal-footer-padding-y) var(--modal-footer-padding-x);
+    border-top: 1px solid var(--modal-footer-border-color);
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: var(--modal-button-gap);
   }
 }
 
 /* Transitions */
 .modal-enter-active,
 .modal-leave-active {
-  transition: opacity 0.3s ease;
+  transition: var(--modal-overlay-transition);
 }
 
 .modal-enter-from,
@@ -111,9 +116,7 @@
 
 .modal-enter-active .modal__container,
 .modal-leave-active .modal__container {
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
+  transition: var(--modal-container-transition);
 }
 
 .modal-enter-from .modal__container,

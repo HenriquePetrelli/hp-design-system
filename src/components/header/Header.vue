@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" role="banner">
     <div class="header__left">
       <slot name="header-left" />
     </div>

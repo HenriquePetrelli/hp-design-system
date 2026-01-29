@@ -1,0 +1,95 @@
+/**
+ * Component Tokens — Sidebar
+ * Navegação lateral (menu lateral) responsiva.
+ */
+
+:root {
+  /* =====================================================
+     DIMENSIONS
+     ===================================================== */
+  --sidebar-width-mobile: 100vw;
+  --sidebar-width-desktop: 220px;
+  --sidebar-min-height: calc(100dvh - 64px);
+  --sidebar-header-height: auto;
+
+  /* =====================================================
+     SPACING
+     ===================================================== */
+  --sidebar-padding: var(--spacing-md);
+  --sidebar-padding-desktop: var(--spacing-sm);
+  --sidebar-header-gap: var(--spacing-md);
+  --sidebar-header-margin-bottom: var(--spacing-lg);
+  --sidebar-nav-gap: var(--spacing-sm);
+  --sidebar-footer-margin-top: auto;
+
+  /* =====================================================
+     ITEM SPACING
+     ===================================================== */
+  --sidebar-item-padding-y: var(--spacing-sm);
+  --sidebar-item-padding-x: var(--spacing-md);
+  --sidebar-item-gap: var(--spacing-sm);
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --sidebar-font-family: var(--font-family-base);
+
+  --sidebar-item-font-size: var(--font-size-md);
+  --sidebar-item-font-weight: var(--font-weight-medium);
+  --sidebar-item-active-font-weight: var(--font-weight-semibold);
+
+  --sidebar-item-icon-font-size: 20px;
+  --sidebar-item-icon-font-size-desktop: var(--font-size-md);
+
+  /* =====================================================
+     COLORS - BACKGROUND
+     ===================================================== */
+  --sidebar-bg: var(--color-surface-default);
+  --sidebar-border-color: var(--color-border-default);
+
+  /* =====================================================
+     COLORS - TEXT
+     ===================================================== */
+  --sidebar-item-text: var(--color-text-secondary);
+  --sidebar-item-active-text: var(--color-text-primary);
+  --sidebar-item-icon: var(--color-text-muted);
+  --sidebar-item-active-icon: var(--color-text-primary);
+
+  /* =====================================================
+     COLORS - STATES
+     ===================================================== */
+  --sidebar-item-hover-bg: var(--color-action-hover);
+  --sidebar-item-active-bg: var(--color-action-hover);
+
+  /* =====================================================
+     SHADOWS
+     ===================================================== */
+  --sidebar-shadow: var(--shadow-md);
+  --sidebar-item-active-shadow: var(--shadow-sm);
+
+  /* =====================================================
+     BORDER RADIUS
+     ===================================================== */
+  --sidebar-item-radius: var(--radius-md);
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+  --sidebar-transition: left 0.3s ease, background-color 0.3s ease;
+  --sidebar-item-transition: background-color 0.2s ease, color 0.2s ease;
+
+  /* =====================================================
+     Z-INDEX
+     ===================================================== */
+  --sidebar-z-index: 1000;
+
+  /* =====================================================
+     BREAKPOINTS
+     ===================================================== */
+  --sidebar-desktop-breakpoint: 1024px;
+
+  /* =====================================================
+     POSITIONING
+     ===================================================== */
+  --sidebar-top-position: 64px;
+}

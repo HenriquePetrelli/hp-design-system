@@ -1,13 +1,6 @@
 <template>
-  <section class="alert">
-    <div
-      class="alert__container"
-      :style="{
-        '--color-background-color': computedBackgroundType,
-        '--color': computedColorType
-      }"
-      role="alert"
-    >
+  <section class="alert" :class="alertVariant">
+    <div class="alert__container" role="alert">
       <p class="alert__message">
         {{ message }}
       </p>
@@ -17,8 +10,8 @@
         label="Fechar alerta"
         icon="BE0031"
         size="md"
-        :icon-color="computedColorType"
-        :backgroundColor="computedBackgroundType"
+        :icon-color="'currentColor'"
+        :backgroundColor="'transparent'"
         @click="closeManually"
       />
     </div>
@@ -82,33 +75,19 @@ onUnmounted(() => {
   }
 })
 
-const computedColorType = computed(() => {
+const alertVariant = computed(() => {
   switch (props.type) {
     case AlertType.SUCCESS:
-      return 'var(--color-feedback-success)'
+      return 'alert--success'
     case AlertType.WARNING:
-      return 'var(--color-feedback-warning)'
+      return 'alert--warning'
     case AlertType.ERROR:
-      return 'var(--color-feedback-error)'
+      return 'alert--error'
     case AlertType.INFO:
     default:
-      return 'var(--color-feedback-info)'
-  }
-})
-
-const computedBackgroundType = computed(() => {
-  switch (props.type) {
-    case AlertType.SUCCESS:
-      return 'var(--color-feedback-success-bg)'
-    case AlertType.WARNING:
-      return 'var(--color-feedback-warning-bg)'
-    case AlertType.ERROR:
-      return 'var(--color-feedback-error-bg)'
-    case AlertType.INFO:
-    default:
-      return 'var(--color-feedback-info-bg)'
+      return 'alert--info'
   }
 })
 </script>
 
-<style lang="scss" scoped src="./Alert.scss" />
+<style scoped lang="scss" src="./Alert.scss" />

@@ -10,6 +10,7 @@
       [`input--${status}`]: status !== 'default'
     }"
     ref="select"
+    :style="computedStyles"
   >
     <fieldset class="input__fieldset">
       <legend style="display: none" :aria-hidden="true">
@@ -270,6 +271,19 @@ const props = defineProps({
   autocomplete: {
     type: Boolean,
     default: false
+  },
+  // Props para override de tokens
+  borderColor: {
+    type: String,
+    default: ''
+  },
+  backgroundColor: {
+    type: String,
+    default: ''
+  },
+  textColor: {
+    type: String,
+    default: ''
   }
 })
 
@@ -317,6 +331,19 @@ const filteredOptions = computed(() => {
     option.label.toLowerCase().includes(search)
   )
 })
+
+const computedStyles = computed(() => ({
+  ...(props.borderColor && {
+    '--input-select-border-color': props.borderColor,
+    '--input-select-border-hover': props.borderColor
+  }),
+  ...(props.backgroundColor && {
+    '--input-select-bg': props.backgroundColor
+  }),
+  ...(props.textColor && {
+    '--input-select-text-color': props.textColor
+  })
+}))
 
 watch(
   () => props.modelValue,

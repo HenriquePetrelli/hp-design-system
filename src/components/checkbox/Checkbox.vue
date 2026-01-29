@@ -6,11 +6,7 @@
       'checkbox--checked': isChecked
     }"
     :for="id"
-    :style="{
-      '--color-checkbox-border-color': computedBorderColor,
-      '--color-checkbox-bg-color': computedBackgroundColor,
-      '--color-checkbox-icon-color': computedIconColor
-    }"
+    :style="computedStyles"
   >
     <input
       :id="id"
@@ -108,17 +104,17 @@ watch(
   }
 )
 
-const computedBorderColor = computed(() => {
-  return props.borderColor || 'var(--color-checkbox-border-color)'
-})
-
-const computedBackgroundColor = computed(() => {
-  return props.backgroundColor || 'var(--color-checkbox-bg-color)'
-})
-
-const computedIconColor = computed(() => {
-  return props.iconColor || 'var(--color-checkbox-icon-color)'
-})
+const computedStyles = computed(() => ({
+  ...(props.borderColor && {
+    '--checkbox-border-color': props.borderColor
+  }),
+  ...(props.backgroundColor && {
+    '--checkbox-bg-checked': props.backgroundColor
+  }),
+  ...(props.iconColor && {
+    '--checkbox-icon-color': props.iconColor
+  })
+}))
 </script>
 
 <style lang="scss" scoped src="./Checkbox.scss" />

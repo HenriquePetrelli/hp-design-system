@@ -20,7 +20,7 @@
     <HpSpinnerLoader
       v-else
       type="circle1"
-      :color="'var(--color-button-letter-color)'"
+      :color="'var(--button-letter-color)'"
       :secondaryColor="'transparent'"
       :size="size"
       :speed="0.8"

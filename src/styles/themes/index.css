@@ -1,0 +1,7 @@
+/**
+ * Agregador de temas
+ * Importa os temas light e dark.
+ */
+
+@import './light.css';
+@import './dark.css';

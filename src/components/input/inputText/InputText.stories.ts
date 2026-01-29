@@ -1,193 +1,122 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import InputText from '@components/input/inputText/InputText.vue'
-import AllIcons from '@assets/icons/icons.json'
-import { ref } from 'vue'
-
-interface InputTextProps {
-  modelValue?: string
-  label: string
-  helperText?: string
-  readonly?: boolean
-  disabled?: boolean
-  placeholder?: string
-  required?: boolean
-  leadingIcon?: string
-  trailingIcon?: string
-  iconHasAction?: boolean
-  trailingIconLabel?: string
-  status?: 'default' | 'error' | 'success'
-  maxLength?: number
-  hasLengthCount?: boolean
-  'action:trailingIconClick'?: () => void
-}
+import InputText from './InputText.vue'
 
 const meta: Meta<typeof InputText> = {
-  title: 'Components/Input/InputText',
+  title: 'Components/Inputs/InputText',
   component: InputText,
   tags: ['autodocs'],
   argTypes: {
-    modelValue: { control: 'text' },
-    label: { control: 'text', defaultValue: 'Label' },
-    helperText: { control: 'text' },
-    readonly: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    placeholder: { control: 'text' },
-    required: { control: 'boolean' },
-    leadingIcon: {
-      control: 'select',
-      options: AllIcons,
-      description: 'Identificador do ícone'
-    },
-    trailingIcon: {
-      control: 'select',
-      options: AllIcons,
-      description: 'Identificador do ícone'
-    },
-    iconHasAction: {
-      control: 'boolean',
-      description: 'If true, trailing icon becomes clickable'
-    },
-    trailingIconLabel: {
+    label: {
       control: 'text',
-      description: 'Accessible label for trailing icon button'
+      description: 'Label do input'
+    },
+    modelValue: {
+      control: 'text',
+      description: 'Valor do input'
+    },
+    placeholder: {
+      control: 'text',
+      description: 'Texto placeholder'
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Estado desabilitado'
+    },
+    required: {
+      control: 'boolean',
+      description: 'Campo obrigatório'
     },
     status: {
       control: 'select',
-      options: ['default', 'error', 'success']
-    },
-    maxLength: { control: 'number' },
-    hasLengthCount: { control: 'boolean' },
-    'action:trailingIconClick': { action: 'trailingIconClicked' }
+      options: ['default', 'error', 'success'],
+      description: 'Estado visual'
+    }
   }
 }
 
 export default meta
-
-type Story = StoryObj<InputTextProps>
-
-const Template: Story = {
-  render: (args) => ({
-    components: { InputText },
-    setup() {
-      const modelValue = ref(args.modelValue)
-      return { args, modelValue }
-    },
-    template: `
-      <InputText
-        v-bind="args"
-        v-model="modelValue"
-        @action:trailingIconClick="args['action:trailingIconClick']"
-      />
-    `
-  })
-}
+type Story = StoryObj<typeof InputText>
 
 export const Default: Story = {
-  ...Template,
   args: {
-    label: 'Seu nome'
+    label: 'Nome Completo',
+    placeholder: 'Digite seu nome'
   }
 }
 
 export const WithValue: Story = {
-  ...Template,
   args: {
-    label: 'Seu nome',
-    modelValue: 'Henrique Petrelli'
-  }
-}
-
-export const WithPlaceholder: Story = {
-  ...Template,
-  args: {
-    label: 'Seu nome',
-    placeholder: 'Digite seu nome completo'
-  }
-}
-
-export const Required: Story = {
-  ...Template,
-  args: {
-    label: 'Seu nome obrigatório',
-    required: true
+    label: 'E-mail',
+    modelValue: 'usuario@exemplo.com',
+    placeholder: 'seu@email.com'
   }
 }
 
 export const Disabled: Story = {
-  ...Template,
   args: {
-    label: 'Seu nome desabilitado',
-    disabled: true,
-    modelValue: 'Henrique Petrelli'
+    label: 'Campo Desabilitado',
+    modelValue: 'Valor fixo',
+    disabled: true
   }
 }
 
-export const Readonly: Story = {
-  ...Template,
+export const Required: Story = {
   args: {
-    label: 'Seu nome apenas para leitura',
-    readonly: true,
-    modelValue: 'Henrique Petrelli'
+    label: 'Senha',
+    required: true,
+    placeholder: 'Digite sua senha',
+    type: 'password'
   }
 }
 
 export const WithHelperText: Story = {
-  ...Template,
   args: {
-    label: 'Input com helper text',
-    helperText: 'Mensagem de suporte'
-  }
-}
-
-export const WithLeadingIcon: Story = {
-  ...Template,
-  args: {
-    label: 'Input com ícone a esquerda',
-    leadingIcon: 'BE0090'
-  }
-}
-
-export const WithTrailingIcon: Story = {
-  ...Template,
-  args: {
-    label: 'Input com ícone a direita',
-    trailingIcon: 'BE0090'
-  }
-}
-
-export const WithClickableTrailingIcon: Story = {
-  ...Template,
-  args: {
-    label: 'Input com ícone clicável a direita',
-    trailingIcon: 'BE0090',
-    iconHasAction: true,
-    trailingIconLabel: 'Search input'
+    label: 'Usuário',
+    placeholder: 'Digite seu usuário',
+    helperText: 'Use apenas letras e números'
   }
 }
 
 export const ErrorState: Story = {
-  ...Template,
   args: {
-    label: 'Input com status de erro',
+    label: 'E-mail',
+    modelValue: 'email-invalido',
     status: 'error',
-    helperText: 'Mensagem de erro'
+    helperText: 'Formato de e-mail inválido'
   }
 }
 
 export const SuccessState: Story = {
-  ...Template,
   args: {
-    label: 'Input com status de sucesso',
+    label: 'CPF',
+    modelValue: '123.456.789-00',
     status: 'success',
-    helperText: 'Mensagem de sucesso'
+    helperText: 'CPF válido'
   }
 }
 
-export const WithCharacterCounter: Story = {
-  ...Template,
+export const WithLeadingIcon: Story = {
   args: {
-    label: 'Input com contador de caracteres',
-    maxLength: 100,
+    label: 'Buscar',
+    placeholder: 'Digite sua busca...',
+    leadingIcon: 'BE0020'
+  }
+}
+
+export const WithTrailingIcon: Story = {
+  args: {
+    label: 'Senha',
+    placeholder: 'Digite sua senha',
+    trailingIcon: 'BE0030',
+    iconHasAction: true
+  }
+}
+
+export const WithCharacterCount: Story = {
+  args: {
+    label: 'Biografia',
+    placeholder: 'Conte um pouco sobre você...',
+    maxLength: 200,
     hasLengthCount: true
   }
 }

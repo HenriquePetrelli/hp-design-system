@@ -2,15 +2,11 @@
   <label
     :for="id"
     class="radio"
-    :style="{
-      '--border-color': computedBorderColor,
-      '--background-color': computedBackgroundColor,
-      '--dot-color': computedDotColor
-    }"
     :class="{
       'radio--disabled': disabled,
       'radio--checked': isChecked
     }"
+    :style="computedStyles"
   >
     <input
       type="radio"
@@ -20,6 +16,7 @@
       :disabled="disabled"
       :value="value"
       @change="handleChange"
+      :name="name"
     />
 
     <span
@@ -33,8 +30,10 @@
       ></span>
     </span>
 
-    <span v-if="$slots.default" class="radio__label">
-      <slot />
+    <span v-if="$slots.default || label" class="radio__label">
+      <slot>
+        {{ label }}
+      </slot>
     </span>
   </label>
 </template>
@@ -51,9 +50,17 @@ const props = defineProps({
     type: [String, Number, Boolean],
     required: true
   },
+  label: {
+    type: String,
+    default: ''
+  },
   id: {
     type: String,
     default: () => `radio-${Math.random().toString(36).substring(2, 9)}`
+  },
+  name: {
+    type: String,
+    default: ''
   },
   disabled: {
     type: Boolean,
@@ -67,6 +74,7 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  // Props para override de tokens
   dotColor: {
     type: String,
     default: ''
@@ -78,32 +86,49 @@ const props = defineProps({
   borderColor: {
     type: String,
     default: ''
+  },
+  checkedBackgroundColor: {
+    type: String,
+    default: ''
+  },
+  checkedBorderColor: {
+    type: String,
+    default: ''
   }
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'change'])
 
 const isChecked = computed(() => {
   return props.modelValue === props.value
 })
 
-const handleChange = () => {
+const handleChange = (event: Event) => {
   if (!props.disabled) {
     emit('update:modelValue', props.value)
+    emit('change', event)
   }
 }
 
-const computedBackgroundColor = computed(() => {
-  return props.backgroundColor || 'var(--color-radio-bg-checked)'
-})
-
-const computedBorderColor = computed(() => {
-  return props.borderColor || 'var(--color-radio-border-color-hover)'
-})
-
-const computedDotColor = computed(() => {
-  return props.dotColor || 'var(--color-radio-dot-color)'
-})
+const computedStyles = computed(() => ({
+  ...(props.backgroundColor && {
+    '--radio-button-bg': props.backgroundColor
+  }),
+  ...(props.borderColor && {
+    '--radio-button-border-color': props.borderColor,
+    '--radio-button-border-color-hover': props.borderColor
+  }),
+  ...(props.dotColor && {
+    '--radio-button-dot-color': props.dotColor
+  }),
+  ...(props.checkedBackgroundColor && {
+    '--radio-button-bg-checked': props.checkedBackgroundColor,
+    '--radio-button-border-color-checked': props.checkedBackgroundColor
+  }),
+  ...(props.checkedBorderColor && {
+    '--radio-button-border-color-checked': props.checkedBorderColor
+  })
+}))
 </script>
 
 <style lang="scss" scoped src="./RadioButton.scss" />

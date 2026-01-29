@@ -1,0 +1,34 @@
+:root {
+  /* =====================================================
+     SIZE
+     ===================================================== */
+  --button-letter-size: 48px;
+  --button-letter-size-sm: 32px;
+  --button-letter-size-lg: 64px;
+  --button-letter-radius: 999px;
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --button-letter-font-family: var(--font-family-base);
+  --button-letter-font-weight: var(--font-weight-semibold);
+  --button-letter-font-size: var(--font-size-md);
+  --button-letter-font-size-sm: var(--font-size-sm);
+  --button-letter-font-size-lg: var(--font-size-lg);
+
+  /* =====================================================
+     COLORS
+     ===================================================== */
+  --button-letter-color: var(--color-text-primary);
+  --button-letter-hover-color: var(--color-text-primary);
+  --button-letter-hover-bg: var(--color-surface-hover);
+  --button-letter-disabled-color: var(--color-text-disabled);
+  --button-letter-focus-ring: var(--color-border-focus);
+
+  /* =====================================================
+     EFFECTS
+     ===================================================== */
+  --button-letter-scale-hover: 1.05;
+  --button-letter-scale-active: 0.95;
+  --button-letter-opacity-disabled: 0.5;
+}

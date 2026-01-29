@@ -1,0 +1,49 @@
+/**
+ * Component Tokens — Spinner Loader
+ * Compatível com a estrutura existente.
+ */
+
+:root {
+  /* =====================================================
+     SIZES (mantendo nomes originais)
+     ===================================================== */
+  --spinner-size-sm: 16px;
+  --spinner-size-md: 24px;
+  --spinner-size-lg: 32px;
+  --spinner-size-xl: 48px;
+
+  /* =====================================================
+     SPEEDS (mantendo nomes originais)
+     ===================================================== */
+  --spinner-speed-fast: 0.5s;
+  --spinner-speed-normal: 1s;
+  --spinner-speed-slow: 2s;
+
+  /* =====================================================
+     COLORS (mantendo nomes originais)
+     ===================================================== */
+  --spinner-color: var(--color-brand-primary);
+  --spinner-secondary-color: var(--color-border-default);
+
+  /* =====================================================
+     COLORS - VARIANTES SEMÂNTICAS (novo)
+     ===================================================== */
+  --spinner-color-success: var(--color-feedback-success);
+  --spinner-color-warning: var(--color-feedback-warning);
+  --spinner-color-error: var(--color-feedback-error);
+  --spinner-color-info: var(--color-feedback-info);
+
+  /* =====================================================
+     COLORS - INVERSE (novo)
+     ===================================================== */
+  --spinner-color-inverse: var(--color-text-inverse);
+  --spinner-secondary-color-inverse: rgba(255, 255, 255, 0.2);
+
+  /* =====================================================
+     DERIVED TOKENS (para cálculos)
+     ===================================================== */
+  --spinner-dots-speed-multiplier: 1.5;
+  --spinner-clock-speed-multiplier: 6;
+  --spinner-dot-delay-1: -0.32s;
+  --spinner-dot-delay-2: -0.16s;
+}

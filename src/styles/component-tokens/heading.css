@@ -1,0 +1,89 @@
+/**
+ * Component Tokens — Heading
+ * Sistema de tipografia para títulos/hierarquia.
+ */
+
+:root {
+  /* =====================================================
+     TYPOGRAPHY - HEADING 1
+     ===================================================== */
+  --heading-h1-font-family: var(--font-family-base);
+  --heading-h1-font-size: var(--font-size-3xl);
+  --heading-h1-font-weight: var(--font-weight-regular);
+  --heading-h1-line-height: var(--line-height-tight);
+  --heading-h1-letter-spacing: 0px;
+  --heading-h1-color: var(--color-text-primary);
+  --heading-h1-margin: 0 0 var(--spacing-lg) 0;
+
+  /* =====================================================
+     TYPOGRAPHY - HEADING 2
+     ===================================================== */
+  --heading-h2-font-family: var(--font-family-base);
+  --heading-h2-font-size: var(--font-size-2xl);
+  --heading-h2-font-weight: var(--font-weight-semibold);
+  --heading-h2-line-height: var(--line-height-tight);
+  --heading-h2-letter-spacing: 0px;
+  --heading-h2-color: var(--color-text-primary);
+  --heading-h2-margin: 0 0 var(--spacing-md) 0;
+
+  /* =====================================================
+     TYPOGRAPHY - HEADING 3
+     ===================================================== */
+  --heading-h3-font-family: var(--font-family-base);
+  --heading-h3-font-size: var(--font-size-xl);
+  --heading-h3-font-weight: var(--font-weight-semibold);
+  --heading-h3-line-height: var(--line-height-normal);
+  --heading-h3-letter-spacing: 0px;
+  --heading-h3-color: var(--color-text-primary);
+  --heading-h3-margin: 0 0 var(--spacing-md) 0;
+
+  /* =====================================================
+     TYPOGRAPHY - HEADING 4
+     ===================================================== */
+  --heading-h4-font-family: var(--font-family-base);
+  --heading-h4-font-size: var(--font-size-lg);
+  --heading-h4-font-weight: var(--font-weight-semibold);
+  --heading-h4-line-height: var(--line-height-normal);
+  --heading-h4-letter-spacing: 0px;
+  --heading-h4-color: var(--color-text-primary);
+  --heading-h4-margin: 0 0 var(--spacing-sm) 0;
+
+  /* =====================================================
+     TYPOGRAPHY - HEADING 5
+     ===================================================== */
+  --heading-h5-font-family: var(--font-family-base);
+  --heading-h5-font-size: var(--font-size-md);
+  --heading-h5-font-weight: var(--font-weight-semibold);
+  --heading-h5-line-height: var(--line-height-normal);
+  --heading-h5-letter-spacing: 0px;
+  --heading-h5-color: var(--color-text-primary);
+  --heading-h5-margin: 0 0 var(--spacing-xs) 0;
+
+  /* =====================================================
+     TYPOGRAPHY - HEADING 6
+     ===================================================== */
+  --heading-h6-font-family: var(--font-family-base);
+  --heading-h6-font-size: var(--font-size-md);
+  --heading-h6-font-weight: var(--font-weight-semibold);
+  --heading-h6-line-height: var(--line-height-normal);
+  --heading-h6-letter-spacing: 0px;
+  --heading-h6-color: var(--color-text-primary);
+  --heading-h6-margin: 0 0 var(--spacing-xs) 0;
+
+  /* =====================================================
+     VARIANT COLORS
+     ===================================================== */
+  --heading-color-secondary: var(--color-text-secondary);
+  --heading-color-muted: var(--color-text-muted);
+  --heading-color-inverse: var(--color-text-inverse);
+  --heading-color-success: var(--color-feedback-success);
+  --heading-color-warning: var(--color-feedback-warning);
+  --heading-color-error: var(--color-feedback-error);
+  --heading-color-info: var(--color-feedback-info);
+  --heading-color-brand: var(--color-brand-primary);
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+  --heading-color-transition: color 0.2s ease;
+}

@@ -51,11 +51,11 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'var(--color-button-tertiary-text)'
+    default: ''
   },
   hoverColor: {
     type: String,
-    default: 'var(--color-button-tertiary-text-hover)'
+    default: ''
   },
   size: {
     type: String,
@@ -78,9 +78,12 @@ const handleClick = (event: Event) => {
     emit('action:click', event)
   }
 }
+
 const computedStyles = computed(() => ({
-  '--color-button-tertiary-text': props.color,
-  '--color-button-tertiary-hover-text': props.hoverColor
+  ...(props.color && { '--button-tertiary-color': props.color }),
+  ...(props.hoverColor && {
+    '--button-tertiary-hover-color': props.hoverColor
+  })
 }))
 </script>
 

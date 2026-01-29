@@ -1,0 +1,37 @@
+:root {
+  /* =====================================================
+     LAYOUT
+     ===================================================== */
+  --button-secondary-min-width: 120px;
+  --button-secondary-padding-y: var(--spacing-sm);
+  --button-secondary-padding-x: var(--spacing-md);
+  --button-secondary-padding-y-lg: var(--spacing-lg);
+  --button-secondary-padding-x-lg: var(--spacing-xl);
+  --button-secondary-border-radius: var(--radius-md);
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --button-secondary-font-family: var(--font-family-base);
+  --button-secondary-font-size: var(--font-size-md);
+  --button-secondary-font-weight: var(--font-weight-semibold);
+
+  /* =====================================================
+     COLORS
+     ===================================================== */
+  --button-secondary-text: var(--color-brand-primary);
+  --button-secondary-text-disabled: var(--color-text-disabled);
+  --button-secondary-hover-bg: var(--color-action-hover);
+  --button-secondary-focus: var(--color-border-focus);
+
+  /* =====================================================
+     EFFECTS
+     ===================================================== */
+  --button-secondary-scale-hover: 1.0175;
+  --button-secondary-scale-active: 0.985;
+
+  /* =====================================================
+     ICON
+     ===================================================== */
+  --button-secondary-icon-gap: var(--spacing-xs);
+}

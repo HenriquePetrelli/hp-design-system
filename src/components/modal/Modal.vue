@@ -1,13 +1,18 @@
 <template>
   <transition name="modal">
-    <div v-if="isOpen" class="modal" @click.self="handleCloseModal">
+    <div
+      v-if="isOpen"
+      class="modal"
+      @click.self="handleCloseModal"
+      :style="computedStyles"
+    >
       <div class="modal__container" :class="[`modal__container--${size}`]">
         <div class="modal__header">
           <HpButtonIcon
             v-if="showBackButton"
             class="modal__back-button"
             icon="BB0010"
-            iconColor="#6b7280"
+            :iconColor="iconColor"
             label="Botão de voltar"
             @click="handleBackClick"
           />
@@ -18,7 +23,7 @@
             v-if="showCloseButton"
             class="modal__close-button"
             icon="BE0031"
-            iconColor="#6b7280"
+            :iconColor="iconColor"
             label="Botão de fechar modal"
             @click="handleCloseModal"
           />
@@ -42,7 +47,7 @@
           <HpButtonPrimary
             v-if="hasPrimaryButton"
             :label="primaryButtonLabel"
-            :backgroundColor="primaryButtonColor"
+            :backgroundColor="primaryButtonBackgroundColor"
             @click="handlePrimaryButtonClick"
           />
         </div>
@@ -60,8 +65,9 @@
 
 <script lang="ts" setup>
 import { HpButtonPrimary, HpButtonSecondary, HpButtonIcon } from '@/components'
+import { computed } from 'vue'
 
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     default: ''
@@ -80,7 +86,8 @@ defineProps({
   },
   size: {
     type: String,
-    default: 'md'
+    default: 'md',
+    validator: (value: string) => ['sm', 'md', 'lg'].includes(value)
   },
   hasPrimaryButton: {
     type: Boolean,
@@ -90,13 +97,13 @@ defineProps({
     type: Boolean,
     default: false
   },
-  primaryButtonColor: {
+  primaryButtonBackgroundColor: {
     type: String,
-    default: 'black'
+    default: 'var(--modal-primary-button-bg)'
   },
   secondaryButtonColor: {
     type: String,
-    default: 'black'
+    default: 'var(--modal-secondary-button-color)'
   },
   primaryButtonLabel: {
     type: String,
@@ -105,6 +112,19 @@ defineProps({
   secondaryButtonLabel: {
     type: String,
     default: 'Fechar'
+  },
+  // Props para override de tokens
+  overlayColor: {
+    type: String,
+    default: ''
+  },
+  backgroundColor: {
+    type: String,
+    default: ''
+  },
+  iconColor: {
+    type: String,
+    default: 'var(--modal-icon-color)'
   }
 })
 
@@ -114,6 +134,18 @@ const emit = defineEmits([
   'action:primaryButtonClick',
   'action:secondaryButtonClick'
 ])
+
+const computedStyles = computed(() => ({
+  ...(props.overlayColor && {
+    '--modal-overlay-bg': props.overlayColor
+  }),
+  ...(props.backgroundColor && {
+    '--modal-container-bg': props.backgroundColor
+  }),
+  ...(props.iconColor && {
+    '--modal-icon-color': props.iconColor
+  })
+}))
 
 const handleBackClick = () => {
   emit('action:backClick')

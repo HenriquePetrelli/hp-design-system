@@ -1,0 +1,98 @@
+/**
+ * Component Tokens — Radio Button
+ * Botão de seleção única (radio button).
+ */
+
+:root {
+  /* =====================================================
+     DIMENSIONS
+     ===================================================== */
+  --radio-button-size: 18px;
+  --radio-button-dot-size: 10px;
+  --radio-button-border-width: 2px;
+
+  /* =====================================================
+     SPACING
+     ===================================================== */
+  --radio-button-gap: var(--spacing-sm);
+  --radio-button-margin-y: var(--spacing-xs);
+  --radio-button-focus-outline-offset: 2px;
+  --radio-button-focus-outline-width: 2px;
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --radio-button-font-family: var(--font-family-base);
+  --radio-button-font-size: var(--font-size-md);
+  --radio-button-font-weight: var(--font-weight-regular);
+
+  /* =====================================================
+     COLORS - DEFAULT
+     ===================================================== */
+  --radio-button-bg: var(--color-surface-default);
+  --radio-button-border-color: var(--color-border-default);
+  --radio-button-label-color: var(--color-text-primary);
+
+  /* =====================================================
+     COLORS - CHECKED STATE
+     ===================================================== */
+  --radio-button-bg-checked: var(--color-brand-primary);
+  --radio-button-border-color-checked: var(--color-brand-primary);
+  --radio-button-dot-color: var(--color-surface-default);
+
+  /* =====================================================
+     COLORS - HOVER STATE
+     ===================================================== */
+  --radio-button-border-color-hover: var(--color-brand-primary);
+  --radio-button-bg-hover: var(--color-surface-hover);
+
+  /* =====================================================
+     COLORS - FOCUS STATE
+     ===================================================== */
+  --radio-button-focus-ring: var(--color-border-focus);
+
+  /* =====================================================
+     COLORS - DISABLED STATE
+     ===================================================== */
+  --radio-button-border-color-disabled: var(--color-text-disabled);
+  --radio-button-bg-disabled: var(--color-surface-default);
+  --radio-button-label-color-disabled: var(--color-text-disabled);
+  --radio-button-dot-color-disabled: var(--color-text-disabled);
+  --radio-button-disabled-opacity: 0.5;
+
+  /* =====================================================
+     BORDER RADIUS
+     ===================================================== */
+  --radio-button-border-radius: 50%;
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+  --radio-button-transition: all 0.2s ease;
+  --radio-button-dot-transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+
+  /* =====================================================
+     ANIMATIONS
+     ===================================================== */
+  --radio-button-dot-animation: radio-dot-appear 0.2s ease-out forwards;
+
+  /* =====================================================
+     ACCESSIBILITY
+     ===================================================== */
+  --radio-button-focus-ring-width: 2px;
+}
+
+/* Keyframes para animação do dot */
+@keyframes radio-dot-appear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

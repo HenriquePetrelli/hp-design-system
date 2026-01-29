@@ -1,0 +1,97 @@
+/**
+ * Component Tokens — Progress Bar
+ * Indicador visual de progresso/completude.
+ */
+
+:root {
+  /* =====================================================
+     DIMENSIONS
+     ===================================================== */
+  --progress-bar-height: var(--spacing-xs);
+  --progress-bar-min-width: 100px;
+
+  /* =====================================================
+     SPACING
+     ===================================================== */
+  --progress-bar-gap: var(--spacing-xs);
+  --progress-bar-label-gap: var(--spacing-2xs);
+  --progress-bar-value-margin-left: var(--spacing-sm);
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --progress-bar-font-family: var(--font-family-base);
+
+  --progress-bar-label-font-size: var(--font-size-sm);
+  --progress-bar-label-font-weight: var(--font-weight-medium);
+
+  --progress-bar-value-font-size: var(--font-size-sm);
+  --progress-bar-value-font-weight: var(--font-weight-medium);
+
+  /* =====================================================
+     COLORS - DEFAULT
+     ===================================================== */
+  --progress-bar-track-bg: var(--color-neutral-100);
+  --progress-bar-fill-bg: var(--color-brand-primary);
+  --progress-bar-text-color: var(--color-text-secondary);
+
+  /* =====================================================
+     COLORS - STATES/VARIANTS
+     ===================================================== */
+  --progress-bar-track-success-bg: var(--color-feedback-success-bg);
+  --progress-bar-fill-success-bg: var(--color-feedback-success);
+  --progress-bar-text-success-color: var(--color-feedback-success);
+
+  --progress-bar-track-warning-bg: var(--color-feedback-warning-bg);
+  --progress-bar-fill-warning-bg: var(--color-feedback-warning);
+  --progress-bar-text-warning-color: var(--color-feedback-warning);
+
+  --progress-bar-track-error-bg: var(--color-feedback-error-bg);
+  --progress-bar-fill-error-bg: var(--color-feedback-error);
+  --progress-bar-text-error-color: var(--color-feedback-error);
+
+  --progress-bar-track-info-bg: var(--color-feedback-info-bg);
+  --progress-bar-fill-info-bg: var(--color-feedback-info);
+  --progress-bar-text-info-color: var(--color-feedback-info);
+
+  /* =====================================================
+     COLORS - DISABLED
+     ===================================================== */
+  --progress-bar-track-disabled-bg: var(--color-text-disabled);
+  --progress-bar-fill-disabled-bg: var(--color-text-muted);
+  --progress-bar-text-disabled-color: var(--color-text-disabled);
+
+  /* =====================================================
+     BORDER RADIUS
+     ===================================================== */
+  --progress-bar-track-radius: 999px;
+  --progress-bar-fill-radius: 999px;
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+  --progress-bar-fill-transition: width 0.3s ease;
+  --progress-bar-text-transition: color 0.2s ease;
+
+  /* =====================================================
+     ANIMATIONS
+     ===================================================== */
+  --progress-bar-indeterminate-animation: progress-indeterminate 1.5s
+    ease-in-out infinite;
+
+  /* =====================================================
+     DEFAULT VALUES
+     ===================================================== */
+  --progress-bar-default-max: 100;
+  --progress-bar-default-value: 0;
+}
+
+/* Keyframes para animação indeterminada */
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(300%);
+  }
+}

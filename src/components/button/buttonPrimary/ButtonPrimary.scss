@@ -1,41 +1,41 @@
 .button-primary {
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 400;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  min-width: 120px;
-  padding: 12px 20px;
+  min-width: var(--button-primary-min-width);
+  padding: var(--button-primary-padding-y) var(--button-primary-padding-x);
 
   border: 0;
-  border-radius: 8px;
+  border-radius: var(--button-primary-border-radius);
   cursor: pointer;
 
-  font-size: 17px;
+  font-family: var(--button-primary-font-family);
+  font-size: var(--button-primary-font-size);
+  font-weight: var(--button-primary-font-weight);
 
-  background-color: var(--color-button-primary-bg);
-  color: var(--color-button-primary-text);
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
 
   outline: none;
   transition:
     transform 0.15s ease,
-    box-shadow 0.15s ease;
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
 
   &:focus-visible {
-    outline: 2px solid var(--color-button-primary-focus);
+    outline: 2px solid var(--button-primary-focus);
     outline-offset: 2px;
   }
 
   &:not(:disabled):hover {
-    background-color: var(--color-button-primary-bg-hover);
-    transform: scale(1.0175);
-    box-shadow: var(--shadow-sm);
+    background-color: var(--button-primary-bg-hover);
+    transform: scale(var(--button-primary-scale-hover));
+    box-shadow: var(--button-primary-shadow-hover);
   }
 
   &:not(:disabled):active {
-    transform: scale(0.985);
+    transform: scale(var(--button-primary-scale-active));
   }
 
   &--disabled,
@@ -45,7 +45,8 @@
   }
 
   &--large {
-    padding: 20px 36px;
+    padding: var(--button-primary-padding-y-lg)
+      var(--button-primary-padding-x-lg);
   }
 
   &__icon {
@@ -53,11 +54,11 @@
     align-items: center;
 
     &--left {
-      margin-right: 0.8rem;
+      margin-right: var(--button-primary-icon-gap);
     }
 
     &--right {
-      margin-left: 0.8rem;
+      margin-left: var(--button-primary-icon-gap);
     }
   }
 

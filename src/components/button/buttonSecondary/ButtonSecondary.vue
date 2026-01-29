@@ -5,7 +5,7 @@
       'button-secondary--large': size === ButtonSize.LARGE,
       'button-secondary--disabled': disabled
     }"
-    :style="color ? { '--button-color': color } : undefined"
+    :style="color ? { '--button-secondary-color': color } : undefined"
     :aria-label="ariaLabel || label"
     :aria-disabled="disabled"
     :disabled="disabled"
@@ -18,7 +18,7 @@
       <HpIcon
         :name="icon"
         size="sm"
-        :color="color || 'var(--color-button-secondary-color)'"
+        :color="color || 'var(--button-secondary-text)'"
       />
     </span>
 
@@ -33,7 +33,7 @@
       <HpIcon
         :name="icon"
         size="sm"
-        :color="color || 'var(--color-button-secondary-color)'"
+        :color="color || 'var(--button-secondary-text)'"
       />
     </span>
   </button>

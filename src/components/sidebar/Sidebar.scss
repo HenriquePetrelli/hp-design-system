@@ -1,17 +1,18 @@
 .sidebar {
   position: fixed;
-  top: 64px;
+  top: var(--sidebar-top-position);
   left: -100vw;
-  width: 100vw;
-  height: calc(100dvh - 64px);
-  padding: 16px;
-  background-color: var(--color-sidebar-bg);
-  border-right: 1px solid var(--color-sidebar-border-color);
-  box-shadow: var(--color-sidebar-shadow);
-  z-index: 1000;
-  transition:
-    left 0.3s ease,
-    background-color 0.3s ease;
+  width: var(--sidebar-width-mobile);
+  height: var(--sidebar-min-height);
+  padding: var(--sidebar-padding);
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border-color);
+  box-shadow: var(--sidebar-shadow);
+  z-index: var(--sidebar-z-index);
+  transition: var(--sidebar-transition);
+  font-family: var(--sidebar-font-family);
+  display: flex;
+  flex-direction: column;
 
   &--open {
     left: 0;
@@ -20,8 +21,9 @@
   &__header {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: var(--sidebar-header-gap);
+    margin-bottom: var(--sidebar-header-margin-bottom);
+    height: var(--sidebar-header-height);
 
     ::v-deep(*) {
       width: 100%;
@@ -29,7 +31,7 @@
   }
 
   &__footer {
-    margin-top: auto;
+    margin-top: var(--sidebar-footer-margin-top);
 
     ::v-deep(*) {
       width: 100%;
@@ -37,69 +39,79 @@
   }
 
   &__nav {
+    flex: 1;
+    overflow-y: auto;
+
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: var(--sidebar-nav-gap);
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: var(--sidebar-item-gap);
+    padding: var(--sidebar-item-padding-y) var(--sidebar-item-padding-x);
+    border-radius: var(--sidebar-item-radius);
+    text-decoration: none;
+    color: var(--sidebar-item-text);
+    font-size: var(--sidebar-item-font-size);
+    font-weight: var(--sidebar-item-font-weight);
+    transition: var(--sidebar-item-transition);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--sidebar-item-hover-bg);
     }
 
-    .sidebar__item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 16px;
-      border-radius: 0.625rem;
-      text-decoration: none;
-      color: var(--color-sidebar-item-text);
-      font-weight: 500;
-      transition:
-        background-color 0.2s ease,
-        color 0.2s ease;
+    &--active {
+      background-color: var(--sidebar-item-active-bg);
+      box-shadow: var(--sidebar-item-active-shadow);
+      color: var(--sidebar-item-active-text);
+      font-weight: var(--sidebar-item-active-font-weight);
 
       &:hover {
-        background-color: var(--color-sidebar-item-hover-bg);
+        background-color: var(--sidebar-item-active-bg);
       }
 
-      &--active {
-        background-color: var(--color-sidebar-item-active-bg);
-        box-shadow: var(--color-sidebar-item-active-shadow);
-        color: var(--color-sidebar-item-active-text);
-        font-weight: 600;
-
-        &:hover {
-          background-color: var(--color-sidebar-item-active-bg);
-        }
+      .sidebar__item__icon {
+        color: var(--sidebar-item-active-icon);
       }
+    }
 
-      &__icon {
-        font-size: 20px;
-        color: var(--color-sidebar-item-icon);
-      }
+    &__icon {
+      font-size: var(--sidebar-item-icon-font-size);
+      color: var(--sidebar-item-icon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-      &__label {
-        font-size: 16px;
-      }
+    &__label {
+      font-size: var(--sidebar-item-font-size);
     }
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: var(--sidebar-desktop-breakpoint)) {
   .sidebar {
     left: 0;
-    width: 220px;
-    height: calc(100dvh - 64px);
-    padding: 14px;
+    width: var(--sidebar-width-desktop);
+    height: var(--sidebar-min-height);
+    padding: var(--sidebar-padding-desktop);
 
     &__item {
       &__icon {
-        font-size: 16px;
+        font-size: var(--sidebar-item-icon-font-size-desktop);
       }
 
       &__label {
-        font-size: 16px;
+        font-size: var(--sidebar-item-font-size);
       }
     }
   }

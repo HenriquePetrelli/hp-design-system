@@ -1,0 +1,40 @@
+/**
+ * Component Tokens — Checkbox
+ * Controle de seleção binária com suporte a
+ * estados, foco, animação e forma opcional.
+ */
+
+:root {
+  /* =====================================================
+     LAYOUT
+     ===================================================== */
+  --checkbox-gap: var(--spacing-xs);
+  --checkbox-size: 24px;
+  --checkbox-border-radius: var(--radius-md);
+  --checkbox-border-radius-rounded: 50%;
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --checkbox-font-size: var(--font-size-md);
+  --checkbox-font-weight: var(--font-weight-regular);
+  --checkbox-line-height: var(--line-height-normal);
+
+  /* =====================================================
+     COLORS
+     ===================================================== */
+  --checkbox-label-color: var(--color-text-primary);
+
+  --checkbox-border-color: var(--color-border-default);
+  --checkbox-border-hover: var(--color-border-strong);
+
+  --checkbox-bg-checked: var(--color-brand-primary);
+  --checkbox-icon-color: var(--color-text-inverse);
+
+  --checkbox-focus-ring: var(--color-border-focus);
+
+  /* =====================================================
+     EFFECTS
+     ===================================================== */
+  --checkbox-active-scale: 0.95;
+}

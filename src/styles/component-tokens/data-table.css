@@ -1,0 +1,30 @@
+:root {
+  /* ================= Layout ================= */
+
+  --data-table-padding: var(--spacing-4);
+  --data-table-radius: var(--radius-lg);
+
+  --data-table-cell-padding-x: var(--spacing-3);
+  --data-table-cell-padding-y: var(--spacing-2);
+
+  --data-table-footer-padding-y: var(--spacing-3);
+  --data-table-footer-min-height: 40px;
+
+  /* ================= Typography ================= */
+
+  --data-table-header-font-size: var(--font-size-xxs);
+  --data-table-header-letter-spacing: 0.08em;
+  --data-table-cell-font-size: var(--font-size-sm);
+
+  /* ================= Colors ================= */
+
+  --data-table-background: var(--color-surface);
+  --data-table-text-primary: var(--color-text-primary);
+  --data-table-text-secondary: var(--color-text-secondary);
+  --data-table-text-muted: var(--color-text-muted);
+  --data-table-border-color: var(--color-border);
+
+  /* ================= Effects ================= */
+
+  --data-table-shadow: var(--shadow-sm);
+}

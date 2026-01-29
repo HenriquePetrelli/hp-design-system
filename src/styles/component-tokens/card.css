@@ -1,0 +1,42 @@
+/**
+ * Component Tokens — Card
+ * Container de conteúdo com variações de elevação,
+ * borda e interação.
+ */
+
+:root {
+  /* =====================================================
+     LAYOUT
+     ===================================================== */
+  --card-padding: var(--spacing-lg);
+  --card-gap: var(--spacing-md);
+  --card-gap-sm: var(--spacing-sm);
+  --card-border-radius: var(--radius-lg);
+  --card-hover-translate-y: -2px;
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --card-title-font-size: var(--font-size-lg);
+  --card-title-font-weight: var(--font-weight-semibold);
+  --card-title-line-height: var(--line-height-tight);
+
+  --card-description-font-size: var(--font-size-sm);
+  --card-description-font-weight: var(--font-weight-regular);
+
+  /* =====================================================
+     COLORS
+     ===================================================== */
+  --card-bg: var(--color-surface-default);
+  --card-text-primary: var(--color-text-primary);
+  --card-text-secondary: var(--color-text-secondary);
+
+  --card-border-color: var(--color-border-default);
+  --card-focus-ring: var(--color-border-focus);
+
+  /* =====================================================
+     ELEVATION
+     ===================================================== */
+  --card-shadow-elevated: var(--shadow-sm);
+  --card-shadow-hover: var(--shadow-md);
+}

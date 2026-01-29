@@ -1,0 +1,58 @@
+/**
+ * Component Tokens — Input Number
+ * Campo numérico com controles de incremento/decremento
+ * Baseado na arquitetura foundations → semantics → component
+ */
+
+:root {
+  /* =====================================================
+     LAYOUT
+     ===================================================== */
+  --input-number-padding-y: var(--spacing-md);
+  --input-number-padding-x: var(--spacing-md);
+  --input-number-padding-right: var(--spacing-5xl);
+  --input-number-border-radius: var(--radius-lg);
+  --input-number-gap: var(--spacing-sm);
+
+  --input-number-icon-offset: var(--spacing-md);
+
+  --input-number-buttons-height: 40px;
+  --input-number-buttons-width: 48px;
+  --input-number-buttons-gap: var(--spacing-xs);
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --input-number-font-family: var(--font-family-base);
+  --input-number-font-size: var(--font-size-md);
+  --input-number-label-font-size: var(--font-size-md);
+  --input-number-label-font-size-floating: var(--font-size-xs);
+  --input-number-helper-font-size: var(--font-size-xs);
+
+  /* =====================================================
+     COLORS
+     ===================================================== */
+  --input-number-bg: var(--color-surface);
+  --input-number-text: var(--color-text-primary);
+  --input-number-text-muted: var(--color-text-muted);
+  --input-number-text-secondary: var(--color-text-secondary);
+
+  --input-number-border: var(--color-border-default);
+  --input-number-border-focus: var(--color-border-focus);
+  --input-number-border-error: var(--color-border-error);
+  --input-number-border-success: var(--color-border-success);
+
+  --input-number-bg-disabled: var(--color-action-muted);
+
+  --input-number-label: var(--color-text-secondary);
+  --input-number-required: var(--color-feedback-error);
+
+  --input-number-button-bg: var(--color-action-muted);
+  --input-number-button-bg-hover: var(--color-action-hover);
+  --input-number-button-divider: var(--color-border);
+
+  /* =====================================================
+     EFFECTS
+     ===================================================== */
+  --input-number-transition: 0.2s ease;
+}

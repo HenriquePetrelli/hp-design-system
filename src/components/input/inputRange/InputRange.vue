@@ -5,6 +5,7 @@
       'input-range--disabled': disabled,
       [`input-range--${status}`]: status !== 'default'
     }"
+    :style="computedStyles"
   >
     <fieldset class="input-range__fieldset">
       <legend v-if="label" class="input-range__legend" :id="`${id}-label`">
@@ -48,7 +49,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const props = defineProps({
   modelValue: { type: Number, default: 0 },
@@ -68,6 +69,15 @@ const props = defineProps({
     type: String,
     default: 'default',
     validator: (value) => ['default', 'error', 'success'].includes(value)
+  },
+  // Props para override de tokens
+  trackActiveColor: {
+    type: String,
+    default: ''
+  },
+  thumbBorderColor: {
+    type: String,
+    default: ''
   }
 })
 
@@ -85,6 +95,15 @@ const handleChange = (event) => {
 const focusInput = () => {
   if (input.value && !props.disabled) input.value.focus()
 }
+
+const computedStyles = computed(() => ({
+  ...(props.trackActiveColor && {
+    '--input-range-track-active': props.trackActiveColor
+  }),
+  ...(props.thumbBorderColor && {
+    '--input-range-thumb-border': props.thumbBorderColor
+  })
+}))
 
 defineExpose({ focusInput })
 </script>

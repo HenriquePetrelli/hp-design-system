@@ -9,10 +9,7 @@
       'input--has-placeholder': hasPlaceholder,
       [`input--${status}`]: status !== 'default'
     }"
-    :style="{
-      '--icon-padding-left': leadingIcon ? '24px' : '0px',
-      '--icon-padding-right': trailingIcon ? '32px' : '0px'
-    }"
+    :style="computedStyles"
   >
     <fieldset class="input__fieldset">
       <legend style="display: none" :aria-hidden="true">
@@ -61,7 +58,7 @@
           :label="trailingIconLabel"
           :disabled="disabled || readonly"
           :icon="trailingIcon"
-          iconColor="#666666"
+          :iconColor="iconColor"
           size="sm"
           @action:click="handleTrailingIconClick"
         />
@@ -70,7 +67,7 @@
           v-else-if="!iconHasAction && trailingIcon"
           class="input__icon input__icon--trailing"
           aria-hidden="true"
-          color="#666666"
+          :color="iconColor"
           size="sm"
           :name="trailingIcon"
         />
@@ -161,6 +158,23 @@ const props = defineProps({
   hasLengthCount: {
     type: Boolean,
     default: false
+  },
+  // Props para override de tokens
+  borderColor: {
+    type: String,
+    default: ''
+  },
+  backgroundColor: {
+    type: String,
+    default: ''
+  },
+  textColor: {
+    type: String,
+    default: ''
+  },
+  iconColor: {
+    type: String,
+    default: 'var(--input-text-icon-color)'
   }
 })
 
@@ -168,18 +182,42 @@ const emit = defineEmits(['update:modelValue', 'action:iconClick'])
 
 const input = ref(null)
 const isFocused = ref(false)
+
 const showInputLabel = computed(
   () =>
     !props.hideLabel &&
-    (isFocused || props.modelValue !== '' || props.placeholder !== '')
+    (isFocused.value || props.modelValue !== '' || props.placeholder !== '')
 )
 const hasValue = computed(() => String(props.modelValue).length > 0)
 const hasPlaceholder = computed(() => String(props.placeholder).length > 0)
+
 const placeholderFormatted = computed(() => {
   if (props.placeholder) return props.placeholder
   if (!isFocused.value) return props.label + (props.required ? ' *' : '')
   return ''
 })
+
+const computedStyles = computed(() => ({
+  '--icon-padding-left': props.leadingIcon
+    ? 'var(--input-text-padding-icon)'
+    : '0px',
+  '--icon-padding-right': props.trailingIcon
+    ? 'var(--input-text-padding-icon)'
+    : '0px',
+  ...(props.borderColor && {
+    '--input-text-border-color': props.borderColor,
+    '--input-text-border-hover': props.borderColor
+  }),
+  ...(props.backgroundColor && {
+    '--input-text-bg': props.backgroundColor
+  }),
+  ...(props.textColor && {
+    '--input-text-text-color': props.textColor
+  }),
+  ...(props.iconColor && {
+    '--input-text-icon-color': props.iconColor
+  })
+}))
 
 const handleInput = (event) => {
   emit('update:modelValue', event.target.value)

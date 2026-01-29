@@ -1,0 +1,13 @@
+/**
+ * Tokens de espaçamento
+ * Define margens, paddings e gaps reutilizáveis.
+ */
+
+:root {
+  --spacing-2xs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}

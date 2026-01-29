@@ -1,0 +1,15 @@
+:root {
+  /* ================= Sizes ================= */
+
+  --icon-size-sm: 1em;
+  --icon-size-md: 1.25em;
+  --icon-size-lg: 1.75em;
+
+  /* ================= Colors ================= */
+
+  --icon-color: currentColor;
+
+  /* ================= Alignment ================= */
+
+  --icon-vertical-align: middle;
+}

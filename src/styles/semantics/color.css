@@ -1,0 +1,20 @@
+/**
+ * Tokens semânticos de cor
+ * Expressam intenção de uso (texto, fundo, feedback).
+ */
+
+:root {
+  --color-brand-primary: var(--color-brand-primary);
+  --color-brand-primary-hover: var(--color-brand-primary-hover);
+  --color-brand-secondary: var(--color-brand-secondary);
+
+  --color-feedback-success: var(--color-feedback-success);
+  --color-feedback-warning: var(--color-feedback-warning);
+  --color-feedback-info: var(--color-feedback-info);
+  --color-feedback-error: var(--color-feedback-error);
+
+  --color-feedback-success-bg: var(--color-feedback-success-bg);
+  --color-feedback-warning-bg: var(--color-feedback-warning-bg);
+  --color-feedback-info-bg: var(--color-feedback-info-bg);
+  --color-feedback-error-bg: var(--color-feedback-error-bg);
+}

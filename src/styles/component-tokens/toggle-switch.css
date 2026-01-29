@@ -1,0 +1,83 @@
+/**
+ * Component Tokens — Toggle Switch
+ * Alternador simples (on/off switch).
+ */
+
+:root {
+  /* =====================================================
+     DIMENSIONS
+     ===================================================== */
+  --toggle-switch-width: 48px;
+  --toggle-switch-height: 24px;
+  --toggle-switch-thumb-size: 18px;
+  --toggle-switch-thumb-offset: 3px;
+  --toggle-switch-thumb-translate: calc(
+    var(--toggle-switch-width) - var(--toggle-switch-thumb-size) -
+      (var(--toggle-switch-thumb-offset) * 2)
+  );
+
+  /* =====================================================
+     SPACING
+     ===================================================== */
+  --toggle-switch-gap: var(--spacing-sm);
+  --toggle-switch-text-gap: var(--spacing-xs);
+  --toggle-switch-focus-outline-offset: 2px;
+  --toggle-switch-focus-outline-width: 2px;
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --toggle-switch-font-family: var(--font-family-base);
+  --toggle-switch-font-size: var(--font-size-sm);
+  --toggle-switch-font-weight: var(--font-weight-regular);
+  --toggle-switch-line-height: var(--line-height-normal);
+
+  /* =====================================================
+     COLORS - DEFAULT (OFF STATE)
+     ===================================================== */
+  --toggle-switch-track-bg-off: var(--color-neutral-200);
+  --toggle-switch-thumb-bg-off: var(--color-surface-default);
+  --toggle-switch-text-color: var(--color-text-primary);
+
+  /* =====================================================
+     COLORS - CHECKED (ON STATE)
+     ===================================================== */
+  --toggle-switch-track-bg-on: var(--color-brand-primary);
+  --toggle-switch-thumb-bg-on: var(--color-surface-default);
+
+  /* =====================================================
+     COLORS - DISABLED STATE
+     ===================================================== */
+  --toggle-switch-track-bg-disabled: var(--color-text-disabled);
+  --toggle-switch-thumb-bg-disabled: var(--color-surface-default);
+  --toggle-switch-text-color-disabled: var(--color-text-disabled);
+  --toggle-switch-disabled-opacity: 0.6;
+
+  /* =====================================================
+     COLORS - FOCUS STATE
+     ===================================================== */
+  --toggle-switch-focus-ring: var(--color-border-focus);
+
+  /* =====================================================
+     BORDER RADIUS
+     ===================================================== */
+  --toggle-switch-track-radius: var(--radius-lg);
+  --toggle-switch-thumb-radius: 50%;
+  --toggle-switch-focus-radius: var(--radius-lg);
+
+  /* =====================================================
+     SHADOWS
+     ===================================================== */
+  --toggle-switch-thumb-shadow: var(--shadow-sm);
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+  --toggle-switch-track-transition: background-color 0.3s ease;
+  --toggle-switch-thumb-transition: transform 0.3s ease;
+
+  /* =====================================================
+     ACCESSIBILITY
+     ===================================================== */
+  --toggle-switch-focus-ring-width: 2px;
+}

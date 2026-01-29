@@ -1,0 +1,23 @@
+/**
+ * Header — Component Tokens
+ * Consome apenas foundations e semantics
+ * Importar em: styles/component-tokens/index.css
+ */
+
+:root {
+  /* ================= Layout ================= */
+
+  --header-height: var(--spacing-16);
+  --header-padding-x: var(--spacing-6);
+  --header-gap: var(--spacing-3);
+  --header-z-index: var(--z-index-sticky);
+
+  /* ================= Colors ================= */
+
+  --header-background: var(--color-surface);
+  --header-border-color: var(--color-border);
+
+  /* ================= Effects ================= */
+
+  --header-border-width: 1px;
+}

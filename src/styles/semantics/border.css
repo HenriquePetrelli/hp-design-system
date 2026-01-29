@@ -1,0 +1,10 @@
+/**
+ * Tokens semânticos de borda
+ * Define cores e estados de bordas e foco.
+ */
+
+:root {
+  --color-border-default: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-300);
+  --color-border-focus: var(--color-feedback-info);
+}

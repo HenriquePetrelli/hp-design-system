@@ -1,0 +1,77 @@
+/**
+ * Tema Escuro
+ * Sobrescreve tokens do tema claro usando data-theme.
+ */
+
+[data-theme='dark'] {
+  /* =====================================================
+     NEUTRAL
+     ===================================================== */
+  --color-neutral-0: #000000;
+  --color-neutral-50: #121212;
+  --color-neutral-100: #1e1e1e;
+  --color-neutral-200: #2a2a2a;
+  --color-neutral-300: #3d3d3d;
+  --color-neutral-400: #757575;
+  --color-neutral-500: #bdbdbd;
+  --color-neutral-600: #e0e0e0;
+  --color-neutral-700: #f5f5f5;
+
+  /* =====================================================
+     BRAND
+     ===================================================== */
+  --color-brand-primary: #8b7bd9;
+  --color-brand-primary-hover: #a091ff;
+  --color-brand-secondary: #ff9f7a;
+
+  /* =====================================================
+     FEEDBACK
+     ===================================================== */
+  --color-feedback-success: #66bb6a;
+  --color-feedback-warning: #ffca28;
+  --color-feedback-info: #64b5f6;
+  --color-feedback-error: #ef5350;
+
+  --color-feedback-success-bg: #1b2a1b;
+  --color-feedback-warning-bg: #332900;
+  --color-feedback-info-bg: #1e1e1e;
+  --color-feedback-error-bg: #3a1515;
+
+  /* =====================================================
+     SEMANTIC → SURFACE
+     ===================================================== */
+  --color-surface-background: var(--color-neutral-50);
+  --color-surface-default: var(--color-neutral-100);
+  --color-surface-hover: var(--color-neutral-200);
+
+  /* =====================================================
+     SEMANTIC → TEXT
+     ===================================================== */
+  --color-text-primary: var(--color-neutral-700);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-disabled: var(--color-neutral-400);
+  --color-text-inverse: var(--color-neutral-0);
+
+  /* =====================================================
+     SEMANTIC → BORDER
+     ===================================================== */
+  --color-border-default: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-300);
+  --color-border-focus: #90caf9;
+
+  /* =====================================================
+     ELEVATION
+     ===================================================== */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.5);
+
+  /* =====================================================
+     ACTION STATES
+     ===================================================== */
+  --color-action-muted: var(--color-neutral-100);
+  --color-action-hover: var(--color-neutral-200);
+  --color-border-error: var(--color-feedback-error);
+  --color-border-success: var(--color-feedback-success);
+}

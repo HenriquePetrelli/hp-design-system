@@ -1,129 +1,104 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import InputRange from '@components/input/inputRange/InputRange.vue'
-import { ref } from 'vue'
+import InputRange from './InputRange.vue'
 
 const meta: Meta<typeof InputRange> = {
-  title: 'Components/Input/InputRange',
+  title: 'Components/Inputs/InputRange',
   component: InputRange,
   tags: ['autodocs'],
   argTypes: {
-    modelValue: { control: 'number' },
-    label: { control: 'text' },
-    min: { control: 'number' },
-    max: { control: 'number' },
-    step: { control: 'number' },
-    unit: { control: 'text' },
-    helperText: { control: 'text' },
-    disabled: { control: 'boolean' },
-    required: { control: 'boolean' },
+    label: {
+      control: 'text',
+      description: 'Label do controle'
+    },
+    modelValue: {
+      control: 'number',
+      description: 'Valor atual'
+    },
+    min: {
+      control: 'number',
+      description: 'Valor mínimo'
+    },
+    max: {
+      control: 'number',
+      description: 'Valor máximo'
+    },
+    step: {
+      control: 'number',
+      description: 'Incremento do slider'
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Estado desabilitado'
+    },
     status: {
       control: 'select',
-      options: ['default', 'error', 'success']
-    },
-    'update:modelValue': { action: 'update:modelValue' },
-    change: { action: 'change' }
+      options: ['default', 'error', 'success'],
+      description: 'Estado visual'
+    }
   }
 }
 
 export default meta
-
 type Story = StoryObj<typeof InputRange>
 
-const Template: Story = {
-  render: (args) => ({
-    components: { InputRange },
-    setup() {
-      // const value = ref(args.modelValue)
-      // return { args, value }
-    }
-    // template: `
-    //   <InputRange
-    //     v-bind="args"
-    //     v-model="value"
-    //     @update:modelValue="args['update:modelValue']"
-    //     @change="args['change']"
-    //   />
-    // `
-  })
-}
-
 export const Default: Story = {
-  // ...Template,
   args: {
-    label: 'Volume',
+    label: 'Nível de Volume',
+    modelValue: 50,
     min: 0,
     max: 100,
-    step: 1,
-    modelValue: 50
+    step: 1
   }
 }
 
 export const WithUnit: Story = {
-  // ...Template,
   args: {
     label: 'Temperatura',
+    modelValue: 25,
     min: 0,
     max: 100,
-    step: 5,
-    modelValue: 25,
+    step: 1,
     unit: '°C'
   }
 }
 
-export const WithHelperText: Story = {
-  // ...Template,
-  args: {
-    label: 'Brilho',
-    min: 0,
-    max: 100,
-    modelValue: 75,
-    helperText: 'Ajuste o nível de brilho da tela'
-  }
-}
-
 export const Disabled: Story = {
-  // ...Template,
   args: {
-    label: 'Volume desabilitado',
-    min: 0,
-    max: 100,
+    label: 'Controle Desabilitado',
     modelValue: 30,
     disabled: true
   }
 }
 
 export const ErrorState: Story = {
-  // ...Template,
   args: {
-    label: 'Nível de risco',
+    label: 'Nível de Bateria',
+    modelValue: 15,
     min: 0,
-    max: 10,
-    modelValue: 7,
+    max: 100,
     status: 'error',
-    helperText: 'Nível de risco muito alto'
+    helperText: 'Bateria crítica! Conecte ao carregador.'
   }
 }
 
 export const SuccessState: Story = {
-  // ...Template,
   args: {
-    label: 'Progresso',
+    label: 'Progresso do Upload',
+    modelValue: 75,
     min: 0,
     max: 100,
-    modelValue: 85,
     status: 'success',
-    helperText: 'Progresso excelente!'
+    helperText: 'Upload quase concluído'
   }
 }
 
-export const SmallRange: Story = {
-  // ...Template,
+export const CustomRange: Story = {
   args: {
-    label: 'Precisão',
-    min: 0,
-    max: 1,
-    step: 0.01,
-    modelValue: 0.5,
-    unit: 'mm'
+    label: 'Rating (1-5)',
+    modelValue: 3,
+    min: 1,
+    max: 5,
+    step: 0.5,
+    unit: 'estrelas'
   }
 }

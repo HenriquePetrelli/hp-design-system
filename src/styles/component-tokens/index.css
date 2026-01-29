@@ -1,0 +1,28 @@
+/**
+ * Agregador de tokens de componentes
+ */
+
+@import './alert.css';
+@import './button-primary.css';
+@import './button-secondary.css';
+@import './button-tertiary.css';
+@import './button-icon.css';
+@import './button-letter.css';
+@import './card.css';
+@import './checkbox.css';
+@import './data-table.css';
+@import './header.css';
+@import './icon.css';
+@import './input-number.css';
+@import './input-range.css';
+@import './input-select.css';
+@import './input-text.css';
+@import './modal.css';
+@import './progress-bar.css';
+@import './radio-button.css';
+@import './sidebar.css';
+@import './spinner-loader.css';
+@import './theme-switcher.css';
+@import './toggle-switch.css';
+@import './heading.css';
+@import './text.css';

@@ -1,89 +1,68 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import ButtonPrimary from './ButtonPrimary.vue'
-import { ButtonSize, IconPosition } from '../ButtonTypes'
+import { ButtonSize } from '../ButtonTypes'
 
 const meta: Meta<typeof ButtonPrimary> = {
-  title: 'Components/Button/ButtonPrimary',
+  title: 'Components/Buttons/ButtonPrimary',
   component: ButtonPrimary,
   tags: ['autodocs'],
   argTypes: {
     label: {
       control: 'text',
-      description: 'Texto exibido no botão'
-    },
-    ariaLabel: {
-      control: 'text',
-      description: 'Texto para acessibilidade (aria-label)'
+      description: 'Texto do botão'
     },
     disabled: {
       control: 'boolean',
-      description: 'Estado desabilitado do botão'
+      description: 'Estado desabilitado'
     },
     size: {
       control: 'select',
       options: Object.values(ButtonSize),
       description: 'Tamanho do botão'
     },
-    icon: {
+    ariaLabel: {
       control: 'text',
-      description: 'Nome do ícone (opcional)'
-    },
-    iconPosition: {
-      control: 'select',
-      options: Object.values(IconPosition),
-      description: 'Posição do ícone'
+      description: 'Label para acessibilidade'
     }
   }
 }
 
 export default meta
-
 type Story = StoryObj<typeof ButtonPrimary>
 
-// Story básico
-export const Default: Story = {
+export const Regular: Story = {
   args: {
-    label: 'Primary Button'
+    label: 'Botão Primário',
+    size: ButtonSize.REGULAR
   }
 }
 
-// Story para botão desabilitado
-export const Disabled: Story = {
-  args: {
-    label: 'Disabled Button',
-    disabled: true
-  }
-}
-
-// Story para botão grande
 export const Large: Story = {
   args: {
-    label: 'Large Button',
+    label: 'Botão Primário Grande',
     size: ButtonSize.LARGE
   }
 }
 
-// Story com ícone à esquerda
+export const Disabled: Story = {
+  args: {
+    label: 'Botão Desabilitado',
+    disabled: true
+  }
+}
+
 export const WithLeftIcon: Story = {
   args: {
-    label: 'With Icon',
-    icon: 'AA0010',
-    iconPosition: IconPosition.LEFT
+    label: 'Com Ícone Esquerdo',
+    icon: 'BE0010',
+    iconPosition: 'left'
   }
 }
 
-// Story com ícone à direita
 export const WithRightIcon: Story = {
   args: {
-    label: 'With Icon',
-    icon: 'AA0010',
-    iconPosition: IconPosition.RIGHT
-  }
-}
-
-// Story com cor personalizada
-export const CustomColor: Story = {
-  args: {
-    label: 'Custom Color'
+    label: 'Com Ícone Direito',
+    icon: 'BE0010',
+    iconPosition: 'right'
   }
 }

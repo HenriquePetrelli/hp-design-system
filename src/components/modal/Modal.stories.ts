@@ -1,127 +1,148 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
-import { ref } from 'vue'
 import Modal from './Modal.vue'
 
 const meta: Meta<typeof Modal> = {
-  title: 'Components/Modal',
+  title: 'Components/Overlay/Modal',
   component: Modal,
   tags: ['autodocs'],
   argTypes: {
-    size: {
-      control: { type: 'select' },
-      options: ['sm', 'md', 'lg']
+    title: {
+      control: 'text',
+      description: 'Título do modal'
     },
     isOpen: {
       control: 'boolean',
-      defaultValue: true
+      description: 'Estado aberto/fechado'
     },
-    title: {
-      control: 'text'
-    },
-    showBackButton: {
-      control: 'boolean'
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Tamanho do modal'
     },
     showCloseButton: {
-      control: 'boolean'
+      control: 'boolean',
+      description: 'Mostrar botão de fechar'
     },
-    hasPrimaryButton: {
-      control: 'boolean'
-    },
-    hasSecondaryButton: {
-      control: 'boolean'
-    },
-    primaryButtonLabel: {
-      control: 'text'
-    },
-    secondaryButtonLabel: {
-      control: 'text'
-    },
-    primaryButtonColor: {
-      control: 'color'
-    },
-    secondaryButtonColor: {
-      control: 'color'
+    showBackButton: {
+      control: 'boolean',
+      description: 'Mostrar botão de voltar'
     }
   }
 }
 
 export default meta
-
 type Story = StoryObj<typeof Modal>
 
-const Template: Story = {
-  render: (args) => ({
-    components: { Modal },
-    setup() {
-      const isModalOpen = ref(args.isOpen)
-
-      return { args, isModalOpen }
-    },
-    template: `
-      <div style="height: 300px">
-
-        <Modal
-          v-bind="args"
-          :isOpen="isModalOpen"
-        >
-          <div style="padding: 20px;">
-            <h3>Conteúdo do Modal</h3>
-            <p>Este é um exemplo de conteúdo dentro do modal.</p>
-            <p>O modal agora deve aparecer em seu tamanho completo.</p>
-          </div>
-
-        </Modal>
-      </div>
-    `
-  }),
+export const Small: Story = {
   args: {
+    title: 'Modal Pequeno',
     isOpen: true,
-    title: 'Modal básica',
-    size: 'md'
-  }
-}
-
-// Story básico
-export const Default: Story = {
-  ...Template
-}
-
-// Story Modal com botões de ação
-export const WithActions: Story = {
-  ...Template,
-  args: {
-    ...Template.args,
-    title: 'Modal com ações',
+    size: 'sm',
     hasPrimaryButton: true,
     hasSecondaryButton: true,
     primaryButtonLabel: 'Confirmar',
     secondaryButtonLabel: 'Cancelar'
-  }
+  },
+  render: (args) => ({
+    components: { Modal },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="height: 300px; position: relative;">
+        <Modal v-bind="args">
+          <p>Este é um modal de tamanho pequeno com conteúdo personalizado.</p>
+        </Modal>
+      </div>
+    `
+  })
 }
 
-// Story Modal com botões customizados
-export const WithCustomButtons: Story = {
-  ...Template,
+export const Medium: Story = {
   args: {
-    ...Template.args,
-    title: 'Modal com botões customizados',
+    title: 'Modal Médio',
+    isOpen: true,
+    size: 'md',
     hasPrimaryButton: true,
-    hasSecondaryButton: true,
-    primaryButtonLabel: 'Prosseguir',
-    secondaryButtonLabel: 'Voltar',
-    primaryButtonColor: '#43165c',
-    secondaryButtonColor: '#131258ff'
-  }
+    hasSecondaryButton: true
+  },
+  render: (args) => ({
+    components: { Modal },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="height: 300px; position: relative;">
+        <Modal v-bind="args">
+          <p>Este é um modal de tamanho médio. Pode conter mais conteúdo.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Modal>
+      </div>
+    `
+  })
 }
 
-// Story Modal com botão de voltar
-export const WithHeaderButtons: Story = {
-  ...Template,
+export const Large: Story = {
   args: {
-    ...Template.args,
-    size: 'sm',
-    title: 'Modal com botão de voltar',
+    title: 'Modal Grande',
+    isOpen: true,
+    size: 'lg',
+    showCloseButton: true
+  },
+  render: (args) => ({
+    components: { Modal },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="height: 400px; position: relative;">
+        <Modal v-bind="args">
+          <p>Este é um modal grande que pode conter muito conteúdo, formulários, tabelas, etc.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </Modal>
+      </div>
+    `
+  })
+}
+
+export const WithBackButton: Story = {
+  args: {
+    title: 'Configurações',
+    isOpen: true,
     showBackButton: true,
     showCloseButton: true
-  }
+  },
+  render: (args) => ({
+    components: { Modal },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="height: 300px; position: relative;">
+        <Modal v-bind="args">
+          <p>Este modal tem botão de voltar e fechar.</p>
+        </Modal>
+      </div>
+    `
+  })
+}
+
+export const WithoutButtons: Story = {
+  args: {
+    title: 'Informação',
+    isOpen: true
+  },
+  render: (args) => ({
+    components: { Modal },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="height: 300px; position: relative;">
+        <Modal v-bind="args">
+          <p>Este modal não tem botões de ação no footer.</p>
+        </Modal>
+      </div>
+    `
+  })
 }

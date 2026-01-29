@@ -24,18 +24,15 @@
     <div class="data-table__wrapper">
       <table class="data-table__table">
         <thead>
-          <tr class="data-table__row data-table__row--header">
+          <tr>
             <th
               v-for="(column, index) in columns"
               :key="index"
               class="data-table__header-cell"
-              :class="{
-                'data-table__header-cell--right': column.align === 'right',
-                'data-table__header-cell--center': column.align === 'center'
-              }"
+              :class="headerAlignClass(column)"
               :style="{ width: column.width }"
             >
-              <HpText size="xs" color="var(--color-text-secondary)">
+              <HpText size="xs" color="var(--data-table-text-secondary)">
                 {{ column.label }}
               </HpText>
             </th>
@@ -44,39 +41,31 @@
               v-if="$slots.actions"
               class="data-table__header-cell data-table__header-cell--right"
             >
-              <HpText size="xs" color="var(--color-text-secondary)">
+              <HpText size="xs" color="var(--data-table-text-secondary)">
                 Ações
               </HpText>
             </th>
           </tr>
         </thead>
 
-        <tbody class="data-table__body">
+        <tbody>
           <tr v-if="filteredItems.length === 0">
             <td
               class="data-table__cell data-table__cell--empty"
               :colspan="totalColumns"
             >
-              <HpText size="sm" color="var(--color-text-muted)">
+              <HpText size="sm" color="var(--data-table-text-muted)">
                 Nenhum resultado encontrado.
               </HpText>
             </td>
           </tr>
 
-          <tr
-            v-else
-            v-for="(item, rowIndex) in filteredItems"
-            :key="rowIndex"
-            class="data-table__row"
-          >
+          <tr v-else v-for="(item, rowIndex) in filteredItems" :key="rowIndex">
             <td
               v-for="column in columns"
               :key="column.key"
               class="data-table__cell"
-              :class="{
-                'data-table__cell--right': column.align === 'right',
-                'data-table__cell--center': column.align === 'center'
-              }"
+              :class="cellAlignClass(column)"
             >
               <slot
                 :name="`cell-${column.key}`"
@@ -84,7 +73,7 @@
                 :value="item[column.key]"
                 :column="column"
               >
-                <HpText size="sm" color="var(--color-text-primary)">
+                <HpText size="sm">
                   {{ item[column.key] }}
                 </HpText>
               </slot>
@@ -107,14 +96,10 @@
           "
         >
           <tr>
-            <td class="data-table__footer-cell" :colspan="totalColumns">
+            <td :colspan="totalColumns">
               <div
                 class="data-table__footer"
-                :class="{
-                  'has-left': !!$slots['footer-left'],
-                  'has-center': !!$slots['footer-center'],
-                  'has-right': !!$slots['footer-right']
-                }"
+                :class="[footerSlotsClass, lastColumnAlignClass]"
               >
                 <div
                   v-if="$slots['footer-left']"
@@ -176,7 +161,6 @@ const search = ref('')
 
 const filteredItems = computed(() => {
   if (!search.value) return props.items
-
   const query = search.value.toLowerCase()
 
   return props.items.filter((item) =>
@@ -189,6 +173,30 @@ const filteredItems = computed(() => {
 const totalColumns = computed(
   () => props.columns.length + (slots.actions ? 1 : 0)
 )
+
+/* ================= Alignment Logic ================= */
+
+const lastColumnAlignClass = computed(() => {
+  const last = props.columns[props.columns.length - 1]
+  const align = last?.align ?? 'left'
+  return `is-last-column-${align}`
+})
+
+const footerSlotsClass = computed(() => ({
+  'has-left': !!slots['footer-left'],
+  'has-center': !!slots['footer-center'],
+  'has-right': !!slots['footer-right']
+}))
+
+const headerAlignClass = (column: any) => ({
+  'data-table__header-cell--right': column.align === 'right',
+  'data-table__header-cell--center': column.align === 'center'
+})
+
+const cellAlignClass = (column: any) => ({
+  'data-table__cell--right': column.align === 'right',
+  'data-table__cell--center': column.align === 'center'
+})
 </script>
 
 <style scoped lang="scss" src="./DataTable.scss" />

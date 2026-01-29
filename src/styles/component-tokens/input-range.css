@@ -1,0 +1,81 @@
+:root {
+  /* =====================================================
+     DIMENSIONS
+     ===================================================== */
+  --input-range-track-height: var(--spacing-xs);
+  --input-range-thumb-size: 20px;
+  --input-range-thumb-border-width: 2px;
+
+  /* =====================================================
+     SPACING
+     ===================================================== */
+  --input-range-margin-bottom: var(--spacing-lg);
+  --input-range-wrapper-gap: var(--spacing-md);
+  --input-range-legend-margin-bottom: var(--spacing-sm);
+  --input-range-footer-margin-top: var(--spacing-xs);
+
+  /* =====================================================
+     TYPOGRAPHY
+     ===================================================== */
+  --input-range-font-family: var(--font-family-base);
+
+  --input-range-legend-font-size: var(--font-size-md);
+  --input-range-legend-font-weight: var(--font-weight-semibold);
+
+  --input-range-value-font-size: var(--font-size-md);
+  --input-range-value-font-weight: var(--font-weight-bold);
+
+  --input-range-unit-font-size: var(--font-size-md);
+
+  --input-range-helper-font-size: var(--font-size-sm);
+
+  /* =====================================================
+     COLORS - DEFAULT
+     ===================================================== */
+  --input-range-track-default: var(--color-border-default);
+  --input-range-track-active: var(--color-brand-primary);
+  --input-range-thumb-bg: var(--color-surface-default);
+  --input-range-thumb-border: var(--color-brand-primary);
+
+  /* =====================================================
+     COLORS - STATES
+     ===================================================== */
+  --input-range-track-error: var(--color-feedback-error);
+  --input-range-track-success: var(--color-feedback-success);
+  --input-range-track-disabled: var(--color-text-disabled);
+
+  --input-range-focus-ring: var(--color-border-focus);
+  --input-range-focus-ring-size: 3px;
+
+  /* =====================================================
+     COLORS - TEXT
+     ===================================================== */
+  --input-range-legend-color: var(--color-text-secondary);
+  --input-range-value-color: var(--color-brand-primary);
+  --input-range-unit-color: var(--color-text-secondary);
+  --input-range-helper-color: var(--color-text-muted);
+
+  /* =====================================================
+     COLORS - STATES TEXT
+     ===================================================== */
+  --input-range-helper-error-color: var(--color-feedback-error);
+  --input-range-helper-success-color: var(--color-feedback-success);
+
+  /* =====================================================
+     BORDER RADIUS
+     ===================================================== */
+  --input-range-track-radius: var(--radius-lg);
+  --input-range-thumb-radius: 50%;
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+  --input-range-track-transition: background 0.3s ease;
+  --input-range-thumb-transition: all 0.2s ease;
+
+  /* =====================================================
+     REQUIRED MARKER
+     ===================================================== */
+  --input-range-required-color: var(--color-feedback-error);
+  --input-range-required-margin-left: var(--spacing-2xs);
+}

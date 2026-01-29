@@ -1,0 +1,107 @@
+/**
+ * Component Tokens — Text
+ * Sistema de tipografia para textos corridos/parágrafos.
+ */
+
+:root {
+  /* =====================================================
+     TYPOGRAPHY - EXTRA SMALL (xs)
+     ===================================================== */
+  --text-xs-font-family: var(--font-family-base);
+  --text-xs-font-size: var(--font-size-sm);
+  --text-xs-font-weight: var(--font-weight-regular);
+  --text-xs-line-height: var(--line-height-tight);
+  --text-xs-letter-spacing: 0px;
+  --text-xs-color: var(--color-text-primary);
+  --text-xs-margin: 0 0 var(--spacing-xs) 0;
+
+  /* =====================================================
+     TYPOGRAPHY - SMALL (sm)
+     ===================================================== */
+  --text-sm-font-family: var(--font-family-base);
+  --text-sm-font-size: var(--font-size-md);
+  --text-sm-font-weight: var(--font-weight-regular);
+  --text-sm-line-height: var(--line-height-normal);
+  --text-sm-letter-spacing: 0px;
+  --text-sm-color: var(--color-text-primary);
+  --text-sm-margin: 0 0 var(--spacing-sm) 0;
+
+  /* =====================================================
+     TYPOGRAPHY - MEDIUM (md) - DEFAULT
+     ===================================================== */
+  --text-md-font-family: var(--font-family-base);
+  --text-md-font-size: var(--font-size-lg);
+  --text-md-font-weight: var(--font-weight-regular);
+  --text-md-line-height: var(--line-height-normal);
+  --text-md-letter-spacing: 0px;
+  --text-md-color: var(--color-text-primary);
+  --text-md-margin: 0 0 var(--spacing-md) 0;
+
+  /* =====================================================
+     TYPOGRAPHY - LARGE (lg)
+     ===================================================== */
+  --text-lg-font-family: var(--font-family-base);
+  --text-lg-font-size: var(--font-size-xl);
+  --text-lg-font-weight: var(--font-weight-regular);
+  --text-lg-line-height: var(--line-height-normal);
+  --text-lg-letter-spacing: 0px;
+  --text-lg-color: var(--color-text-primary);
+  --text-lg-margin: 0 0 var(--spacing-md) 0;
+
+  /* =====================================================
+     TYPOGRAPHY - EXTRA LARGE (xl)
+     ===================================================== */
+  --text-xl-font-family: var(--font-family-base);
+  --text-xl-font-size: var(--font-size-2xl);
+  --text-xl-font-weight: var(--font-weight-regular);
+  --text-xl-line-height: var(--line-height-loose);
+  --text-xl-letter-spacing: 0px;
+  --text-xl-color: var(--color-text-primary);
+  --text-xl-margin: 0 0 var(--spacing-lg) 0;
+
+  /* =====================================================
+     TYPOGRAPHY - EXTRA EXTRA LARGE (xxl)
+     ===================================================== */
+  --text-xxl-font-family: var(--font-family-base);
+  --text-xxl-font-size: var(--font-size-3xl);
+  --text-xxl-font-weight: var(--font-weight-regular);
+  --text-xxl-line-height: var(--line-height-loose);
+  --text-xxl-letter-spacing: 0px;
+  --text-xxl-color: var(--color-text-primary);
+  --text-xxl-margin: 0 0 var(--spacing-lg) 0;
+
+  /* =====================================================
+     VARIANT COLORS
+     ===================================================== */
+  --text-color-secondary: var(--color-text-secondary);
+  --text-color-muted: var(--color-text-muted);
+  --text-color-disabled: var(--color-text-disabled);
+  --text-color-inverse: var(--color-text-inverse);
+  --text-color-success: var(--color-feedback-success);
+  --text-color-warning: var(--color-feedback-warning);
+  --text-color-error: var(--color-feedback-error);
+  --text-color-info: var(--color-feedback-info);
+  --text-color-brand: var(--color-brand-primary);
+
+  /* =====================================================
+     WEIGHT VARIANTS
+     ===================================================== */
+  --text-weight-light: var(--font-weight-light);
+  --text-weight-regular: var(--font-weight-regular);
+  --text-weight-medium: var(--font-weight-medium);
+  --text-weight-semibold: var(--font-weight-semibold);
+  --text-weight-bold: var(--font-weight-bold);
+
+  /* =====================================================
+     TRANSITIONS
+     ===================================================== */
+  --text-color-transition: color 0.2s ease;
+
+  /* =====================================================
+     DEFAULT VALUES
+     ===================================================== */
+  --text-default-size: var(--text-md-font-size);
+  --text-default-weight: var(--text-md-font-weight);
+  --text-default-line-height: var(--text-md-line-height);
+  --text-default-color: var(--text-md-color);
+}

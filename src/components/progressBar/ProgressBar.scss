@@ -1,53 +1,113 @@
 .progress-bar {
-  --progress-track-color: var(--color-progress-track-color);
-  --progress-bar-color: var(--color-progress-bar-color);
-  --progress-text-color: var(--color-progress-text-color);
+  --progress-track-color: var(--progress-bar-track-bg);
+  --progress-bar-color: var(--progress-bar-fill-bg);
+  --progress-text-color: var(--progress-bar-text-color);
 
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
+  gap: var(--progress-bar-gap);
   width: 100%;
+  min-width: var(--progress-bar-min-width);
+  font-family: var(--progress-bar-font-family);
 
   &__header {
     display: flex;
     justify-content: space-between;
-    font-size: 0.875rem;
-    font-weight: 500;
+    align-items: center;
+    gap: var(--progress-bar-label-gap);
   }
 
   &__label,
   &__value {
     color: var(--progress-text-color);
+    transition: var(--progress-bar-text-transition);
+  }
+
+  &__label {
+    font-size: var(--progress-bar-label-font-size);
+    font-weight: var(--progress-bar-label-font-weight);
+    flex-shrink: 0;
+  }
+
+  &__value {
+    font-size: var(--progress-bar-value-font-size);
+    font-weight: var(--progress-bar-value-font-weight);
+    margin-left: var(--progress-bar-value-margin-left);
+    flex-shrink: 0;
   }
 
   &__wrapper {
     position: relative;
+    width: 100%;
   }
 
   &__track {
     width: 100%;
-    height: 0.5rem;
+    height: var(--progress-bar-height);
     appearance: none;
     border: none;
-    border-radius: 999px;
+    border-radius: var(--progress-bar-track-radius);
     overflow: hidden;
     background-color: var(--progress-track-color);
 
     &::-webkit-progress-bar {
       background-color: var(--progress-track-color);
-      border-radius: 999px;
+      border-radius: var(--progress-bar-track-radius);
     }
 
     &::-webkit-progress-value {
       background-color: var(--progress-bar-color);
-      border-radius: 999px;
-      transition: width 0.3s ease;
+      border-radius: var(--progress-bar-fill-radius);
+      transition: var(--progress-bar-fill-transition);
     }
 
     &::-moz-progress-bar {
       background-color: var(--progress-bar-color);
-      border-radius: 999px;
-      transition: width 0.3s ease;
+      border-radius: var(--progress-bar-fill-radius);
+      transition: var(--progress-bar-fill-transition);
     }
+
+    &--indeterminate {
+      &::-webkit-progress-value {
+        animation: var(--progress-bar-indeterminate-animation);
+      }
+
+      &::-moz-progress-bar {
+        animation: var(--progress-bar-indeterminate-animation);
+      }
+    }
+
+    &--disabled {
+      --progress-track-color: var(--progress-bar-track-disabled-bg);
+      --progress-bar-color: var(--progress-bar-fill-disabled-bg);
+      --progress-text-color: var(--progress-bar-text-disabled-color);
+
+      opacity: 0.6;
+    }
+  }
+
+  /* Variantes de status */
+  &--success {
+    --progress-track-color: var(--progress-bar-track-success-bg);
+    --progress-bar-color: var(--progress-bar-fill-success-bg);
+    --progress-text-color: var(--progress-bar-text-success-color);
+  }
+
+  &--warning {
+    --progress-track-color: var(--progress-bar-track-warning-bg);
+    --progress-bar-color: var(--progress-bar-fill-warning-bg);
+    --progress-text-color: var(--progress-bar-text-warning-color);
+  }
+
+  &--error {
+    --progress-track-color: var(--progress-bar-track-error-bg);
+    --progress-bar-color: var(--progress-bar-fill-error-bg);
+    --progress-text-color: var(--progress-bar-text-error-color);
+  }
+
+  &--info {
+    --progress-track-color: var(--progress-bar-track-info-bg);
+    --progress-bar-color: var(--progress-bar-fill-info-bg);
+    --progress-text-color: var(--progress-bar-text-info-color);
   }
 }
