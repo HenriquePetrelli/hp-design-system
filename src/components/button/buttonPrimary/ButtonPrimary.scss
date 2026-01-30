@@ -2,21 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   min-width: var(--button-primary-min-width);
   padding: var(--button-primary-padding-y) var(--button-primary-padding-x);
-
   border: 0;
   border-radius: var(--button-primary-border-radius);
   cursor: pointer;
-
   font-family: var(--button-primary-font-family);
   font-size: var(--button-primary-font-size);
   font-weight: var(--button-primary-font-weight);
-
   background-color: var(--button-primary-bg);
   color: var(--button-primary-text);
-
   outline: none;
   transition:
     transform 0.15s ease,
