@@ -2,21 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: var(--button-letter-size);
   height: var(--button-letter-size);
-
   border-radius: var(--button-letter-radius);
   border: 0;
   background-color: transparent;
-
   font-family: var(--button-letter-font-family);
   font-size: var(--button-letter-font-size);
   font-weight: var(--button-letter-font-weight);
-
   color: var(--button-letter-color);
   cursor: pointer;
-
   transition:
     transform 0.15s ease,
     background-color 0.15s ease,
