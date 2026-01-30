@@ -37,6 +37,6 @@
   /* =====================================================
      ELEVATION
      ===================================================== */
-  --card-shadow-elevated: var(--shadow-sm);
-  --card-shadow-hover: var(--shadow-md);
+  --card-shadow-elevated: var(--shadow-md);
+  --card-shadow-hover: var(--shadow-lg);
 }
