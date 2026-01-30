@@ -28,7 +28,6 @@
   }
 
   &:not(:disabled):hover {
-    transform: scale(var(--button-tertiary-scale-hover));
     color: var(
       --button-tertiary-hover-color,
       var(--button-tertiary-text-hover)

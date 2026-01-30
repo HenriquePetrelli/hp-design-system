@@ -27,8 +27,7 @@
   /* =====================================================
      EFFECTS
      ===================================================== */
-  --button-primary-shadow-hover: var(--shadow-sm);
-  --button-primary-scale-hover: 1.0175;
+  --button-primary-shadow-hover: var(--shadow-md);
   --button-primary-scale-active: 0.985;
 
   /* =====================================================

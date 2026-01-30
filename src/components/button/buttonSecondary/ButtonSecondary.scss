@@ -2,21 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   min-width: var(--button-secondary-min-width);
   padding: var(--button-secondary-padding-y) var(--button-secondary-padding-x);
-
   border: 0;
   border-radius: var(--button-secondary-border-radius);
   background-color: transparent;
   cursor: pointer;
-
   font-family: var(--button-secondary-font-family);
   font-size: var(--button-secondary-font-size);
   font-weight: var(--button-secondary-font-weight);
-
   color: var(--button-secondary-text);
-
   outline: none;
   transition:
     transform 0.15s ease,
@@ -29,7 +24,6 @@
   }
 
   &:not(:disabled):hover {
-    transform: scale(var(--button-secondary-scale-hover));
     background-color: var(--button-secondary-hover-bg);
   }
 
