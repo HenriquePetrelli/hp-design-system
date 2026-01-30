@@ -49,7 +49,7 @@ const copyToClipboard = (icon: string) => {
   display: flex;
   cursor: pointer;
   border: none;
-  background-color: transparent;
+  background-color: #fff;
   flex-direction: column;
   align-items: center;
   gap: 12px;
@@ -60,8 +60,8 @@ const copyToClipboard = (icon: string) => {
 }
 
 .icon-button:hover {
-  border: 2px solid #ddd;
-  transform: scale(1.1);
+  border: 2px solid #a9a9a9;
+  transform: scale(1.05);
 }
 
 span {
