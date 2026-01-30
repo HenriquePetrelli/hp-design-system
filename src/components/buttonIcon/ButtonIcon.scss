@@ -2,17 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: var(--button-icon-size);
   height: var(--button-icon-size);
-
   border-radius: var(--button-icon-radius);
   border: 0;
   background-color: transparent;
-
   color: var(--button-icon-color);
   cursor: pointer;
-
   transition:
     transform 0.15s ease,
     background-color 0.15s ease,
@@ -38,10 +34,20 @@
     outline-offset: 2px;
   }
 
-  &:not(:disabled):not(.button-icon--is-loading):hover {
-    color: var(--button-icon-hover-color);
-    background-color: var(--button-icon-hover-bg);
-    transform: scale(var(--button-icon-scale-hover));
+  &--has-background-hover {
+    &:not(:disabled):not(.button-icon--is-loading):hover {
+      color: var(--button-icon-hover-color);
+      background-color: var(--button-icon-hover-bg);
+      transform: scale(var(--button-icon-scale-hover));
+    }
+  }
+
+  &:not(.button-icon--has-background-hover) {
+    &:not(:disabled):not(.button-icon--is-loading):hover {
+      color: var(--button-icon-hover-color);
+      background-color: transparent;
+      transform: scale(var(--button-icon-scale-hover));
+    }
   }
 
   &:not(:disabled):not(.button-icon--is-loading):active {

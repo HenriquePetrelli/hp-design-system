@@ -5,7 +5,8 @@
       'button-icon--sm': size === ButtonIconSize.SMALL,
       'button-icon--lg': size === ButtonIconSize.LARGE,
       'button-icon--disabled': disabled,
-      'button-icon--is-loading': isLoading
+      'button-icon--is-loading': isLoading,
+      'button-icon--has-background-hover': hasBackgroundHover
     }"
     :aria-label="label"
     :aria-disabled="disabled || isLoading"
@@ -38,7 +39,7 @@ const props = defineProps({
   },
   icon: {
     type: String,
-    required: true
+    default: 'CA0010'
   },
   disabled: {
     type: Boolean,
@@ -55,6 +56,10 @@ const props = defineProps({
   size: {
     type: String as () => ButtonIconSizeValue,
     default: ButtonIconSize.REGULAR
+  },
+  hasBackgroundHover: {
+    type: Boolean,
+    default: true
   }
 })
 
