@@ -6,11 +6,10 @@
       </p>
 
       <HpButtonIcon
-        class="alert__icon"
+        :class="alertIconClass"
         label="Fechar alerta"
         icon="BE0031"
         size="md"
-        :icon-color="'currentColor'"
         :backgroundColor="'transparent'"
         @click="closeManually"
       />
@@ -86,6 +85,20 @@ const alertVariant = computed(() => {
     case AlertType.INFO:
     default:
       return 'alert--info'
+  }
+})
+
+const alertIconClass = computed(() => {
+  switch (props.type) {
+    case AlertType.SUCCESS:
+      return 'alert__icon alert__icon--success'
+    case AlertType.WARNING:
+      return 'alert__icon alert__icon--warning'
+    case AlertType.ERROR:
+      return 'alert__icon alert__icon--error'
+    case AlertType.INFO:
+    default:
+      return 'alert__icon alert__icon--info'
   }
 })
 </script>

@@ -9,7 +9,8 @@
     justify-content: center;
     width: 100%;
     min-height: 64px;
-    padding: 20px 50px;
+    padding: 20px 78px 20px 50px;
+    border-radius: var(--radius-md);
     background-color: var(--alert-bg);
     color: var(--alert-text);
     font-weight: var(--font-weight-semibold);
@@ -35,9 +36,17 @@
     --alert-text: var(--alert-success-text);
   }
 
+  &__icon--success {
+    color: var(--alert-success-text) !important;
+  }
+
   &--warning {
     --alert-bg: var(--alert-warning-bg);
     --alert-text: var(--alert-warning-text);
+  }
+
+  &__icon--warning {
+    color: var(--alert-warning-text) !important;
   }
 
   &--error {
@@ -45,8 +54,16 @@
     --alert-text: var(--alert-error-text);
   }
 
+  &__icon--error {
+    color: var(--alert-error-text) !important;
+  }
+
   &--info {
     --alert-bg: var(--alert-info-bg);
     --alert-text: var(--alert-info-text);
+  }
+
+  &__icon--info {
+    color: var(--alert-info-text) !important;
   }
 }
