@@ -7,14 +7,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 100%;
     min-height: 64px;
     padding: 20px 50px;
-
     background-color: var(--alert-bg);
     color: var(--alert-text);
-
     font-weight: var(--font-weight-semibold);
   }
 
@@ -28,7 +25,7 @@
     display: flex;
 
     &:hover {
-      background-color: var(--alert-icon-hover-bg);
+      background-color: var(--alert-icon-hover-bg) !important;
     }
   }
 

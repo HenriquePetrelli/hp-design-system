@@ -20,5 +20,5 @@
   --alert-info-text: var(--color-feedback-info);
 
   /* Icon */
-  --alert-icon-hover-bg: rgba(0, 0, 0, 0.08);
+  --alert-icon-hover-bg: rgba(0, 0, 0, 0.02);
 }
