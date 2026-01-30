@@ -5,7 +5,8 @@
       'button-letter--sm': size === ButtonLetterSize.SMALL,
       'button-letter--lg': size === ButtonLetterSize.LARGE,
       'button-letter--disabled': disabled,
-      'button-letter--is-loading': isLoading
+      'button-letter--is-loading': isLoading,
+      'button-letter--has-background-hover': hasBackgroundHover
     }"
     :aria-label="label"
     :aria-disabled="disabled || isLoading"
@@ -56,6 +57,10 @@ const props = defineProps({
   size: {
     type: String,
     default: ButtonLetterSize.REGULAR
+  },
+  hasBackgroundHover: {
+    type: Boolean,
+    default: true
   }
 })
 

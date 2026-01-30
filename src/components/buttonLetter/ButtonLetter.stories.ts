@@ -74,19 +74,12 @@ export const Disabled: Story = {
   }
 }
 
-// Botão com background
-export const WithBackgroud: Story = {
+// Botão sem background
+export const WithoutBackgroud: Story = {
   args: {
-    label: 'Botão carregando',
-    letter: 'H'
-  }
-}
-
-// Botão com cores customizadas
-export const CustomColors: Story = {
-  args: {
-    label: 'Cores customizadas',
-    letter: 'H'
+    label: 'Botão sem background',
+    letter: 'H',
+    hasBackgroundHover: false
   }
 }
 
@@ -96,14 +89,5 @@ export const Loading: Story = {
     label: 'Botão carregando',
     letter: 'H',
     isLoading: true
-  }
-}
-
-// Botão com loading e cores customizadas
-export const LoadingWithCustomColors: Story = {
-  args: {
-    label: 'Loading com cores',
-    isLoading: true,
-    letter: 'H'
   }
 }

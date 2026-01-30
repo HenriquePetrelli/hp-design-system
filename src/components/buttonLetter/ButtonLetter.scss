@@ -45,10 +45,20 @@
     cursor: default;
   }
 
-  &:not(:disabled):not(.button-letter--is-loading):hover {
-    color: var(--button-letter-hover-color);
-    background-color: var(--button-letter-hover-bg);
-    transform: scale(var(--button-letter-scale-hover));
+  &--has-background-hover {
+    &:not(:disabled):not(.button-letter--is-loading):hover {
+      color: var(--button-letter-hover-color);
+      background-color: var(--button-letter-hover-bg);
+      transform: scale(var(--button-letter-scale-hover));
+    }
+  }
+
+  &:not(.button-letter--has-background-hover) {
+    &:not(:disabled):not(.button-letter--is-loading):hover {
+      color: var(--button-letter-hover-color);
+      background-color: transparent;
+      transform: scale(var(--button-letter-scale-hover));
+    }
   }
 
   &:not(:disabled):not(.button-letter--is-loading):active {
